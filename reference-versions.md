@@ -31,9 +31,5 @@ At the end of the six-month window, we will remove access to the database and ta
 
 ## Major versions defined
 
-There was a change of versioning scheme for PostgreSQL at after version 9.6.
-
-Before and including version 9.6, a PostgreSQL major version was defined by the first two numbers in the version. PostgreSQL 9.4, 9.5 and 9.6 are major versions.
-
-After version 9.6, a PostgreSQL major version is defined by the first number in the version. PostgreSQL 10, 11 and 12 are major versions.
+Elasticsearch major versions are the first number in a release.version.maintenance version number. Major versions of Elasticsearch have therefore been 2, 5, 6 and in the future 7.
 

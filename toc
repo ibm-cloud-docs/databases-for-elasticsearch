@@ -11,10 +11,12 @@ Databases For Elasticsearch
 	{: .topicgroup}
 	The Service Dashboard
 		dashboard-overview.md
+		dashboard-backups.md
 	{: .navgroup-end}
 
 	{: .navgroup id="howto"}
 	howto-provisioning.md
+	howto-admin-password.md
 	howto-using-ibmcloud-cli.md
 	
 	{: .topicgroup}
