@@ -1,0 +1,31 @@
+{:navgroup: .navgroup}
+{:topicgroup: .topicgroup}
+
+{: .toc subcollection="databases-for-elasticsearch" audience="service" href="/docs/services/databases-for-elasticsearch/index.html"}
+Databases For Elasticsearch
+
+	{: .navgroup id="learn"}
+	index.md
+	getting-started.md
+
+	{: .topicgroup}
+	The Service Dashboard
+		dashboard-overview.md
+	{: .navgroup-end}
+
+	{: .navgroup id="howto"}
+	howto-provisioning.md
+	howto-using-ibmcloud-cli.md
+	
+	{: .topicgroup}
+	Connecting to Databases for Elasticsearch
+		connecting-ibmcloud-app.md
+	{: .navgroup-end}
+
+	{: .navgroup id="reference"}
+	reference-security.md
+	reference-versions.md
+	reference-access-management.md
+	reference-activity-tracker.md
+	reference-key-protect.md
+	{: .navgroup-end}
