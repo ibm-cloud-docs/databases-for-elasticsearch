@@ -29,7 +29,7 @@ Authorize {{site.data.keyword.keymanagementserviceshort}} for use with {{site.da
 2. From the menu bar, click **Manage** &gt; **Account** &gt; **Users**.
 3. In the side navigation, click **Identity & Access** &gt; **Authorizations**.
 4. Click **Create authorization**.
-5. In the **Source service** menu, select **Databases for PostgreSQL**.
+5. In the **Source service** menu, select **Databases for Elasticsearch**.
 6. In the **Source service instance** menu, select **All service instances**.
 7. In the **Target service** menu, select **Key Protect**.
 8. In the **Target service instance** menu, select the service instance to authorize.
