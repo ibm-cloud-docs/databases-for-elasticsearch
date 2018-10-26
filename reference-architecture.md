@@ -29,7 +29,7 @@ All {{site.data.keyword.databases-for-elasticsearch}} deployments have encryptio
 
 ## Portals
 
-{{site.data.keyword.databases-for-elasticsearch}} connections are managed by 2 HAProxy portals. The portals are then placed behind a Kubernetes endpoint. This endpoint provides the connection for your applications. Having two portals behind it allows for applications to maintain connectivity if one of the portals becomes unreachable.
+{{site.data.keyword.databases-for-elasticsearch}} connections are managed by 2 HAProxy portals. The portals are then placed behind a Kubernetes endpoint. This endpoint provides the connection for your applications. Having two portals behind the endpoint allows for applications to maintain connectivity if one of the portals becomes unreachable.
 
 ### Encryption in Transit
 

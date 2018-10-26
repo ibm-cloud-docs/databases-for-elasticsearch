@@ -18,11 +18,11 @@ The _Overview_ page shows you information about your {{site.data.keyword.databas
 
 ## Deployment Details
 
-The _Deployment Details_ panel shows details of your service.
+The _Deployment Details_ panel shows a quick description of your deployment.
 
 ### Type
 
-The type of database that is offered by the service, and the database version that your service uses. In this case, it is `PostgreSQL`.
+The type of database that is offered by the service, and the database version that your service uses.
 
 ### ID
 

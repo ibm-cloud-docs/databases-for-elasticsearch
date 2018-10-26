@@ -78,7 +78,7 @@ You can find more examples in the [API Reference](https://console.{DomainName}/a
 
 ## Setting the admin Password
 
-{{site.data.keyword.databases-for-etcd} is provisioned with a default admin user. You can set or change the the admin password of your deployment by using _Update Password_.
+{{site.data.keyword.databases-for-elasticsearch}} is provisioned with a default admin user. You can set or change the the admin password of your deployment by using _Update Password_.
 
 A new, randomly generated password appears, or you can type your own password into the field. To regenerate another password, click the icon to the right of the field. When you click *Update Password*, you are asked to confirm before the change is applied. 
 

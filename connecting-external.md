@@ -17,7 +17,7 @@ Your applications and drivers use connection strings to make a connection to {{s
 
 ## Getting Connection Strings
 
-The easiest way to get connection strings for an application is to create a set of _Service Credentials_ specifically for your application to connect with. Doing so also returns all the connection information as JSON in a click-to-copy field.
+The easiest way to get connection strings for an application is to create a set of _Service Credentials_ specifically for your application to connect with. Doing so also returns all the connection information a JSON object in a click-to-copy field.
 
 Alternatively, the {{site.data.keyword.cloud_notm}} CLI [cloud databases plug-in](./howto-getting-connection-strings.html#generating-connection-strings-from-the-command-line) supports generating users and connection strings, as does the [{{site.data.keyword.IBM_notm}} {{site.data.keyword.databases-for}} API](https://console.{DomainName}/apidocs/cloud-databases-api#creates-a-database-level-user).
 
@@ -27,21 +27,7 @@ Full documentation on generating and retrieving connection strings is on the [Ge
 
 All the information a driver needs to make a connection to your deployment is in the "elasticsearch" section of your connection strings. The table contains a breakdown for reference.
 
-Field Name|Index|Description
-----------|-----|-----------
-`Type`||Type of connection - for Elasticsearch, it is "URI"
-`Scheme`||Scheme for a URI - for Elasticsearch, it is "elasticsearch"
-`Path`||Path for a URI - for Elasticsearch, it is the database name
-`Authentication`|`Username`|The username that you use to connect.
-`Authentication`|`Password`|A password for the user - might be shown as `$PASSWORD`
-`Authentication`|`Method`|How authentication takes place; "direct" authentication is handled by the driver.
-`Hosts`|`0...`|A hostname and port to connect to
-`Composed`|`0...`|A URI combining Scheme, Authentication, Host, and Path
-`Certificate`|`Name`|The allocated name for the self-signed certificate for database deployment
-`Certificate`|Base64|A base64 encoded version of the certificate.
-{: caption="Table 1. `elasticsearch`/`URI` connection information" caption-side="top"}
-
-* `0...` indicates that there might be one or more of these entries in an array.
+Table is a work in progress
 
 Many Elasticsearch drivers will be able to make a connection to your deployment when given the URI-formatted connection string found in the "composed" field of the connection information. For example, `sample connection string goes here`
 
@@ -59,7 +45,7 @@ Go|`elastic`|[Link](https://olivere.github.io/elastic/)
 
 ## Driver TLS and self-signed certificate support
 
-All connections to {{site.data.keyword.databases-for-elasticsearch}} are TLS 1.2 enabled, so the driver you use to connect needs to be able to support encryption. Your deployment also comes with a self-signed certificate so the driver can verify the server upon connection. In most cases, you want to decode and save a copy of the certificate, and then provide the path to the driver. 
+All connections to {{site.data.keyword.databases-for-elasticsearch}} are TLS 1.2 enabled, so the driver you use to connect needs to be able to support encryption. Your deployment also comes with a self-signed certificate so the driver can verify the server upon connection. 
 
 ### Using the self-signed certificate
 
