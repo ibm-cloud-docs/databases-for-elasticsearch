@@ -12,7 +12,7 @@ lastupdated: "2018-10-04"
 {:screen: .screen}
 {:tip: .tip}
 
-# Integrated Access Management
+# Identity and Access Management
 
 Access to {{site.data.keyword.databases-for-elasticsearch_full}} service instances for users in your account is controlled by {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). Every user that accesses the {{site.data.keyword.databases-for-elasticsearch}} service in your account must be assigned an access policy with an IAM user role defined. That policy determines what actions the user can perform within the context of the service or instance you select. The allowable actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles.
 
