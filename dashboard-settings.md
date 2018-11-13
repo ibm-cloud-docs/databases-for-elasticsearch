@@ -60,7 +60,7 @@ Count   3
 +   Disk
 |   Allocation              15360mb
 |   Allocation per member   5120mb
-|   Minimum                 10240mb
+|   Minimum                 15360mb
 |   Step Size               3072mb
 |   Adjustable              true
 ```

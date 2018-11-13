@@ -23,6 +23,8 @@ Databases For Elasticsearch
 	{: .topicgroup}
 	Connecting to Databases for Elasticsearch
 		connecting-ibmcloud-app.md
+		connecting-external.md
+		connecting-curl.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}

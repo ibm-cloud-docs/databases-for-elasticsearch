@@ -25,11 +25,25 @@ Full documentation on generating and retrieving connection strings is on the [Ge
 
 ## Connecting with a language's driver
 
-All the information a driver needs to make a connection to your deployment is in the "elasticsearch" section of your connection strings. The table contains a breakdown for reference.
+All the information a driver needs to make a connection to your deployment is in the "https" section of your connection strings. The table contains a breakdown for reference.
 
-Table is a work in progress
+Field Name|Index|Description
+----------|-----|-----------
+`Type`||Type of connection - for Elasticsearch, it is "uri"
+`Scheme`||Scheme for a URI - for Elasticsearch, it is "https"
+`Path`||Path for a uri
+`Authentication`|`Username`|The username that you use to connect.
+`Authentication`|`Password`|A password for the user - might be shown as `$PASSWORD`
+`Authentication`|`Method`|How authentication takes place; "direct" authentication is handled by the driver.
+`Hosts`|`0...`|A hostname and port to connect to
+`Composed`|`0...`|A URI combining Scheme, Authentication, Host, and Path
+`Certificate`|`Name`|The allocated name for the self-signed certificate for database deployment
+`Certificate`|Base64|A base64 encoded version of the certificate.
+{: caption="Table 1. `https`/`URI` connection information" caption-side="top"}
 
-Many Elasticsearch drivers will be able to make a connection to your deployment when given the URI-formatted connection string found in the "composed" field of the connection information. For example, `sample connection string goes here`
+* `0...` indicates that there might be one or more of these entries in an array.
+
+Many Elasticsearch drivers are able to make a connection to your deployment when given the URI-formatted connection string found in the "composed" field of the connection information. For example,`https://admin:$PASSWORD@d5eeee66-5bc4-498a-b73b-1307848f1eac.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud:31821`
 
 Elasticsearch has a vast array of language drivers. The table covers a few of the most common.
 

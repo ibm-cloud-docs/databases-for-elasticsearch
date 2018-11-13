@@ -15,7 +15,7 @@ lastupdated: "2018-10-04"
 
 {{site.data.keyword.databases-for-elasticsearch_full}} encrypts your data by default by using randomly generated keys. If you need to control the encryption keys, you can use [{{site.data.keyword.keymanagementservicelong_notm}}](/docs/services/keymgmt/keyprotect_about.html) to create, add, and manage encryption keys. Then, you can associate those keys with your {{site.data.keyword.databases-for-elasticsearch}} deployment to encrypt your databases.
 
-To get started, you need [{{site.data.keyword.keymanagementserviceshort}}](https://console.{DomianName}/catalog/services/key-protect) provisioned on your {{site.data.keyword.cloud_notm}} account.
+To get started, you need [{{site.data.keyword.keymanagementserviceshort}}](https://console.{DomainName}/catalog/services/key-protect) provisioned on your {{site.data.keyword.cloud_notm}} account.
 
 ## Creating or adding a key in {{site.data.keyword.keymanagementserviceshort}}
 
