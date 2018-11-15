@@ -30,6 +30,7 @@ Databases For Elasticsearch
 	{: .navgroup id="reference"}
 	reference-security.md
 	reference-versions.md
+	reference-architecture.md
 	reference-access-management.md
 	reference-activity-tracker.md
 	reference-key-protect.md

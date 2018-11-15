@@ -26,7 +26,7 @@ The type of database that is offered by the service, and the database version th
 
 ### ID
 
-The ID is a [CRN (Cloud Resource Name)](https://console.{DomainName}/docs/overview/crn.html) which uniquely identifies the database deployment. The CRN is used to refer to the database in the API and can be used with the CLI.
+The ID is a [CRN (Cloud Resource Name)](https://{DomainName}/docs/overview/crn.html) which uniquely identifies the database deployment. The CRN is used to refer to the database in the API and can be used with the CLI.
 
 ## Recent Tasks
 
@@ -50,4 +50,4 @@ Many API calls require the ID of the database deployment. The database deploymen
 
 ### {{site.data.keyword.cloud_notm}} databases API Reference
 
-For more information about the {{site.data.keyword.cloud_notm}} databases API, see the [API reference](https://console.{DomainName}/apidocs/cloud-databases-api) page.
+For more information about the {{site.data.keyword.cloud_notm}} databases API, see the [API reference](https://{DomainName}/apidocs/cloud-databases-api) page.

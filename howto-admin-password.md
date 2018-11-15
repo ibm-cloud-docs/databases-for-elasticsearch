@@ -30,5 +30,5 @@ ibmcloud cdb user-password example-deployment admin <newpassword>
 
 The _Foundation Endpoint_ that is shown on the _Overview_ panel of your service provides the base URL to access this deployment through the API. Use it with the `/users/admin` endpoint if you need to manage or automate setting the password programmatically.
 
-For more information, see the [API Reference](https://console.{DomainName}/apidocs/cloud-databases-api#set-database-level-user-s-password).
+For more information, see the [API Reference](https://{DomainName}/apidocs/cloud-databases-api#set-database-level-user-s-password).
 

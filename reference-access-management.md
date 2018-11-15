@@ -24,7 +24,7 @@ Policies enable access to be granted at different levels. Some of the options in
 
 After you define the scope of the access policy, you assign a role. Review the following tables that outline what actions each role allows within the {{site.data.keyword.databases-for-elasticsearch}} service.
 
-For information about assigning user roles in {{site.data.keyword.cloud_notm}}, see [Managing IAM access](https://console.{DomainName}/docs/iam/iamusermanage.html#iamusermanage).
+For information about assigning user roles in {{site.data.keyword.cloud_notm}}, see [Managing IAM access](https://{DomainName}/docs/iam/iamusermanage.html#iamusermanage).
 
 The following table details actions that are mapped to service management roles. Service management roles enable users to perform tasks on service resources at the service level, for example assign user access for the service, create or delete service IDs, create instances, and bind instances to applications.
 

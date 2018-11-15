@@ -74,7 +74,7 @@ The `cdb deployment-groups-set` command allows either the total RAM or total dis
 
 The _Foundation Endpoint_ that is shown on the _Overview_ panel of your service provides the base URL to access this deployment through the API. Use it with the `/groups` endpoint if you need to manage or automate scaling programmatically.
 
-You can find more examples in the [API Reference](https://console.{DomainName}/apidocs/cloud-databases-api#get-currently-available-scaling-groups-from-a-depl).
+You can find more examples in the [API Reference](https://{DomainName}/apidocs/cloud-databases-api#get-currently-available-scaling-groups-from-a-depl).
 
 ## Setting the admin Password
 

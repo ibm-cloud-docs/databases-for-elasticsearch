@@ -10,7 +10,7 @@ This repo contains the documentation for the IBM Cloud Databases for Elasticsear
 
 The output from these docs is available on the IBM Cloud staging server: 
 
-- [About IBM Cloud Databases for Elasticsearch](https://console.stage1.bluemix.net/docs/services/databases-for-elasticsearch/index.html#about-databases-for-elasticsearch)
+- [About IBM Cloud Databases for Elasticsearch](https://console.test.cloud.ibm.com/docs/services/databases-for-elasticsearch/index.html#about)
 
 ## Resources
 
