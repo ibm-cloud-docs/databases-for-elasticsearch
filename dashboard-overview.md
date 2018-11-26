@@ -34,7 +34,7 @@ Every time that you make administrative changes to your service (such as scaling
 
 ## Security
 
-Encryption at rest is enabled for all {{site.data.keyword.databases-for-elastcisearch}} deployments. If you brought your own encryption key from [Key Protect](./reference-key-protect.html), the panel provides a link to your Key Protect instance and the _Encryption Key_ field has the name of the key.
+Encryption at rest is enabled for all {{site.data.keyword.databases-for-elasticsearch}} deployments. If you brought your own encryption key from [Key Protect](./reference-key-protect.html), the panel provides a link to your Key Protect instance and the _Encryption Key_ field has the name of the key.
 
 ## Instance Administration API
 
@@ -46,7 +46,10 @@ The foundation endpoint is the opening stanza of the URL to be used to send API 
 
 ### Deployment ID
 
-Many API calls require the ID of the database deployment. The database deployment's ID/CRN shown here is the same as the ID/CRN shown in the Deployment Details, in a click-to-copy field to make it simpler to use. The ID needs to be URL encoded to be used in an API call because the CRN includes a "/".
+Many API calls require the ID of the database deployment. The database deployment's ID/CRN shown here is the same as the ID/CRN shown in the Deployment Details, in a click-to-copy field to make it simpler to use. 
+
+The ID needs to be URL encoded to be used in an API call because the CRN includes a "/".
+{: .tip}
 
 ### {{site.data.keyword.cloud_notm}} databases API Reference
 

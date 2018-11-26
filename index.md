@@ -25,7 +25,7 @@ lastupdated: "2018-11-21"
 For detailed provisioning information, including {{site.data.keyword.cloud_notm}} CLI instructions, see the [Provisioning](./howto-provisioning.html) page.
 
 If you don't yet have an {{site.data.keyword.cloud_notm}} account, sign up on the [registration](https://{DomainName}/registration/) page.
-]
+
 ### Managing Access to {{site.data.keyword.databases-for-elasticsearch}}
 
 {{site.data.keyword.databases-for-elasticsearch}} is an Identity and Access Management (IAM) integrated service. Access to the service is governed by the roles and attributes that are consistent across IAM-integrated services in {{site.data.keyword.cloud_notm}}. Get started with managing your users on the [IAM Getting Started tutorial](https://{DomainName}/docs/iam/quickstart.html#getstarted). For more information about IAM, see the [What is IAM?](https://{DomainName}/docs/iam/index.html#iamoverview) documentation.
@@ -36,9 +36,9 @@ More information on IAM roles and actions for the {{site.data.keyword.databases-
 
 {{site.data.keyword.databases-for-elasticsearch}} provides a UI, accessible by selecting _Manage_ from the left sidebar of your service and opening the management panel. You get a quick [Overview](./dashboard-overview.html) of your service as well as configuration settings on the [Settings](./dashboard-settings.html) tab and access to your backups on the [Backups](./dashboard-backups.html) tab.
 
-### Using the {{site.data.keyword.cloud_notm}} command line interface
+### Using the {{site.data.keyword.cloud_notm}} command-line interface
 
-The {{site.data.keyword.cloud_notm}} command line interface provides in interactive terminal for your {{site.data.keyword.cloud_notm}} account and your {{site.data.keyword.cloud_notm}} services. The cloud databases plug-in extends this functionality to your {{site.data.keyword.databases-for-elasticsearch}} deployments. More information and installation instructions are on the [Using {{site.data.keyword.cloud_notm}} CLI for {{site.data.keyword.databases-for-elasticsearch}}](./howto-using-ibmcloud-cli.html) page.
+The {{site.data.keyword.cloud_notm}} command-line interface provides in interactive terminal for your {{site.data.keyword.cloud_notm}} account and your {{site.data.keyword.cloud_notm}} services. The cloud databases plug-in extends this functionality to your {{site.data.keyword.databases-for-elasticsearch}} deployments. More information and installation instructions are on the [Using {{site.data.keyword.cloud_notm}} CLI for {{site.data.keyword.databases-for-elasticsearch}}](./howto-using-ibmcloud-cli.html) page.
 
 ### Using the cloud databases API
 
