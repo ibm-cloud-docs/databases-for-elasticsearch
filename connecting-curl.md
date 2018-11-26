@@ -14,14 +14,14 @@ lastupdated: "2018-11-12"
 
 # Connecting with `cURL`
 
-You can access your Elasticsearch database directly from a command line terminal through cURL. Elasticsearch has a wide-variety of REST APIs that allow for [cluster monitoring](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster.html), [index management](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices.html) and [searching](https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html) within the database. 
+You can access your Elasticsearch database directly from a command-line terminal through cURL. Elasticsearch has a wide-variety of REST APIs that allow for [cluster monitoring](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster.html), [index management](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices.html) and [searching](https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html) within the database. 
 
 The information that you need to make a connection with cURL to your deployment is in the "cli" section of your [connection strings](./howto-getting-connection-strings.html). The table contains a breakdown for reference.
 
 Field Name|Index|Description
 ----------|-----|-----------
 `Bin`||The recommended binary to create a connection; in this case it is `curl`.
-`Composed`||A formatted command to establish a connection to your deployment. The command combines the `Bin` executable, `Environment` variable settings, and uses `Arguments` as command line parameters.
+`Composed`||A formatted command to establish a connection to your deployment. The command combines the `Bin` executable, `Environment` variable settings, and uses `Arguments` as command-line parameters.
 `Environment`||A list of key/values you set as environment variables.
 `Arguments`|0...|The information that is passed as arguments to the command shown in the Bin field.
 `Certificate`|Base64|A self-signed certificate that is used to confirm that an application is connecting to the appropriate server. It is base64 encoded.
@@ -40,7 +40,7 @@ CURL_CA_BUNDLE="/path-to/your_cert_file" curl -u admin:<password> 'https://d5eee
 * `CURL_CA_BUNDLE` : curl performs SSL certificate verification by default. Since your deployment uses a self-signed certificate, you have to specify what certificate to use.
 * `curl` : The command itself.  
 * `--u` : The parameter for the username and password, separated by a colon, to be used as credentials to log in to the Elasticsearch deployment. 
-* `https://...` : The parameter that specifies the endpoints where the `curl` command connects. It's comprised of HTTPS protocol URLs and includes a port number.
+* `https://...` : The parameter that specifies the endpoints where the `curl` command connects. It's composed of HTTPS protocol URLs and includes a port number.
 * `/_cluster/health?pretty` : An Elasticsearch Cluster API endpoint that returns the status of your cluster. 
 
 ## Using the self-signed certificate
