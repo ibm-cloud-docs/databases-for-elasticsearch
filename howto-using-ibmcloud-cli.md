@@ -17,7 +17,7 @@ Use the {{site.data.keyword.cloud_notm}} CLI and the cloud databases plug-in to 
 
 ## The {{site.data.keyword.cloud_notm}} CLI
 
-The {{site.data.keyword.cloud_notm}} CLI is a general-purpose developer tool that provides access to your {{site.data.keyword.cloud_notm}} account and services through a command line interface.
+The {{site.data.keyword.cloud_notm}} CLI is a general-purpose developer tool that provides access to your {{site.data.keyword.cloud_notm}} account and services through a command-line interface.
 
 An introduction and installation instructions are available on the [{{site.data.keyword.cloud_notm}} CLI Overview](https://{DomainName}/docs/cli/index.html#overview) page. If you install the CLI from the cURL command that is provided, you get a selection of extra plug-ins and extensions for multiple IDEs.
 
