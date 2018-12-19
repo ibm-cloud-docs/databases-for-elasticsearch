@@ -16,7 +16,7 @@ lastupdated: "2018-11-27"
 This tutorial uses a [sample app](https://github.com/IBM-Cloud/clouddatabases-elasticsearch-helloworld-nodejs) to demonstrate how to connect a Cloud Foundry application in {{site.data.keyword.cloud_notm}} to an {{site.data.keyword.databases-for-elasticsearch_full}} service. The application creates, reads from, and writes to a database that uses data that is supplied through the app's web interface.
 {: shortdesc}
 
-If you have already created your deployment and just want to connect to your Elasticsearch databases, you can skip to [getting your connection strings](https://console.bluemix.net/docs/services/databases-for-elasticsearch/howto-getting-connection-strings.html) and [connecting with cURL](https://console.bluemix.net/docs/services/databases-for-elasticsearch/connecting-curl.html).
+If you have already created your deployment and just want to connect to your Elasticsearch databases, you can skip to [getting your connection strings](https://cloud.ibm.com/docs/services/databases-for-elasticsearch/howto-getting-connection-strings.html) and [connecting with cURL](https://cloud.ibm.com/docs/services/databases-for-elasticsearch/connecting-curl.html).
 {: .tip}
 
 ## Before you begin
@@ -171,7 +171,7 @@ npm start
 
 The app is now running at http://localhost:8080. You can add words and definitions to your {{site.data.keyword.databases-for-elasticsearch}} database. When you stop and restart the app, any words you added are displayed when you refresh the page.
 
-For more information about the credentials you created for the application to connect to your service, see [Using Service Credentials](https://console.bluemix.net/docs/services/databases-for-elasticsearch/connecting-external.html#using-service-credentials).
+For more information about the credentials you created for the application to connect to your service, see [Using Service Credentials](https://cloud.ibm.com/docs/services/databases-for-elasticsearch/connecting-external.html#using-service-credentials).
 
 ## Next steps
 
@@ -179,9 +179,9 @@ To understand more about how the [sample app](https://github.com/IBM-Cloud/cloud
 
 To start exploring your {{site.data.keyword.databases-for-elasticsearch}} service, see the following topics about the service dashboard:
 
-- [Dashboard Overview](https://console.bluemix.net/docs/services/databases-for-elasticsearch/dashboard-overview.html)
-- [Backups](https://console.bluemix.net/docs/services/databases-for-elasticsearch/dashboard-backups.html)
-- [Settings](https://console.bluemix.net/docs/services/databases-for-elasticsearch/dashboard-settings.html)
+- [Dashboard Overview](https://cloud.ibm.com/docs/services/databases-for-elasticsearch/dashboard-overview.html)
+- [Backups](https://cloud.ibm.com/docs/services/databases-for-elasticsearch/dashboard-backups.html)
+- [Settings](https://cloud.ibm.com/docs/services/databases-for-elasticsearch/dashboard-settings.html)
 
 
 [ibm_cloud_signup_url]: https://ibm.biz/databases-for-elasticsearch-signup
