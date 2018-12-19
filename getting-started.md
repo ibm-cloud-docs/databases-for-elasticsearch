@@ -28,7 +28,7 @@ You also need to install [Node.js](https://nodejs.org/) and [Git](https://git-sc
 ## Step 1. Create a {{site.data.keyword.databases-for-elasticsearch}} service instance
 {: #create-service}
 
-You can create a {{site.data.keyword.databases-for-elasticsearch}} service from the [{{site.data.keyword.databases-for-elasticsearch}} page](https://{DomainName}/catalog/services/databases-for-elasticsearch/) in the {{site.data.keyword.cloud_notm}} catalog.
+You can create a {{site.data.keyword.databases-for-elasticsearch}} service from the [{{site.data.keyword.databases-for-elasticsearch}} page](https://cloud.ibm.com/catalog/services/databases-for-elasticsearch/) in the {{site.data.keyword.cloud_notm}} catalog.
 
 Choose a service name, region, organization and space to provision the service in, and for the **Select a database version** field, choose _Latest Preferred Version_. In this example, the service name is "example-elasticsearch".
 
@@ -63,7 +63,7 @@ Use npm to install dependencies.
 
 ## Step 4. Download and install the {{site.data.keyword.cloud_notm}} CLI tool
 
-The {{site.data.keyword.cloud_notm}} CLI tool is what you use to communicate with {{site.data.keyword.cloud_notm}} from your terminal or command line. For more information, see [Download and install {{site.data.keyword.cloud_notm}} CLI](https://console.{DomainName}/docs/cli/reference/bluemix_cli/download_cli.html).
+The {{site.data.keyword.cloud_notm}} CLI tool is what you use to communicate with {{site.data.keyword.cloud_notm}} from your terminal or command line. For more information, see [Download and install {{site.data.keyword.cloud_notm}} CLI](https://cloud.ibm.com/docs/cli/reference/bluemix_cli/download_cli.html).
 
 ## Step 5. Connect to {{site.data.keyword.cloud_notm}}
 
@@ -73,7 +73,7 @@ The {{site.data.keyword.cloud_notm}} CLI tool is what you use to communicate wit
   ibmcloud login
   ```
 
-  If you have a federated user ID, use the `ibmcloud login --sso` command to log in with your single sign-on ID. See [Logging in with a federated ID](https://console.{DomainName}/docs/cli/login_federated_id.html#federated_id) to learn more.
+  If you have a federated user ID, use the `ibmcloud login --sso` command to log in with your single sign-on ID. See [Logging in with a federated ID](https://cloud.ibm.com/docs/cli/login_federated_id.html#federated_id) to learn more.
   {: .tip}
 
 2. Make sure that you are targeting the correct {{site.data.keyword.cloud_notm}} org and space.
@@ -116,6 +116,7 @@ The alias name can be the same as the database service instance name. For exampl
 2. Change the `route` value to something unique. The route that you choose determines the subdomain of your application's URL:  `<route>.mybluemix.net`.
 3. Change the `name` value. The name that you choose is displayed in your {{site.data.keyword.cloud_notm}} dashboard.
 4. Update the `services` value to match the alias of the service you created in [Create a Cloud Foundry alias for the database service](#create-alias).
+
 ## Step 8. Push the app to {{site.data.keyword.cloud_notm}}.
 
 This step fails if the service is not finished provisioning from Step 1. You can check its progress on your {{site.data.keyword.cloud_notm}} _Dashboard_.
