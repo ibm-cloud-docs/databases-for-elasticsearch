@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="databases-for-elasticsearch" audience="service" href="/docs/services/databases-for-elasticsearch/index.html" path="services/databases-for-elasticsearch"}
+{: .toc subcollection="databases-for-elasticsearch" audience="service" arm="4182634" href="/docs/services/databases-for-elasticsearch/index.html" path="services/databases-for-elasticsearch"}
 Databases For Elasticsearch
 
 	{: .navgroup id="learn"}
