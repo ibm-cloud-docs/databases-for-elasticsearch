@@ -17,10 +17,18 @@ lastupdated: "2018-10-04"
 
 In order to see the events, you need to [provision the Activity Tracker service](https://{DomainName}/docs/services/cloud-activity-tracker/how-to/provision.html#provision) from the [{{site.data.keyword.cloud_notm}}  catalog](https://{DomainName}/catalog/services/activity-tracker). Activity Tracker has a _Lite_ plan available at no additional cost.
 
-Once you have the Activity Tracker service, the {{site.data.keyword.databases-for-elasticsearch}} events appear under _Account Logs_ from the _View Logs_ dropdown menu. 
+Some IBM Cloud regions do not have the Activity Tracker service available. If you have a {{site.data.keyword.databases-for-elasticsearch}} deployment in a region that is not supported, provision Activity Tracker in the region on the table.
 
-In addition to the Activity Tracker UI, the Kibana dashboard is also available at https://logging.ng.bluemix.net.
-{: .tip}
+Deployment Region|Monitoring Region|UI Link
+----------|-----------|-----------
+Dallas | Dallas | https://logging.ng.bluemix.net
+Frankfurt | Frankfurt | https://logging.eu-fra.bluemix.net
+Oslo | Frankfurt | https://logging.eu-fra.bluemix.net
+Tokyo | not supported | not supported
+Sydney | Sydney | https://logging.au-syd.bluemix.net
+{: caption="Table 1. Activity Tracker service regions" caption-side="top"}
+
+Once you have the Activity Tracker service, the {{site.data.keyword.databases-for-elasticsearch}} events appear under _Account Logs_ from the _View Logs_ dropdown menu. 
 
 ## Event Fields
 A description of the common fields for an Activity Tracker event is on the [Activity Tracker event fields](https://{DomainName}/docs/services/cloud-activity-tracker/at_event.html#at_event) page.
