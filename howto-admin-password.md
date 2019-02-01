@@ -12,6 +12,7 @@ lastupdated: "2018-10-08"
 {:tip: .tip}
 
 # Setting the Admin Password
+{: #admin-password}
 
 The {{site.data.keyword.databases-for-elasticsearch_full}} service is provisioned with an admin user.
 
