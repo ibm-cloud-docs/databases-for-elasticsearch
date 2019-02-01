@@ -17,7 +17,7 @@ lastupdated: "2018-11-12"
 
 In order to connect to {{site.data.keyword.databases-for-elasticsearch_full}}, you need users and some connection strings. A {{site.data.keyword.databases-for-elasticsearch}} deployment is provisioned with an admin user, after [setting the admin password](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password), you can use its connection strings to connect to your deployment.
 
-The simplest way to retrieve connection information is from the [cloud databases plug-in](/databases-cli-plugin/cloud-databases-cli-cdb-reference). Use the `ibmcloud cdb deployment-connections` command to display a formatted connection URI for any user on your deployment. For example, to retrieve a connection string for the admin user on a deployment named  "example-es", use the following command.
+The simplest way to retrieve connection information is from the [cloud databases plug-in](/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference). Use the `ibmcloud cdb deployment-connections` command to display a formatted connection URI for any user on your deployment. For example, to retrieve a connection string for the admin user on a deployment named  "example-es", use the following command.
 
 ```
 ibmcloud cdb deployment-connections example-es -u admin

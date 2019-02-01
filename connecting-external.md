@@ -19,7 +19,7 @@ Your applications and drivers use connection strings to make a connection to {{s
 
 The easiest way to get connection strings for an application is to create a set of _Service Credentials_ specifically for your application to connect with. Doing so also returns all the connection information a JSON object in a click-to-copy field.
 
-Alternatively, the {{site.data.keyword.cloud_notm}} CLI [cloud databases plug-in](/databases-cli-plugin/cloud-databases-cli-cdb-reference) supports generating users and connection strings, as does the [{{site.data.keyword.IBM_notm}} {{site.data.keyword.databases-for}} API](https://{DomainName}/apidocs/cloud-databases-api#creates-a-database-level-user).
+Alternatively, the {{site.data.keyword.cloud_notm}} CLI [cloud databases plug-in](/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference) supports generating users and connection strings, as does the [{{site.data.keyword.IBM_notm}} {{site.data.keyword.databases-for}} API](https://{DomainName}/apidocs/cloud-databases-api#creates-a-database-level-user).
 
 Full documentation on generating and retrieving connection strings is on the [Getting Connection Strings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) page.
 

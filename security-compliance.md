@@ -19,7 +19,7 @@ lastupdated: "2018-10-04"
 - All {{site.data.keyword.databases-for-elasticsearch}} connections use TLS/SSL encryption for data in transit. The current supported version of this encryption is TLS 1.2.
 - Access to the Account, Management Console UI, and API is secured via IAM (Identity and Access Management).
 - Access to the database is secured through the standard access controls provided by the database. These access controls are configured to require valid database-level credentials that are obtainable only through prior access to the database or through our Management Console UI or API.
-- All {{site.data.keyword.databases-for-elasticsearch}} storage is provided on encrypted volumes that use the Linux Unified Keys Setup (LUKS). If you require bring-your-own-key (BYOK) for encryption, it is available through [{{site.data.keyword.cloud_notm}} Key Protect](docs/services/key-protect?topic=key-protect-about). 
+- All {{site.data.keyword.databases-for-elasticsearch}} storage is provided on encrypted volumes that use the Linux Unified Keys Setup (LUKS). If you require bring-your-own-key (BYOK) for encryption, it is available through [{{site.data.keyword.cloud_notm}} Key Protect](/docs/services/key-protect?topic=key-protect-about). 
 - IP Whitelisting - All deployments support whitelisting IP addresses to restrict access to the service.
 
 ## Data Resilience
