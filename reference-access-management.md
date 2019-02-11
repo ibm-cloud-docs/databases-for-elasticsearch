@@ -12,7 +12,8 @@ lastupdated: "2018-10-04"
 {:screen: .screen}
 {:tip: .tip}
 
-# Identity and Access Management
+# Identity and Access Management Integration
+{: #iam}
 
 Access to {{site.data.keyword.databases-for-elasticsearch_full}} service instances for users in your account is controlled by {{site.data.keyword.cloud_notm}} Identity and Access Management (IAM). Every user that accesses the {{site.data.keyword.databases-for-elasticsearch}} service in your account must be assigned an access policy with an IAM user role defined. That policy determines what actions the user can perform within the context of the service or instance you select. The allowable actions are customized and defined by the {{site.data.keyword.cloud_notm}} service as operations that are allowed to be performed on the service. The actions are then mapped to IAM user roles.
 
@@ -24,7 +25,7 @@ Policies enable access to be granted at different levels. Some of the options in
 
 After you define the scope of the access policy, you assign a role. Review the following tables that outline what actions each role allows within the {{site.data.keyword.databases-for-elasticsearch}} service.
 
-For information about assigning user roles in {{site.data.keyword.cloud_notm}}, see [Managing IAM access](https://{DomainName}/docs/iam/iamusermanage.html#iamusermanage).
+For information about assigning user roles in {{site.data.keyword.cloud_notm}}, see [Managing IAM access](/docs/iam?topic=iam-iammanidaccser).
 
 The following table details actions that are mapped to service management roles. Service management roles enable users to perform tasks on service resources at the service level, for example assign user access for the service, create or delete service IDs, create instances, and bind instances to applications.
 

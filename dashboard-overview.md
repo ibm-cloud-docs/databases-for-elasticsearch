@@ -13,6 +13,7 @@ lastupdated: "2018-10-05"
 {:tip: .tip}
 
 # Service Overview
+{: #dashboard-overview}
 
 The _Overview_ page shows you information about your {{site.data.keyword.databases-for-elasticsearch_full}} database. The overview includes essential identifying information.
 
@@ -26,7 +27,7 @@ The type of database that is offered by the service, and the database version th
 
 ### ID
 
-The ID is a [CRN (Cloud Resource Name)](https://{DomainName}/docs/overview/crn.html) which uniquely identifies the database deployment. The CRN is used to refer to the database in the API and can be used with the CLI.
+The ID is a [CRN (Cloud Resource Name)](/docs/overview?topic=overview-crn) which uniquely identifies the database deployment. The CRN is used to refer to the database in the API and can be used with the CLI.
 
 ## Recent Tasks
 
@@ -34,7 +35,7 @@ Every time that you make administrative changes to your service (such as scaling
 
 ## Security
 
-Encryption at rest is enabled for all {{site.data.keyword.databases-for-elasticsearch}} deployments. If you brought your own encryption key from [Key Protect](./reference-key-protect.html), the panel provides a link to your Key Protect instance and the _Encryption Key_ field has the name of the key.
+Encryption at rest is enabled for all {{site.data.keyword.databases-for-elasticsearch}} deployments. If you brought your own encryption key from [Key Protect](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-key-protect), the panel provides a link to your Key Protect instance and the _Encryption Key_ field has the name of the key.
 
 ## Instance Administration API
 

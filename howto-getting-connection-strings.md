@@ -13,10 +13,11 @@ lastupdated: "2018-11-12"
 
 
 # Getting Connection Strings
+{: #connection-strings}
 
-In order to connect to {{site.data.keyword.databases-for-elasticsearch_full}}, you need users and some connection strings. A {{site.data.keyword.databases-for-elasticsearch}} deployment is provisioned with an admin user, after [setting the admin password](./howto-admin-password), you can use its connection strings to connect to your deployment.
+In order to connect to {{site.data.keyword.databases-for-elasticsearch_full}}, you need users and some connection strings. A {{site.data.keyword.databases-for-elasticsearch}} deployment is provisioned with an admin user, after [setting the admin password](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password), you can use its connection strings to connect to your deployment.
 
-The simplest way to retrieve connection information is from the [cloud databases plug-in](./howto-using-ibmcloud-cli.html). Use the `ibmcloud cdb deployment-connections` command to display a formatted connection URI for any user on your deployment. For example, to retrieve a connection string for the admin user on a deployment named  "example-es", use the following command.
+The simplest way to retrieve connection information is from the [cloud databases plug-in](/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference). Use the `ibmcloud cdb deployment-connections` command to display a formatted connection URI for any user on your deployment. For example, to retrieve a connection string for the admin user on a deployment named  "example-es", use the following command.
 
 ```
 ibmcloud cdb deployment-connections example-es -u admin
@@ -42,7 +43,7 @@ The new credentials appear in the table, and the connection strings are availabl
 
 ### Using Service IDs
 
-Because {{site.data.keyword.databases-for-elasticsearch}} is an IAM service, you can use [Service IDs](https://{DomainName}/docs/iam/serviceid.html#serviceids) to manage access to this service. For example, by using an IAM-managed Service ID, that user gets an Elastcisearch/SearchGuard user and connection string in _Service Credentials_, and has API key access to the {{site.data.keyword.cloud_notm}} Databases API.  If you have a Service ID, enter its information under _Select Service ID_.
+Because {{site.data.keyword.databases-for-elasticsearch}} is an IAM service, you can use [Service IDs](/docs/iam?topic=iam-serviceids) to manage access to this service. For example, by using an IAM-managed Service ID, that user gets an Elastcisearch/SearchGuard user and connection string in _Service Credentials_, and has API key access to the {{site.data.keyword.cloud_notm}} Databases API.  If you have a Service ID, enter its information under _Select Service ID_.
 
 ## Generating Connection Strings from the command line
 
