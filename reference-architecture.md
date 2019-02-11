@@ -12,7 +12,6 @@ lastupdated: "2018-10-09"
 {:pre: .pre}
 
 # Architecture
-{: #service-architecture}
 
 {{site.data.keyword.databases-for-elasticsearch_full}} is a managed cloud database service that runs in containers that are orchestrated by Kubernetes. It is fully integrated into the {{site.data.keyword.cloud_notm}} ecosystem. The database, storage, and monitoring all run in {{site.data.keyword.cloud_notm}}.
 

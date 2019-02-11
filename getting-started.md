@@ -13,12 +13,10 @@ lastupdated: "2018-11-27"
 
 
 # Getting started tutorial
-{: #getting-started}
-
 This tutorial uses a [sample app](https://github.com/IBM-Cloud/clouddatabases-elasticsearch-helloworld-nodejs) to demonstrate how to connect a Cloud Foundry application in {{site.data.keyword.cloud_notm}} to an {{site.data.keyword.databases-for-elasticsearch_full}} service. The application creates, reads from, and writes to a database that uses data that is supplied through the app's web interface.
 {: shortdesc}
 
-If you have already created your deployment and just want to connect to your Elasticsearch databases, you can skip to [getting your connection strings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) and [connecting with cURL](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connecting-curl).
+If you have already created your deployment and just want to connect to your Elasticsearch databases, you can skip to [getting your connection strings](https://cloud.ibm.com/docs/services/databases-for-elasticsearch/howto-getting-connection-strings.html) and [connecting with cURL](https://cloud.ibm.com/docs/services/databases-for-elasticsearch/connecting-curl.html).
 {: .tip}
 
 ## Before you begin
@@ -65,7 +63,7 @@ Use npm to install dependencies.
 
 ## Step 4. Download and install the {{site.data.keyword.cloud_notm}} CLI tool
 
-The {{site.data.keyword.cloud_notm}} CLI tool is what you use to communicate with {{site.data.keyword.cloud_notm}} from your terminal or command line. For more information, see [Download and install {{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-install_use).
+The {{site.data.keyword.cloud_notm}} CLI tool is what you use to communicate with {{site.data.keyword.cloud_notm}} from your terminal or command line. For more information, see [Download and install {{site.data.keyword.cloud_notm}} CLI](https://cloud.ibm.com/docs/cli/reference/bluemix_cli/download_cli.html).
 
 ## Step 5. Connect to {{site.data.keyword.cloud_notm}}
 
@@ -75,7 +73,7 @@ The {{site.data.keyword.cloud_notm}} CLI tool is what you use to communicate wit
   ibmcloud login
   ```
 
-  If you have a federated user ID, use the `ibmcloud login --sso` command to log in with your single sign-on ID. See [Logging in with a federated ID](/docs/iam?topic=iam-federated_id) to learn more.
+  If you have a federated user ID, use the `ibmcloud login --sso` command to log in with your single sign-on ID. See [Logging in with a federated ID](https://cloud.ibm.com/docs/cli/login_federated_id.html#federated_id) to learn more.
   {: .tip}
 
 2. Make sure that you are targeting the correct {{site.data.keyword.cloud_notm}} org and space.
@@ -174,7 +172,7 @@ npm start
 
 The app is now running at http://localhost:8080. You can add words and definitions to your {{site.data.keyword.databases-for-elasticsearch}} database. When you stop and restart the app, any words you added are displayed when you refresh the page.
 
-For more information about the credentials you created for the application to connect to your service, see [Using Service Credentials](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connecting-external#using-service-credentials).
+For more information about the credentials you created for the application to connect to your service, see [Using Service Credentials](https://cloud.ibm.com/docs/services/databases-for-elasticsearch/connecting-external.html#using-service-credentials).
 
 ## Next steps
 
@@ -182,9 +180,9 @@ To understand more about how the [sample app](https://github.com/IBM-Cloud/cloud
 
 To start exploring your {{site.data.keyword.databases-for-elasticsearch}} service, see the following topics about the service dashboard:
 
-- [Dashboard Overview](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview)
-- [Backups](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups)
-- [Settings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-settings)
+- [Dashboard Overview](https://cloud.ibm.com/docs/services/databases-for-elasticsearch/dashboard-overview.html)
+- [Backups](https://cloud.ibm.com/docs/services/databases-for-elasticsearch/dashboard-backups.html)
+- [Settings](https://cloud.ibm.com/docs/services/databases-for-elasticsearch/dashboard-settings.html)
 
 
 [ibm_cloud_signup_url]: https://ibm.biz/databases-for-elasticsearch-signup

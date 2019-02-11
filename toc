@@ -7,7 +7,6 @@ Databases For Elasticsearch
 	{: .navgroup id="learn"}
 	index.md
 	getting-started.md
-	versioning.md
 
 	{: .topicgroup}
 	The Service Dashboard
@@ -19,7 +18,7 @@ Databases For Elasticsearch
 	{: .navgroup id="howto"}
 	howto-provisioning.md
 	howto-admin-password.md
-	howto-getting-connection-strings.md
+	howto-using-ibmcloud-cli.md
 	
 	{: .topicgroup}
 	Connecting to Databases for Elasticsearch
@@ -29,9 +28,9 @@ Databases For Elasticsearch
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
-	[Cloud Databases CLI plugin](/databases-cli-plugin/cloud-databases-cli-cdb-reference)
-	[Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api)
-	security-compliance.md
+	reference-security.md
+	reference-versions.md
+	reference-architecture.md
 	reference-access-management.md
 	reference-activity-tracker.md
 	reference-monitoring.md

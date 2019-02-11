@@ -11,8 +11,7 @@ lastupdated: "2018-10-04"
 {:pre: .pre}
 
 
-# Database Versioning Policy
-{: #versioning}
+# Versioning Policy
 
 {{site.data.keyword.IBM_notm}} {{site.data.keyword.databases-for}} allow users to select major versions for its database. We are committed to providing the more secure, up-to-date versions of databases. With this in mind, we take control of upgrading database minor versions when appropriate.
 
