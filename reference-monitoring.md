@@ -58,7 +58,7 @@ Select the service name of the deployment you want to monitor on this graph and 
 
 ![Selecting the service name](images/monitoring-service-name.png)
  
-After the region field is an ID field. The ID that appears corresponds to the last part of your deployment's ID. For example if your [Deployment ID](./dashboard-overview.html#id) is,
+After the region field is an ID field. The ID that appears corresponds to the last part of your deployment's ID. For example if your [Deployment ID](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview#id) is,
 
 ![Example deployment ID](images/monitoring-crn-example.png)
 then the ID in the field is `ef400bd3-cb95-486e-b54c-18dae5477801`.
