@@ -1,7 +1,7 @@
 ---
 Copyright:
-  years: 2018
-lastupdated: "2018-10-04"
+  years: 2018, 2019
+lastupdated: "2019-02-13"
 ---
 
 {:new_window: target="_blank"}
@@ -10,22 +10,22 @@ lastupdated: "2018-10-04"
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Security and Compliance
-{: #security-compliance}
+# Architecture, Security, and Compliance
+{: #architecture-security-compliance}
 
 ## Protection Against Unauthorized Access
 
 {{site.data.keyword.databases-for-elasticsearch_full}} use the following methods to protect data in transit or in storage.
 - All {{site.data.keyword.databases-for-elasticsearch}} connections use TLS/SSL encryption for data in transit. The current supported version of this encryption is TLS 1.2.
-- Access to the Account, Management Console UI, and API is secured via IAM (Identity and Access Management).
+- Access to the Account, Management Console UI, and API is secured via [Identity and Access Management (IAM)](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-iam).
 - Access to the database is secured through the standard access controls provided by the database. These access controls are configured to require valid database-level credentials that are obtainable only through prior access to the database or through our Management Console UI or API.
-- All {{site.data.keyword.databases-for-elasticsearch}} storage is provided on encrypted volumes that use the Linux Unified Keys Setup (LUKS). If you require bring-your-own-key (BYOK) for encryption, it is available through [{{site.data.keyword.cloud_notm}} Key Protect](/docs/services/key-protect?topic=key-protect-about). 
+- All {{site.data.keyword.databases-for-etcd}} storage is provided on storage encrypted with [{{site.data.keyword.keymanagementserviceshort}}](/docs/services/key-protect?topic=key-protect-about). Bring-your-own-key (BYOK) for encryption is also available through [Key Protect Integration](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-key-protect).
 - IP Whitelisting - All deployments support whitelisting IP addresses to restrict access to the service.
 
 ## Data Resilience
 
-- Backups are included in the service. Backups reside in {{site.data.keyword.cloud_notm}} Object Storage and are also encrypted.
-- {{site.data.keyword.databases-for-elasticsearch}} deployments are configured with replication, so the data exists with multiple copies and each copy resides on a different cluster and host. Where available, those clusters are also spread in different availability zones within the region where the service is deployed.
+Backups are included in the service. {{site.data.keyword.databases-for-elasticsearch}} backups reside in [{{site.data.keyword.cos_full_notm}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage) and are also [encrypted](docs/services/cloud-object-storage?topic=cloud-object-storage-security).
+- {{site.data.keyword.databases-for-elasticsearch}} deployments are configured with replication. Deployments contain a cluster with three nodes where all three are data nodes and any node can be the master node. If you deploy to an [{{site.data.keyword.cloud_notm}} datacenter](/docs/overview?topic=overview-data_center#data_center), your data has multiple copies and each copy resides on a different host. If you deploy to a [{{site.data.keyword.cloud_notm}} Global location](https://www.ibm.com/cloud/data-centers/), the cluster is spread over the region's availability zone locations. If one data member becomes unreachable, your cluster continues to operate normally.
 
 ## General Data Protection Regulation (GDPR) 
 
