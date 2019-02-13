@@ -42,7 +42,7 @@ The [{{site.data.keyword.cloud_notm}} command-line interface](/docs/cli/referenc
 
 ### Using the cloud databases API
 
-You can use the {{site.data.keyword.cloud_notm}} databases API to manage your deployments. Authentication is IAM-based and you use your {{site.data.keyword.cloud_notm}} account's platform API keys to access the API. More information on API keys is in the [IAM documentation](docs/iam/apikeys?topic=iam-manapikey). The API foundation endpoint for your service is on the deployment's [_Overview_](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview) page. For more information, see the [API reference](https://{DomainName}/apidocs/cloud-databases-api).
+You can use the {{site.data.keyword.cloud_notm}} databases API to manage your deployments. Authentication is IAM-based and you use your {{site.data.keyword.cloud_notm}} account's platform API keys to access the API. More information on API keys is in the [IAM documentation](/docs/iam/apikeys?topic=iam-manapikey). The API foundation endpoint for your service is on the deployment's [_Overview_](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview) page. For more information, see the [API reference](https://{DomainName}/apidocs/cloud-databases-api).
 
 ## Connecting to {{site.data.keyword.databases-for-elasticsearch}}
 
