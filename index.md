@@ -38,11 +38,11 @@ More information on IAM roles and actions for the {{site.data.keyword.databases-
 
 ### Using the {{site.data.keyword.cloud_notm}} command-line interface
 
-The {{site.data.keyword.cloud_notm}} command-line interface provides in interactive terminal for your {{site.data.keyword.cloud_notm}} account and your {{site.data.keyword.cloud_notm}} services. The cloud databases plug-in extends this functionality to your {{site.data.keyword.databases-for-elasticsearch}} deployments. More information and installation instructions are on the [{{site.data.keyword.cloud_notm}} CLI Plug-in](/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference) page.
+The [{{site.data.keyword.cloud_notm}} command-line interface](/docs/cli/reference/ibmcloud?topic=cloud-cli-install_use) provides in interactive terminal for your {{site.data.keyword.cloud_notm}} account and your {{site.data.keyword.cloud_notm}} services. The cloud databases plug-in extends this functionality to your {{site.data.keyword.databases-for-elasticsearch}} deployments. More information and installation instructions are on the [{{site.data.keyword.cloud_notm}} CLI Plug-in](/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference) page.
 
 ### Using the cloud databases API
 
-You can use the {{site.data.keyword.cloud_notm}} databases API to manage your service. Authentication is IAM-based and you use your {{site.data.keyword.cloud_notm}} account's platform API keys to access the API. More information on API keys is in the [IAM documentation](docs/iam/apikeys?topic=iam-manapikey). The API foundation endpoint for your service is on the deployment's [_Overview_](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview) page. For more information, see the [API reference](https://{DomainName}/apidocs/cloud-databases-api).
+You can use the {{site.data.keyword.cloud_notm}} databases API to manage your deployments. Authentication is IAM-based and you use your {{site.data.keyword.cloud_notm}} account's platform API keys to access the API. More information on API keys is in the [IAM documentation](docs/iam/apikeys?topic=iam-manapikey). The API foundation endpoint for your service is on the deployment's [_Overview_](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview) page. For more information, see the [API reference](https://{DomainName}/apidocs/cloud-databases-api).
 
 ## Connecting to {{site.data.keyword.databases-for-elasticsearch}}
 
