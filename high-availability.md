@@ -28,7 +28,7 @@ Because {{site.data.keyword.databases-for-elasticsearch}} is a managed service, 
 
 Your applications have to be designed to handle temporary interruptions to the database, implement error handling for failed database commands, and implement retry logic to recover from a temporary interruption.
 
-Several minutes of database unavailability or connection interruption is not expected and you should open a [support ticket](https://cloud.ibm.com/unifiedsupport/cases/add) with details if you have time periods longer than a minute with no connectivity so we can investigate.
+Several minutes of database unavailability or connection interruption is not expected. Open a [support ticket](https://cloud.ibm.com/unifiedsupport/cases/add) with details if you have time periods longer than a minute with no connectivity so we can investigate.
 
 ## Resource Scaling
 
@@ -38,6 +38,6 @@ If you are planning on running operations that might put a spike in the usual RA
 
 ## SLA
 
-{{site.data.keyword.databases-for-elasticsearch}} conforms to the {{site.data.keyword.cloud_notm}} [SLA terms](https://cloud.ibm.com/docs/overview/zero_downtime.html#SLAs).
+{{site.data.keyword.databases-for-elasticsearch}} conforms to the {{site.data.keyword.cloud_notm}} [SLA terms](/docs/overview?topic=overview-SLAs#SLAs).
 
 

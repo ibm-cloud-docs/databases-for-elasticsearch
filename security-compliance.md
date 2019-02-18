@@ -24,8 +24,9 @@ lastupdated: "2019-02-13"
 
 ## Data Resilience
 
-Backups are included in the service. {{site.data.keyword.databases-for-elasticsearch}} backups reside in [{{site.data.keyword.cos_full_notm}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage) and are also [encrypted](/docs/services/cloud-object-storage?topic=cloud-object-storage-security).
-- {{site.data.keyword.databases-for-elasticsearch}} deployments are configured with replication. Deployments contain a cluster with three nodes where all three are data nodes and any node can be the master node. If you deploy to an [{{site.data.keyword.cloud_notm}} datacenter](/docs/overview?topic=overview-data_center#data_center), your data has multiple copies and each copy resides on a different host. If you deploy to a [{{site.data.keyword.cloud_notm}} Global location](https://www.ibm.com/cloud/data-centers/), the cluster is spread over the region's availability zone locations. If one data member becomes unreachable, your cluster continues to operate normally.
+- Backups are included in the service. {{site.data.keyword.databases-for-elasticsearch}} backups reside in [{{site.data.keyword.cos_full_notm}}](/docs/services/cloud-object-storage?topic=cloud-object-storage-about-ibm-cloud-object-storage) and are also [encrypted](/docs/services/cloud-object-storage?topic=cloud-object-storage-security).
+- {{site.data.keyword.databases-for-elasticsearch}} deployments are configured with replication. Deployments contain a cluster with three nodes where all three are data nodes and any node can be the master node. 
+- If you deploy to an [{{site.data.keyword.cloud_notm}} datacenter](/docs/overview?topic=overview-data_center#data_center), your data has multiple copies and each copy resides on a different host. If you deploy to a [{{site.data.keyword.cloud_notm}} Global location](https://www.ibm.com/cloud/data-centers/), the cluster is spread over the region's availability zone locations. If one data member becomes unreachable, your cluster continues to operate normally.
 
 ## General Data Protection Regulation (GDPR) 
 

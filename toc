@@ -33,7 +33,6 @@ Databases For Elasticsearch
 	{: .navgroup id="reference"}
 	[Cloud Databases CLI plugin](/databases-cli-plugin/cloud-databases-cli-cdb-reference)
 	[Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api)
-	security-compliance.md
 	reference-access-management.md
 	reference-activity-tracker.md
 	reference-monitoring.md
