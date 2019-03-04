@@ -177,3 +177,5 @@ curl -H 'Content-Type: application/json' -sS -XPOST \
 curl -sS -XPOST "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_port}/_all/_open"
 
 ### At this point applications can start writing to Databases for Elasticsearch.
+```
+
