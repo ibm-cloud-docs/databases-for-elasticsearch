@@ -61,7 +61,7 @@ Variables used below:
 Example Bash script with comments:
 
 ```sh
-# Set up the environment, use your own values
+### Set up the environment, use your own values
 compose_username=composetestuser
 compose_password=composetestpassword
 compose_endpoint=test.composedb.com
@@ -77,7 +77,7 @@ secret_key=nd0nd021nd012n0dn102nd01n20dn120d
 path_to_snapshot_folder=elastic_search/deployment-1/migration
 export CURL_CA_BUNDLE=/path/to/icd/ssl/certificate
 
-# Mount S3/COS repo on Compose deployment
+### Mount S3/COS repo on Compose deployment
 curl -H 'Content-Type: application/json' -sS -XPOST \
 "https://${compose_username}:${compose_password}@${compose_endpoint}:${compose_port}/_snapshot/migration" \
 -d '{
@@ -91,7 +91,7 @@ curl -H 'Content-Type: application/json' -sS -XPOST \
   }
 }'
 
-# Mount S3/COS repo on Databases for Elasticsearch
+### Mount S3/COS repo on Databases for Elasticsearch
 curl -H 'Content-Type: application/json' -sS -XPOST \
 "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_port}/_snapshot/migration" \
 -d '{
@@ -106,19 +106,19 @@ curl -H 'Content-Type: application/json' -sS -XPOST \
   }
 }'
 
-# Perform 1st snapshot on Compose deployment
+### Perform 1st snapshot on Compose deployment
 curl -sS -XPUT \
 "https://${compose_username}:${compose_password}@${compose_endpoint}:${compose_port}/_snapshot/migration/snapshot-1?wait_for_completion=true"
 
-# Perform 1st restore on Databases for Elasticsearch
+### Perform 1st restore on Databases for Elasticsearch
 curl -H 'Content-Type: application/json' -sS -XPOST \
 "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_port}/_snapshot/migration/snapshot-1/_restore?wait_for_completion=true" \
 -d '{"include_global_state": false}'
 
-# The snapshot/restore steps took 2 hours. In the mean time, applications continued writing to the Compose deployment.
-# Perform another snapshot/restore to get the new data to the Databases for Elasticsearch deployment.
+### The snapshot/restore steps took 2 hours. In the mean time, applications continued writing to the Compose deployment.
+### Perform another snapshot/restore to get the new data to the Databases for Elasticsearch deployment.
 
-# Close all indices on Databases for Elasticsearch so we can perform the next restore on top of it, without touching the searchguard index.
+### Close all indices on Databases for Elasticsearch so we can perform the next restore on top of it, without touching the searchguard index.
 
 curl -sS "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_port}/_cat/indices/?h=index" | \
 grep -v -e '^searchguard$' | \
@@ -126,54 +126,54 @@ while read index; do
   curl -sS -XPOST "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_port}/$index/_close"
 done
 
-# Perform 2nd snapshot on Compose deployment
+### Perform 2nd snapshot on Compose deployment
 curl -sS -XPUT \
 "https://${compose_username}:${compose_password}@${compose_endpoint}:${compose_port}/_snapshot/migration/snapshot-2?wait_for_completion=true"
 
-# Perform 2nd restore on Databases for Elasticsearch
+### Perform 2nd restore on Databases for Elasticsearch
 curl -H 'Content-Type: application/json' -sS -XPOST \
 "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_port}/_snapshot/migration/snapshot-2/_restore?wait_for_completion=true" \
 -d '{"include_global_state": false}'
 
-# The 2nd snapshot/restore steps took 20 minutes. Again, applications continued writing to the Compose deployment.
-# Perform another snapshot/restore to get the new data to Databases for Elasticsearch
+### The 2nd snapshot/restore steps took 20 minutes. Again, applications continued writing to the Compose deployment.
+### Perform another snapshot/restore to get the new data to Databases for Elasticsearch
 
-# Close all indices on Databases for Elasticsearch so we can perform the next restore on top of it, without touching the searchguard index.
+### Close all indices on Databases for Elasticsearch so we can perform the next restore on top of it, without touching the searchguard index.
 curl -sS "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_port}/_cat/indices/?h=index" | \
 grep -v -e '^searchguard$' | \
 while read index; do
   curl -sS -XPOST "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_port}/$index/_close"
 done
 
-# Perform 3rd snapshot on Compose deployment
+### Perform 3rd snapshot on Compose deployment
 curl -sS -XPUT \
 "https://${compose_username}:${compose_password}@${compose_endpoint}:${compose_port}/_snapshot/migration/snapshot-3?wait_for_completion=true"
 
-# Perform 3rd restore on Databases for Elasticsearch
+### Perform 3rd restore on Databases for Elasticsearch
 curl -H 'Content-Type: application/json' -sS -XPOST \
 "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_port}/_snapshot/migration/snapshot-3/_restore?wait_for_completion=true" \
 -d '{"include_global_state": false}'
 
-# The 3rd snapshot/restore steps took 30 seconds. IF you can afford stopping writes for a minute, stop writing to the Compose deployment. 
-# Then proceed with a final snapshot/restore cycle to get all the remaining changes to Databases for Elasticsearch.
+### The 3rd snapshot/restore steps took 30 seconds. IF you can afford stopping writes for a minute, stop writing to the Compose deployment. 
+### Then proceed with a final snapshot/restore cycle to get all the remaining changes to Databases for Elasticsearch.
 
-# Close all indices on Databases for Elasticsearch so we can perform the next restore on top of it, without touching the searchguard index
+### Close all indices on Databases for Elasticsearch so we can perform the next restore on top of it, without touching the searchguard index
 curl -sS "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_port}/_cat/indices/?h=index" | \
 grep -v -e '^searchguard$' | \
 while read index; do
   curl -sS -XPOST "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_port}/$index/_close"
 done
 
-# Perform 4th snapshot on the Compose deployment
+### Perform 4th snapshot on the Compose deployment
 curl -sS -XPUT \
 "https://${compose_username}:${compose_password}@${compose_endpoint}:${compose_port}/_snapshot/migration/snapshot-4?wait_for_completion=true"
 
-# Perform 4th restore on Databases for Elasticsearch
+### Perform 4th restore on Databases for Elasticsearch
 curl -H 'Content-Type: application/json' -sS -XPOST \
 "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_port}/_snapshot/migration/snapshot-4/_restore?wait_for_completion=true" \
 -d '{"include_global_state": false}'
 
-# Re-open all indices in Databases for Elasticsearch just in case some were not re-opened during the latest restore
+### Re-open all indices in Databases for Elasticsearch just in case some were not re-opened during the latest restore
 curl -sS -XPOST "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_port}/_all/_open"
 
-# At this point applications can start writing to Databases for Elasticsearch.
+### At this point applications can start writing to Databases for Elasticsearch.
