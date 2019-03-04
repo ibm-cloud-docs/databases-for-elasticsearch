@@ -22,6 +22,8 @@ Databases For Elasticsearch
 	howto-provisioning.md
 	howto-admin-password.md
 	howto-getting-connection-strings.md
+	howto-migration.md
+	howto-plugins.md
 	
 	{: .topicgroup}
 	Connecting to Databases for Elasticsearch
