@@ -175,3 +175,6 @@ curl -sS -XPOST "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_p
 ### At this point applications can start writing to Databases for Elasticsearch.
 ```
 
+## Other Resources
+
+This migration is performed and explored in detail in [Migrate your data from Compose to Databases for Elasticsearch](https://www.ibm.com/blogs/bluemix/2019/02/a-how-to-for-migrating-elasticsearch-to-ibm-cloud-databases-for-elasticsearch/). The script is available in the [{{site.data.keyword.cloud_notm}} Github repository](https://github.com/IBM-Cloud/clouddatabases-migration-examples/tree/master/elasticsearch).
