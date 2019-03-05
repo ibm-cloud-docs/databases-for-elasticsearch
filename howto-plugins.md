@@ -14,7 +14,7 @@ lastupdated: "2019-03-04"
 # Elasticsearch Plugins
 {: #plugins}
 
-Elasticsearch supports a variety of plugins to extend its core functionality. {{site.data.keyword.databases-for-elasticsearch_full}} comes with a selection of plugins already enabled on your deployment. Plugin management is currently handled by the {{site.data.keyword.databases-for-elasticsearch}} service. Users can not enable or disable plugins.
+Elasticsearch supports a variety of plugins to extend its core functionality. {{site.data.keyword.databases-for-elasticsearch_full}} comes with a selection of plugins already enabled on your deployment. Plugin management is handled by the service, and users can not enable or disable plugins.
 
 You can check the plug-ins installed in your Elasticsearch cluster using the `/_nodes/plugins` cluster API endpoint. Example, 
 ```
