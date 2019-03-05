@@ -27,7 +27,7 @@ Once snapshots and restores are fast enough, you can stop your applications from
 ## Requirements
 
 - An Elasticsearch deployment running on Compose that is version 5.x or 6.x. Migration only works between two deployments running the same major version of Elasticsearch.
-- A matching {{site.data.keyword.databases-for-elasticsearch}} deployment that has _at least_ as much resources allocated to it as the Compose deployment. Also, enable the same [plugins](/docs/services/databases-for-elasticsearch?topic=databases-for-elastcisearch-plugins) on {{site.data.keyword.databases-for-elasticsearch}} that you have in Compose.
+- A matching {{site.data.keyword.databases-for-elasticsearch}} deployment that has _at least_ as much resources allocated to it as the Compose deployment. Also, ensure the same [plugins](/docs/services/databases-for-elasticsearch?topic=databases-for-elastcisearch-plugins) are available on {{site.data.keyword.databases-for-elasticsearch}} that you have enabled in Compose.
 - You need to have your own S3 or IBM Cloud Object Storage repository.
 
 ## Things to watch out for
