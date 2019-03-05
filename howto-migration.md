@@ -32,7 +32,11 @@ Incremental restores can only work if the number of shards of each index on both
 
 If you've got an index called `searchguard` in your Compose deployment, you'll want to reindex it to a different name. `searchguard` is a reserved index name in {{site.data.keyword.databases-for-elasticsearch}}.
 
-## Example with step by step API calls
+## Migration Example
+
+An example migration is performed and explored in detail in [Migrate your data from Compose to Databases for Elasticsearch](https://www.ibm.com/blogs/bluemix/2019/02/a-how-to-for-migrating-elasticsearch-to-ibm-cloud-databases-for-elasticsearch/). The script is available in the [{{site.data.keyword.cloud_notm}} Github repository](https://github.com/IBM-Cloud/clouddatabases-migration-examples/tree/master/elasticsearch).
+
+### Example script with step by step API calls
 
 The migration example migrates a Compose deployment that has 20 indices and a total size on disk of 35GB to a {{site.data.keyword.databases-for-elasticsearch}} deployment. Data is still being written while the migration occurs, so the example uses multiple snapshots and restores.
 
@@ -53,8 +57,6 @@ Variables used below:
 - `<secret_key>` - the S3/COS repo secret key
 - `<storage_service_endpoint>` - the S3/COS endpoint hostname. If using COS, the endpoint must be a regional endpoint such as `us-south` and not a cross-regional endpoint.
 - `$CURL_CA_BUNDLE` - path to a file containing the ssl client certificate used to connect to your Databases for Elasticsearch deployment.
-
-Example Bash script with comments:
 
 ```sh
 ### Set up the environment, use your own values
@@ -174,7 +176,3 @@ curl -sS -XPOST "https://${icd_username}:${icd_password}@${icd_endpoint}:${icd_p
 
 ### At this point applications can start writing to Databases for Elasticsearch.
 ```
-
-## Other Resources
-
-This migration is performed and explored in detail in [Migrate your data from Compose to Databases for Elasticsearch](https://www.ibm.com/blogs/bluemix/2019/02/a-how-to-for-migrating-elasticsearch-to-ibm-cloud-databases-for-elasticsearch/). The script is available in the [{{site.data.keyword.cloud_notm}} Github repository](https://github.com/IBM-Cloud/clouddatabases-migration-examples/tree/master/elasticsearch).
