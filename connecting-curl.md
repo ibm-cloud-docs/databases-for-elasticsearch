@@ -38,11 +38,11 @@ Field Name|Index|Description
 CURL_CA_BUNDLE="/path-to/your_cert_file" curl -u admin:<password> 'https://d5eeee66-5bc4-499a-b73b-1307848f1eac.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud:31821/_cluster/health?pretty'
 ```
 
-* `CURL_CA_BUNDLE` : curl performs SSL certificate verification by default. Since your deployment uses a self-signed certificate, you have to specify what certificate to use.
-* `curl` : The command itself.  
-* `-u` : The parameter for the username and password, separated by a colon, to be used as credentials to log in to the Elasticsearch deployment. 
-* `https://...` : The parameter that specifies the endpoints where the `curl` command connects. It's composed of HTTPS protocol URLs and includes a port number.
-* `/_cluster/health?pretty` : An Elasticsearch Cluster API endpoint that returns the status of your cluster. 
+* `CURL_CA_BUNDLE` - curl performs SSL certificate verification by default. Since your deployment uses a self-signed certificate, you have to specify what certificate to use.
+* `curl` - The command itself.  
+* `-u` - The parameter for the username and password, separated by a colon, to be used as credentials to log in to the Elasticsearch deployment. 
+* `https://...` - The parameter that specifies the endpoints where the `curl` command connects. It's composed of HTTPS protocol URLs and includes a port number.
+* `/_cluster/health?pretty` - An Elasticsearch Cluster API endpoint that returns the status of your cluster. 
 
 ## Using the self-signed certificate
 

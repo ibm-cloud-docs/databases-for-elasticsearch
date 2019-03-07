@@ -22,15 +22,15 @@ The basic procedure is to take a snapshot of the Compose deployment, and perform
 
 ## Requirements
 
-- An Elasticsearch deployment running on Compose that is version 5.x or 6.x. Migration is possible between major versions, but the versions have to have compatible indices. Indices made in Elasticsearch 2.x are not compatible with 6.x and will need re-indexing in 5.x before migration.
-- A matching {{site.data.keyword.databases-for-elasticsearch}} deployment that has _at least_ as much resources allocated to it as the Compose deployment. Also, ensure the same [plugins](/docs/services/databases-for-elasticsearch?topic=databases-for-elastcisearch-plugins) are available on {{site.data.keyword.databases-for-elasticsearch}} that you have enabled in Compose.
+- An Elasticsearch deployment on Compose that is version 5.x or 6.x. Migration is possible between major versions, but the versions have to have compatible indices. Indices that are made in Elasticsearch 2.x are not compatible with 6.x and will need re-indexing in 5.x before migration.
+- A matching {{site.data.keyword.databases-for-elasticsearch}} deployment that has _at least_ as much resources allocated to it as the Compose deployment. Also, ensure that the same [plugins](/docs/services/databases-for-elasticsearch?topic=databases-for-elastcisearch-plugins) are available on {{site.data.keyword.databases-for-elasticsearch}} that you have enabled in Compose.
 - You need to have your own S3 or IBM Cloud Object Storage repository.
 
 ## Things to watch out for
 
-Incremental restores can only work if the number of shards of each index on both deployments match. Don't try to re-index and change the number of shards of any indices once you've started taking snapshots.
+Incremental restores can only work if the number of shards of each index on both deployments match. Don't try to reindex and change the number of shards of any indices once you've started taking snapshots.
 
-If you've got an index called `searchguard` in your Compose deployment, you'll want to reindex it to a different name. `searchguard` is a reserved index name in {{site.data.keyword.databases-for-elasticsearch}}.
+If you have an index that is called `searchguard` in your Compose deployment, you have to reindex it to a different name. `searchguard` is a reserved index name in {{site.data.keyword.databases-for-elasticsearch}}.
 
 ## Migration Example
 
@@ -38,14 +38,14 @@ An example migration is performed and explored in detail in [Migrate your data f
 
 ### Example script with step by step API calls
 
-The migration example migrates a Compose deployment that has 20 indices and a total size on disk of 35GB to a {{site.data.keyword.databases-for-elasticsearch}} deployment. Data is still being written while the migration occurs, so the example uses multiple snapshots and restores.
+The migration example migrates a Compose deployment that has 20 indices and a total size on disk of 35 GB to a {{site.data.keyword.databases-for-elasticsearch}} deployment. Data is still being written while the migration occurs, so the example uses multiple snapshots and restores.
 
-Assumptions:
+Assumptions -
 
 - The mounted S3/COS repository to the Elasticsearch repository is called `migration`.
 - Each snapshot will be named `snapshot-X`. `X` is incremented on each subsequent snapshot.
 
-Variables used below:
+Variables - 
 
 - `<compose_endpoint>:<compose_port>` - the hostname/port combination used to talk to the Compose deployment
 - `<icd_endpoint>:<icd_port>` - the hostname/port combination used to talk to the {{site.data.keyword.databases-for-elasticsearch}} deployment
@@ -56,7 +56,7 @@ Variables used below:
 - `<access_key>` - the S3/COS repo access key
 - `<secret_key>` - the S3/COS repo secret key
 - `<storage_service_endpoint>` - the S3/COS endpoint hostname. If using COS, the endpoint must be a regional endpoint such as `us-south` and not a cross-regional endpoint.
-- `$CURL_CA_BUNDLE` - path to a file containing the ssl client certificate used to connect to your Databases for Elasticsearch deployment.
+- `$CURL_CA_BUNDLE` - path to a file that contains the SSL client certificate used to connect to your Databases for Elasticsearch deployment.
 
 ```sh
 ### Set up the environment, use your own values

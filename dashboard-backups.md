@@ -21,7 +21,7 @@ lastupdated: "2018-10-08"
 To restore a backup to a new service instance,
 
 1. Click in the corresponding row to expand the options for the backup you want to restore.
-2. Click the **Restore** button.  A message is displayed that a restore from backup has started. Clicking on **Your new instance is available now.** will take you to your _Resources List_.
+2. Click the **Restore** button.  A message is displayed that a restore from backup has started. Clicking **Your new instance is available now.** takes you to your _Resources List_.
 
 You can also use the {{site.data.keyword.cloud_notm}} CLI to restore a backup.
 

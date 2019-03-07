@@ -15,7 +15,7 @@ lastupdated: "2018-11-12"
 # Getting Connection Strings
 {: #connection-strings}
 
-In order to connect to {{site.data.keyword.databases-for-elasticsearch_full}}, you need users and some connection strings. A {{site.data.keyword.databases-for-elasticsearch}} deployment is provisioned with an admin user, after [setting the admin password](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password), you can use its connection strings to connect to your deployment.
+In order to connect to {{site.data.keyword.databases-for-elasticsearch_full}}, you need users and some connection strings. A {{site.data.keyword.databases-for-elasticsearch}} deployment is provisioned with an admin user, after you [set the admin password](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password), you can use its connection strings to connect to your deployment.
 
 The simplest way to retrieve connection information is from the [cloud databases plug-in](/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference). Use the `ibmcloud cdb deployment-connections` command to display a formatted connection URI for any user on your deployment. For example, to retrieve a connection string for the admin user on a deployment named  "example-es", use the following command.
 
@@ -29,7 +29,7 @@ ibmcloud cdb cxn example-es -u admin
 
 ## Generating Connection Strings for additional users
 
-Access to your {{site.data.keyword.databases-for-elasticsearch}} deployment is not just limited to the admin user. You may create additional users and retrieve connection strings specific to them by using the _Service Credentials_ panel, the {site.data.keyword.IBM_notm}} CLI, or through the {{site.data.keyword.IBM_notm}} {{site.data.keyword.databases-for}} API. 
+Access to your {{site.data.keyword.databases-for-elasticsearch}} deployment is not just limited to the admin user. You can create additional users and retrieve connection strings specific to them by using the _Service Credentials_ panel, the {site.data.keyword.IBM_notm}} CLI, or through the {{site.data.keyword.IBM_notm}} {{site.data.keyword.databases-for}} API. 
 
 ## Generating Connection Strings from _Service Credentials_
 
@@ -37,13 +37,13 @@ Access to your {{site.data.keyword.databases-for-elasticsearch}} deployment is n
 2. Click _Service Credentials_ to open the _Service Credentials_ panel.
 3. Click **New Credential**.
 4. Choose a descriptive name for your new credential. 
-5. Click **Add** to provision the new credentials. A username and password, and an associated Elastcisearch/SearchGuard user is auto-generated.
+5. Click **Add** to provision the new credentials. A username and password, and an associated Elasticsearch user is auto-generated.
 
 The new credentials appear in the table, and the connection strings are available as JSON in a click-to-copy field under _View Credentials_.
 
 ### Using Service IDs
 
-Because {{site.data.keyword.databases-for-elasticsearch}} is an IAM service, you can use [Service IDs](/docs/iam?topic=iam-serviceids) to manage access to this service. For example, by using an IAM-managed Service ID, that user gets an Elastcisearch/SearchGuard user and connection string in _Service Credentials_, and has API key access to the {{site.data.keyword.cloud_notm}} Databases API.  If you have a Service ID, enter its information under _Select Service ID_.
+Because {{site.data.keyword.databases-for-elasticsearch}} is an IAM service, you can use [Service IDs](/docs/iam?topic=iam-serviceids) to manage access to this service. For example, by using an IAM-managed Service ID, that user gets an Elasticsearch user and connection string in _Service Credentials_, and has API key access to the {{site.data.keyword.cloud_notm}} Databases API.  If you have a Service ID, enter its information under _Select Service ID_.
 
 ## Generating Connection Strings from the command line
 
@@ -111,7 +111,7 @@ Field Name|Index|Description
 
 ## Generating Connection Strings via API
 
-The _Foundation Endpoint_ that is shown on the _Overview_ panel of your service provides the base URL to access this deployment through the API. To create and manage users, use the base URL with the `/users` endpoint. Examples and documentation is available in the [API Reference](https://{DomainName}/apidocs/cloud-databases-api#creates-a-database-level-user).
+The _Foundation Endpoint_ that is shown on the _Overview_ panel of your service provides the base URL to access this deployment through the API. To create and manage users, use the base URL with the `/users` endpoint. Examples and documentation are available in the [API Reference](https://{DomainName}/apidocs/cloud-databases-api#creates-a-database-level-user).
 
 To retrieve user's connection strings, use the base URL with the `/users/{userid}/connections` endpoint. Examples and documentation are also available in the [API Reference](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-b7f6f4).
 

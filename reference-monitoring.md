@@ -38,7 +38,7 @@ London | London | https://metrics.eu-gb.bluemix.net
 
 Once provisioned, the Monitoring service under **Cloud Foundry Services** in your **Resource List**. You can access your Monitoring Dashboard by opening the service, or by using a direct link. The direct link depends on what region the monitoring service is in.
 
-By default, the monitoring service displays information related to services you have set-up under your Domain, Account, Organization, and Space. {{site.data.keyword.databases-for}}, however, send metrics scoped to the Account level. Click on your account in the upper-left and select "account" from the _Domain_ drop-down menu.
+By default, the monitoring service displays information that is related to services you have set-up under your Domain, Account, Organization, and Space. A {{site.data.keyword.databases-for}} deployment sends metrics scoped to the Account level. Click on your account in the upper-left and select "account" from the _Domain_ drop-down menu.
 
 ![IBM Cloud Monitoring Dashboard](images/monitoring-dashboard.png)
 
@@ -48,7 +48,7 @@ To display the usage metrics for your deployment, create a new dashboard.
 
 ![Creating a new dashboard](images/monitoring-dashboard-new.png)
 
-Select the format for your information. Click on _Panel Title_ and _Edit_. A configuration section appears and you configure the metrics you want to display from the _Metrics_ tab.
+Select the format for your information. Click on _Panel Title_ and _Edit_. A configuration section appears and you configure the metrics that you want to display from the _Metrics_ tab.
 
 ![Editing the new Graph](images/monitoring-edit-graph.png)
 
@@ -65,19 +65,19 @@ then the ID in the field is `ef400bd3-cb95-486e-b54c-18dae5477801`.
 
 The next field contains a list of the data members of your deployment. You can customize the graph to show all of the members or just one. The next field is _usage_, the only type of metrics available for {{site.data.keyword.databases-for}}. The last field lists what metrics you can add to be displayed to the graph. You can add all of them or only one of them. 
 
-The final setting to to configure the _Axes_. Click the _Axes_ tab. You can uncheck the _Right Y_ axis, and then set the _Left Y_ axis units to _"data (IEC)"_, _bytes_. 
+The final setting to configure is the _Axes_. Click the _Axes_ tab. You can uncheck the _Right Y_ axis, and then set the _Left Y_ axis units to _"data (IEC)"_, _bytes_. 
 
 ![Setting the Axes](images/monitoring-set-axes.png)
 
 The example graph shows the memory usage for all three data members of a deployment.
 
-![An example graph showing memory usage for a deployment](images/monitoring-example-graph.png)
+![An example graph that shows memory usage for a deployment](images/monitoring-example-graph.png)
 
-Once you have the graph configured, click the _Save_ icon and give it a name. It will now appear in your list of dashboards.
+Once the graph is configured, click the _Save_ icon and give it a name. It now appears in your list of dashboards.
 
 ## Configuring Alerts
 
-Once you have a graph with the metrics you want to monitor, you can set up alerts to notify you under certain conditions. A complete set up guide to configuring alerts is on the [Configuring alerts in Grafana](/docs/services/cloud-monitoring/how-to?topic=cloud-monitoring-config_alerts_grafana) page from the Monitoring documentation. Step 1 and Step 2 have you open Grafana and set up a Notification Channel for your alert. Step 3 "Define a Metric" is the configuration of a Graph, such as the example memory resource graph above. Step 4 defines the alert. For example, an alert for memory usage above 180 MiB is shown.
+Once you have a graph with the metrics you want to monitor, you can set up alerts to notify you under certain conditions. A complete set-up guide to configuring alerts is on the [Configuring alerts in Grafana](/docs/services/cloud-monitoring/how-to?topic=cloud-monitoring-config_alerts_grafana) page from the Monitoring documentation. Step 1 and Step 2 have you open Grafana and set up a Notification Channel for your alert. Step 3 "Define a Metric" is the configuration of a Graph, such as the example memory resource graph. Step 4 defines the alert. For example, an alert for memory usage above 180 MiB is shown.
 
 ![Defining an Alert](images/monitoring-alert.png)
 
