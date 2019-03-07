@@ -42,4 +42,4 @@ More details on the plugins are available in the [Elasticsearch documentation](h
 
 ## The Search Guard Plugin
 
-{{site.data.keyword.databases-for-elasticsearch}} deployments use the [Search Guard plugin](https://docs.search-guard.com/latest/index.html) to provide strong TLS encryption for both internal and external network traffic. It also provides user management features, allows you to create users through _Service Credentials_ and, use IAM integration.
+{{site.data.keyword.databases-for-elasticsearch}} deployments use the [Search Guard plugin](https://docs.search-guard.com/latest/index.html) to provide strong TLS encryption for both internal and external network traffic. It also provides user management features, allows you to create users through _Service Credentials_, and use IAM integration.
