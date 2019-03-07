@@ -34,12 +34,12 @@ analysis-stempel | The Stempel (Polish) Analysis plugin integrates Lucene stempe
 analysis-ukrainian | The Ukrainian Analysis plugin integrates the Lucene UkrainianMorfologikAnalyzer into elasticsearch.
 ingest-attachment | Ingest processor that uses Apache Tika to extract contents.
 mapper-size | The Mapper Size plugin allows document to record their uncompressed size at index time.
-repository-s3 | The S3 repository plugin adds S3 repositories.
+repository-s3 | The S3 repository plugin adds the repositories used for automated backups of your data.
 search-guard-6 | Provide access control related features for Elasticsearch 6.
 {: caption="Table 1. Available Elasticsearch plugins" caption-side="top"}
 
+More details on the plugins is available in the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/plugins/current/index.html).
+
 ## The Search Guard Plugin
 
-{{site.data.keyword.databases-for-elasticsearch}} uses the [Search Guard plugin](https://docs.search-guard.com/latest/index.html) for user management on your cluster. It also provides the integrations that allows you to create users through _Service Credentials_ and user management through IAM.
-
-
+{{site.data.keyword.databases-for-elasticsearch}} uses the [Search Guard plugin](https://docs.search-guard.com/latest/index.html) to provide strong TLS encryption for both internal and external network traffic. It also provides user management features, allows you to create users through _Service Credentials_ and, use IAM integration.
