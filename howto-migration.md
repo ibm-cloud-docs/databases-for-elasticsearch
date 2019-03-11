@@ -18,7 +18,9 @@ lastupdated: "2019-02-21"
 If you are a current user of Elasticsearch on Compose, you can use the Snapshot/restore Elasticsearch API: https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html
 and the S3 repository plugin: https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-s3.html to migrate your data into {{site.data.keyword.databases-for-elasticsearch_full}}
 
-The basic procedure is to take a snapshot of the Compose deployment, and perform a restore to the {{site.data.keyword.databases-for-elasticsearch}} deployment. If you want to preform the migration while data is still being written, you can take multiple snapshots and perform multiple incremental restores.
+The basic procedure is to take a snapshot of the Compose deployment, store the snapshot in an AWS S3 or {{site.data.keyword.cloud}} Object Storage bucket, and perform a restore of the snapshot to the {{site.data.keyword.databases-for-elasticsearch}} deployment. 
+
+If you want to preform the migration while data is still being written to Compose, you can take multiple snapshots and perform multiple incremental restores. Once the {{site.data.keyword.databases-for-elasticsearch}} deployment is caught up to the state of the Compose deployment, you can move your application writes to {{site.data.keyword.databases-for-elasticsearch}}.
 
 ## Requirements
 
