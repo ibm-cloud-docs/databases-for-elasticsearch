@@ -65,7 +65,7 @@ Use npm to install dependencies.
 
 ## Step 4. Download and install the {{site.data.keyword.cloud_notm}} CLI tool
 
-The {{site.data.keyword.cloud_notm}} CLI tool is what you use to communicate with {{site.data.keyword.cloud_notm}} from your terminal or command line. For more information, see [Download and install {{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-install_use).
+The {{site.data.keyword.cloud_notm}} CLI tool is what you use to communicate with {{site.data.keyword.cloud_notm}} from your terminal or command line. For more information, see [Download and install {{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-install-ibmcloud-cli).
 
 ## Step 5. Connect to {{site.data.keyword.cloud_notm}}
 
