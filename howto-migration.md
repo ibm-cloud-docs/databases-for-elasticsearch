@@ -34,3 +34,7 @@ Incremental restores can only work if the number of shards of each index on both
 
 If you have an index that is called `searchguard` in your Compose deployment, you have to reindex it to a different name. `searchguard` is a reserved index name in {{site.data.keyword.databases-for-elasticsearch}}
 
+## Example Migration
+
+An example migration is performed and explored in detail in [Migrate your data from Compose to Databases for Elasticsearch](https://www.ibm.com/blogs/bluemix/2019/02/a-how-to-for-migrating-elasticsearch-to-ibm-cloud-databases-for-elasticsearch/). An example shell script is available in the [{{site.data.keyword.cloud_notm}} Github repository](https://github.com/IBM-Cloud/clouddatabases-migration-examples/tree/master/elasticsearch).
+
