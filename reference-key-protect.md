@@ -2,6 +2,9 @@
 copyright:
   years: 2018
 lastupdated: "2018-10-04"
+
+subcollection: databases-for-elasticsearch
+
 ---
 
 {:shortdesc: .shortdesc}
