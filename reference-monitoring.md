@@ -3,6 +3,9 @@
 Copyright:
   years: 2019
 lastupdated: "2019-01-22"
+
+subcollection: databases-for-elasticsearch
+
 ---
 
 {:new_window: target="_blank"}

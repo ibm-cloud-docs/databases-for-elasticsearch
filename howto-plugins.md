@@ -2,6 +2,9 @@
 copyright:
   years: 2019
 lastupdated: "2019-03-04"
+
+subcollection: databases-for-elasticsearch
+
 ---
 
 {:new_window: target="_blank"}
