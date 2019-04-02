@@ -37,6 +37,7 @@ Databases For Elasticsearch
 	[Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api)
 	reference-access-management.md
 	reference-activity-tracker.md
+	reference-logging.md
 	reference-monitoring.md
 	reference-key-protect.md
 	{: .navgroup-end}
