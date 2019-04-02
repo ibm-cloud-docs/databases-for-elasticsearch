@@ -24,8 +24,7 @@ Currently, {{site.data.keyword.la_full_notm}} integration is only available for 
 
 ## Provisioning {{site.data.keyword.la_full_notm}}
 
-Log information from your databases is automatically forwarded to {{site.data.keyword.la_full_notm}}, but in order to access it you have to [provision a {{site.data.keyword.la_full_notm}} service](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-provision)
-) in your {{site.data.keyword.cloud_notm}} account. 
+Log information from your databases is automatically forwarded to {{site.data.keyword.la_full_notm}}, but in order to access it you have to [provision an {{site.data.keyword.la_full_notm}} service](/docs/services/Log-Analysis-with-LogDNA?topic=LogDNA-provision) in your {{site.data.keyword.cloud_notm}} account. 
 
 After provisioning the service, visit your [_Observability_ dashboard](https://cloud.ibm.com/observe/logging). You should be able to see your service. Click on **Configure platform service logs**. Select the LogDNA region and service to receive logs from {{site.data.keyword.databases-for}} deployments.
 
