@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2019
-lastupdated: "2019-01-02"
+lastupdated: "2019-04-10"
 
 subcollection: databases-for-elasticsearch
 
@@ -37,6 +37,7 @@ Users can optionally set:
 1. **The resource group** - If you are organizing your services into [resource groups](/docs/resources?topic=resources-bp_resourcegroups), you can specify the resource group in this field. Otherwise, you can leave it at default.
 2. **Disk encryption** - Optionally, a Key Protect instance can be selected if the user has Key Protect configured. If it is configured, once the service is selected, a disk encryption key can be selected from the Key Protect service. By default, Key Protect is not used and the deployment automatically creates and manages its own disk encryption key. 
 3. **Initial resource allocation** - Specify initial memory and disk sizes for your databases. The minimum sizes of memory and disk are selected by default.
+4. **Endpoints** - You can configure the types [Service Endpoints](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-service-endpoints) supported on your deployment. Its default is that connections to your deployment can be made from the public network.
 
 Once you select the appropriate settings, click **Create** to start the provisioning process off.
 
@@ -143,3 +144,4 @@ More information about this specific {{site.data.keyword.cloud_notm}} provider c
 * `key_protect_key` - A CRN that references a Key Protect key, which is then used for disk encryption.
 * `members_memory_allocation_mb` -  Total amount of memory to be shared between the database members within the database. For example, if the value is "6144" then the three database members get 6 GB of RAM between them, giving 2 GB of RAM per member. If omitted, the default value is used; "3072".
 * `members_disk_allocation_mb` - Total amount of disk to be shared between the database members within the database. For example, if the value is "30720" then the  database members get 30 GB of disk between them, giving 10 GB of disk per member. If omitted, the default value is used; "15360".
+* `service-endpoints` - Selects the types [Service Endpoints](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-service-endpoints) supported on your deployment. Options are `public`, `private`, or `public-and-private`. If omitted, the default is `public`.
