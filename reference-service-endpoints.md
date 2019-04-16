@@ -19,7 +19,7 @@ subcollection: databases-for-elasticsearch
 
 All {{site.data.keyword.databases-for}} deployments offer integration with [{{site.data.keyword.cloud_notm}} Service Endpoints](/docs/services/service-endpoint?topic=service-endpoint-about#about). It allows you to enable connections to your deployments from the public internet and over the {{site.data.keyword.cloud_notm}} private network.
 
-Service Endpoints are currently not available in the `eu-de` or `oslo01` regions. If your deployments are in `Frankfurt` or `Oslo 01` you aren't able to use private endpoints. Deployments in all other regions are able to use Service Endpoints.
+Service Endpoints are only available in {{site.data.keyword.cloud_notm}} Multi-Zone Regions. If your deployments are in `Oslo 01` you aren't able to use private endpoints since it is a Single-Zone Region. Deployments in all other regions are able to use Service Endpoints.
 {: .tip}
 
 ## Public Endpoints
