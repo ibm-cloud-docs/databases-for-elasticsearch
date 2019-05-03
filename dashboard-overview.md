@@ -15,7 +15,7 @@ subcollection: databases-for-elasticsearch
 {:pre: .pre}
 {:tip: .tip}
 
-# Service Overview
+# The UI - Dashboard Overview
 {: #dashboard-overview}
 
 The _Overview_ page shows you information about your {{site.data.keyword.databases-for-elasticsearch_full}} database. The overview includes essential identifying information.
@@ -40,9 +40,9 @@ Every time that you make administrative changes to your service (such as scaling
 
 The _Connections_ panel contains connection strings for your deployment. Each tab contains connection information tailored to the type of connection or the protocol that uses it. Basic information includes things like _hostname_ and _port_, as well as the TLS self-signed certificate and arguments that can be passed to the driver or binary that you are using to connect. 
 
-Reference tables for the different connection types are available on the [Getting Credentials and Connection Strings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) page.
+Reference tables for the different connection types are available on the [Getting Connection Strings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings#connection-string-reference) page.
 
-Connection strings reflect whether your deployment uses public endpoints, private endpoints or both. You can configure which endpoints are available on your deployment. For more information, see the [Service Endpoints Integration](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-service-endpoints) page.
+Connection strings reflect whether your deployment uses public endpoints, private endpoints or both. You can configure which endpoints are available on your deployment. For more information, see the [Service Endpoints Integration](/docs/services/databases-for-elasticsearch?topic=cloud-databases-service-endpoints) page.
 
 ## Security
 
@@ -50,19 +50,35 @@ Encryption at rest is enabled for all {{site.data.keyword.databases-for-elastics
 
 ## Instance Administration API
 
-You can manage your {{site.data.keyword.databases-for-elasticsearch}} service through the {{site.data.keyword.cloud_notm}} databases API. This panel provides the essential information for using the API.
+You can manage your {{site.data.keyword.databases-for-elasticsearch}} service through the {{site.data.keyword.databases-for}} API. This panel provides the essential information for using the API.
 
 ### Foundation Endpoint
 
-The foundation endpoint is the opening stanza of the URL to be used to send API requests to. It combines the region that your service resides in and the base {{site.data.keyword.cloud_notm}} databases API endpoint. 
+The foundation endpoint is the opening stanza of the URL to be used to send API requests to. It combines the region that your service resides in and the base {{site.data.keyword.databases-for}} API endpoint. 
 
 ### Deployment ID
 
 Many API calls require the ID of the database deployment. The database deployment's ID/CRN shown here is the same as the ID/CRN shown in the Deployment Details, in a click-to-copy field to make it simpler to use. 
 
-The ID needs to be URL encoded to be used in an API call because the CRN includes a "/".
+The ID needs to be URL encoded to be used in an API call because the CRN includes a `/`. The `/` character becomes `%2f`.
 {: .tip}
 
-### {{site.data.keyword.cloud_notm}} databases API Reference
+### {{site.data.keyword.databases-for}} API Reference
 
-For more information about the {{site.data.keyword.cloud_notm}} databases API, see the [API reference](https://{DomainName}/apidocs/cloud-databases-api) page.
+For more information about the {{site.data.keyword.databases-for}} API, see the [API reference](https://{DomainName}/apidocs/cloud-databases-api) page.
+
+## Settings
+
+The _Settings_ tab contains the UI for many of the tunable settings for your deployment. You can 
+- [scale](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling)
+- [change the admin password](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password)
+- [configure public and private endpoints](/docs/services/databases-for-elasticsearch?topic=cloud-databases-service-endpoints)
+- [implement or modify an IP whitelist](/docs/services/databases-for-elasticsearch?topic=cloud-databases-whitelisting)
+
+## Backups
+
+The _Backups_ tab is the UI for managing your deployments backups. All of the available backups are listed with their timestamps. Click on a backup to grab its ID or to restore it into a new deployment. More information is on the [Managing Backups](/docs/services/databases-for-etcd?topic=databases-for-elasticsearch-dashboard-backups) page.
+
+## Docs
+
+The _Docs_ link opens the main documentation page for {{site.data.keyword.databases-for-elasticsearch}} in a new tab.

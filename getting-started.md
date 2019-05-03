@@ -177,8 +177,6 @@ npm start
 
 The app is now running at http://localhost:8080. You can add words and definitions to your {{site.data.keyword.databases-for-elasticsearch}} database. When you stop and restart the app, any words you added are displayed when you refresh the page.
 
-For more information about the credentials you created for the application to connect to your service, see [Using Service Credentials](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connecting-external#using-service-credentials).
-
 ## Next steps
 
 To understand more about how the [sample app](https://github.com/IBM-Cloud/clouddatabases-elasticsearch-helloworld-nodejs) works, you can read the application's readme file, or the code comments in `server.js`, which give some information about the app's functions.
@@ -187,7 +185,7 @@ To start exploring your {{site.data.keyword.databases-for-elasticsearch}} servic
 
 - [Dashboard Overview](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview)
 - [Backups](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups)
-- [Settings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-settings)
+- [Creating Users and Getting Connection Strings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings)
 
 
 [ibm_cloud_signup_url]: https://ibm.biz/databases-for-elasticsearch-signup
