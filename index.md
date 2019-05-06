@@ -25,7 +25,7 @@ subcollection: databases-for-elasticsearch
 
 {{site.data.keyword.databases-for-elasticsearch}} is an {{site.data.keyword.cloud_notm}} service. Provisioning and account management is handled through your {{site.data.keyword.cloud_notm}} account. If you already have an account, you can provision {{site.data.keyword.databases-for-elasticsearch}} from the [{{site.data.keyword.cloud_notm}} catalog](https://{DomainName}/catalog/services/databases-for-elasticsearch).
 
-For detailed provisioning information, including {{site.data.keyword.cloud_notm}} CLI instructions, see the [Provisioning](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-provisioning) page.
+For detailed provisioning information, including {{site.data.keyword.cloud_notm}} CLI instructions, see the [Provisioning](/docs/services/databases-for-elasticsearch?topic=cloud-databases-provisioning) page.
 
 If you don't yet have an {{site.data.keyword.cloud_notm}} account, sign up on the [registration](https://{DomainName}/registration/) page.
 
@@ -33,11 +33,11 @@ If you don't yet have an {{site.data.keyword.cloud_notm}} account, sign up on th
 
 {{site.data.keyword.databases-for-elasticsearch}} is an Identity and Access Management (IAM) integrated service. Access to the service is governed by the roles and attributes that are consistent across IAM-integrated services in {{site.data.keyword.cloud_notm}}. Get started with managing your users on the [IAM Getting Started tutorial](/docs/iam?topic=iam-getstarted). For more information about IAM, see the [What is IAM?](/docs/iam?topic=iam-iamoverview) documentation.
 
-More information on IAM roles and actions for the {{site.data.keyword.databases-for-elasticsearch}} service is available on the [Access Management](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-iam) page.
+More information on IAM roles and actions for the {{site.data.keyword.databases-for-elasticsearch}} service is available on the [Access Management](/docs/services/databases-for-elasticsearch?topic=cloud-databases-iam) page.
 
 ## Using {{site.data.keyword.databases-for-elasticsearch}}
 
-{{site.data.keyword.databases-for-elasticsearch}} provides a UI, accessible by selecting _Manage_ from the left sidebar of your service and opening the management panel. You get a quick [Overview](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview) of your service as well as configuration settings on the [Settings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-settings) tab and access to your backups on the [Backups](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups) tab.
+{{site.data.keyword.databases-for-elasticsearch}} provides a UI, accessible by selecting _Manage_ from the left sidebar of your service and opening the management panel. You get a quick [Overview](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview) of your service as well as configuration settings on the [Settings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview#settings) tab and access to your backups on the [Backups](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups) tab.
 
 ### Using the {{site.data.keyword.cloud_notm}} command-line interface
 
@@ -61,6 +61,7 @@ Specific guidance on connecting with Elasticsearch drivers is on the [Connecting
 - View events with [Activity Tracker](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-activity-tracker)
 - Monitor deployment resource use with the [Monitoring](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-monitoring) service.
 - BYOK encryption is available if you use [Key Protect](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-key-protect)
+- [Service Endpoints Integration](/docs/services/databases-for-elasticsearch?topic=cloud-databases-service-endpoints) allows you to select public or private networking for your deployment at provision
 
 
 

@@ -36,7 +36,7 @@ Name | Description
 `analysis-stempel` | The Stempel (Polish) Analysis plugin integrates the Lucene stempel (polish) analysis module into Elasticsearch.
 `analysis-ukrainian` | The Ukrainian Analysis plugin integrates the Lucene UkrainianMorfologikAnalyzer into elasticsearch.
 `ingest-attachment` | An ingest processor that uses Apache Tika to extract contents.
-mapper-size | The Mapper Size plugin allows document to record their uncompressed size at index time.
+`mapper-size` | The Mapper Size plugin allows document to record their uncompressed size at index time.
 `repository-s3` | The S3 repository plugin adds the repositories used for automated backups of your data.
 `search-guard-6` | Provides access control-related features for Elasticsearch 6.
 {: caption="Table 1. Available Elasticsearch plugins" caption-side="top"}

@@ -14,7 +14,7 @@ subcollection: databases-for-elasticsearch
 {:codeblock: .codeblock}
 {:pre: .pre}
 
-# Backups
+# Managing Backups
 {: #dashboard-backups}
 
 {{site.data.keyword.databases-for-elasticsearch_full}} backups are accessible from the _Backups_ tab of your service dashboard. Daily and on-demand backups are available for 30 days. Each backup is labeled with its type, and when the backup was taken. Click the backup to reveal the full ID of the backup and a command that you can use to restore a backup with the {{site.data.keyword.cloud_notm}} CLI.
