@@ -41,7 +41,7 @@ London | London | https://metrics.eu-gb.bluemix.net
 
 Once provisioned, the Monitoring service under **Cloud Foundry Services** in your **Resource List**. You can access your Monitoring Dashboard by opening the service, or by using a direct link. The direct link depends on what region the monitoring service is in.
 
-By default, the monitoring service displays information that is related to services you have set-up under your Domain, Account, Organization, and Space. A {{site.data.keyword.databases-for}} deployment sends metrics scoped to the Account level. Click on your account in the upper-left and select "account" from the _Domain_ drop-down menu.
+By default, the monitoring service displays information that is related to services you have set-up under your Domain, Account, Organization, and Space. A {{site.data.keyword.databases-for}} deployment sends metrics scoped to the Account level. Click on your account in the upper-right and select "account" from the _Domain_ drop-down menu.
 
 ![IBM Cloud Monitoring Dashboard](images/monitoring-dashboard.png)
 

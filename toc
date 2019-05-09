@@ -33,7 +33,11 @@ Databases For Elasticsearch
 	howto-resources-scaling.md
 	howto-backups.md
 	/cloud-databases/cloud-databases-whitelisting
-	howto-plugins.md
+
+	{: .topicgroup}
+	Configuring Elasticsearch
+		howto-plugins.md
+		howto-file-uploads.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
