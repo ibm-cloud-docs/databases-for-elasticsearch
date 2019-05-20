@@ -20,6 +20,9 @@ subcollection: databases-for-elasticsearch
 A few Elasticsearch features allow indexes to read from files on the file system, so {{site.data.keyword.databases-for-elasticsearch_full}} allows you to upload files to your deployment. The files are
 stored at a known location, and Elasticsearch is configured so that it is allowed to read files from the location.
 
+Files uploaded to your deployment use disk resources, both in the index and on the file system. Make sure you have [scaled your deployment](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling) before uploading files.
+{: .tip} 
+
 ## Basic Process
 
 1. You base64 encode the file on client side.
