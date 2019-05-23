@@ -34,7 +34,7 @@ Files uploaded to your deployment use disk resources, both in the index and on t
 them from the index. 
 
 - The index in Elasticsearch is `ibm_file_sync`.
-- The location of the files on disk is `/data/ibm_file_sync`.
+- The location of the files on disk is `/data/ibm_file_sync/current`.
 
 ## Uploading the files to the Index
 
@@ -62,7 +62,7 @@ curl -X PUT "https://user:password@host:port/ibm_file_sync" -H 'Content-Type: ap
 The URL is the `https` [connection string](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) from your deployment.
 {: .tip}
 
-To use the index, encode the file contents as base64. For an example in bash, `ENC=$(base64 -w 0  README.md)`. Then, build a checksum over the content, `HASH=$(md5sum README.md)`.
+To use the index, encode the file contents as base64. To encode an example file `README.md` in bash, `ENC=$(base64 -w 0  README.md)`. Then, build a checksum over the content, `HASH=$(md5sum README.md)`.
 
 The download function compares the hash values on each sync run and if the values have not changed since the last sync, no new download is attempted.  Note that if any document in the index has no md5 value, all downloads are attempted again.
 {: .tip}
