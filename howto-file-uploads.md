@@ -116,7 +116,7 @@ Any number of files can be uploaded and synced. The contents of the files are no
 
 ## Using the files
 
-Features of Elasticsearch makes use of files on the filesystem by accepting the path to the file when defining the index. These are a few of the features that can use files from the file system. This list contains examples, and is not exhaustive.
+Features of Elasticsearch makes use of files on the filesystem by accepting the path to the file when defining the index. An uploaded file `example.txt` is located at `/data/ibm_file_sync/current/example.txt`. These are a few of the features that can use files from the file system. This list contains examples, and is not exhaustive.
 - [Keep Words Token Filter](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-keep-words-tokenfilter.html)
 - [Mapping Char Filter](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-mapping-charfilter.html)
 - [Compound Word Token Filters](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-compound-word-tokenfilter.html)
