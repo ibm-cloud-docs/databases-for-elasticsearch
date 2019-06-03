@@ -38,6 +38,7 @@ Databases For Elasticsearch
 	Configuring Elasticsearch
 		howto-plugins.md
 		howto-file-uploads.md
+		howto-upgrading.md
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
