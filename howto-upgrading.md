@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019
-lastupdated: "2019-05-30"
+lastupdated: "2019-06-04"
 
 subcollection: databases-for-elasticsearch
 
@@ -18,16 +18,16 @@ subcollection: databases-for-elasticsearch
 # Upgrading to a new Major Version
 {: #upgrading}
 
-Once a major version of a database is at its End Of Life (EOL), it is a good idea to upgrade to the current major version. You can upgrade {{site.data.keyword.databases-for-elasticsearch_full}} deployment to use the newest version of Elasticsearch. It is currently possible to migrate from Elasticsearch 5.x to 6.x.
+Once a major version of a database is at its End Of Life (EOL), it is a good idea to upgrade to the current major version. You can upgrade {{site.data.keyword.databases-for-elasticsearch_full}} deployments to use the newest version of Elasticsearch. It is currently possible to migrate from Elasticsearch 5.x to 6.x.
 
-You upgrade to the latest minor version of Elasticsearch available to {{site.data.keyword.databases-for-elasticsearch_}}. You can find the latest version from the catalog page, from the cloud databases cli plugin command [`ibmcloud cdb deployables-show`](/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference#deployables-show) or from the cloud databases API [`/deployables` endpoint](https://cloud.ibm.com/apidocs/cloud-databases-api#get-all-deployable-databases).
+You upgrade to the latest version of Elasticsearch available to {{site.data.keyword.databases-for-elasticsearch}}. You can find the latest version from the catalog page, from the cloud databases cli plugin command [`ibmcloud cdb deployables-show`](/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference#deployables-show) or from the cloud databases API [`/deployables`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-all-deployable-databases) endpoint.
 
 Upgrading is handled through restoring your data into a new deployment. Restoring from a backup has a number of advantages:
 
 - The original database stays running and production work can be uninterrupted.
 - You can test the new database out of production and act on any application incompatibilities.
 - The entire process can be re-run at any point.
-- A fresh restoration reduces the likelihood of unneeded artifacts of the older version of the database are carried over to the new database.
+- A fresh restoration reduces the likelihood that unneeded artifacts of the older version of the database are carried over to the new database.
 
 In order to restore a deployment from a backup into a specific version, you have to use the {{site.data.keyword.cloud_notm}} CLI or the API.
 
