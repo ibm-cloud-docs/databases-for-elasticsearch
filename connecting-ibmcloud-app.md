@@ -42,7 +42,6 @@ You can verify that the services are connected by navigating to the _Connections
 The sample app in the [Getting Started](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started) tutorial provides a sample Cloud Foundry application that uses Node.js and demonstrates how to bind the sample application to a {{site.data.keyword.databases-for-elasticsearch}} deployment.
 
 ## Creating a Cloud Foundry alias
-{: #create-alias}
 
 If your application is running on Cloud Foundry, you need to create an alias for your {{site.data.keyword.databases-for-elasticsearch}} service so that it is discoverable by the Cloud Foundry application. Log in to the {{site.data.keyword.cloud_notm}} CLI and use the command:
 

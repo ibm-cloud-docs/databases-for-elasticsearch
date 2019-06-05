@@ -27,7 +27,7 @@ By contrast, application resilience and connection error handling are the respon
 
 Applications that communicate over networks and cloud services are subject to transient connection failures. You want to design your applications to retry connections when errors are caused by a temporary loss in connectivity to your deployment or to {{site.data.keyword.cloud_notm}}.
 
-Because {{site.data.keyword.databases-for-elasticsearch}} is a managed service, regular updates and database maintenance occurs as part of normal operations. This can occasionally cause short intervals where your database is unavailable.
+Because {{site.data.keyword.databases-for-elasticsearch}} is a managed service, regular updates and database maintenance occurs as part of normal operations. These operations can occasionally cause short intervals where your database is unavailable.
 
 Your applications have to be designed to handle temporary interruptions to the database, implement error handling for failed database commands, and implement retry logic to recover from a temporary interruption.
 
@@ -37,7 +37,7 @@ Several minutes of database unavailability or connection interruption is not exp
 
 {{site.data.keyword.databases-for-elasticsearch}} does not auto-scale. Deployment owners can [monitor](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-monitoring) the state of the deployment, estimate typical resource usage, and scale the deployment accordingly.
 
-If you are planning on running operations that might put a spike in the usual RAM usage, or any data operations that could overflow your allotted storage, you should manually scale your service's resources up first to avoid hitting any resource limits that would affect deployment operations.
+If you are planning on running operations that might put a spike in the usual RAM usage, or any data operations that could overflow your allotted storage, you can scale your service's resources up to avoid hitting resource limits that can affect deployment operations.
 
 ## SLA
 
