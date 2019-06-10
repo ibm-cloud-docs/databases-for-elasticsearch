@@ -37,10 +37,7 @@ When you upgrade and restore from backup through the  {{site.data.keyword.cloud_
 ```
 ibmcloud resource service-instance-create <service-name> <service-id> <service-plan-id> <region>
 ```
-The parameters `service-name`, `service-id`, `service-plan-id`, and `region` are all required. You also supply the `-p` with the version, backup ID, and the size parameters in a JSON object.
-
-If your deployment is larger than the default deployment (5120 MB disk and 1028 MB memory per member), you need to provide the memory and disk allocation to the command. Otherwise, the provisioned deployment gets the default resource allocation. If it is too small, the upgrade fails.
-{: .tip}
+The parameters `service-name`, `service-id`, `service-plan-id`, and `region` are all required. You also supply the `-p` with the version and backup ID parameters in a JSON object.
 
 ```
 ibmcloud resource service-instance-create example-es-upgrade databases-for-elasticsearch standard us-south \
@@ -53,7 +50,7 @@ ibmcloud resource service-instance-create example-es-upgrade databases-for-elast
 
 ## Upgrading through the API
 
-Similar to provisioning through the API, you need to complete [the necessary steps to use the resource controller API](/docs/services/databases-for-elasticsearch?topic=cloud-databases-provisioning#provisioning-through-the-resource-controller-api) before you can use it to upgrade from a backup. Then, send the API a POST request. The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required. You also supply the version, backup ID, and the size parameters.
+Similar to provisioning through the API, you need to complete [the necessary steps to use the resource controller API](/docs/services/databases-for-elasticsearch?topic=cloud-databases-provisioning#provisioning-through-the-resource-controller-api) before you can use it to upgrade from a backup. Then, send the API a POST request. The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required. You also supply the version and backup ID.
 ```
 curl -X POST \
   https://resource-controller.bluemix.net/v2/resource_instances \
@@ -65,8 +62,7 @@ curl -X POST \
     "resource_group": "5g9f447903254bb58972a2f3f5a4c711",
     "resource_plan_id": "databases-for-elasticsearch-standard",
     "backup_id": "crn:v1:bluemix:public:databases-for-elasticsearch:us-south:a/54e8ffe85dcedf470db5b5ee6ac4a8d8:1b8f53db-fc2d-4e24-8470-f82b15c71717:backup:06392e97-df90-46d8-98e8-cb67e9e0a8e6",
-    "version":6.5,
-    "members_memory_allocation_mb": "6144"
+    "version":6.5
   }'
 ```
 
