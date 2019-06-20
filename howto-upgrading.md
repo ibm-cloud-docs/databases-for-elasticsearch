@@ -29,7 +29,9 @@ Upgrading is handled through [restoring a backup](/docs/services/databases-for-e
 - The entire process can be rerun at any point.
 - A fresh restoration reduces the likelihood that unneeded artifacts of the older version of the database are carried over to the new database.
 
-In order to restore a deployment from a backup into a specific version, you have to use the {{site.data.keyword.cloud_notm}} CLI or the API.
+## Upgrading in the UI
+
+You can upgrade to a new version when [restoring a backup](/docs/services/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups#restoring-a-backup) from the _Backups_ tab of your _Deployment Overview_. Clicking **Restore** on a backup brings up a dialog box where you can change some options for the new deployment. One of them is the database version, which is auto-populated with the versions available for you to upgrade to. Select a version and click **Restore** to start the provision and restore process.
 
 ## Upgrading through the CLI
 
