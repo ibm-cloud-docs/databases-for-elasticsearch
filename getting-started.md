@@ -184,7 +184,7 @@ To understand more about how the [sample app](https://github.com/IBM-Cloud/cloud
 To start exploring your {{site.data.keyword.databases-for-elasticsearch}} service, see the following topics about the service dashboard:
 
 - [Dashboard Overview](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview)
-- [Backups](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups)
+- [Backups](/docs/services/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups)
 - [Creating Users and Getting Connection Strings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings)
 
 

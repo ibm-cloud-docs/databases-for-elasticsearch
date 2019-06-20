@@ -22,7 +22,7 @@ Once a major version of a database is at its End Of Life (EOL), it is a good ide
 
 You upgrade to the latest version of Elasticsearch available to {{site.data.keyword.databases-for-elasticsearch}}. You can find the latest version from the catalog page, from the cloud databases cli plugin command [`ibmcloud cdb deployables-show`](/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference#deployables-show), or from the cloud databases API [`/deployables`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-all-deployable-databases) endpoint.
 
-Upgrading is handled through restoring your data into a new deployment. Restoring from a backup has a number of advantages:
+Upgrading is handled through [restoring a backup](docs/services/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups#restoring-a-backup) of your data into a new deployment. Restoring from a backup has a number of advantages:
 
 - The original database stays running and production work can be uninterrupted.
 - You can test the new database out of production and act on any application incompatibilities.
@@ -37,20 +37,19 @@ When you upgrade and restore from backup through the  {{site.data.keyword.cloud_
 ```
 ibmcloud resource service-instance-create <service-name> <service-id> <service-plan-id> <region>
 ```
-The parameters `service-name`, `service-id`, `service-plan-id`, and `region` are all required. You also supply the `-p` with the version and backup ID parameters in a JSON object.
+The parameters `service-name`, `service-id`, `service-plan-id`, and `region` are all required. You also supply the `-p` with the version and backup ID parameters in a JSON object. The new deployment is automatically sized with the same disk and memory as the source deployment at the time of the backup.
 
 ```
 ibmcloud resource service-instance-create example-es-upgrade databases-for-elasticsearch standard us-south \
 -p \ '{
   "backup_id": "crn:v1:bluemix:public:databases-for-elasticsearch:us-south:a/54e8ffe85dcedf470db5b5ee6ac4a8d8:1b8f53db-fc2d-4e24-8470-f82b15c71717:backup:06392e97-df90-46d8-98e8-cb67e9e0a8e6",
-  "version":6.5,
-  "members_memory_allocation_mb": "6144"
+  "version":6.5
 }'
 ```
 
 ## Upgrading through the API
 
-Similar to provisioning through the API, you need to complete [the necessary steps to use the resource controller API](/docs/services/databases-for-elasticsearch?topic=cloud-databases-provisioning#provisioning-through-the-resource-controller-api) before you can use it to upgrade from a backup. Then, send the API a POST request. The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required. You also supply the version and backup ID.
+Similar to provisioning through the API, you need to complete [the necessary steps to use the resource controller API](/docs/services/databases-for-elasticsearch?topic=cloud-databases-provisioning#provisioning-through-the-resource-controller-api) before you can use it to upgrade from a backup. Then, send the API a POST request. The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required. You also supply the version and backup ID. The new deployment has the same memory and disk allocation as the source deployment at the time of the backup.
 ```
 curl -X POST \
   https://resource-controller.bluemix.net/v2/resource_instances \
