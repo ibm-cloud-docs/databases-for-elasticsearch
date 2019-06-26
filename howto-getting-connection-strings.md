@@ -51,8 +51,6 @@ If you manage your service through the {{site.data.keyword.cloud_notm}} CLI and 
 ibmcloud cdb user-create example-deployment <newusername> <newpassword>
 ```
 
-The response contains the task `ID`, `Deployment ID`, `Description`, `Created At`, `Status`, and `Progress Percentage` fields.  The `Status` and `Progress Percentage` fields update when the task is complete.
-
 Once the task has finished, you can retrieve the new user's connection strings with the `ibmcloud cdb deployment-connections` command.
 ```
 ibmcloud cdb deployment-connections example-deployment -u <newusername> [--endpoint-type <endpoint type>]
