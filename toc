@@ -47,7 +47,7 @@ Databases For Elasticsearch
 	/cloud-databases/cloud-databases-versioning-policy
 	/cloud-databases/cloud-databases-iam
 	/cloud-databases/cloud-databases-service-endpoints
-	/cloud-databases/cloud-databases-activity-tracker.md
+	/cloud-databases/cloud-databases-activity-tracker
 	/cloud-databases/cloud-databases-logging
 	reference-monitoring.md
 	/cloud-databases/cloud-databases-key-protect
