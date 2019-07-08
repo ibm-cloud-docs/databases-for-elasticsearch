@@ -36,6 +36,9 @@ You cannot scale down storage. If your data set size has decreased, you can reco
 **RAM** - 
 If you find that your queries and database activity suffer from performance issues due to a lack of memory, you can scale the amount of RAM allocated to your service. Adding memory to the total allocation adds memory to the members equally.
 
+**Dedicated Cores** - 
+If you provisioned your deployment with dedicated cores, you can increase the CPU allocation to the deployment. This option is not available on deployments that were not provisioned with an initial CPU allocation. 
+
 ## Scaling in the UI
 
 Adjust the slider to increase or decrease the resources that are allocated to your service. The slider controls how much memory or disk is allocated per member. The UI currently uses a coarser-grained resolution of 8 GB increments for disk and 1 GB increments for memory. The UI shows the total allocated memory or disk for the position of the slider. Click **Scale** to trigger the scaling operations and return to the dashboard overview. 
