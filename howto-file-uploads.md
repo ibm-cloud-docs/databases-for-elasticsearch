@@ -17,8 +17,7 @@ subcollection: databases-for-elasticsearch
 # Uploading Files to Elasticsearch 
 {: #uploading-files}
 
-A few Elasticsearch features allow indexes to read from files on the file system, so {{site.data.keyword.databases-for-elasticsearch_full}} allows you to upload files to your deployment. The files are
-stored at a known location, and Elasticsearch is configured so that it is allowed to read files from the location.
+A few Elasticsearch features allow indexes to read from files on the file system, so {{site.data.keyword.databases-for-elasticsearch_full}} allows you to upload files to your deployment. The files are stored at a known location, and Elasticsearch is configured so that it is allowed to read files from the location.
 
 Files that are uploaded to your deployment use disk resources, both in the index and on the file system. Make sure that you [scale your deployment](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling) before uploading files.
 {: .tip} 
@@ -26,11 +25,11 @@ Files that are uploaded to your deployment use disk resources, both in the index
 ## Basic Process
 
 1. You base64 encode the file on client side.
-2. The base64 strings are stored as documents in an index with a common name in your Elasticsearch deployment.
+2. The base64 strings are stored as documents in an index named `ibm_file_sync` in your Elasticsearch deployment.
 3. You trigger a file sync from the {{site.data.keyword.databases-for}} API.
-4. All nodes in your Elasticsearch cluster download the file contents from the index, decode the base64, and restore the files on their disks.
-5. At regular intervals, and restarts, the files get resynced to assure they are present on all nodes.
-6. Files that are on disk but not in the index, get deleted. You can delete files from disk by removing
+4. All nodes in your Elasticsearch cluster download the file contents from the index, decode the base64, and restore the files on the deployment's disk in the `/data/ibm_file_sync/current` directory.
+5. At regular intervals, and on restarts, the files get resynced to assure they are present on all nodes.
+6. Files that are on disk but not in the index get deleted. You can delete files from disk by removing
 them from the index.  
 
 The index in Elasticsearch is `ibm_file_sync`.  
@@ -38,7 +37,7 @@ The location of the files on disk is `/data/ibm_file_sync/current`.
 
 ## Uploading the files to the Index
 
-The structure of the documents in the index is as follows. ``name`` is the filename of the file, `blob` is the base64-encoded file contents, and `md5` is an optional hash value over the file contents. The recommended mapping for the index is
+The structure of the documents in the index is as follows, `name` is the filename of the file, `blob` is the base64-encoded file contents, and `md5` is an optional hash value over the file contents. The recommended mapping for the index is
 ```text
 curl -X PUT "https://user:password@host:port/ibm_file_sync" -H 'Content-Type: application/json' -d'
 {
