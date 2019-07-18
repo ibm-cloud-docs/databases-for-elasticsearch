@@ -52,7 +52,7 @@ kubectl get secrets --namespace=default
 ```
 More information on binding services is found in the [Kubernetes Service documentation](/docs/containers?topic=containers-service-binding#bind-services).
 
-### Configuring your app 
+### Configuring in your Kubernetes app 
 
 When you bind your application to Kubernetes Service, it creates an environment variable from the cluster's secrets. Your deployment's connection information lives in `BINDING` as a JSON object. Load and parse the JSON object into your application to retrieve the information your application's driver needs to make a connection to the database. 
 
@@ -105,7 +105,7 @@ You can verify that the services are connected by navigating to the _Connections
 
 More information on the manifest file is available in the [Cloud Foundry documentation](/docs/cloud-foundry-public?topic=cloud-foundry-public-deployingapps#appmanifest).
 
-### Configuring your app
+### Configuring in your Cloud Foundry app
 
 When you push your application to Cloud Foundry, it generates environment variables for connected services. Your deployment's connection information lives in `VCAP_SERVICES` as a JSON object. Load and parse the JSON object into your application to retrieve the information your application's driver needs to make a connection to the database. 
 
