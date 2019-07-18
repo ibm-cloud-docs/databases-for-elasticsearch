@@ -1,8 +1,8 @@
 ---
 
 Copyright:
-  years: 2018
-lastupdated: "2018-10-05"
+  years: 2018, 2019
+lastupdated: "2019-07-16"
 
 subcollection: databases-for-elasticsearch
 
@@ -20,30 +20,56 @@ subcollection: databases-for-elasticsearch
 
 Applications running in {{site.data.keyword.cloud_notm}} can be bound to your {{site.data.keyword.databases-for-elasticsearch_full}} deployment. 
 
-{{site.data.keyword.cloud_notm}} uses a manifest file - `manifest.yml` to associate an application with a service. Follow these steps to create your manifest file.
-- In an editor, open a new file and add the text:
-  ```
-  ---
-  applications:
-  - name:    example-helloworld-nodejs
-    routes:
-    - route: example-helloworld-nodejs.us-south.cf.appdomain.cloud
-    memory:  128M
-    services:
-      - example-elasticsearch
-  ```
+## Connecting a Kubernetes Service application
 
-- Change the route value to something unique. The route that you choose determines the subdomain of your application's URL: `<route>.{region}.cf.appdomain.cloud`. Be sure the `{region}` matches where your application is deployed.
-- Change the name value. The value that you choose is the name of the app as it appears in your {{site.data.keyword.cloud_notm}} dashboard.
-- Update the services value to match the name or [Cloud Foundry alias](#create-alias) of your {{site.data.keyword.databases-for-elasticsearch}} service.
+There are two steps to connecting a Cloud databases deployment to a Kubernetes Service application. First, your deployment needs a to be bound to your cluster and its connection strings stored in a secret. The second step is configuring your application to use the connection strings.
 
-You can verify that the services are connected by navigating to the _Connections_ panel. If the deployment and the application are connected, the connection shows up in both services.
+The sample app in the [Connecting a Kubernetes Service Tutorial](/docs/services/databases-for-elasticsearch?topic=clooud-databases-tutorial-k8s-app) provides a sample application that uses Node.js and demonstrates how to bind the sample application to a {{site.data.keyword.databases-for}} deployment.
+{: .tip}
+
+Before connecting your Kubernetes Service application to a deployment, make sure that the deployment and cluster are both in the same region and resource group.
+
+### Binding your deployment
+
+If you are using the default public service endpoint to connect to your deployment, you can run the `cluster-service-bind` command with your cluster name, the resource group and your deployment name.
+```shell
+ibmcloud ks cluster-service-bind <your_cluster_name> <resource_group> <your_database_deployment>
+```
+
+If you want to use a private endpoint (if one is enabled on your deployment), then first you need to create a service key for your database so Kubernetes can use it when binding to the database. 
+```
+ibmcloud resource service-key-create <your-private-key> Administrator --instance-name <your_database_deployment> --service-endpoint private  
+```
+
+This key has the `Administrator` role on the database deployment, and the private service endpoint is selected with `--service-endpoint private`. After that, you bind the database to the Kubernetes cluster through the private endpoint with the `cluster-service-bind` command.
+```
+ibmcloud ks cluster-service-bind <your_cluster_name> <resource_group> <your_database_deployment> --key <your-private-key>
+```
+
+Verify that the Kubernetes secret was created in your cluster namespace. Running the following command, you get the API key for accessing the instance of your deployment that's provisioned in your account.
+```shell
+kubectl get secrets --namespace=default
+```
+More information on binding services is found in the [Kubernetes Service documentation](/docs/containers?topic=containers-service-binding#bind-services).
+
+### Configuring your app 
+
+When you bind your application to Kubernetes Service, it creates an environment variable from the cluster's secrets. Your deployment's connection information lives in `BINDING` as a JSON object. Load and parse the JSON object into your application to retrieve the information your application's driver needs to make a connection to the database. 
+
+The [Connection Strings](/docs/services/databases-for-elastcisearch?topic=databases-for-elasticsearch-connection-strings#connection-string-breakdown) page contains a reference of the JSON fields.
+
+More information on the environment variables is in the [Kubernetes Service docs](https://cloud.ibm.com/docs/containers?topic=containers-service-binding#reference_secret).
+
+## Connecting a Cloud Foundry application
+
+There are three steps to connecting a Cloud databases deployment to a Cloud Foundry application. First, your deployment needs a Cloud Foundry alias. The alias represents the database deployment as a Cloud Foundry service. The second step is creating a manifest file that Cloud Foundry used to associate the application with the deployment when you push the application into Cloud Foundry. The last step is configuring your application to use the connection strings generated by the binding.
 
 The sample app in the [Getting Started](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started) tutorial provides a sample Cloud Foundry application that uses Node.js and demonstrates how to bind the sample application to a {{site.data.keyword.databases-for-elasticsearch}} deployment.
+{: .tip}
 
-## Creating a Cloud Foundry alias
+### Creating a Cloud Foundry alias
 
-If your application is running on Cloud Foundry, you need to create an alias for your {{site.data.keyword.databases-for-elasticsearch}} service so that it is discoverable by the Cloud Foundry application. Log in to the {{site.data.keyword.cloud_notm}} CLI and use the command:
+Log in to the {{site.data.keyword.cloud_notm}} CLI and use the command:
 
 `ibmcloud resource service-alias-create alias-name --instance-name instance-name`
 
@@ -51,7 +77,38 @@ The alias name can be the same as the database service instance name. So, for a 
 
 `ibmcloud resource service-alias-create example-es --instance-name example-es`
 
+The alias appears in the list of _Cloud Foundry Apps_ in your _Resource List_. More information on aliases is available in the [Cloud Foundry documentation](/docs/cloud-foundry-public?topic=cloud-foundry-public-connect_app).
 
+### Creating the manifest 
 
+Cloud Foundry uses a manifest file - `manifest.yml` to associate an application with another {{site.data.keyword.cloud_notm}} service.
 
+To create the file, open a new file and add the text:
+  ```
+  ---
+  applications:
+  - name:    example-application
+    routes:
+    - route: example-application.us-south.cf.appdomain.cloud
+    memory:  128M
+    services:
+      - example-elasticsearch
+  ```
 
+- Change the route value to something unique. The route that you choose determines the subdomain of your application's URL: `<route>.{region}.cf.appdomain.cloud`. Be sure the `{region}` matches where your application is deployed.
+- Change the name value. The value that you choose is the name of the app as it appears in your {{site.data.keyword.cloud_notm}} dashboard.
+- Update the services value to match  Cloud Foundry alias of your {{site.data.keyword.databases-for-elasticsearch}} deployment.
+
+If you have an existing application that you are just adding a Cloud Databases deployment to, then you probably already have a `manifest.yml`. In that case, you just need to be sure to add the alias of your deployment under `services`.
+
+You can verify that the services are connected by navigating to the _Connections_ panel. If the deployment and the application are connected, the connection shows up in both services.
+
+More information on the manifest file is available in the [Cloud Foundry documentation](/docs/cloud-foundry-public?topic=cloud-foundry-public-deployingapps#appmanifest).
+
+### Configuring your app
+
+When you push your application to Cloud Foundry, it generates environment variables for connected services. Your deployment's connection information lives in `VCAP_SERVICES` as a JSON object. Load and parse the JSON object into your application to retrieve the information your application's driver needs to make a connection to the database. 
+
+The [Connection Strings](/docs/services/databases-for-elastcisearch?topic=databases-for-elasticsearch-connection-strings#connection-string-breakdown) page contains a reference of the JSON fields.
+
+More information on the environment variables is in the [Cloud Foundry docs](/docs/cloud-foundry-public?topic=cloud-foundry-public-deployingapps#app_env).
