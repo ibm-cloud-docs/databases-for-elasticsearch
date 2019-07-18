@@ -56,7 +56,7 @@ More information on binding services is found in the [Kubernetes Service documen
 
 When you bind your application to Kubernetes Service, it creates an environment variable from the cluster's secrets. Your deployment's connection information lives in `BINDING` as a JSON object. Load and parse the JSON object into your application to retrieve the information your application's driver needs to make a connection to the database. 
 
-The [Connection Strings](/docs/services/databases-for-elastcisearch?topic=databases-for-elasticsearch-connection-strings#connection-string-breakdown) page contains a reference of the JSON fields.
+The [Connection Strings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings#connection-string-breakdown) page contains a reference of the JSON fields.
 
 More information on the environment variables is in the [Kubernetes Service docs](https://cloud.ibm.com/docs/containers?topic=containers-service-binding#reference_secret).
 
@@ -109,6 +109,6 @@ More information on the manifest file is available in the [Cloud Foundry documen
 
 When you push your application to Cloud Foundry, it generates environment variables for connected services. Your deployment's connection information lives in `VCAP_SERVICES` as a JSON object. Load and parse the JSON object into your application to retrieve the information your application's driver needs to make a connection to the database. 
 
-The [Connection Strings](/docs/services/databases-for-elastcisearch?topic=databases-for-elasticsearch-connection-strings#connection-string-breakdown) page contains a reference of the JSON fields.
+The [Connection Strings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings#connection-string-breakdown) page contains a reference of the JSON fields.
 
 More information on the environment variables is in the [Cloud Foundry docs](/docs/cloud-foundry-public?topic=cloud-foundry-public-deployingapps#app_env).
