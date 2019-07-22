@@ -45,7 +45,7 @@ This key has the Administrator role on the database deployment, and the private 
 ibmcloud ks cluster-service-bind <your_cluster_name> <resource_group> <your_database_deployment> --key <your-private-key>
 ```
 
-Verify that the Kubernetes secret was created in your cluster namespace. Running the following command, you get the API key for accessing the instance of your deployment that's provisioned in your account.
+**Verify** - Verify that the Kubernetes secret was created in your cluster namespace. Running the following command, you get the API key for accessing the instance of your deployment that's provisioned in your account.
 ```shell
 kubectl get secrets --namespace=default
 ```
