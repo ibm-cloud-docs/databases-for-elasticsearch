@@ -4,6 +4,8 @@ Copyright:
   years: 2018
 lastupdated: "2018-11-21"
 
+keywords: elasticsearch, databases
+
 subcollection: databases-for-elasticsearch
 
 ---

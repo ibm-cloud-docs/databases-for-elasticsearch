@@ -4,6 +4,8 @@ Copyright:
   years: 2019
 lastupdated: "2019-05-03"
 
+keywords: elasticsearch, databases, scaling
+
 subcollection: databases-for-elasticsearch
 
 ---

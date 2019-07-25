@@ -3,6 +3,8 @@ copyright:
   years: 2019
 lastupdated: "2019-06-04"
 
+keyowrds: elasticsearch, databases, upgrading
+
 subcollection: databases-for-elasticsearch
 
 ---

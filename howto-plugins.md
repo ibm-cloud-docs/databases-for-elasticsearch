@@ -3,6 +3,8 @@ copyright:
   years: 2019
 lastupdated: "2019-03-04"
 
+keywords: elasticsearch, keywords
+
 subcollection: databases-for-elasticsearch
 
 ---

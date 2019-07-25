@@ -3,6 +3,8 @@ copyright:
   years: 2018,2019
 lastupdated: "2019-04-10"
 
+keywords: elasticsearch, databases, curl
+
 subcollection: databases-for-elasticsearch
 
 ---
