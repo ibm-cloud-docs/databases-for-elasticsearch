@@ -49,6 +49,6 @@ Databases For Elasticsearch
 	/cloud-databases/cloud-databases-service-endpoints
 	/cloud-databases/cloud-databases-activity-tracker
 	/cloud-databases/cloud-databases-logging
-	reference-monitoring.md
+	/cloud-databases/cloud-databases-monitoring
 	/cloud-databases/cloud-databases-key-protect
 	{: .navgroup-end}
