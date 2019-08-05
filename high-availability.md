@@ -37,7 +37,7 @@ Several minutes of database unavailability or connection interruption is not exp
 
 ## Resource Scaling
 
-{{site.data.keyword.databases-for-elasticsearch}} does not auto-scale. Deployment owners can [monitor](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-monitoring) the state of the deployment, estimate typical resource usage, and scale the deployment accordingly.
+{{site.data.keyword.databases-for-elasticsearch}} does not auto-scale. Deployment owners can [monitor](/docs/services/databases-for-elasticsearch?topic=cloud-databases-monitoring) the state of the deployment, estimate typical resource usage, and scale the deployment accordingly.
 
 If you are planning on running operations that might put a spike in the usual RAM usage, or any data operations that could overflow your allotted storage, you can scale your service's resources up to avoid hitting resource limits that can affect deployment operations.
 
