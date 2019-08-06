@@ -62,6 +62,7 @@ Specific guidance on connecting with Elasticsearch drivers is on the [Connecting
 {{site.data.keyword.databases-for-elasticsearch}} deployments offer other cloud services integrations. 
 - View events with [Activity Tracker](/docs/services/databases-for-elasticsearch?topic=cloud-databases-activity-tracker)
 - Monitor deployment resource use with the [Monitoring](/docs/services/databases-for-elasticsearch?topic=cloud-databases-monitoring) service.
+- View logs with the [{{site.data.keyword.la_full_notm}} integration](/docs/services/databases-for-elasticsearch?topic=cloud-databases-logging).
 - BYOK encryption is available if you use [Key Protect](/docs/services/databases-for-elasticsearch?topic=cloud-databases-key-protect)
 - [Service Endpoints Integration](/docs/services/databases-for-elasticsearch?topic=cloud-databases-service-endpoints) allows you to select public or private networking for your deployment at provision
 
