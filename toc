@@ -11,9 +11,10 @@ Databases For Elasticsearch
 	{: .topicgroup}
 	Service Overview
 		dashboard-overview.md
-		high-availability.md
-		security-compliance.md
-		pricing.md
+		learn-high-availability.md
+		learn-performance.md
+		learn-security-compliance.md
+		learn-pricing.md
 
 	/cloud-databases/cloud-databases-tutorial-k8s-app
 	{: .navgroup-end}

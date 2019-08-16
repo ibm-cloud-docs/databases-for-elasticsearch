@@ -32,11 +32,13 @@ Billing is based on the _total_ amount of resources that are allocated to the se
 **Disk Usage** - 
 Storage shows the amount of disk space that is allocated to your service. Each member gets an equal share of the allocated space. Your data is replicated across three data members in the Elasticsearch cluster, so the total amount of storage you use is approximately three times the size of your data set.
 
+Disk allocation also affects the performance of the disk, with larger disks having higher performance. Baseline Input-Output Operations per second (IOPS) performance for disk is 10 IOPS for each GB. Scale disk to increase the IOPS your deployment can handle.
+
 You cannot scale down storage. If your data set size has decreased, you can recover space by backing up and restoring to a new deployment.
 {: .tip} 
 
 **RAM** - 
-If you find that your queries and database activity suffer from performance issues due to a lack of memory, you can scale the amount of RAM allocated to your service. Adding memory to the total allocation adds memory to the members equally.
+If you find that your queries and database activity suffer from performance issues due to a lack of memory, you can scale the amount of RAM allocated to your service. Adding memory to the total allocation adds memory to the members equally. {{site.data.keyword.databases-for-elasticsearch}} deployments have their memory allocation policy set at 50% heap and 50% system memory, so increasing the amount of RAM increases both heap and system memory.
 
 **Dedicated Cores** - 
 If you provisioned your deployment with dedicated cores, you can increase the CPU allocation to the deployment. This option is not available on deployments that were not provisioned with an initial CPU allocation. 
