@@ -1,12 +1,12 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="databases-for-elasticsearch" audience="service" category="databases" arm="4182634" href="/docs/services/databases-for-elasticsearch/index.html" path="services/databases-for-elasticsearch"}
+{: .toc subcollection="databases-for-elasticsearch" audience="service" category="databases" arm="4182634" href="/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started" path="services/databases-for-elasticsearch"}
 Databases For Elasticsearch
 
 	{: .navgroup id="learn"}
-	index.md
 	getting-started.md
+	[What is Databases for Elasticsearch](https://www.ibm.com/cloud/databases-for-elasticsearch)
 
 	{: .topicgroup}
 	Service Overview
