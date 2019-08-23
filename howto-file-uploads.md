@@ -39,7 +39,7 @@ The location of the files on disk is `/data/ibm_file_sync/current`.
 
 ## Uploading the files to the Index
 
-The structure of the documents in the index is as follows, `name` is the filename of the file, `blob` is the base64-encoded file contents, and `md5` is an optional hash value over the file contents. The recommended mapping for the index is
+The structure of the documents in the index is as follows, `name` is the file name of the file, `blob` is the base64-encoded file contents, and `md5` is an optional hash value over the file contents. The recommended mapping for the index is
 ```text
 curl -X PUT "https://user:password@host:port/ibm_file_sync" -H 'Content-Type: application/json' -d'
 {
@@ -68,7 +68,7 @@ To use the index, encode the file contents as base64. To encode an example file 
 The download function compares the hash values on each sync run and if the values have not changed since the last sync, no new download is attempted.  If any document in the index has no md5 value, all downloads are attempted again.
 {: .tip}
 
-Next, upload the document to the index. Note that the filename is supplied in the URL as well.
+Next, upload the document to the index. Note that the file name is supplied in the URL as well.
 ``` 
 curl -X PUT "https://user:password@host:port/ibm_file_sync/_doc/README1.md" -H 'Content-Type: application/json' -d'
 {
@@ -83,7 +83,7 @@ You can verify the uploaded data.
 curl https://user:password@host:port/ibm_file_sync/_doc/README.md?pretty
 ```
 
-If everything went smoothly, the returned data looks like this (shortened) example. Note that the "md5" field can contain a filename alongside the hash.
+If everything went smoothly, the returned data looks like this (shortened) example. Note that the "md5" field can contain a file name alongside the hash.
 ``` 
 {
   "_index" : "ibm_file_sync",
@@ -110,14 +110,14 @@ https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/elasticsear
 
 The `region` is the region that your deployment is in, and the `id` (CRN) part of the URL needs to be url-encoded. More information is in the [API Reference](https://cloud.ibm.com/apidocs/cloud-databases-api).
 
-The call kicks off and returns a [task](https://cloud.ibm.com/apidocs/cloud-databases-api#get-currently-running-tasks-on-a-deployment) so you can monitor its progress. After the returned task finishes, the contents in the index are present on all the nodes in your cluster.
+The call starts and returns a [task](https://cloud.ibm.com/apidocs/cloud-databases-api#get-currently-running-tasks-on-a-deployment) so you can monitor its progress. After the returned task finishes, the contents in the index are present on all the nodes in your cluster.
 
 Any number of files can be uploaded and synced. The contents of the files are not validated. You should assure that they can be processed by Elasticsearch.
 {: .tip}
 
 ## Using the files
 
-Features of Elasticsearch makes use of files on the filesystem by accepting the path to the file when defining the index. An uploaded file `example.txt` is located at `/data/ibm_file_sync/current/example.txt`. These are a few of the features that can use files from the file system. This list contains examples, and is not exhaustive.
+Elasticsearch features that make use of files on the file system do so by accepting the path to the file when defining the index. An uploaded file `example.txt` is located at `/data/ibm_file_sync/current/example.txt`. These are a few of the features that can use files from the file system. This list contains examples, and is not exhaustive.
 - [Keep Words Token Filter](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-keep-words-tokenfilter.html)
 - [Mapping Char Filter](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-mapping-charfilter.html)
 - [Compound Word Token Filters](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-compound-word-tokenfilter.html)
