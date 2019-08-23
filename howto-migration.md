@@ -46,5 +46,5 @@ An example migration is performed and explored in detail in [Migrate your data f
 
 The example migrates a Compose Elasticsearch deployment that has 20 indices and a total size on disk of 35 GB to a {{site.data.keyword.databases-for-elasticsearch}} deployment. Data is still being written while the migration occurs, so the example uses multiple snapshots and restores.
 
-The example's shell script is available in the [{{site.data.keyword.cloud_notm}} Github repository](https://github.com/IBM-Cloud/clouddatabases-migration-examples/tree/master/elasticsearch). It is provided as a starting point for you to adapt for your use-case.
+The example's shell script is available in the [{{site.data.keyword.cloud_notm}} GitHub repository](https://github.com/IBM-Cloud/clouddatabases-migration-examples/tree/master/elasticsearch). It is provided as a starting point for you to adapt for your use-case.
 
