@@ -20,7 +20,7 @@ subcollection: databases-for-elasticsearch
 # Performance
 {: #performance}
 
-{{site.data.keyword.databases-for-elastcisearch_full}} deployments can be [scaled to your usage](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling), but they do not auto-scale. There are a few factors to consider if you are concerned about the performance of your deployment.
+{{site.data.keyword.databases-for-elasticsearch_full}} deployments can be [scaled to your usage](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling), but they do not auto-scale. There are a few factors to consider if you are concerned about the performance of your deployment.
 
 ## Memory Management
 
