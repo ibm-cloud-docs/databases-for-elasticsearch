@@ -31,7 +31,7 @@ If you want to perform the migration while data is still being written to your e
 
 - Your existing Elasticsearch has to have the [S3 repository plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-s3.html). If you are migrating from a Compose for Elasticsearch deployment, the plugin is already enabled.
 - An Elasticsearch that is version 5.x or 6.x. Migration is possible between major versions, but the versions have to have compatible indices. Indices that are made in Elasticsearch 2.x are not compatible with 6.x and will need reindexing in 5.x before migration.
-- A matching {{site.data.keyword.databases-for-elasticsearch}} deployment that has _at least_ as many resources allocated to it your existing Elasticsearch. Also, ensure that the same [plugins](/docs/services/databases-for-elasticsearch?topic=databases-for-elastcisearch-plugins) are available on {{site.data.keyword.databases-for-elasticsearch}} that you have on the existing Elasticsearch.
+- A matching {{site.data.keyword.databases-for-elasticsearch}} deployment that has _at least_ as many resources allocated to it your existing Elasticsearch. Also, ensure that the same [plugins](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-plugins) are available on {{site.data.keyword.databases-for-elasticsearch}} that you have on the existing Elasticsearch.
 - You need to have your own S3 or IBM Cloud Object Storage repository.
 
 ## Things to watch out for
@@ -41,7 +41,7 @@ If you want to perform the migration while data is still being written to your e
 
 ## Example Migration
 
-An example migration is performed and explored in detail in [Migrate your data from Compose to Databases for Elasticsearch](https://www.ibm.com/blogs/bluemix/2019/02/a-how-to-for-migrating-elasticsearch-to-ibm-cloud-databases-for-elasticsearch/). 
+An example migration is performed and explored in detail in [Migrate your data from Compose to Databases for Elasticsearch](https://www.ibm.com/cloud/blog/a-how-to-for-migrating-elasticsearch-to-ibm-cloud-databases-for-elasticsearch). 
 
 The example migrates a Compose Elasticsearch deployment that has 20 indices and a total size on disk of 35 GB to a {{site.data.keyword.databases-for-elasticsearch}} deployment. Data is still being written while the migration occurs, so the example uses multiple snapshots and restores.
 
