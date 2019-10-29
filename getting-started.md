@@ -18,7 +18,7 @@ subcollection: databases-for-elasticsearch
 # Getting Started Tutorial
 {: #getting-started}
 
-This tutorial uses a [sample app](https://github.com/IBM-Cloud/clouddatabases-elasticsearch-helloworld-nodejs) to demonstrate how to connect a Cloud Foundry application in {{site.data.keyword.cloud_notm}} to an {{site.data.keyword.databases-for-elasticsearch_full}} service. The application creates, reads from, and writes to a database that uses data that is supplied through the app's web interface.
+This tutorial uses a [sample app](https://github.com/IBM-Cloud/clouddatabases-helloworld-cloudfoundry-examples/tree/node/elasticsearch) to demonstrate how to connect a Cloud Foundry application in {{site.data.keyword.cloud_notm}} to an {{site.data.keyword.databases-for-elasticsearch_full}} service. The application creates, reads from, and writes to a database that uses data that is supplied through the app's web interface.
 {: shortdesc}
 
 If you have already created your deployment and just want to connect to your Elasticsearch databases, you can skip to [getting your connection strings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) and [connecting with cURL](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connecting-curl).
@@ -47,7 +47,7 @@ You can not connect an application to the service until provisioning has complet
 Clone the Hello World app to your local environment from your terminal by using the following command:
 
 ```
-git clone https://github.com/IBM-Cloud/clouddatabases-elasticsearch-helloworld-nodejs.git
+git clone -b node git@github.com:IBM-Cloud/clouddatabases-helloworld-cloudfoundry-examples.git
 ```
 
 ## Step 3. Install the app dependencies
@@ -55,10 +55,6 @@ git clone https://github.com/IBM-Cloud/clouddatabases-elasticsearch-helloworld-n
 Use npm to install dependencies.
 
 1. From your terminal, change the directory to where the sample app is located.
-  
-  ```
-  cd clouddatabases-elasticsearch-helloworld-nodejs
-  ```
 
 2. Install the dependencies listed in the `package.json` file.
   
@@ -179,7 +175,7 @@ The app is now running at http://localhost:8080. You can add words and definitio
 
 ## Next steps
 
-To understand more about how the [sample app](https://github.com/IBM-Cloud/clouddatabases-elasticsearch-helloworld-nodejs) works, you can read the application's readme file, or the code comments in `server.js`, which give some information about the app's functions.
+To understand more about how the [sample app](https://github.com/IBM-Cloud/clouddatabases-helloworld-cloudfoundry-examples/tree/node/elasticsearch) works, you can read the application's readme file, or the code comments in `server.js`, which give some information about the app's functions.
 
 To start exploring your {{site.data.keyword.databases-for-elasticsearch}} service, see the following topics about the service dashboard:
 
