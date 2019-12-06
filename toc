@@ -6,7 +6,7 @@ Databases For Elasticsearch
 
 	{: .navgroup id="learn"}
 	getting-started.md
-	[What is Databases for Elasticsearch](https://www.ibm.com/cloud/databases-for-elasticsearch)
+	[What is Databases for Elasticsearch?](https://www.ibm.com/cloud/databases-for-elasticsearch)
 	learn-dashboard-overview.md
 	learn-high-availability.md
 	learn-performance.md
