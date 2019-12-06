@@ -7,16 +7,11 @@ Databases For Elasticsearch
 	{: .navgroup id="learn"}
 	getting-started.md
 	[What is Databases for Elasticsearch](https://www.ibm.com/cloud/databases-for-elasticsearch)
-
-	{: .topicgroup}
-	Service Overview
-		dashboard-overview.md
-		learn-high-availability.md
-		learn-performance.md
-		learn-security-compliance.md
-		learn-pricing.md
-
-	/cloud-databases/cloud-databases-tutorial-k8s-app
+	learn-dashboard-overview.md
+	learn-high-availability.md
+	learn-performance.md
+	learn-security-compliance.md
+	learn-pricing.md
 	{: .navgroup-end}
 
 	{: .navgroup id="howto"}
@@ -40,6 +35,8 @@ Databases For Elasticsearch
 		howto-plugins.md
 		howto-file-uploads.md
 		howto-upgrading.md
+
+	/cloud-databases/cloud-databases-tutorial-k8s-app
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
