@@ -44,7 +44,7 @@ The structure of the documents in the index is as follows, `name` is the file na
 curl -X PUT "https://user:password@host:port/ibm_file_sync" -H 'Content-Type: application/json' -d'
 {
     "mappings": {
-        "_doc": {
+        "files": {
             "properties": {
                 "name": {
                     "type": "text"
@@ -70,7 +70,7 @@ The download function compares the hash values on each sync run and if the value
 
 Next, upload the document to the index. Note that the file name is supplied in the URL as well.
 ``` 
-curl -X PUT "https://user:password@host:port/ibm_file_sync/_doc/README1.md" -H 'Content-Type: application/json' -d'
+curl -X PUT "https://user:password@host:port/ibm_file_sync/files/README1.md" -H 'Content-Type: application/json' -d'
 {
     "name": "README1.md",
     "blob": '"\"$ENC\""',
@@ -80,14 +80,14 @@ curl -X PUT "https://user:password@host:port/ibm_file_sync/_doc/README1.md" -H '
 
 You can verify the uploaded data. 
 ```
-curl https://user:password@host:port/ibm_file_sync/_doc/README.md?pretty
+curl https://user:password@host:port/ibm_file_sync/files/README.md?pretty
 ```
 
 If everything went smoothly, the returned data looks like this (shortened) example. Note that the "md5" field can contain a file name alongside the hash.
 ``` 
 {
   "_index" : "ibm_file_sync",
-  "_type" : "_doc",
+  "_type" : "files",
   "_id" : "README1.md",
   "_version" : 1,
   "found" : true,
