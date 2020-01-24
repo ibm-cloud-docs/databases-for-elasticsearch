@@ -1,8 +1,8 @@
 ---
 
 Copyright:
-  years: 2019
-lastupdated: "2019-09-04"
+  years: 2019, 2020
+lastupdated: "2020-01-03"
 
 keywords: elasticsearch, databases, scaling
 
@@ -17,20 +17,20 @@ subcollection: databases-for-elasticsearch
 {:pre: .pre}
 {:tip: .tip}
 
-# Managing Resources and Scaling 
+# Adding Disk, Memory, and CPU 
 {: #resources-scaling}
 
 A visual representation of your data members and their resource allocation is available on the _Settings_ tab of your deployment's _Manage_ page. 
 
 ![The Scale Resources Panel in _Settings_](images/settings-scaling.png)
 
-{{site.data.keyword.databases-for-elasticsearch_full}} runs with three data members in a cluster, and resources are allocated to all three members equally. For example, the minimum storage of an Elasticsearch deployment is 15360 MB, which equates to an initial size of 5120 MB per member. The minimum RAM for an Elasticsearch deployment is 3072 MB, which equates to an initial allocation of 1028 MB per member.
+A default {{site.data.keyword.databases-for-elasticsearch_full}} deployment runs with three data members in a cluster, and resources are allocated to all three members equally. For example, the minimum storage of an Elasticsearch deployment is 15360 MB, which equates to an initial size of 5120 MB per member. The minimum RAM for an Elasticsearch deployment is 3072 MB, which equates to an initial allocation of 1028 MB per member.
 
 Billing is based on the _total_ amount of resources that are allocated to the service.
 {: .tip}
 
 **Disk Usage** - 
-Storage shows the amount of disk space that is allocated to your service. Each member gets an equal share of the allocated space. Your data is replicated across three data members in the Elasticsearch cluster, so the total amount of storage you use is approximately three times the size of your data set.
+Storage shows the amount of disk space that is allocated to your service. Each member gets an equal share of the allocated space. Your data is replicated across all the data members in the Elasticsearch cluster.
 
 Disk allocation also affects the performance of the disk, with larger disks having higher performance. Baseline Input-Output Operations per second (IOPS) performance for disk is 10 IOPS for each GB. Scale disk to increase the IOPS your deployment can handle.
 
@@ -93,14 +93,14 @@ The `cdb deployment-groups-set` command allows either the total RAM or total dis
 
 The _Foundation Endpoint_ that is shown on the _Overview_ panel of your service provides the base URL to access this deployment through the API. Use it with the `/groups` endpoint if you need to manage or automate scaling programmatically.
 
-To view the current and scalable resources on a deployment,
+To view the current and scalable resources on a deployment, use the [/deployments/{id}/groups](https://cloud.ibm.com/apidocs/cloud-databases-api#get-currently-available-scaling-groups-from-a-depl) endpoint.
 ```
 curl -X GET -H "Authorization: Bearer $APIKEY" `https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups'
 ```
 
-To scale the memory of a deployment to 2048 MB of RAM for each memory member (for a total memory of 6144 MB).
+To scale the memory of a deployment to 2048 MB of RAM for each member (there are 3 so a total memory of 6144 MB), use the use the [/deployments/{id}/groups/{group_id}](https://cloud.ibm.com/apidocs/cloud-databases-api#set-scaling-values-on-a-specified-group) API endpoint.
 ```
-curl -X PATCH `https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member' \
+curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member' \
 -H "Authorization: Bearer $APIKEY" \
 -H "Content-Type: application/json" \
 -d '{"memory": {
@@ -109,4 +109,3 @@ curl -X PATCH `https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{
     }'
 ```
 
-More information is in the [API Reference](https://{DomainName}/apidocs/cloud-databases-api#get-currently-available-scaling-groups-from-a-depl).

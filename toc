@@ -26,7 +26,11 @@ Databases For Elasticsearch
 		connecting-external.md
 		connecting-curl.md
 
-	howto-resources-scaling.md
+	{: .topicgroup}
+	Resources and Scaling
+		howto-resources-scaling.md
+		howto-horizontal-scaling.md
+
 	/cloud-databases/cloud-databases-dashboard-backups
 	/cloud-databases/cloud-databases-whitelisting
 
