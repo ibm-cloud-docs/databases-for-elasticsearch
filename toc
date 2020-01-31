@@ -29,6 +29,7 @@ Databases For Elasticsearch
 	{: .topicgroup}
 	Resources and Scaling
 		howto-resources-scaling.md
+		howto-autoscaling.md
 		howto-horizontal-scaling.md
 
 	/cloud-databases/cloud-databases-dashboard-backups
