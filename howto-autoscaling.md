@@ -68,12 +68,12 @@ To disable autoscaling, uncheck the boxes for the parameters that you no longer 
 
 ## Configuring Autoscaling in the API
 
-You can get the autoscaling parameters for your deployment through the API by sending a `GET` request to the [`/deployments/{id}/groups/{group_id}/autoscaling`]() endpoint. 
+You can get the autoscaling parameters for your deployment through the API by sending a `GET` request to the [`/deployments/{id}/groups/{group_id}/autoscaling`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-the-autoscaling-configuration-from-a-deploymen) endpoint. 
 ```
 curl -X GET -H "Authorization: Bearer $APIKEY" 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member/autoscaling'
 ```
 
-To enable and set the autoscaling parameters for your deployment through the API, send a `POST` request to the endpoint.
+To enable and set the autoscaling parameters for your deployment through the API, send a `POST` request to the endpoint. Enabling autoscaling works by setting your desired `scalers` (`io_utilization` or `capacity`) to `true`.
 ```
 curl -X PATCH https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member/autoscaling -H 'Authorization: Bearer <>' 
 -H 'Content-Type: application/json' 
