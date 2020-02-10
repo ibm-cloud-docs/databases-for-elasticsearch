@@ -1,9 +1,9 @@
 ---
 Copyright:
-  years: 2018, 2019
-lastupdated: "2019-02-13"
+  years: 2018, 2020
+lastupdated: "2020-02-06"
 
-keywords: elasticsearch, databases
+keywords: elasticsearch, databases, soc, hipaa, gdpr, terms
 
 subcollection: databases-for-elasticsearch
 
@@ -34,6 +34,12 @@ subcollection: databases-for-elasticsearch
 - {{site.data.keyword.databases-for-elasticsearch}} deployments are configured with replication. Deployments contain a cluster with three nodes where all three are data nodes and any node can be the master node. 
 - If you deploy to an {{site.data.keyword.cloud_notm}} Single-Zone Region (SZR), each database node resides on a different host in the datacenter. 
 - If you deploy to an {{site.data.keyword.cloud_notm}} Multi-Zone Region (MZR), the nodes are spread over the region's availability zone locations.
+
+## SOC 2 Type 2 Certification
+
+{{site.data.keyword.IBM_notm}} provides a Service Organization Controls (SOC) 2 Type 2 report for {{site.data.keyword.databases-for-elasticsearch}}. The reports evaluate IBM's operational controls according to the criteria set by the American Institute of Certified Public Accountants (AICPA) Trust Services Principles. The Trust Services Principles define adequate control systems and establish industry standards for service providers such as IBM Cloud to safeguard their customers' data and information.
+
+You can request an SOC 2 Type 2 report from the customer portal or contact your sales representative. Alternatively, you can open a support ticket with [IBM Cloud support](https://cloud.ibm.com/unifiedsupport/supportcenter){:new_window}
 
 ## General Data Protection Regulation (GDPR) 
 
