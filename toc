@@ -47,12 +47,12 @@ Databases For Elasticsearch
 	{: .navgroup id="reference"}
 	[Cloud Databases CLI plugin](/databases-cli-plugin/cloud-databases-cli-cdb-reference)
 	[Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api)
+	reference-monitoring.md
 	/cloud-databases/cloud-databases-versioning-policy
-	/cloud-databases/cloud-databases-responsibilities-cloud-databases
-	/cloud-databases/cloud-databases-iam
-	/cloud-databases/cloud-databases-service-endpoints
 	/cloud-databases/cloud-databases-activity-tracker
 	/cloud-databases/cloud-databases-logging
-	/cloud-databases/cloud-databases-monitoring
 	/cloud-databases/cloud-databases-key-protect
+	/cloud-databases/cloud-databases-iam
+	/cloud-databases/cloud-databases-service-endpoints
+	/cloud-databases/cloud-databases-responsibilities-cloud-databases
 	{: .navgroup-end}
