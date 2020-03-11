@@ -66,6 +66,18 @@ The Autoscaling panel is on the _Resources_ tab of your deployment's _Manage_ pa
 
 To disable autoscaling, uncheck the boxes for the parameters that you no longer want to use. If you uncheck all the boxes, autoscaling is disabled. Click **Save Changes** to save the configuration.
 
+## Configuring Autoscaling in the CLI
+
+You can get the autoscaling parameters for your deployment through the CLI using the [`cdb deployment-autoscaling`](/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference#-ibmcloud-cdb-deployment-autoscaling-) command.
+```
+ibmcloud cdb deployment-autoscaling <deployment name or CRN> member
+```
+
+To enable and set autoscaling parameters through the CLI, use a JSON object or file with the [`cdb deployment-autoscaling-set`](/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference#-ibmcloud-cdb-deployment-autoscaling-set-) command.
+```
+ibmcloud cdb deployment-autoscaling-set <deployment name or CRN> member '{"autoscaling": { "memory": {"scalers": {"io_utilization": {"enabled": true, "over_period": "5m","above_percent": 90}},"rate": {"increase_percent": 10.0, "period_seconds": 300,"limit_mb_per_member": 125952,"units": "mb"}}}}'
+```
+
 ## Configuring Autoscaling in the API
 
 You can get the autoscaling parameters for your deployment through the API by sending a `GET` request to the [`/deployments/{id}/groups/{group_id}/autoscaling`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-the-autoscaling-configuration-from-a-deploymen) endpoint. 
