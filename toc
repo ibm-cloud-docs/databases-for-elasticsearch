@@ -49,7 +49,6 @@ Databases For Elasticsearch
 	[Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api)
 	/cloud-databases/cloud-databases-versioning-policy
 	reference-monitoring.md
-	/cloud-databases/cloud-databases-monitoring
 	/cloud-databases/cloud-databases-activity-tracker
 	/cloud-databases/cloud-databases-logging
 	/cloud-databases/cloud-databases-key-protect
