@@ -29,10 +29,6 @@ To access Sysdig from your deployment, use the _Monitoring_ link from the right 
 
 To see your {{site.data.keyword.databases-for-elasticsearch_full}} dashboards in Sysdig, you have to [Enable Platform Metrics](/docs/Monitoring-with-Sysdig?topic=Sysdig-platform_metrics_enabling) in the same region as your deployment. If you have deployments in more than one region, you have to provision Sysdig and enable platform metics in each region.
 
-From the Sysdig _Dashboards_ sidebar, your {{site.data.keyword.databases-for-elasticsearch}} dashboards are under _IBM_. 
-
-![Cloud databases dashboard in Sysdig](images/monitoring-ibm-list.png)
-
 ## Available Metrics
 {: metrics-by-plan}
 
