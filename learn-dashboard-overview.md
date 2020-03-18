@@ -32,7 +32,7 @@ The type of database that is offered by the service, and the database version th
 
 ### ID
 
-The ID is a [CRN (Cloud Resource Name)](/docs/overview?topic=overview-crn) which uniquely identifies the database deployment. The CRN is used to refer to the database in the API and can be used with the CLI.
+The ID is a [CRN (Cloud Resource Name)](/docs/resources?topic=resources-crn) which uniquely identifies the database deployment. The CRN is used to refer to the database in the API and can be used with the CLI.
 
 ## Recent Tasks
 
@@ -42,7 +42,7 @@ Every time that you make administrative changes to your service (such as scaling
 
 The _Connections_ panel contains connection strings for your deployment. Each tab contains connection information tailored to the type of connection or the protocol that uses it. Basic information includes things like _hostname_ and _port_, as well as the TLS self-signed certificate and arguments that can be passed to the driver or binary that you are using to connect. 
 
-Reference tables for the different connection types are available on the [Getting Connection Strings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings#connection-string-reference) page.
+Reference tables for the different connection types are available on the [Getting Connection Strings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings#connection-string-breakdown) page.
 
 Connection strings reflect whether your deployment uses public endpoints, private endpoints or both. You can configure which endpoints are available on your deployment. For more information, see the [Service Endpoints Integration](/docs/services/databases-for-elasticsearch?topic=cloud-databases-service-endpoints) page.
 

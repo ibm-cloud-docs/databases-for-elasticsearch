@@ -36,8 +36,8 @@ If you want to perform the migration while data is still being written to your e
 
 ## Things to watch out for
 
-- Incremental restores can only work if the number of shards of each index on both deployments match. Don't try to reindex and change the number of shards of any indices once you've started taking snapshots.
-- If you have an index that is called `searchguard` in your existing Elasticsearch, you have to reindex it to a different name. `searchguard` is a reserved index name in {{site.data.keyword.databases-for-elasticsearch}}
+- Incremental restores only work if the number of shards of each index on both deployments match. Don't try to reindex and change the number of shards of any indices once you've started taking snapshots.
+- If you have an index that is called `searchguard` in your existing Elasticsearch, you have to reindex it to a different name. `searchguard` is a reserved index name in {{site.data.keyword.databases-for-elasticsearch}}.
 
 ## Example Migration
 

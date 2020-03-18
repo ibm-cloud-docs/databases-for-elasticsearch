@@ -26,24 +26,24 @@ Autoscaling is designed to respond to the short-to-medium term trends in resourc
 You can set your deployment to autoscale disk, RAM, or both. 
 
 General Autoscaling parameters
-- When to scale, based on usage over a period of time
-- by how much to scale, as a percentage of the resources per member
-- how often to scale, measured either in seconds, minutes, or hours
-- hard limit on scaling
+- When to scale, based on usage over a period of time.
+- By how much to scale, as a percentage of the resources per member.
+- How often to scale, measured either in seconds, minutes, or hours.
+- A hard limit on scaling, your deployment stops scaling at the limit.
 
 ![Example Autoscaling panel](images/autoscaling-panel.png)
 
 Memory - Memory autoscaling is based on Disk I/O utilization in order to provide more memory for disk caching as your read/write load increases. The benefit is that additional memory might alleviate pressure on disk I/O by supporting more caching. Autoscaling configurations based on memory usage are currently not available. 
 
-Disk - Disk autoscaling can scale when either disk usage reaches a certain threshold, Disk I/O utilization reach a certain threshold, or both. (If looking at the "or" in the UI, it operates as an `inclusive or`, `|`, `v`.) The amount of IOPS available to your deployment increases with disk size at a ratio of 10 IOPS for each GB.
+Disk - Disk autoscaling can scale when either disk usage reaches a certain threshold, Disk I/O utilization reach a certain threshold, or both. (The "or" in the UI operates as an `inclusive or`, `|`, `v`.) The amount of IOPS available to your deployment increases with disk size at a ratio of 10 IOPS for each GB.
 
-The resource numbers refer to each database node in a deployment. For example, there are three members in an Elasticsearch cluster and if the deployment is scaled with 10GB of disk and 1GB of RAM, that means each member gets 10GB of disk and 1GB of RAM. The total resources added to your deployment is 30GB of disk and 3GB of RAM.
+The resource numbers refer to each database node in a deployment. For example, there are three members in an Elasticsearch cluster and if the deployment is scaled with 10 GB of disk and 1 GB of RAM, that means each member gets 10 GB of disk and 1 GB of RAM. The total resources added to your deployment is 30 GB of disk and 3 GB of RAM.
 
 ## Scaling Considerations
 
-- Scaling your deployment up might cause your RabbitMQ to restart. If you scale RAM or CPU and your deployment needs to be moved to a host with more capacity, then RabbitMQ is restarted as part of the move.
+- Scaling your deployment up might cause your Elasticsearch to restart. If you scale RAM or CPU and your deployment needs to be moved to a host with more capacity, then Elasticsearch is restarted as part of the move.
 
-- Disk can not be scaled down.
+- Disk cannot be scaled down.
 
 - A few scaling operations can be more long running than others. Drastically increasing RAM or Disk can take longer than smaller increases to account for provisioning more underlying hardware resources.
 
@@ -54,7 +54,7 @@ The resource numbers refer to each database node in a deployment. For example, t
   - Maximum Disk = 4 TB per member
   - Maximum RAM = 112 GB per member
 
-- Autoscaling does not scale down deployments where disk or memory usage has shrunk. The RAM provisioned to your deployment remains for your future needs, or until you scale down your deployment manually. The disk provisioned to your deployment remains because disk can not be scaled down.
+- Autoscaling does not scale down deployments where disk or memory usage has shrunk. The RAM provisioned to your deployment remains for your future needs, or until you scale down your deployment manually. The disk provisioned to your deployment remains because disk cannot be scaled down.
 
 - If you just need to add resources to your deployment occasionally or rarely, you can [manually scale](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling) your deployment.
 
@@ -62,13 +62,13 @@ The resource numbers refer to each database node in a deployment. For example, t
 
 ## Configuring Autoscaling in the UI
 
-The Autoscaling panel is on the _Resources_ tab of your deployment's _Manage_ page. To enable scaling, fill in your desired parameters. Then, check the boxes to enable the parameters you are using. Be sure to click **Save Changes** for your configuration to be saved and your changes to take affect.
+The Autoscaling panel is on the _Resources_ tab of your deployment's _Manage_ page. To enable scaling, enter your parameters. Then, check the boxes to enable the parameters you are using. Be sure to click **Save Changes** for your configuration to be saved and your changes to take effect.
 
-To disable autoscaling, uncheck the boxes for the parameters that you no longer want to use. If you uncheck all the boxes, autoscaling is disabled. Click **Save Changes** to save the configuration.
+To disable autoscaling, clear the boxes for the parameters that you no longer want to use. If you clear all the boxes, autoscaling is disabled. Click **Save Changes** to save the configuration.
 
 ## Configuring Autoscaling in the CLI
 
-You can get the autoscaling parameters for your deployment through the CLI using the [`cdb deployment-autoscaling`](/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference#-ibmcloud-cdb-deployment-autoscaling-) command.
+You can get the autoscaling parameters for your deployment through the CLI by using the [`cdb deployment-autoscaling`](/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference#-ibmcloud-cdb-deployment-autoscaling-) command.
 ```
 ibmcloud cdb deployment-autoscaling <deployment name or CRN> member
 ```
@@ -85,7 +85,7 @@ You can get the autoscaling parameters for your deployment through the API by se
 curl -X GET -H "Authorization: Bearer $APIKEY" 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member/autoscaling'
 ```
 
-To enable and set the autoscaling parameters for your deployment through the API, send a `POST` request to the endpoint. Enabling autoscaling works by setting your desired `scalers` (`io_utilization` or `capacity`) to `true`.
+To enable and set the autoscaling parameters for your deployment through the API, send a `POST` request to the endpoint. Enabling autoscaling works by setting the `scalers` (`io_utilization` or `capacity`) to `true`.
 ```
 curl -X PATCH https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member/autoscaling -H 'Authorization: Bearer <>' 
 -H 'Content-Type: application/json' 
