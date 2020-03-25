@@ -26,7 +26,7 @@ To access Sysdig from your deployment, use the _Monitoring_ link from the right 
 
 ![The Monitoring link in a deployment](images/monitoring-ui-link.png)
 
-To access your deployment Sysdig dashboard from Sysdig, they are in the sidebar, under _IBM_.
+To access your deployment's Sysdig dashboard from Sysdig, it's in the sidebar, under _IBM_.
 
 ![Cloud databases dashboard in Sysdig](images/monitoring-ibm-list.png)
 
