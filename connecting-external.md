@@ -122,7 +122,7 @@ public class ESConnect {
 
 }
 ```
-{ .java}
+{: java}
 
 
 
