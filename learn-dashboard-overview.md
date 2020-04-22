@@ -36,7 +36,7 @@ The ID is a [CRN (Cloud Resource Name)](/docs/resources?topic=resources-crn) whi
 
 ## Recent Tasks
 
-Every time that you make administrative changes to your service (such as scaling, or taking a manual backup), a task starts up. The _Recent Tasks_ panel shows the task name and progress bar for any running tasks, and a list of the most recent completed tasks.
+Every time that you make administrative changes to your service (such as scaling, or taking a manual backup), a task starts up. The _Recent Tasks_ panel shows the task name and progress bar for any running tasks, and a list of the most recent completed tasks. Depending on how busy your deployment is, successful tasks can be shown for 24-48 hours. Unsuccessful tasks may show for 7-8 days. A historical record of tasks from any time period is available through the [Activity Tracker integration](/docs/databases-for-elasticsearch?topic=cloud-databases-activity-tracker).
 
 ## Connections
 
