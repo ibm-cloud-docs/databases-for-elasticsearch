@@ -2,9 +2,9 @@
 
 Copyright:
   years: 2018, 2020
-lastupdated: "2020-01-31"
+lastupdated: "2020-04-23"
 
-keywords: elasticsearch, databases
+keywords: deployment, crn, task, gui, api endpoint
 
 subcollection: databases-for-elasticsearch
 
@@ -36,7 +36,7 @@ The ID is a [CRN (Cloud Resource Name)](/docs/resources?topic=resources-crn) whi
 
 ## Recent Tasks
 
-Every time that you make administrative changes to your service (such as scaling, or taking a manual backup), a task starts up. The _Recent Tasks_ panel shows the task name and progress bar for any running tasks, and a list of the most recent completed tasks. Depending on how busy your deployment is, successful tasks can be shown for 24-48 hours. Unsuccessful tasks may show for 7-8 days. A historical record of tasks from any time period is available through the [Activity Tracker integration](/docs/databases-for-elasticsearch?topic=cloud-databases-activity-tracker).
+Every time that you make administrative changes to your service (such as scaling, or taking a manual backup), a task starts up. The _Recent Tasks_ panel shows the task name and progress bar for any running tasks, and a list of the most recent completed tasks. Depending on how busy your deployment is, successful tasks can be shown for 24-48 hours. Unsuccessful tasks can show for 7-8 days. Tasks can also be retrieved from the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api#get-currently-running-tasks-on-a-deployment) and [CLI plug-in](https://cloud.ibm.com/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference#deployment-tasks-list). A historical record of tasks from any time period is available through the [Activity Tracker integration](/docs/databases-for-elasticsearch?topic=cloud-databases-activity-tracker).
 
 ## Connections
 
