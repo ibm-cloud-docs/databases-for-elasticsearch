@@ -40,9 +40,9 @@ ibmcloud ks cluster-service-bind <your_cluster_name> <resource_group> <your_data
 OR  
 **Private Endpoints** - If you want to use a private endpoint (if one is enabled on your deployment), then first you need to create a service key for your database so Kubernetes can use it when binding to the database.
 ```
-ibmcloud resource service-key-create <your-private-key> Administrator --instance-name <your_database_deployment> --service-endpoint private
+ibmcloud resource service-key-create <your-private-key> --instance-name <your_database_deployment> --service-endpoint private
 ```
-This key has the Administrator role on the database deployment, and the private service endpoint is selected with `--service-endpoint private`. After that, you bind the database to the Kubernetes cluster through the private endpoint with the `cluster-service-bind` command. 
+The private service endpoint is selected with `--service-endpoint private`. After that, you bind the database to the Kubernetes cluster through the private endpoint with the `cluster-service-bind` command. 
 ```
 ibmcloud ks cluster-service-bind <your_cluster_name> <resource_group> <your_database_deployment> --key <your-private-key>
 ```
