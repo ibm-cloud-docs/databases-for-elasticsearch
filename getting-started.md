@@ -25,8 +25,8 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 ## Before you begin
 
 - You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){:new_window}.
-- And a {{site.data.keyword.databases-for-elasticsearch}} deployment. You can provision one from the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/services/databases-for-elasticsearch). Give your deployment a memorable name that appears in your account's Resource List.
-- [Set the Admin Password](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password) for your deployment.
+- And a {{site.data.keyword.databases-for-elasticsearch}} deployment. You can provision one from the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/databases-for-elasticsearch). Give your deployment a memorable name that appears in your account's Resource List.
+- [Set the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password) for your deployment.
 - Install [Docker](https://www.docker.com/) so that you can pull the Kibana container image to connect to Databases for Elasticsearch.
 
 ## Connection Info for your Deployment
@@ -116,11 +116,11 @@ If you are just using Elasticsearch for the first time, it is a good idea to tak
 Looking for more tools on managing your databases and data? You can connect to your deployment with [IBM Cloud CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-install-ibmcloud-cli) and the [Cloud Databases CLI plug-in](/docs/databases-cli-plugin?topic=cloud-databases-cli-cdb-reference). Or use the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api).
 
 If you are planning to use {{site.data.keyword.databases-for-elasticsearch}} for your applications, check out some of our other documentation pages.
-- [Connecting an external application](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-external-app)
-- [Connecting an IBM Cloud application](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-ibmcloud-app)
+- [Connecting an external application](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-external-app)
+- [Connecting an IBM Cloud application](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-ibmcloud-app)
 
 Also, to ensure the stability of your applications and your database, check out the pages on 
-- [High-Availability](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-high-availability)
-- [Performance](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-performance)
+- [High-Availability](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-high-availability)
+- [Performance](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-performance)
 
 

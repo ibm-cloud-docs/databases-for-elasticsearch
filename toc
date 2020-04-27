@@ -1,7 +1,7 @@
 {:navgroup: .navgroup}
 {:topicgroup: .topicgroup}
 
-{: .toc subcollection="databases-for-elasticsearch" audience="service" category="databases" href="/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started" console-page="/catalog/services/databases-for-elasticsearch" product-page="https://www.ibm.com/cloud/databases-for-elasticsearch" path="databases-for-elasticsearch"}
+{: .toc subcollection="databases-for-elasticsearch" audience="service" category="databases" href="/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started" console-page="/catalog/databases-for-elasticsearch" product-page="https://www.ibm.com/cloud/databases-for-elasticsearch" path="databases-for-elasticsearch"}
 Databases For Elasticsearch
 
 	{: .navgroup id="learn"}

@@ -21,7 +21,7 @@ subcollection: databases-for-elasticsearch
 This tutorial uses a [sample app](https://github.com/IBM-Cloud/clouddatabases-helloworld-cloudfoundry-examples/tree/node/elasticsearch) to demonstrate how to connect a Cloud Foundry application in {{site.data.keyword.cloud_notm}} to an {{site.data.keyword.databases-for-elasticsearch_full}} service. The application creates, reads from, and writes to a database that uses data that is supplied through the app's web interface.
 {: shortdesc}
 
-If you have already created your deployment and just want to connect to your Elasticsearch databases, you can skip to [getting your connection strings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) and [connecting with cURL](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connecting-curl).
+If you have already created your deployment and just want to connect to your Elasticsearch databases, you can skip to [getting your connection strings](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) and [connecting with cURL](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connecting-curl).
 {: .tip}
 
 ## Before you begin
@@ -33,7 +33,7 @@ You also need to install [Node.js](https://nodejs.org/) and [Git](https://git-sc
 ## Step 1. Create a {{site.data.keyword.databases-for-elasticsearch}} service instance
 {: #create-service}
 
-You can create a {{site.data.keyword.databases-for-elasticsearch}} service from the [{{site.data.keyword.databases-for-elasticsearch}} page](https://cloud.ibm.com/catalog/services/databases-for-elasticsearch/) in the {{site.data.keyword.cloud_notm}} catalog.
+You can create a {{site.data.keyword.databases-for-elasticsearch}} service from the [{{site.data.keyword.databases-for-elasticsearch}} page](https://cloud.ibm.com/catalog/databases-for-elasticsearch/) in the {{site.data.keyword.cloud_notm}} catalog.
 
 Choose a service name, region, organization and space to provision the service in, and for the **Select a database version** field, choose _Latest Preferred Version_. In this example, the service name is "example-elasticsearch".
 
@@ -179,9 +179,9 @@ To understand more about how the [sample app](https://github.com/IBM-Cloud/cloud
 
 To start exploring your {{site.data.keyword.databases-for-elasticsearch}} service, see the following topics about the service dashboard:
 
-- [Dashboard Overview](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview)
-- [Backups](/docs/services/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups)
-- [Creating Users and Getting Connection Strings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings)
+- [Dashboard Overview](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview)
+- [Backups](/docs/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups)
+- [Creating Users and Getting Connection Strings](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings)
 
 
 [ibm_cloud_signup_url]: https://ibm.biz/databases-for-elasticsearch-signup

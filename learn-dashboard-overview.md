@@ -42,13 +42,13 @@ Every time that you make administrative changes to your service (such as scaling
 
 The _Connections_ panel contains connection strings for your deployment. Each tab contains connection information tailored to the type of connection or the protocol that uses it. Basic information includes things like _hostname_ and _port_, as well as the TLS self-signed certificate and arguments that can be passed to the driver or binary that you are using to connect. 
 
-Reference tables for the different connection types are available on the [Getting Connection Strings](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings#connection-string-breakdown) page.
+Reference tables for the different connection types are available on the [Getting Connection Strings](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings#connection-string-breakdown) page.
 
-Connection strings reflect whether your deployment uses public endpoints, private endpoints or both. You can configure which endpoints are available on your deployment. For more information, see the [Service Endpoints Integration](/docs/services/databases-for-elasticsearch?topic=cloud-databases-service-endpoints) page.
+Connection strings reflect whether your deployment uses public endpoints, private endpoints or both. You can configure which endpoints are available on your deployment. For more information, see the [Service Endpoints Integration](/docs/databases-for-elasticsearch?topic=cloud-databases-service-endpoints) page.
 
 ## Security
 
-Encryption at rest is enabled for all {{site.data.keyword.databases-for-elasticsearch}} deployments. If you brought your own encryption key from [Key Protect](/docs/services/databases-for-elasticsearch?topic=cloud-databases-key-protect), the panel provides a link to your Key Protect instance and the _Encryption Key_ field has the name of the key.
+Encryption at rest is enabled for all {{site.data.keyword.databases-for-elasticsearch}} deployments. If you brought your own encryption key from [Key Protect](/docs/databases-for-elasticsearch?topic=cloud-databases-key-protect), the panel provides a link to your Key Protect instance and the _Encryption Key_ field has the name of the key.
 
 ## Instance Administration API
 
@@ -72,26 +72,26 @@ For more information about the {{site.data.keyword.databases-for}} API, see the 
 ## Resources
 
 The resources tab contains information and configuration options on the size and resource usage of your deployment. You can 
-- [Scale disk, memory, and CPU](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling)
-- [Configure Autoscaling](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-autoscaling)
+- [Scale disk, memory, and CPU](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling)
+- [Configure Autoscaling](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-autoscaling)
 
 ## Backups
 
-The _Backups_ tab is the UI for managing your deployments backups. All of the available backups are listed with their timestamps. Click on a backup to grab its ID or to restore it into a new deployment. More information is on the [Managing Backups](/docs/services/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups) page.
+The _Backups_ tab is the UI for managing your deployments backups. All of the available backups are listed with their timestamps. Click on a backup to grab its ID or to restore it into a new deployment. More information is on the [Managing Backups](/docs/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups) page.
 
 ## Settings
 
 The _Settings_ tab contains the UI for many of the tunable settings for your deployment. You can 
-- [change the admin password](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password)
-- [configure public and private endpoints](/docs/services/databases-for-elasticsearch?topic=cloud-databases-service-endpoints)
-- [implement or modify an IP whitelist](/docs/services/databases-for-elasticsearch?topic=cloud-databases-whitelisting)
+- [change the admin password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password)
+- [configure public and private endpoints](/docs/databases-for-elasticsearch?topic=cloud-databases-service-endpoints)
+- [implement or modify an IP whitelist](/docs/databases-for-elasticsearch?topic=cloud-databases-whitelisting)
 
 ## Observability
 
 The _Observability_ tab provides access to the IBM Cloud monitoring, logging, and event tracking integrations available for your deployment. 
-- [Activity Tracker](/docs/services/databases-for-elasticsearch?topic=cloud-databases-activity-tracker)
-- [Logging](/docs/services/databases-for-elasticsearch?topic=cloud-databases-logging)
-- [Monitoring](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-sysdig-monitoring)
+- [Activity Tracker](/docs/databases-for-elasticsearch?topic=cloud-databases-activity-tracker)
+- [Logging](/docs/databases-for-elasticsearch?topic=cloud-databases-logging)
+- [Monitoring](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-sysdig-monitoring)
 
 ## Docs
 

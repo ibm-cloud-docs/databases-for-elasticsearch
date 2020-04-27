@@ -21,7 +21,7 @@ subcollection: databases-for-elasticsearch
 
 A few Elasticsearch features allow indexes to read from files on the file system, so {{site.data.keyword.databases-for-elasticsearch_full}} allows you to upload files to your deployment. The files are stored at a known location, and Elasticsearch is configured so that it is allowed to read files from the location.
 
-Files that are uploaded to your deployment use disk resources, both in the index and on the file system. Make sure that you [scale your deployment](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling) before uploading files.
+Files that are uploaded to your deployment use disk resources, both in the index and on the file system. Make sure that you [scale your deployment](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling) before uploading files.
 {: .tip} 
 
 ## Basic Process
@@ -60,7 +60,7 @@ curl -X PUT "https://user:password@host:port/ibm_file_sync" -H 'Content-Type: ap
     }
 }'
 ```
-The URL is the `https` [connection string](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) from your deployment.
+The URL is the `https` [connection string](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) from your deployment.
 {: .tip}
 
 To use the index, encode the file contents as base64. To encode an example file `README.md` in bash, `ENC=$(base64 -w 0  README.md)`. Then, build a checksum over the content, `HASH=$(md5sum README.md)`.

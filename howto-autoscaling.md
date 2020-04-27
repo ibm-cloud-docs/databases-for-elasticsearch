@@ -21,7 +21,7 @@ subcollection: databases-for-elasticsearch
 # Autoscaling
 {: #autoscaling}
 
-Autoscaling is designed to respond to the short-to-medium term trends in resource usage on your {{site.data.keyword.databases-for-elasticsearch_full}} deployment. When enabled, your deployment is checked at the interval you specify. If it is running short on resources, more resources are added to the deployment. To keep an eye on your resources, use the [Monitoring integration](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-sysdig-monitoring), which provides metrics for memory, disk space, and disk I/O utilization.
+Autoscaling is designed to respond to the short-to-medium term trends in resource usage on your {{site.data.keyword.databases-for-elasticsearch_full}} deployment. When enabled, your deployment is checked at the interval you specify. If it is running short on resources, more resources are added to the deployment. To keep an eye on your resources, use the [Monitoring integration](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-sysdig-monitoring), which provides metrics for memory, disk space, and disk I/O utilization.
 
 You can set your deployment to autoscale disk, RAM, or both. 
 
@@ -47,7 +47,7 @@ The resource numbers refer to each database node in a deployment. For example, t
 
 - A few scaling operations can be more long running than others. Drastically increasing RAM or Disk can take longer than smaller increases to account for provisioning more underlying hardware resources.
 
-- Autoscaling operations are logged in [Activity Tracker](/docs/services/databases-for-elasticsearch?topic=cloud-databases-activity-tracker).
+- Autoscaling operations are logged in [Activity Tracker](/docs/databases-for-elasticsearch?topic=cloud-databases-activity-tracker).
 
 - Limits
   - can't set anything to scale in an interval less than 60 seconds.
@@ -56,9 +56,9 @@ The resource numbers refer to each database node in a deployment. For example, t
 
 - Autoscaling does not scale down deployments where disk or memory usage has shrunk. The RAM provisioned to your deployment remains for your future needs, or until you scale down your deployment manually. The disk provisioned to your deployment remains because disk cannot be scaled down.
 
-- If you just need to add resources to your deployment occasionally or rarely, you can [manually scale](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling) your deployment.
+- If you just need to add resources to your deployment occasionally or rarely, you can [manually scale](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling) your deployment.
 
-- Elasticsearch is designed to balance work load across a cluster and can benefit from being horizontally scaled. If you are concerned about performance, check out [Adding Elasticsearch Nodes](/docs/services/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling).
+- Elasticsearch is designed to balance work load across a cluster and can benefit from being horizontally scaled. If you are concerned about performance, check out [Adding Elasticsearch Nodes](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling).
 
 ## Configuring Autoscaling in the UI
 
