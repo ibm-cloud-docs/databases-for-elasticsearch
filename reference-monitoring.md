@@ -42,7 +42,7 @@ If you have deployments that are in a Single-zone Region (SZR) - `osl01`, `che01
 | Metric Name |
 |-----------|
 | [Cluster status](#ibm_databases_for_elasticsearch_cluster_status) | 
-| |[GC Percentage](#ibm_databases_for_elasticsearch_garbage_collection_percent_average_15m)|
+| [GC Percentage](#ibm_databases_for_elasticsearch_garbage_collection_percent_average_15m)|
 | [IO utilization as a percent -  5 minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_5m) |
 | [IO utilization as a percent - 15 minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_15m) | 
 | [IO utilization as a percent - 30 minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_30m) | 
