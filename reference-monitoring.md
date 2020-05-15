@@ -42,6 +42,7 @@ If you have deployments that are in a Single-zone Region (SZR) - `osl01`, `che01
 | Metric Name |
 |-----------|
 | [Cluster status](#ibm_databases_for_elasticsearch_cluster_status) | 
+| |[GC Percentage](#ibm_databases_for_elasticsearch_garbage_collection_percent_average_15m)|
 | [IO utilization as a percent -  5 minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_5m) |
 | [IO utilization as a percent - 15 minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_15m) | 
 | [IO utilization as a percent - 30 minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_30m) | 
@@ -69,6 +70,19 @@ A number derived from the status value of the `/_cluster/health` endpoint. Possi
 | `Segment By` | `Service instance` |
 {: caption="Table 2. Cluster status metric metadata" caption-side="top"}
 
+### GC Percentage
+{: #ibm_databases_for_elasticsearch_garbage_collection_percent_average_15m}
+
+Percentage of time the Elasticsearch JVM spends on garbage collection over 15 minutes.
+
+| Metadata | Description |
+|----------|-------------|
+| `Metric Name` | `ibm_databases_for_elasticsearch_garbage_collection_percent_average_15m`|
+| `Metric Type` | `gauge` |
+| `Value Type`  | `count` |
+| `Segment By` | `Service instance` |
+{: caption="Table 3. Cluster status metric metadata" caption-side="top"}
+
 ### IO utilization in percent 15 minute average
 {: #ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_15m}
 
@@ -80,7 +94,7 @@ How much disk I/O has been used over 15 minutes as a percentage of total disk I/
 | `Metric Type` | `gauge` |
 | `Value Type`  | `percent` |
 | `Segment By` | `Service instance` |
-{: caption="Table 3. IO utilization in percent 15 minute average metric metadata" caption-side="top"}
+{: caption="Table 4. IO utilization in percent 15 minute average metric metadata" caption-side="top"}
 
 ### IO utilization in percent 30 minute average
 {: #ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_30m}
@@ -93,7 +107,7 @@ How much disk I/O has been used over 30 minutes as a percentage of total disk I/
 | `Metric Type` | `gauge` |
 | `Value Type`  | `percent` |
 | `Segment By` | `Service instance` |
-{: caption="Table 4. IO utilization in percent 30 minute average metric metadata" caption-side="top"}
+{: caption="Table 5. IO utilization in percent 30 minute average metric metadata" caption-side="top"}
 
 ### IO utilization in percent 5 minute average
 {: #ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_5m}
@@ -106,7 +120,7 @@ How much disk I/O has been used over 5 minutes as a percentage of total disk I/O
 | `Metric Type` | `gauge` |
 | `Value Type`  | `percent` |
 | `Segment By` | `Service instance` |
-{: caption="Table 5. IO utilization in percent 5 minute average metric metadata" caption-side="top"}
+{: caption="Table 6. IO utilization in percent 5 minute average metric metadata" caption-side="top"}
 
 ### IO utilization in percent 60 minute average
 {: #ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_60m}
@@ -119,7 +133,7 @@ How much disk I/O has been used over 60 minutes as a percentage of total disk I/
 | `Metric Type` | `gauge` |
 | `Value Type`  | `percent` |
 | `Segment By` | `Service instance` |
-{: caption="Table 6. IO utilization in percent 60 minute average metric metadata" caption-side="top"}
+{: caption="Table 7. IO utilization in percent 60 minute average metric metadata" caption-side="top"}
 
 ### IOPS read & write total count for an instance
 {: #ibm_databases_for_elasticsearch_disk_iops_read_write_total}
@@ -132,7 +146,7 @@ How many input/output operations per second your deployment is performing.
 | `Metric Type` | `gauge` |
 | `Value Type`  | `count` |
 | `Segment By` | `Service instance` |
-{: caption="Table 7. IOPS read & write total count for an instance metric metadata" caption-side="top"}
+{: caption="Table 8. IOPS read & write total count for an instance metric metadata" caption-side="top"}
 
 ### Max allowed memory for an instance
 {: #ibm_databases_for_elasticsearch_memory_limit_bytes}
@@ -145,7 +159,7 @@ The maximum amount of memory available to your deployment.
 | `Metric Type` | `gauge` |
 | `Value Type`  | `byte` |
 | `Segment By` | `Service instance` |
-{: caption="Table 8. Max allowed memory for an instance metric metadata" caption-side="top"}
+{: caption="Table 9. Max allowed memory for an instance metric metadata" caption-side="top"}
 
 ### Number of unassigned shards
 {: #ibm_databases_for_elasticsearch_unassigned_shards_total}
@@ -158,7 +172,7 @@ The number of unassigned shards.
 | `Metric Type` | `gauge` |
 | `Value Type`  | `count` |
 | `Segment By` | `Service instance` |
-{: caption="Table 9. Number of unassigned shards metric metadata" caption-side="top"}
+{: caption="Table 10. Number of unassigned shards metric metadata" caption-side="top"}
 
 ### Total disk space for an instance
 {: #ibm_databases_for_elasticsearch_disk_total_bytes}
@@ -171,7 +185,7 @@ The total amount of disk available to your deployment.
 | `Metric Type` | `gauge` |
 | `Value Type`  | `byte` |
 | `Segment By` | `Service instance` |
-{: caption="Table 10. Total disk space for an instance metric metadata" caption-side="top"}
+{: caption="Table 11. Total disk space for an instance metric metadata" caption-side="top"}
 
 ### Used CPU for an instance
 {: #ibm_databases_for_elasticsearch_cpu_used_percent}
@@ -184,7 +198,7 @@ How much CPU is used as a percentage of total CPU available. Only for deployment
 | `Metric Type` | `gauge` |
 | `Value Type`  | `percent` |
 | `Segment By` | `Service instance` |
-{: caption="Table 11. Used CPU for an instance metric metadata" caption-side="top"}
+{: caption="Table 12. Used CPU for an instance metric metadata" caption-side="top"}
 
 ### Used JVM heap for a database member of the instance in percent
 {: #ibm_databases_for_elasticsearch_jvm_heap_percent}
@@ -197,7 +211,7 @@ How much JVM heap is used as a percentage of total JVM heap is available.
 | `Metric Type` | `gauge` |
 | `Value Type`  | `percent` |
 | `Segment By` | `Service instance` |
-{: caption="Table 12. Used JVM heap for a database member of the instance in percent metric metadata" caption-side="top"}
+{: caption="Table 13. Used JVM heap for a database member of the instance in percent metric metadata" caption-side="top"}
 
 ### Used disk space for an instance
 {: #ibm_databases_for_elasticsearch_disk_used_bytes}
@@ -210,7 +224,7 @@ How much disk your deployment is using.
 | `Metric Type` | `gauge` |
 | `Value Type`  | `byte` |
 | `Segment By` | `Service instance` |
-{: caption="Table 13. Used disk space for an instance metric metadata" caption-side="top"}
+{: caption="Table 14. Used disk space for an instance metric metadata" caption-side="top"}
 
 ### Used memory for an instance
 {: #ibm_databases_for_elasticsearch_memory_used_bytes}
@@ -223,7 +237,7 @@ How much memory your deployment is using.
 | `Metric Type` | `gauge` |
 | `Value Type`  | `byte` |
 | `Segment By` | `Service instance` |
-{: caption="Table 14. Used memory for an instance metric metadata" caption-side="top"}
+{: caption="Table 15. Used memory for an instance metric metadata" caption-side="top"}
 
 ## Attributes for Segmentation
 {: attributes}
@@ -242,7 +256,7 @@ The following attributes are available for segmenting all of the metrics.
 | `Resource group` | `ibm_resource_group_name` | The resource group where the service instance was created. |
 | `Scope` | `ibm_scope` | The scope is the account, organization, or space GUID associated with this metric. |
 | `Service name` | `ibm_service_name` | Name of the service generating this metric. |
-{: caption="Table 15. Global Attributes" caption-side="top"}
+{: caption="Table 16. Global Attributes" caption-side="top"}
 
 ### Additional Attributes
 {: additional-attributes}
@@ -252,5 +266,5 @@ The following attributes are available for segmenting one or more attributes as 
 | Attribute | Attribute Name | Attribute Description |
 |-----------|----------------|-----------------------|
 | `Service instance` | `ibm_service_instance` | The service instance segment that identifies the instance the metric is associated with. |
-{: caption="Table 16. Additional Attributes" caption-side="top"}
+{: caption="Table 17. Additional Attributes" caption-side="top"}
 
