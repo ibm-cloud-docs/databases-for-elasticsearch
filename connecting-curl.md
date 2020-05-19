@@ -22,7 +22,7 @@ subcollection: databases-for-elasticsearch
 
 You can access your Elasticsearch database directly from a command-line terminal through cURL. Elasticsearch has a wide-variety of REST APIs that allow for [cluster monitoring](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster.html), [index management](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices.html) and [searching](https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html) within the database. 
 
-Connection strings are displayed in the _Connections_ panel of your deployment's _Overview_, and can also be retrieved from the [cloud databases CLI plugin](/docs/databases-cli-plugin?topic=databases-cli-cdb-reference#deployment-connections), and the [API](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026).
+Connection strings are displayed in the _Connections_ panel of your deployment's _Overview_, and can also be retrieved from the [cloud databases CLI plugin](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections), and the [API](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026).
 
 The information that you need to make a connection with cURL to your deployment is in the "cli" section of your connection strings. The table contains a breakdown for reference.
 

@@ -28,7 +28,7 @@ A {{site.data.keyword.databases-for-mongodb}} deployment is provisioned with an 
 {: .tip}
 
 **CLI**  
-You can also grab connection strings from the [CLI](/docs/databases-cli-plugin?topic=databases-cli-cdb-reference#deployment-connections).
+You can also grab connection strings from the [CLI](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections).
 ```
 ibmcloud cdb deployment-connections example-deployment -u <newusername> [--endpoint-type <endpoint type>]
 ```
