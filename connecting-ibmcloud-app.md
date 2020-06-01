@@ -33,18 +33,18 @@ Before connecting your Kubernetes Service application to a deployment, make sure
 
 ### Binding your deployment
 
-**Public Endpoints** - If you are using the default public service endpoint to connect to your deployment, you can run the `cluster-service-bind` command with your cluster name, the resource group and your deployment name.
+**Public Endpoints** - If you are using the default public service endpoint to connect to your deployment, you can run the `cluster service bind` command with your cluster name, the resource group and your deployment name.
 ```
-ibmcloud ks cluster-service-bind <your_cluster_name> <resource_group> <your_database_deployment>
+ibmcloud ks cluster service bind <your_cluster_name> <resource_group> <your_database_deployment>
 ```
 OR  
 **Private Endpoints** - If you want to use a private endpoint (if one is enabled on your deployment), then first you need to create a service key for your database so Kubernetes can use it when binding to the database.
 ```
 ibmcloud resource service-key-create <your-private-key> --instance-name <your_database_deployment> --service-endpoint private
 ```
-The private service endpoint is selected with `--service-endpoint private`. After that, you bind the database to the Kubernetes cluster through the private endpoint with the `cluster-service-bind` command. 
+The private service endpoint is selected with `--service-endpoint private`. After that, you bind the database to the Kubernetes cluster through the private endpoint with the `cluster service bind` command. 
 ```
-ibmcloud ks cluster-service-bind <your_cluster_name> <resource_group> <your_database_deployment> --key <your-private-key>
+ibmcloud ks cluster service bind <your_cluster_name> <resource_group> <your_database_deployment> --key <your-private-key>
 ```
 
 **Verify** - Verify that the Kubernetes secret was created in your cluster namespace. Running the following command, you get the API key for accessing the instance of your deployment that's provisioned in your account.
