@@ -41,8 +41,10 @@ Databases For Elasticsearch
 		howto-file-uploads.md
 		howto-upgrading.md
 
-	/cloud-databases/cloud-databases-tutorial-k8s-app
-	/cloud-databases/cloud-databases-tutorial-cf-app
+	{: .topicgroup}
+	Tutorials
+		/cloud-databases/cloud-databases-tutorial-k8s-app
+		/cloud-databases/cloud-databases-tutorial-cf-app
 	{: .navgroup-end}
 
 	{: .navgroup id="reference"}
