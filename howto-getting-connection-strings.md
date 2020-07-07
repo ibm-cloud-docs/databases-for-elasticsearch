@@ -24,7 +24,7 @@ In order to connect to {{site.data.keyword.databases-for-elasticsearch_full}}, y
 
 ![Connections panel on the Dashboard Overview](images/connections_panel.png)
 
-A {{site.data.keyword.databases-for-mongodb}} deployment is provisioned with an admin user, and after you [set the admin password](/docs/databases-for-mongodb?topic=databases-for-mongodb-admin-password), you can use its credentials to connect to your deployment.
+A {{site.data.keyword.databases-for-elasticsearch}} deployment is provisioned with an admin user, and after you [set the admin password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password), you can use its credentials to connect to your deployment.
 {: .tip}
 
 **CLI**  
