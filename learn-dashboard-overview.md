@@ -84,7 +84,7 @@ The _Backups_ tab is the UI for managing your deployments backups. All of the av
 The _Settings_ tab contains the UI for many of the tunable settings for your deployment. You can 
 - [change the admin password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password)
 - [configure public and private endpoints](/docs/databases-for-elasticsearch?topic=cloud-databases-service-endpoints)
-- [implement or modify an IP whitelist](/docs/databases-for-elasticsearch?topic=cloud-databases-whitelisting)
+- [implement or modify an IP allowlist](/docs/databases-for-elasticsearch?topic=cloud-databases-allowlisting)
 
 ## Observability
 

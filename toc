@@ -33,7 +33,7 @@ Databases For Elasticsearch
 		howto-horizontal-scaling.md
 
 	/cloud-databases/cloud-databases-dashboard-backups
-	/cloud-databases/cloud-databases-whitelisting
+	/cloud-databases/cloud-databases-allowlisting
 
 	{: .topicgroup}
 	Configuring Elasticsearch
