@@ -39,7 +39,7 @@ Disk - Disk autoscaling can scale when either disk usage reaches a certain thres
 
 The resource numbers refer to each database node in a deployment. For example, there are three members in an Elasticsearch cluster and if the deployment is scaled with 10 GB of disk and 1 GB of RAM, that means each member gets 10 GB of disk and 1 GB of RAM. The total resources added to your deployment is 30 GB of disk and 3 GB of RAM.
 
-## Scaling Considerations
+## AutoScaling Considerations
 
 - Scaling your deployment up might cause your Elasticsearch to restart. If you scale RAM or CPU and your deployment needs to be moved to a host with more capacity, then Elasticsearch is restarted as part of the move.
 
