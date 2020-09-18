@@ -64,7 +64,7 @@ Use npm to install dependencies.
 
 ## Step 4. Download and install the {{site.data.keyword.cloud_notm}} CLI tool
 
-The {{site.data.keyword.cloud_notm}} CLI tool is what you use to communicate with {{site.data.keyword.cloud_notm}} from your terminal or command line. For more information, see [Download and install {{site.data.keyword.cloud_notm}} CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-install-ibmcloud-cli).
+The {{site.data.keyword.cloud_notm}} CLI tool is what you use to communicate with {{site.data.keyword.cloud_notm}} from your terminal or command line. For more information, see [Download and install {{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-install-ibmcloud-cli).
 
 ## Step 5. Connect to {{site.data.keyword.cloud_notm}}
 
@@ -74,7 +74,7 @@ The {{site.data.keyword.cloud_notm}} CLI tool is what you use to communicate wit
   ibmcloud login
   ```
 
-  If you have a federated user ID, use the `ibmcloud login --sso` command to log in with your single sign-on ID. See [Logging in with a federated ID](/docs/iam?topic=iam-federated_id) to learn more.
+  If you have a federated user ID, use the `ibmcloud login --sso` command to log in with your single sign-on ID. See [Logging in with a federated ID](/docs/account?topic=account-federated_id) to learn more.
   {: .tip}
 
 2. Make sure that you are targeting the correct {{site.data.keyword.cloud_notm}} org and space.
@@ -171,7 +171,7 @@ Now start the local server.
 npm start
 ```
 
-The app is now running at http://localhost:8080. You can add words and definitions to your {{site.data.keyword.databases-for-elasticsearch}} database. When you stop and restart the app, any words you added are displayed when you refresh the page.
+The app is now running at `http://localhost:8080`. You can add words and definitions to your {{site.data.keyword.databases-for-elasticsearch}} database. When you stop and restart the app, any words you added are displayed when you refresh the page.
 
 ## Next steps
 

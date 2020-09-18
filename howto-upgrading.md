@@ -56,7 +56,7 @@ ibmcloud resource service-instance-create example-es-upgrade databases-for-elast
 Similar to provisioning through the API, you need to complete [the necessary steps to use the resource controller API](/docs/databases-for-elasticsearch?topic=cloud-databases-provisioning#provisioning-through-the-resource-controller-api) before you can use it to upgrade from a backup. Then, send the API a POST request. The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required. You also supply the version and backup ID. The new deployment has the same memory and disk allocation as the source deployment at the time of the backup.
 ```
 curl -X POST \
-  https://resource-controller.bluemix.net/v2/resource_instances \
+  https://resource-controller.cloud.ibm/v2/resource_instances \
   -H 'Authorization: Bearer <>' \
   -H 'Content-Type: application/json' \
     -d '{

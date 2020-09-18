@@ -113,7 +113,7 @@ From here, you can start using Kibana with {{site.data.keyword.databases-for-ela
 
 If you are just using Elasticsearch for the first time, it is a good idea to take a tour through the [official Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html). 
 
-Looking for more tools on managing your databases and data? You can connect to your deployment with [IBM Cloud CLI](/docs/cli/reference/ibmcloud?topic=cloud-cli-install-ibmcloud-cli) and the [Cloud Databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference). Or use the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api).
+Looking for more tools on managing your databases and data? You can connect to your deployment with [IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli) and the [Cloud Databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference). Or use the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api).
 
 If you are planning to use {{site.data.keyword.databases-for-elasticsearch}} for your applications, check out some of our other documentation pages.
 - [Connecting an external application](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-external-app)
