@@ -2,9 +2,9 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-01-22"
+lastupdated: "2020-09-25"
 
-keywords: elasticsearch, databases
+keywords: elasticsearch, databases, ha
 
 subcollection: databases-for-elasticsearch
 
@@ -19,7 +19,7 @@ subcollection: databases-for-elasticsearch
 # High-Availability
 {: #high-availability}
 
-{{site.data.keyword.databases-for-elasticsearch_full}} is a managed cloud database service that is fully integrated into the {{site.data.keyword.cloud_notm}} ecosystem. The database, storage, and supporting infrastructure all run in {{site.data.keyword.cloud_notm}}.
+{{site.data.keyword.databases-for-elasticsearch_full}} is a managed cloud database service that is fully integrated into the {{site.data.keyword.cloud_notm}} environment. The database, storage, and supporting infrastructure all run in {{site.data.keyword.cloud_notm}}.
 
 {{site.data.keyword.databases-for-elasticsearch}} provides replication, fail-over, and high-availability features to protect your databases and data from infrastructure maintenance, upgrades, and failures. Deployments contain a cluster with three nodes where all three are data nodes and any node can be the primary node. Elasticsearch clusters work on a quorum system, if one data member becomes unreachable, your cluster continues to operate normally. If more nodes go down and the cluster can't maintain a quorum, it becomes read-only to protect your data. The cluster resumes normal operations when the nodes are recovered or new nodes are added.
 
@@ -37,8 +37,8 @@ Your applications have to be designed to handle temporary interruptions to the d
 
 Several minutes of database unavailability or connection interruption is not expected. Open a [support ticket](https://cloud.ibm.com/unifiedsupport/cases/add) with details if you have time periods longer than a minute with no connectivity so we can investigate.
 
-## SLA
+## High availability, disaster recovery, and SLA resources
 
-{{site.data.keyword.databases-for-elasticsearch}} conforms to the {{site.data.keyword.cloud_notm}} [SLA terms](/docs/overview?topic=overview-slas).
+{{site.data.keyword.databases-for-elasticsearch}} deployments conform to the {{site.data.keyword.cloud_notm}} Databases [HA, DR, and SLA](/cloud-databases/cloud-databases-ha-dr) information and terms.
 
 

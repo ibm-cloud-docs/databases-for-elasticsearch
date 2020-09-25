@@ -20,6 +20,7 @@ Databases For Elasticsearch
 	howto-admin-password.md
 	howto-getting-connection-strings.md
 	/cloud-databases/cloud-databases-deprovisioning
+	/cloud-databases/cloud-databases-ha-dr
 
 	{: .topicgroup}
 	Connecting to Databases for Elasticsearch
