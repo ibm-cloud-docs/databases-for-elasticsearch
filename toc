@@ -12,6 +12,7 @@ Databases For Elasticsearch
 	learn-performance.md
 	learn-security-compliance.md
 	learn-pricing.md
+	/cloud-databases/cloud-databases-best-practices
 	{: .navgroup-end}
 
 	{: .navgroup id="howto"}
