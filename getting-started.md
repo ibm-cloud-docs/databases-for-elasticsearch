@@ -38,8 +38,8 @@ On your deployment's _Manage_ page, there is a panel with all the relevant conne
 In order to connect, Kibana needs the username, password, url and port.
 
 It also needs the CA certificate to access the database. 
-    1. Copy the certificate information from the _Connections_ panel.
-    2. Save the certificate to a file. (You can use the Name that is provided or your own file name).
+  1. Copy the certificate information from the _Connections_ panel.
+  2. Save the certificate to a file. (You can use the name that is provided in the download, or your own file name.)
 
 Remember where you save the certificate on your filesystem. If you are running Kibana locally (not in Docker), then the certificate should go into `$KIBANA_HOME/config/<filename>`.
 
