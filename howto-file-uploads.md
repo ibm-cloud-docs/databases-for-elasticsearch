@@ -1,10 +1,10 @@
 ---
 
 Copyright:
-  years: 2019
-lastupdated: "2019-05-08"
+  years: 2019, 2020
+lastupdated: "2020-11-20"
 
-keywords: elasticsearch, keywords
+keywords: elasticsearch, filter, index, indices
 
 subcollection: databases-for-elasticsearch
 
@@ -37,9 +37,13 @@ them from the index.
 The index in Elasticsearch is `ibm_file_sync`.  
 The location of the files on disk is `/data/ibm_file_sync/current`.
 
+In Elasticsearch 7 the API removes doc types. Refer to the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html) for more details. This is especially good to keep in mind when updating from prior versions.
+{: .note}
 ## Uploading the files to the Index
 
-The structure of the documents in the index is as follows, `name` is the file name of the file, `blob` is the base64-encoded file contents, and `md5` is an optional hash value over the file contents. The recommended mapping for the index is
+The structure of the documents in the index is as follows, `name` is the file name of the file, `blob` is the base64-encoded file contents, and `md5` is an optional hash value over the file contents. The recommended mapping for the index are split out based on version.
+
+For Elasticsearch 6:
 ```text
 curl -X PUT "https://user:password@host:port/ibm_file_sync" -H 'Content-Type: application/json' -d'
 {
@@ -60,6 +64,29 @@ curl -X PUT "https://user:password@host:port/ibm_file_sync" -H 'Content-Type: ap
     }
 }'
 ```
+{: .pre}
+
+For Elasticsearch 7 (note the removal of the `files` section):
+```text
+curl -X PUT "https://user:password@host:port/ibm_file_sync" -H 'Content-Type: application/json' -d'
+{
+  "mappings": {
+    "properties": {
+      "name": {
+        "type": "text"
+      },
+      "blob": {
+        "type": "binary"
+      },
+      "md5": {
+        "type": "text"
+      }
+    }
+  }
+}'
+```
+{: .pre}
+
 The URL is the `https` [connection string](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) from your deployment.
 {: .tip}
 
@@ -69,6 +96,8 @@ The download function compares the hash values on each sync run and if the value
 {: .tip}
 
 Next, upload the document to the index. Note that the file name is supplied in the URL as well.
+
+For Elasticsearch 6:
 ``` 
 curl -X PUT "https://user:password@host:port/ibm_file_sync/files/README1.md" -H 'Content-Type: application/json' -d'
 {
@@ -77,11 +106,32 @@ curl -X PUT "https://user:password@host:port/ibm_file_sync/files/README1.md" -H 
     "md5": '"\"$HASH\""'
 }'
 ```
+{: .pre}
+
+For Elasticsearch 7 (note only the URL is changed):
+``` 
+curl -X PUT "curl -X PUT "https://user:password@host:port/ibm_file_sync/_doc/README1.md"" -H 'Content-Type: application/json' -d'
+{
+    "name": "README1.md",
+    "blob": '"\"$ENC\""',
+    "md5": '"\"$HASH\""'
+}'
+```
+{: .pre}
 
 You can verify the uploaded data. 
+
+For Elasticsearch 6:
 ```
 curl https://user:password@host:port/ibm_file_sync/files/README.md?pretty
 ```
+{: .pre}
+
+For Elasticsearch 7:
+```
+curl https://user:password@host:port/ibm_file_sync/_doc/README.md?pretty
+```
+{: .pre}
 
 If everything went smoothly, the returned data looks like this (shortened) example. Note that the "md5" field can contain a file name alongside the hash.
 ``` 
@@ -98,6 +148,7 @@ If everything went smoothly, the returned data looks like this (shortened) examp
   }
 }
 ```
+{: .pre}
 
 ## Syncing files to disk
 
@@ -107,6 +158,7 @@ curl -X POST \
 https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/elasticsearch/file_syncs \
 -H 'authorization: Bearer <token>'
 ```
+{: .pre}
 
 The `region` is the region that your deployment is in, and the `id` (CRN) part of the URL needs to be url-encoded. More information is in the [API Reference](https://cloud.ibm.com/apidocs/cloud-databases-api).
 
