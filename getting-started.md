@@ -31,14 +31,14 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 
 ## Connection Info for your Deployment
 
-On your deployment's _Manage_ page, there is a panel with all the relevant connection information.
+On your deployment's _Overview_ page, there is a panel with all the relevant connection information.
 
-![Connections panel](images/getting-started-connections-panel.png)
+![Endpoints panel](images/getting-started-endpoints-panel.png)
 
 In order to connect, Kibana needs the username, password, url and port.
 
 It also needs the CA certificate to access the database. 
-  1. Copy the certificate information from the _Connections_ panel.
+  1. Copy the certificate information from the _Endpoints_ panel.
   2. Save the certificate to a file. (You can use the name that is provided in the download, or your own file name.)
 
 Remember where you save the certificate on your filesystem. If you are running Kibana locally (not in Docker), then the certificate should go into `$KIBANA_HOME/config/<filename>`.
