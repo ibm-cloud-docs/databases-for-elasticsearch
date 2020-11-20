@@ -134,10 +134,28 @@ curl https://user:password@host:port/ibm_file_sync/_doc/README.md?pretty
 {: .pre}
 
 If everything went smoothly, the returned data looks like this (shortened) example. Note that the "md5" field can contain a file name alongside the hash.
+
+For Elasticsearch 6:
 ``` 
 {
   "_index" : "ibm_file_sync",
   "_type" : "files",
+  "_id" : "README1.md",
+  "_version" : 1,
+  "found" : true,
+  "_source" : {
+    "name" : "README1.md",
+    "blob" : "IyBF ... KWBgCg==",
+    "md5" : "270f60e62d3d37add3702ced7f6969a1  README.md"
+  }
+}
+```
+{: .pre}
+
+For Elasticsearch 7: 
+``` 
+{
+  "_index" : "ibm_file_sync",
   "_id" : "README1.md",
   "_version" : 1,
   "found" : true,
