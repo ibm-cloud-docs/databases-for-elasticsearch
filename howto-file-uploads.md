@@ -110,7 +110,7 @@ curl -X PUT "https://user:password@host:port/ibm_file_sync/files/README1.md" -H 
 
 For Elasticsearch 7 (note only the URL is changed):
 ``` 
-curl -X PUT "curl -X PUT "https://user:password@host:port/ibm_file_sync/_doc/README1.md"" -H 'Content-Type: application/json' -d'
+curl -X PUT "https://user:password@host:port/ibm_file_sync/_doc/README1.md" -H 'Content-Type: application/json' -d'
 {
     "name": "README1.md",
     "blob": '"\"$ENC\""',
