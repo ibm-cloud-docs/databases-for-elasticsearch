@@ -83,19 +83,3 @@ As in previous version upgrades, there are many changes. Full documentation of b
 
 Mapping types are removed in Elasticsearch 7.x and above. Indices created in Elasticsearch 7.x or later no longer accept a _default_ mapping. Types are also deprecated in APIs in 7.x. Further details on these changes are in the Elastic documentation on the [removal of mapping types](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html).
 
-
-
-
-
-<!--### Pre-5.x Indices 
-Elasticsearch usually supports reading indices that are created in the previous major version. This means that any indices created in Elasticsearch 5.x are readable by Elasticsearch 6.x. 
- 
-If you have indices that were created in Elasticsearch 2.x, they are **not** readable in Elasticsearch 6.x. Those indices need to be re-indexed in Elasticsearch 5.x before you upgrade to 6.x. If your data contains indices made in Elasticsearch 2.x and you attempt to upgrade to Elasticsearch 6.x, the nodes fail to start and the provisioning fails. 
- 
-[Reindexing can be done in-place](https://www.elastic.co/guide/en/elasticsearch/reference/current/reindex-upgrade-inplace.html) in Elasticsearch 5.x before you upgrade to 6.x through the [Reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html). 
--->
-
-<!-- The migration notes at the bottom relate to this: https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html
-
-ES in doing a major "schema change" since a couple of versions and with ES 7 comes a new set of changes. I don't think we should go into as much detail as we did with 5->6 since this is a general change in ES; not specific to ICD ES v7.9. You could briefly summarize the warning (Indices created in Elasticsearch 7.0.0 or later no longer accept a default ...) but refer to the ES docs for details. 
--->
