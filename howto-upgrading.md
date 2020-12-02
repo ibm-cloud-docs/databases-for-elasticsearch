@@ -1,9 +1,9 @@
 ---
 copyright:
-  years: 2019
-lastupdated: "2019-06-04"
+  years: 2019, 2020
+lastupdated: "2019-12-01"
 
-keyowrds: elasticsearch, databases, upgrading
+keyowrds: elasticsearch, databases, upgrading, 5.x, 6.x, 7.x
 
 subcollection: databases-for-elasticsearch
 
@@ -20,7 +20,7 @@ subcollection: databases-for-elasticsearch
 # Upgrading to a new Major Version
 {: #upgrading}
 
-Once a major version of a database is at its End Of Life (EOL), it is a good idea to upgrade to the current major version. You can upgrade {{site.data.keyword.databases-for-elasticsearch_full}} deployments to use the newest version of Elasticsearch. It is possible to upgrade from Elasticsearch 5.x to 6.x.
+Once a major version of a database is at its End Of Life (EOL), it is a good idea to upgrade to the current major version. You can upgrade {{site.data.keyword.databases-for-elasticsearch_full}} deployments to use the newest version of Elasticsearch. It is possible to upgrade from Elasticsearch 6.x to 7.x.
 
 You upgrade to the latest version of Elasticsearch available to {{site.data.keyword.databases-for-elasticsearch}}. You can find the latest version from the catalog page, from the cloud databases cli plugin command [`ibmcloud cdb deployables-show`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployables-show), or from the cloud databases API [`/deployables`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-all-deployable-databases) endpoint.
 
@@ -31,6 +31,11 @@ Upgrading is handled through [restoring a backup](/docs/databases-for-elasticsea
 - The entire process can be rerun at any point.
 - A fresh restoration reduces the likelihood that unneeded artifacts of the older version of the database are carried over to the new database.
 
+Before you start to upgrade your cluster to version 7.x you should do the following.
+
+- Check the [deprecation log](https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html#deprecation-logging) to see if you are using any deprecated features and update your code accordingly.
+- Review the [breaking changes](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html) and make any necessary changes to your code and configuration for version 7.x.
+- If you use any plugins, make sure there is a version of each plugin that is compatible with Elasticsearch version 7.x.
 ## Upgrading in the UI
 
 You can upgrade to a new version when [restoring a backup](/docs/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups#restoring-a-backup) from the _Backups_ tab of your _Deployment Overview_. Clicking **Restore** on a backup brings up a dialog box where you can change some options for the new deployment. One of them is the database version, which is auto-populated with the versions available for you to upgrade to. Select a version and click **Restore** to start the provision and restore process.
@@ -47,7 +52,7 @@ The parameters `service-name`, `service-id`, `service-plan-id`, and `region` are
 ibmcloud resource service-instance-create example-es-upgrade databases-for-elasticsearch standard us-south \
 -p \ '{
   "backup_id": "crn:v1:bluemix:public:databases-for-elasticsearch:us-south:a/54e8ffe85dcedf470db5b5ee6ac4a8d8:1b8f53db-fc2d-4e24-8470-f82b15c71717:backup:06392e97-df90-46d8-98e8-cb67e9e0a8e6",
-  "version":6.5
+  "version":7.9
 }'
 ```
 
@@ -65,25 +70,32 @@ curl -X POST \
     "resource_group": "5g9f447903254bb58972a2f3f5a4c711",
     "resource_plan_id": "databases-for-elasticsearch-standard",
     "backup_id": "crn:v1:bluemix:public:databases-for-elasticsearch:us-south:a/54e8ffe85dcedf470db5b5ee6ac4a8d8:1b8f53db-fc2d-4e24-8470-f82b15c71717:backup:06392e97-df90-46d8-98e8-cb67e9e0a8e6",
-    "version":6.5
+    "version":7.9
   }'
 ```
 
-## Migration Notes for New Elasticsearch 6.x Users
+## Migration Notes for New Elasticsearch 7.x Users 
+ 
+As in previous version upgrades, there are many changes. Full documentation of breaking changes can be found in the [Elastic documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html). 
+ 
 
-As in previous version upgrades, there are many changes. There are two in particular that might affect how you use Elasticsearch.
+### Index mappings 
 
-### Pre-5.x Indices
-Elasticsearch usually supports reading indices that are created in the previous major version. This means that any indices created in Elasticsearch 5.x are readable by Elasticsearch 6.x.
+Mapping types are removed in Elasticsearch 7.x and above. Indices created in Elasticsearch 7.x or later no longer accept a _default_ mapping. Types are also deprecated in APIs in 7.x. Further details on these changes are in the Elastic documentation on the [removal of mapping types](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html).
 
-If you have indices that were created in Elasticsearch 2.x, they are **not** readable in Elasticsearch 6.x. Those indices need to be re-indexed in Elasticsearch 5.x before you upgrade to 6.x. If your data contains indices made in Elasticsearch 2.x and you attempt to upgrade to Elasticsearch 6.x, the nodes fail to start and the provisioning fails.
 
-[Reindexing can be done in-place](https://www.elastic.co/guide/en/elasticsearch/reference/current/reindex-upgrade-inplace.html) in Elasticsearch 5.x before you upgrade to 6.x through the [Reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html).
 
-### Index mappings
-The ability to create multiple mapping types per index has been removed in Elasticsearch 6.x. Any multiple index mappings that you created in Elasticsearch 5.x continue to work, but Elasticsearch 6.x only supports creation of a single mapping type per index.
 
-Mapping types are being removed in Elasticsearch 7.x and above.
 
-### Other changes
-Full documentation of breaking changes can be found in the [Elasticsearch docs](https://www.elastic.co/guide/en/elasticsearch/reference/6.x/breaking-changes-6.0.html).
+<!--### Pre-5.x Indices 
+Elasticsearch usually supports reading indices that are created in the previous major version. This means that any indices created in Elasticsearch 5.x are readable by Elasticsearch 6.x. 
+ 
+If you have indices that were created in Elasticsearch 2.x, they are **not** readable in Elasticsearch 6.x. Those indices need to be re-indexed in Elasticsearch 5.x before you upgrade to 6.x. If your data contains indices made in Elasticsearch 2.x and you attempt to upgrade to Elasticsearch 6.x, the nodes fail to start and the provisioning fails. 
+ 
+[Reindexing can be done in-place](https://www.elastic.co/guide/en/elasticsearch/reference/current/reindex-upgrade-inplace.html) in Elasticsearch 5.x before you upgrade to 6.x through the [Reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html). 
+-->
+
+<!-- The migration notes at the bottom relate to this: https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html
+
+ES in doing a major "schema change" since a couple of versions and with ES 7 comes a new set of changes. I don't think we should go into as much detail as we did with 5->6 since this is a general change in ES; not specific to ICD ES v7.9. You could briefly summarize the warning (Indices created in Elasticsearch 7.0.0 or later no longer accept a default ...) but refer to the ES docs for details. 
+-->
