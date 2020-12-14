@@ -51,6 +51,10 @@ Databases For Elasticsearch
 		/cloud-databases/cloud-databases-tutorial-cf-app
 	{: .navgroup-end}
 
+	{: .navgroup id="help"}
+	ts-connect.md
+	{: .navgroup-end}
+
 	{: .navgroup id="reference"}
 	/databases-cli-plugin/databases-cli-plugin-cdb-reference
 	[Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api)
