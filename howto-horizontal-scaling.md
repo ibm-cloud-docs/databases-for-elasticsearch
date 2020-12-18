@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-01-03"
+lastupdated: "2020-12-17"
 
 keywords: elasticsearch, databases, scaling, horizontal scaling
 
@@ -23,9 +23,9 @@ subcollection: databases-for-elasticsearch
 
 It is possible to scale your {{site.data.keyword.databases-for-elasticsearch_full}} deployment horizontally by adding more Elasticsearch nodes. If your deployment starts to strain or slowdown, adding nodes increases capacity and reliability. When a node is added, Elasticsearch automatically balances the workload across all the nodes in your deployment.
 
-Nodes that you add to your deployment are added with the amount of disk, memory, and CPU as the other nodes currently in your deployment. A visual representation of your data members and their resource allocation is available on the _Settings_ tab of your deployment's _Manage_ page. 
+Nodes that you add to your deployment are added with the amount of disk, memory, and CPU as the other nodes currently in your deployment. A visual representation of your data members and their resource allocation is available on the _Settings_ tab of your deployment's _Manage_ page. However, horizontal scaling is only available by using the API.
 
-![The Scale Resources Panel in _Settings_](images/settings-scaling.png)
+![The Scale Resources Pane in _Settings_](images/settings-scaling.png)
 
 A default {{site.data.keyword.databases-for-elasticsearch_full}} deployment runs with three data members in a cluster, and resources are allocated to all three members equally. For example, the minimum storage of an Elasticsearch deployment is 15360 MB, which equates to an initial size of 5120 MB per member. The minimum RAM for an Elasticsearch deployment is 3072 MB, which equates to an initial allocation of 1028 MB per member. Adding a node adds another member with a size of 5120 MB of disk and 1028 MB of RAM, bringing your total resource usage for your deployment to 20480 MB of disk and 4096 MB of RAM.
 
