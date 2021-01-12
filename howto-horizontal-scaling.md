@@ -1,8 +1,8 @@
 ---
 
 Copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-17"
+  years: 2019, 2021
+lastupdated: "2021-01-11"
 
 keywords: elasticsearch, databases, scaling, horizontal scaling
 
@@ -21,7 +21,7 @@ subcollection: databases-for-elasticsearch
 # Adding Elasticsearch Nodes
 {: #horizontal-scaling}
 
-It is possible to scale your {{site.data.keyword.databases-for-elasticsearch_full}} deployment horizontally by adding more Elasticsearch nodes. If your deployment starts to strain or slowdown, adding nodes increases capacity and reliability. When a node is added, Elasticsearch automatically balances the workload across all the nodes in your deployment.
+It is possible to scale your {{site.data.keyword.databases-for-elasticsearch_full}} deployment horizontally by adding more Elasticsearch nodes (also referred to as members). If your deployment starts to strain or slowdown, adding nodes increases capacity and reliability. When a node is added, Elasticsearch automatically balances the workload across all the nodes in your deployment.
 
 Nodes that you add to your deployment are added with the amount of disk, memory, and CPU as the other nodes currently in your deployment. A visual representation of your data members and their resource allocation is available on the _Settings_ tab of your deployment's _Manage_ page. However, horizontal scaling is only available by using the API.
 
