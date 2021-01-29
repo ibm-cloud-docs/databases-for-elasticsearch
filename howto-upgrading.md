@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2019, 2020
-lastupdated: "2019-12-01"
+  years: 2019, 2021
+lastupdated: "2021-01-29"
 
 keyowrds: elasticsearch, databases, upgrading, 5.x, 6.x, 7.x
 
@@ -31,11 +31,66 @@ Upgrading is handled through [restoring a backup](/docs/databases-for-elasticsea
 - The entire process can be rerun at any point.
 - A fresh restoration reduces the likelihood that unneeded artifacts of the older version of the database are carried over to the new database.
 
+
+## Prior to upgrading
 Before you start to upgrade your cluster to version 7.x you should do the following.
 
 - Check the [deprecation log](https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html#deprecation-logging) to see if you are using any deprecated features and update your code accordingly.
 - Review the [breaking changes](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html) and make any necessary changes to your code and configuration for version 7.x.
 - If you use any plugins, make sure there is a version of each plugin that is compatible with Elasticsearch version 7.x.
+- Reindex your data prior to running the 6.x to 7.x version upgrade using [the guidance here](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-upgrading#upgrade-reindexing).
+
+### Re-indexing guidelines
+{: #upgrade-reindexing}
+
+{{site.data.keyword.databases-for-elasticsearch}} indexes are only compatibe with the same version or plus one version from the release they are create on. By example, if you create an index on Elasticsearch (ES) 5 it can be read by ES5 and ES6. An index created in Elasticsearch 6 can be read by ES6 and ES7. Only an explicit reindex operation updates an index to the current database version.
+
+<!-- we have 6.x ES today that were upgraded from 5.x. Any index in there that was not created on that ES6, but originates from the ES5 backup, is still in ES5 format.
+
+ES7 won't be able to read that index. So if a customer of such an ES6 backup/restore-upgrades to ES7, those indexes will not be restorable.
+
+Re-indexing is not trivial to do; we can't easily do that for customers.
+The best we can do right now is provide guidance on how customers can do it on their own prior to upgrading to ES7
+
+
+Resource links to Elasticsearch documentation:
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html#snapshot-restore-version-compatibility
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html#docs-reindex
+
+https://www.elastic.co/guide/en/elasticsearch/reference/current/reindex-upgrade.html
+
+
+--> 
+
+- **How to detect the index version; check if you have an ES5 index in your ES6 deployment**
+    Some {{site.data.keyword.databases-for-elasticsearch}} deployments were upgraded from ES 5.x to ES 6.x. Any index that was not created on that ES6 deployment, but originated from the ES5 backup, is still in ES5 format.
+    You will need to check the index version to determine the to re-index:
+    
+    For each index, call the API `indexname/_settings?pretty`. For example:
+
+    `curl -k https://user:password@host:port/test1/_settings?pretty`
+
+    In the result, look for the version field. For example:
+    ```
+        "version" : {
+            "created" : "6080699",
+            "upgraded" : "7090299"
+          }
+    ```
+    If the version field contains an upgraded entry, the index was imported from an older ES version and will need to be reindexed prior to upgrading.
+
+  
+
+- **How to do the re-index in your ES6 deployemnt prior to upgrading**
+
+    - Follow the steps in the Elasticsearch documentation to [Reindex in place](https://www.elastic.co/guide/en/elasticsearch/reference/current/reindex-upgrade-inplace.html) on your 6.x cluster before upgrading.
+
+
+
+
+
 ## Upgrading in the UI
 
 You can upgrade to a new version when [restoring a backup](/docs/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups#restoring-a-backup) from the _Backups_ tab of your _Deployment Overview_. Clicking **Restore** on a backup brings up a dialog box where you can change some options for the new deployment. One of them is the database version, which is auto-populated with the versions available for you to upgrade to. Select a version and click **Restore** to start the provision and restore process.
