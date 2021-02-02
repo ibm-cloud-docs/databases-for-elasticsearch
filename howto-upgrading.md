@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-29"
+lastupdated: "2021-02-04"
 
-keyowrds: elasticsearch, databases, upgrading, 5.x, 6.x, 7.x
+keyowrds: elasticsearch, databases, upgrading, 5.x, 6.x, 7.x, reindex, indices
 
 subcollection: databases-for-elasticsearch
 
@@ -20,9 +20,9 @@ subcollection: databases-for-elasticsearch
 # Upgrading to a new Major Version
 {: #upgrading}
 
-Once a major version of a database is at its End Of Life (EOL), it is a good idea to upgrade to the current major version. You can upgrade {{site.data.keyword.databases-for-elasticsearch_full}} deployments to use the newest version of Elasticsearch. It is possible to upgrade from Elasticsearch 6.x to 7.x.
+When a major version of a database is at its end of life (EOL), it is a good idea to upgrade to the current major version. You can upgrade {{site.data.keyword.databases-for-elasticsearch_full}} deployments to use the newest version of Elasticsearch. It is possible to upgrade from Elasticsearch 6.x to 7.x.
 
-You upgrade to the latest version of Elasticsearch available to {{site.data.keyword.databases-for-elasticsearch}}. You can find the latest version from the catalog page, from the cloud databases cli plugin command [`ibmcloud cdb deployables-show`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployables-show), or from the cloud databases API [`/deployables`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-all-deployable-databases) endpoint.
+You upgrade to the latest version of Elasticsearch available to {{site.data.keyword.databases-for-elasticsearch}}. You can find the latest version from the catalog page, from the cloud databases cli plug-in command [`ibmcloud cdb deployables-show`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployables-show), or from the cloud databases API [`/deployables`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-all-deployable-databases) endpoint.
 
 Upgrading is handled through [restoring a backup](/docs/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups#restoring-a-backup) of your data into a new deployment. Restoring from a backup has a number of advantages:
 
@@ -32,62 +32,62 @@ Upgrading is handled through [restoring a backup](/docs/databases-for-elasticsea
 - A fresh restoration reduces the likelihood that unneeded artifacts of the older version of the database are carried over to the new database.
 
 
-## Prior to upgrading
-Before you start to upgrade your cluster to version 7.x you should do the following.
+## Before upgrading
+Before you start to upgrade your cluster to version 7.x, you must take the following actions.
 
-- Check the [deprecation log](https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html#deprecation-logging) to see if you are using any deprecated features and update your code accordingly.
+- Check the [deprecation log](https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html#deprecation-logging) to see whether you are using any deprecated features and update your code.
 - Review the [breaking changes](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html) and make any necessary changes to your code and configuration for version 7.x.
-- If you use any plugins, make sure there is a version of each plugin that is compatible with Elasticsearch version 7.x.
-- Reindex your data prior to running the 6.x to 7.x version upgrade using [the guidance here](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-upgrading#upgrade-reindexing).
+- If you use any plug-ins, make sure that there is a version of each plug-in that is compatible with Elasticsearch version 7.x.
+- Reindex your data before running the 6.x to 7.x version upgrade by using [the guidance here](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-upgrading#upgrade-reindexing).
 
-### Re-indexing guidelines
+### Reindexing guidelines
 {: #upgrade-reindexing}
 
-{{site.data.keyword.databases-for-elasticsearch}} indexes are only compatibe with the same version or plus one version from the release they are create on. By example, if you create an index on Elasticsearch (ES) 5 it can be read by ES5 and ES6. An index created in Elasticsearch 6 can be read by ES6 and ES7. Only an explicit reindex operation updates an index to the current database version.
+{{site.data.keyword.databases-for-elasticsearch}} indexes are only compatible with the same version or plus-one version from the release they are create on. By example, if you create an index on Elasticsearch (ES) 5 it can be read by ES5 and ES6. An index that is created in Elasticsearch 6 can be read by ES6 and ES7. Only an explicit reindex operation updates an index to the current database version.
 
-<!-- we have 6.x ES today that were upgraded from 5.x. Any index in there that was not created on that ES6, but originates from the ES5 backup, is still in ES5 format.
+Any index that originates from an ES5 backup is still in ES5 format, even if it resides in an ES6 deployment. In these cases, ES7 can't read those indexes. 
 
-ES7 won't be able to read that index. So if a customer of such an ES6 backup/restore-upgrades to ES7, those indexes will not be restorable.
+If you have a deployment with such an ES6 backup or restore, and you attempt to upgrade to ES7, those indexes are not restorable without reindexing before the upgrade to ES7.
 
-Re-indexing is not trivial to do; we can't easily do that for customers.
-The best we can do right now is provide guidance on how customers can do it on their own prior to upgrading to ES7
-
-
-Resource links to Elasticsearch documentation:
-
-https://www.elastic.co/guide/en/elasticsearch/reference/current/snapshot-restore.html#snapshot-restore-version-compatibility
-
-https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html#docs-reindex
-
-https://www.elastic.co/guide/en/elasticsearch/reference/current/reindex-upgrade.html
-
-
---> 
-
-- **How to detect the index version; check if you have an ES5 index in your ES6 deployment**
-    Some {{site.data.keyword.databases-for-elasticsearch}} deployments were upgraded from ES 5.x to ES 6.x. Any index that was not created on that ES6 deployment, but originated from the ES5 backup, is still in ES5 format.
-    You will need to check the index version to determine the to re-index:
+### Check whether you have an ES5 index in your ES6 deployment 
+  Some {{site.data.keyword.databases-for-elasticsearch}} deployments were upgraded from ES 5.x to ES 6.x. Any index that was not created on that ES6 deployment, but originated from the ES5 backup, is still in ES5 format.
+  
+  You must check the index version to determine the need to reindex:
     
-    For each index, call the API `indexname/_settings?pretty`. For example:
+  For each index, call the API `indexname/_settings?pretty`. For example,
+    
+  `curl -k https://user:password@host:port/test1/_settings?pretty`
 
-    `curl -k https://user:password@host:port/test1/_settings?pretty`
+  In the result, look for the version field. For example,
 
-    In the result, look for the version field. For example:
-    ```
-        "version" : {
-            "created" : "6080699",
-            "upgraded" : "7090299"
-          }
-    ```
-    If the version field contains an upgraded entry, the index was imported from an older ES version and will need to be reindexed prior to upgrading.
+  ```
+  "version" : {
+       "created" : "6080699",
+       "upgraded" : "7090299"
+     }
+  ```
+  If the version field contains an upgraded entry, the index was imported from an older ES version and must be reindexed before upgrading.
 
   
+### Reindex in place on your ES6 deployment before upgrading
 
-- **How to do the re-index in your ES6 deployemnt prior to upgrading**
+  If you have indexes that were created in ES5, you must reindex or delete them before upgrading to ES7. 
 
-    - Follow the steps in the Elasticsearch documentation to [Reindex in place](https://www.elastic.co/guide/en/elasticsearch/reference/current/reindex-upgrade-inplace.html) on your 6.x cluster before upgrading.
+  To reindex your ES5 indexes in place:
 
+  1. Create a new index in your ES6 deployment with 7.x compatible mappings.
+  2. Note down the existing `refresh_interval` and `number_of_replicas` values, then set the `refresh_interval` to `-1` and the `number_of_replicas` to `0` for efficient reindexing.
+  3. Use the [reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html) to copy documents from the ES5 index into your new ES6 index. 
+  4. Reset the `refresh_interval` and `number_of_replicas` to the values you noted in step 2.
+  5. After the index status changes to green, use a single `update aliases` request to:
+      - Delete the old index.
+      - Add an alias with the old index name to the new index.
+      - Add any other aliases that existed on the old index to the new index.
 
+  For more details, refer to the information in the Elasticsearch documentation to [Reindex in place](https://www.elastic.co/guide/en/elasticsearch/reference/current/reindex-upgrade-inplace.html) on your 6.x cluster before upgrading.
+
+  Use a script to perform any necessary modifications to the document data and metadata during reindexing.
+  {: .tip}
 
 
 
@@ -136,5 +136,5 @@ As in previous version upgrades, there are many changes. Full documentation of b
 
 ### Index mappings 
 
-Mapping types are removed in Elasticsearch 7.x and above. Indices created in Elasticsearch 7.x or later no longer accept a _default_ mapping. Types are also deprecated in APIs in 7.x. Further details on these changes are in the Elastic documentation on the [removal of mapping types](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html).
+Mapping types are removed in Elasticsearch 7.x and above. Indexes that are created in Elasticsearch 7.x or later no longer accept a _default_ mapping. Types are also deprecated in APIs in 7.x. Further details on these changes are in the Elastic documentation on the [removal of mapping types](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html).
 

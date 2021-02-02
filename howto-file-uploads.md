@@ -4,7 +4,7 @@ Copyright:
   years: 2019, 2020
 lastupdated: "2020-11-20"
 
-keywords: elasticsearch, filter, index, indices
+keywords: elasticsearch, filter, index, indices, indexes
 
 subcollection: databases-for-elasticsearch
 

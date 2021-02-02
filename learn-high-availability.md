@@ -25,7 +25,7 @@ subcollection: databases-for-elasticsearch
 
 When you add an index to Elasticsearch, it splits the data into shards and spreads those shards across the nodes in the cluster. The sharded configuration allows for Elasticseach to run concurrent operations on your data across all the nodes. Concerning high-availability, not all shards contain a complete copy of all the data in the index. To enforce that multiple complete copies of the data are spread across the cluster in the event of a node failure, you should ensure that when you create an index you set the replica count to at least `1`. Setting the replica count to `0` can cause data loss.
 
-If you [add nodes to your cluster](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling), Elasticsearch automatically rebalances your the shards and replicas of your indices across the newly added node or nodes. Adding nodes can provide additional stability in the event of a multi-node failure, since you can lose more nodes and maintain a quorum. Additional nodes also improve performance.
+If you [add nodes to your cluster](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling), Elasticsearch automatically rebalances your the shards and replicas of your indexes across the newly added node or nodes. Adding nodes can provide additional stability in the event of a multi-node failure, since you can lose more nodes and maintain a quorum. Additional nodes also improve performance.
 
 ## Application-level High-Availability
 
