@@ -86,8 +86,8 @@ If you have a deployment with such an ES6 backup or restore, and you attempt to 
 
   For more details, refer to the information in the Elasticsearch documentation to [Reindex in place](https://www.elastic.co/guide/en/elasticsearch/reference/current/reindex-upgrade-inplace.html) on your 6.x cluster before upgrading.
 
-  Use a script to perform any necessary modifications to the document data and metadata during reindexing.
-  {: .tip}
+Use a script to perform any necessary modifications to the document data and metadata during reindexing.
+{: .tip}
 
 
 
