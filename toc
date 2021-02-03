@@ -6,13 +6,13 @@ Databases For Elasticsearch
 
 	{: .navgroup id="learn"}
 	getting-started.md
+	/cloud-databases/cloud-databases-best-practices
 	[What is Elasticsearch?](https://www.ibm.com/cloud/learn/elasticsearch)
 	learn-dashboard-overview.md
 	learn-high-availability.md
 	learn-performance.md
 	learn-security-compliance.md
 	learn-pricing.md
-	/cloud-databases/cloud-databases-best-practices
 	{: .navgroup-end}
 
 	{: .navgroup id="howto"}

@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020
-lastupdated: "2020-04-06"
+  years: 2020, 2021
+lastupdated: "2021-02-02"
 
 keywords: kibana
 
@@ -28,6 +28,8 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 - And a {{site.data.keyword.databases-for-elasticsearch}} deployment. You can provision one from the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/databases-for-elasticsearch). Give your deployment a memorable name that appears in your account's Resource List.
 - [Set the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password) for your deployment.
 - Install [Docker](https://www.docker.com/) so that you can pull the Kibana container image to connect to Databases for Elasticsearch.
+
+Review the [`Getting to production`](/docs/cloud-databases?topic=cloud-databases-best-practices) documentation for general guidance on setting up a basic {{site.data.keyword.databases-for-postgresql_full}} deployment.
 
 ## Connection Info for your Deployment
 
