@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018,2020
-lastupdated: "2020-03-31"
+  years: 2018,2021
+lastupdated: "2021-02-11"
 
 keywords: elasticsearch-py, java, elasticsearch driver,
 
@@ -13,7 +13,6 @@ subcollection: databases-for-elasticsearch
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
-{:generic: .ph data-hd-programlang='generic'}
 {:java: .ph data-hd-programlang='java'}
 {:python: .ph data-hd-programlang='python'}
 {:pre: .pre}
@@ -48,14 +47,14 @@ Field Name|Index|Description
 
 
 Many Elasticsearch drivers are able to make a connection to your deployment when given the URI-formatted connection string found in the "composed" field of the connection information. For example,
-{: generic}
 ```
 https://admin:$PASSWORD@d5eeee66-5bc4-498a-b73b-1307848f1eac.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud:31821
 ```
-{: generic}
-
 
 This example uses Java to connect.
+
+This example uses the Python library [`elasticsearch-py`](https://www.elastic.co/guide/en/elasticsearch/client/python-api/current/index.html) to connect.
+
 {: java}
 ```java
 import io.searchbox.client.JestClientFactory;
@@ -125,8 +124,6 @@ public class ESConnect {
 {: java}
 
 
-
-This example uses the Python library [`elasticsearch-py`](https://www.elastic.co/guide/en/elasticsearch/client/python-api/current/index.html) to connect.
 {: python}
 ```python
 from elasticsearch import Elasticsearch
