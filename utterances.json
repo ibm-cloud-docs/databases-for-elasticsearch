@@ -1,14 +1,14 @@
 {
     "troubleshoot-connect": [
         "How do I connect to my ElasticSearch deployment?",
-        "cannot connect to my Postgres instance",
+        "cannot connect to my ElasticSearch DB instance",
         "can't connect to ElasticSearch database",
         "error connecting to ElasticSearch deployment ",
-        "issue connecting to PostgeSQL Via Command line",
+        "issue connecting to ElasticSearch Via Command line",
         "problem connecting to my ElasticSearch production db",
         "errors connecting external application to ElasticSearch database ",
         "application recieving timeouts when connecting to ElasticSearch Database",
-        "external application logging Intermittent connection timeouts to ICD postgres Deployment",
+        "external application logging Intermittent connection timeouts to ICD ElasticSearch Deployment",
         "error when connecting External app to Databases for ElasticSearch",
         "ElasticSearch Database will not connect to my external application ",
         "VMware vSphere VMs unable to connect to ElasticSearch",
