@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020
-lastupdated: "2020-03-02"
+  years: 2020, 2021
+lastupdated: "2020-03-24"
 
 keywords: elasticsearch, sysdig, monitoring, metrics, cluster status, JVM heap
 
