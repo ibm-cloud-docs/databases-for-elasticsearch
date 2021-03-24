@@ -41,7 +41,9 @@ If you have deployments that are in a Single-zone Region (SZR) - `osl01`, `che01
 
 | Metric Name |
 |-----------|
-| [Cluster status](#ibm_databases_for_elasticsearch_cluster_status) | 
+| [Cluster status](#ibm_databases_for_elasticsearch_cluster_status) |
+| [Disk read latency mean](#ibm_databases_for_elasticsearch_disk_read_latency_mean) | 
+| [Disk write latency mean](#ibm_databases_for_elasticsearch_disk_write_latency_mean) | 
 | [GC Percentage](#ibm_databases_for_elasticsearch_garbage_collection_percent_average_15m)|
 | [IO utilization as a percent -  5 minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_5m) |
 | [IO utilization as a percent - 15 minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_15m) | 
@@ -69,7 +71,31 @@ A number derived from the status value of the `/_cluster/health` endpoint. Possi
 | `Value Type`  | `count` |
 | `Segment By` | `Service instance` |
 {: caption="Table 2. Cluster status metric metadata" caption-side="top"}
+### Disk read latency mean
+{: #ibm_databases_for_elasticsearch_disk_read_latency_mean}
 
+Disk read latency mean
+
+| Metadata | Description |
+|----------|-------------|
+| `Metric Name` | `ibm_databases_for_elasticsearch_disk_read_latency_mean`|
+| `Metric Type` | `gauge` |
+| `Value Type`  | `count` |
+| `Segment By` | `Service instance` |
+{: caption="Table 21: Disk read latency mean metric metadata" caption-side="top"}
+
+### Disk write latency mean
+{: #ibm_databases_for_elasticsearch_disk_write_latency_mean}
+
+Disk write latency mean
+
+| Metadata | Description |
+|----------|-------------|
+| `Metric Name` | `ibm_databases_for_elasticsearch_disk_write_latency_mean`|
+| `Metric Type` | `gauge` |
+| `Value Type`  | `count` |
+| `Segment By` | `Service instance` |
+{: caption="Table 31: Disk write latency mean metric metadata" caption-side="top"}
 ### GC Percentage
 {: #ibm_databases_for_elasticsearch_garbage_collection_percent_average_15m}
 
