@@ -1,8 +1,8 @@
 ---
 
 Copyright:
-  years: 2019, 2020
-lastupdated: "2020-01-31"
+  years: 2019, 2021
+lastupdated: "2021-03-30"
 
 keywords: elasticsearch, databases, shards, JVM heap, monitoring, disk I/O
 
@@ -24,7 +24,7 @@ subcollection: databases-for-elasticsearch
 
 ## Monitoring your deployment
 
-{{site.data.keyword.databases-for-elasticsearch}} deployments offer an integration with the [{{site.data.keyword.cloud_notm}} Monitoring service](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-sysdig-monitoring) for basic monitoring of resource usage on your deployment. Many of the available metrics, like disk usage and IOPS, are presented to help you configure [autoscaling](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-autoscaling) on your deployment. Observing trends in your usage and configuring the autoscaling to respond to them can help alleviate performance problems before your databases become unstable due to resource exhaustion.
+{{site.data.keyword.databases-for-elasticsearch}} deployments offer an integration with the [{{site.data.keyword.monitoringfull}} service](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-sysdig-monitoring) for basic monitoring of resource usage on your deployment. Many of the available metrics, like disk usage and IOPS, are presented to help you configure [autoscaling](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-autoscaling) on your deployment. Observing trends in your usage and configuring the autoscaling to respond to them can help alleviate performance problems before your databases become unstable due to resource exhaustion.
 
 ## Elasticsearch Sharding
 
