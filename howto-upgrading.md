@@ -35,7 +35,7 @@ Upgrading is handled through [restoring a backup](/docs/databases-for-elasticsea
 ## Before upgrading
 Before you start to upgrade your cluster to version 7.x, you must take the following actions.
 
-- Check the [deprecation logs](https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html#deprecation-logging), that are automatically enabled on Databases for Elasticsearch and sent to [{{site.data.keyword.loganalysisfull}}](/docs/databases-for-elasticsearch?topic=cloud-databases-logging), to see whether you are using any deprecated features and update your code.
+- Check the [deprecation logs](https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html#deprecation-logging), that are automatically enabled on Databases for Elasticsearch and sent to [{{site.data.keyword.la_full}}](/docs/databases-for-elasticsearch?topic=cloud-databases-logging), to see whether you are using any deprecated features and update your code.
 - Review the [breaking changes](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html) and make any necessary changes to your code and configuration for version 7.x.
 - If you use any plug-ins, make sure that there is a version of each plug-in that is compatible with Elasticsearch version 7.x.
 - Reindex your data before running the 6.x to 7.x version upgrade by using [the guidance here](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-upgrading#upgrade-reindexing).

@@ -24,7 +24,7 @@ subcollection: databases-for-elasticsearch
 
 ## Monitoring your deployment
 
-{{site.data.keyword.databases-for-elasticsearch}} deployments offer an integration with the [{{site.data.keyword.monitoringfull}} service](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-sysdig-monitoring) for basic monitoring of resource usage on your deployment. Many of the available metrics, like disk usage and IOPS, are presented to help you configure [autoscaling](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-autoscaling) on your deployment. Observing trends in your usage and configuring the autoscaling to respond to them can help alleviate performance problems before your databases become unstable due to resource exhaustion.
+{{site.data.keyword.databases-for-elasticsearch}} deployments offer an integration with the [{{site.data.keyword.monitoringfull}} service](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-monitoring) for basic monitoring of resource usage on your deployment. Many of the available metrics, like disk usage and IOPS, are presented to help you configure [autoscaling](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-autoscaling) on your deployment. Observing trends in your usage and configuring the autoscaling to respond to them can help alleviate performance problems before your databases become unstable due to resource exhaustion.
 
 ## Elasticsearch Sharding
 

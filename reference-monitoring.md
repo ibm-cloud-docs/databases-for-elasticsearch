@@ -3,7 +3,7 @@ copyright:
   years: 2020, 2021
 lastupdated: "2020-03-30"
 
-keywords: elasticsearch, sysdig, monitoring, metrics, cluster status, JVM heap
+keywords: elasticsearch, monitoring, metrics, cluster status, JVM heap
 
 subcollection: databases-for-elasticsearch
 
@@ -18,7 +18,7 @@ subcollection: databases-for-elasticsearch
 {:important: .important}
 
 # Monitoring Integration
-{: #sysdig-monitoring}
+{: #monitoring}
 
 Monitoring for {{site.data.keyword.databases-for-elasticsearch_full}} deployments is provided through integration with the {{site.data.keyword.monitoringfull}} service. Your deployments forward selected information so you can monitor deployment health and resource usage. To see your {{site.data.keyword.databases-for-elasticsearch}} dashboards in {{site.data.keyword.monitoringfull_notm}}, you have to [Enable Platform Metrics](/docs/Monitoring-with-Sysdig?topic=Monitoring-with-Sysdig-platform_metrics_enabling) in the same region as your deployment. If you have deployments in more than one region, you have to provision {{site.data.keyword.monitoringfull_notm}} and enable platform metrics in each region.
 
