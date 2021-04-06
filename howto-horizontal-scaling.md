@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2021
-lastupdated: "2021-01-11"
+lastupdated: "2021-04-06"
 
 keywords: elasticsearch, databases, scaling, horizontal scaling
 
@@ -49,3 +49,15 @@ curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{
 -d '{"members": {"allocation_count": 5}}' \
 ```
 
+When you use the CRN, remember to URL encode the CRN value as it might include the forward-slash (/) `%2F` character. 
+{: .tip}
+
+For example, when URL encoding the CRN
+```
+crn:v1:bluemix:public:databases-for-redis:us-south:a/274074dce64e9c423ffc238516c755e1:29caf0e7-120f-4da8-9551-3abf57ebcfc7::
+```
+becomes
+```
+crn:v1:bluemix:public:databases-for-redis:us-south:a%2F274074dce64e9c423ffc238516c755e1:29caf0e7-120f-4da8-9551-3abf57ebcfc7::
+``` 
+when properly encoded.
