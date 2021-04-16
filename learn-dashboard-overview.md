@@ -17,7 +17,7 @@ subcollection: databases-for-elasticsearch
 {:pre: .pre}
 {:tip: .tip}
 
-# The UI - Dashboard Overview
+# The Dashboard Overview
 {: #dashboard-overview}
 
 The _Overview_ page shows you information about your {{site.data.keyword.databases-for-elasticsearch_full}} deployment. The overview includes essential identifying information.
