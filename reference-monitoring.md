@@ -289,6 +289,8 @@ The following attributes are available for segmenting one or more attributes as 
 
 | Attribute | Attribute Name | Attribute Description |
 |-----------|----------------|-----------------------|
-| `Service instance` | `ibm_service_instance` | The service instance segment that identifies the instance the metric is associated with. |
+| `Service instance` | `ibm_service_instance` | The service instance segment identifies the instance the metric is associated with. |
+| `Service instance name` | `ibm_service_instance_name` | The service instance name provides the user-provided name of the service instance, which isn't necessarily a unique value depending on the name provided by the user. |
+| `Resource group` | `ibm_resource_group_name` | The resource group where the service instance was created. |
 {: caption="Table 17. Additional Attributes" caption-side="top"}
 
