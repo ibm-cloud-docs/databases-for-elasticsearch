@@ -63,7 +63,7 @@ The first setting, `elasticsearch.ssl.certificateAuthorities`, is the location w
 
 Next is `elasticsearch.username` and `elasticsearch.password`. Use the deployment's admin username and password. Be sure that you set the admin password prior to trying to connect. For `elasticsearch.url` enter the deployment's hostname and port, separated by a `:`. 
 
-Finally, there is server.name, which is a machine-readable name for the Kibana instance, and server.host, which is the host of the backend server and where you can connect to Kibana in your web browser.
+Finally, there is `server.name`, which is a machine-readable name for the Kibana instance, and `server.host`, which is the host of the backend server and where you can connect to Kibana in your web browser.
 
 The settings are just a simplified example to get started. See the [Kibana documentation](https://www.elastic.co/guide/en/kibana/current/settings.html) for more configuration settings you can set for your use case.
 
@@ -73,11 +73,12 @@ If you are running Kibana locally (not in Docker), then the yaml file goes in `$
 
 Now that the `kibana.yml` file is set up, you're going to use Docker to attach the yaml file and your certificate file to the Docker container, while pulling the `<kibana_version>` image from the Docker image repository. 
 
-Get the correct `<kibana_version>` from your instance endpoint:
+Match the Kibana Version with the Elasticseach version obtained with the following command, `<kibana_version>` for v7.9.2 must be 7.9.2:
 
 ```bash
 curl -XGET <endpoint>
 ```
+The endpoint should be the same one you use for standard connection, which you can find on your deployment's _Overview_ page's _Endpoints_ panel.
 
 Make sure that you use an image with a version of Kibana that is compatible with the version of Elasticsearch that your deployment is running. Refer to the Elasticsearch [compatibility matrix](https://www.elastic.co/support/matrix#matrix_compatibility).
 {: .tip}
