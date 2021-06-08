@@ -71,7 +71,13 @@ If you are running Kibana locally (not in Docker), then the yaml file goes in `$
 
 ## Running the Kibana Container
 
-Now that the `kibana.yml` file is set up, you're going to use Docker to attach the yaml file and your certificate file to the Docker container, while pulling the Kibana image from the Docker image repository. The Docker image for the Kibana version is `kibana-oss:6.5.4`, which is the open source version of Kibana without X-Pack.
+Now that the `kibana.yml` file is set up, you're going to use Docker to attach the yaml file and your certificate file to the Docker container, while pulling the `<kibana_version>` image from the Docker image repository. 
+
+Get the correct `<kibana_version>` from your instance endpoint:
+
+```bash
+curl -XGET <endpoint>
+```
 
 Make sure that you use an image with a version of Kibana that is compatible with the version of Elasticsearch that your deployment is running. Refer to the Elasticsearch [compatibility matrix](https://www.elastic.co/support/matrix#matrix_compatibility).
 {: .tip}
@@ -81,7 +87,7 @@ Run the Docker command in your terminal to start up the Kibana container.
 docker container run -it --name kibana \
 -v </path/to/kibana.yml>:/usr/share/kibana/config/kibana.yml \
 -v </path/to/cacert>:/usr/share/kibana/config/cacert \
--p 5601:5601 docker.elastic.co/kibana/kibana-oss:6.5.4
+-p 5601:5601 docker.elastic.co/kibana/kibana-oss:<kibana_version>
 ```
 
 The Docker command has two volumes attached with the `-v` flag. These are mounted to the Kibana container at the path `/usr/share/kibana/config/`, which is a configuration directory that Kibana looks at for configuration files. 
@@ -93,12 +99,12 @@ The Docker command has two volumes attached with the `-v` flag. These are mounte
 When you run the command from your terminal, it downloads the Kibana Docker image and runs Kibana. 
 Once Kibana has connected to your {{site.data.keyword.databases-for-elasticsearch}} deployment and is running successfully, you see the output in your terminal.
 ```
-log   [01:19:31.839] [info][status][plugin:kibana@6.5.4] Status changed from uninitialized to green - Ready
-log   [01:19:31.925] [info][status][plugin:elasticsearch@6.5.4] Status changed from uninitialized to yellow - Waiting for Elasticsearch
-log   [01:19:32.120] [info][status][plugin:timelion@6.5.4] Status changed from uninitialized to green - Ready
-log   [01:19:32.134] [info][status][plugin:console@6.5.4] Status changed from uninitialized to green - Ready
-log   [01:19:32.147] [info][status][plugin:metrics@6.5.4] Status changed from uninitialized to green - Ready
-log   [01:19:33.132] [info][status][plugin:elasticsearch@6.5.4] Status changed from yellow to green - Ready
+log   [01:19:31.839] [info][status][plugin:<kibana_version>] Status changed from uninitialized to green - Ready
+log   [01:19:31.925] [info][status][plugin:elasticsearch@<kibana_version>] Status changed from uninitialized to yellow - Waiting for Elasticsearch
+log   [01:19:32.120] [info][status][plugin:timelion@<kibana_version>] Status changed from uninitialized to green - Ready
+log   [01:19:32.134] [info][status][plugin:console@<kibana_version>] Status changed from uninitialized to green - Ready
+log   [01:19:32.147] [info][status][plugin:metrics@<kibana_version>] Status changed from uninitialized to green - Ready
+log   [01:19:33.132] [info][status][plugin:elasticsearch@<kibana_version>] Status changed from yellow to green - Ready
 log   [01:19:33.378] [info][listening] Server running at http://0.0.0.0:5601
 ```
 
