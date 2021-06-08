@@ -73,12 +73,11 @@ If you are running Kibana locally (not in Docker), then the yaml file goes in `$
 
 Now that the `kibana.yml` file is set up, you're going to use Docker to attach the yaml file and your certificate file to the Docker container, while pulling the `<kibana_version>` image from the Docker image repository. 
 
-Match the Kibana Version with the Elasticseach version obtained with the following command, `<kibana_version>` for v7.9.2 must be 7.9.2:
+Match the Kibana Version with the Elasticseach version with the following command, `<kibana_version>`; for v7.9.2 it must be 7.9.2. You should get the information from the _Endpoints_ panel in your browser, or curl. Make sure the certificate is installed on your machine, or use the `--insecure flag` with curl to disable peer verification:
 
 ```bash
-curl -XGET <endpoint>
+curl -XGET <https_endpoint>
 ```
-The endpoint should be the same one you use for standard connection, which you can find on your deployment's _Overview_ page's _Endpoints_ panel.
 
 Make sure that you use an image with a version of Kibana that is compatible with the version of Elasticsearch that your deployment is running. Refer to the Elasticsearch [compatibility matrix](https://www.elastic.co/support/matrix#matrix_compatibility).
 {: .tip}
@@ -95,7 +94,7 @@ The Docker command has two volumes attached with the `-v` flag. These are mounte
 - The first volume points to your `kibana.yml` file on your local filesystem and maps it to `/usr/share/kibana/config/`. The file name it assigns in the container must be named `kibana.yml` because that’s the file name that the Kibana server reads server properties from. 
 - The second volume first takes the path on your system to the self-signed certificate that you saved earlier, and maps it to `/usr/share/kibana/config/`. The volume path on the container and the path specified as `elasticsearch.ssl.certificateAuthorities` in `kibana.yml` must match.
 - The `-p` specifies which port is exposed from the container, and the port you'll use to access Kibana.
-- Finally, the Kibana image we’ll pull is the kibana-oss version without X-Pack, `docker.elastic.co/kibana/kibana-oss:6.5.4`.
+
 
 When you run the command from your terminal, it downloads the Kibana Docker image and runs Kibana. 
 Once Kibana has connected to your {{site.data.keyword.databases-for-elasticsearch}} deployment and is running successfully, you see the output in your terminal.
