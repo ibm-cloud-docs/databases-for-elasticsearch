@@ -54,7 +54,7 @@ Create a YAML file called `kibana.yml`. Inside the file, you need the following 
 elasticsearch.ssl.certificateAuthorities: "/usr/share/kibana/config/cacert"
 elasticsearch.username: "admin"
 elasticsearch.password: "<password>"
-elasticsearch.url: "https://<hostname:port>"
+elasticsearch.hosts: ["https://<hostname:port>"]
 server.name: "kibana"
 server.host: "0.0.0.0"
 ```
