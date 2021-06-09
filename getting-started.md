@@ -73,7 +73,7 @@ If you are running Kibana locally (not in Docker), then the yaml file goes in `$
 
 Now that the `kibana.yml` file is set up, you're going to use Docker to attach the yaml file and your certificate file to the Docker container, while pulling the `<kibana_version>` image from the Docker image repository. 
 
-Match the Kibana Version with the Elasticseach version with the following command, `<kibana_version>`; for v7.9.2 it must be 7.9.2. You should get the information from the _Endpoints_ panel in your browser, or curl. Make sure the certificate is installed on your machine, or use the `--insecure flag` with curl to disable peer verification:
+Match the Kibana Version with the appropriate Elasticsearch version; for v7.9.2 it must be 7.9.2. You can get the Elasticsearch version from the http API, using your preferred http client. Here is an example with curl (if you don't have the certificate installed, use the `--insecure` flag to disable peer verification). The referenced `<http_endpoint>` can be found in the _Endpoints_ panel from your instance:
 
 ```bash
 curl -XGET <https_endpoint>
