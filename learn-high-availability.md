@@ -27,6 +27,10 @@ When you add an index to Elasticsearch, it splits the data into shards and sprea
 
 If you [add nodes to your cluster](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling), Elasticsearch automatically rebalances your the shards and replicas of your indexes across the newly added node or nodes. Adding nodes can provide additional stability in the event of a multi-node failure, since you can lose more nodes and maintain a quorum. Additional nodes also improve performance.
 
+## Staying Production Ready 
+
+To keep your {{site.data.keyword.databases-for-elasticsearch_full}} database up and running, do not drop the `icd-auth index`. This index stores your database, as well as all customer user accounts, and is therefore critical to operational integrity.
+
 ## Application-level High-Availability
 
 Applications that communicate over networks and cloud services are subject to transient connection failures. You want to design your applications to retry connections when errors are caused by a temporary loss in connectivity to your deployment or to {{site.data.keyword.cloud_notm}}.
