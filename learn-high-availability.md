@@ -29,7 +29,7 @@ If you [add nodes to your cluster](/docs/databases-for-elasticsearch?topic=datab
 
 ## Staying Production Ready 
 
-To keep your {{site.data.keyword.databases-for-elasticsearch_full}} database up and running, do not drop the `icd-auth index`. This index stores your database, as well as all customer user accounts, and is therefore critical to operational integrity.
+To keep your {{site.data.keyword.databases-for-elasticsearch_full}} database up and running, do not drop the `icd-auth index`. This index stores your database, as well as all user accounts and is critical to operational integrity.
 
 ## Application-level High-Availability
 
