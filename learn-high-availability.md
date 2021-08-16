@@ -2,7 +2,7 @@
 
 Copyright:
   years: 2019, 2020
-lastupdated: "2020-09-25"
+lastupdated: "2020-08-16"
 
 keywords: elasticsearch, databases, ha
 
