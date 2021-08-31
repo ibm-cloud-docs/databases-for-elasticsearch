@@ -16,7 +16,12 @@ Databases For Elasticsearch
 	{: .navgroup-end}
 
 	{: .navgroup id="howto"}
-	/cloud-databases/cloud-databases-provisioning
+	{: .topicgroup}
+	IBM Cloud™ Databases (ICD) enabled by IBM Cloud Satellite
+		/cloud-databases/cloud-databases-satellite-get-started
+		/cloud-databases/cloud-databases-satellite-aws
+		/cloud-databases/cloud-databases-satellite-on-prem
+		
 	howto-migration.md
 	howto-upgrading.md
 	howto-admin-password.md
