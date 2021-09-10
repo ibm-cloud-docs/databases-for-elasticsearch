@@ -26,7 +26,7 @@ If you have already created your deployment and just want to connect to your Ela
 
 ## Before you begin
 
-Make sure that you have an [{{site.data.keyword.cloud_notm}} account][ibm_cloud_signup_url]{:new_window}.
+Make sure that you have an [{{site.data.keyword.cloud_notm}} account][ibm_cloud_signup_url]{: new_window}.
 
 You also need to install [Node.js](https://nodejs.org/) and [Git](https://git-scm.com/downloads).
 
@@ -74,7 +74,7 @@ The {{site.data.keyword.cloud_notm}} CLI tool is what you use to communicate wit
   ibmcloud login
   ```
 
-  If you have a federated user ID, use the `ibmcloud login --sso` command to log in with your single sign-on ID. See [Logging in with a federated ID](/docs/account?topic=account-federated_id) to learn more.
+If you have a federated user ID, use the `ibmcloud login --sso` command to log in with your single sign-on ID. See [Logging in with a federated ID](/docs/account?topic=account-federated_id) to learn more.
   {: .tip}
 
 2. Make sure that you are targeting the correct {{site.data.keyword.cloud_notm}} org and space.
@@ -83,7 +83,7 @@ The {{site.data.keyword.cloud_notm}} CLI tool is what you use to communicate wit
   ibmcloud target --cf
   ```
 
-  Choose from the options provided, by using the same values that you used when you created the service.
+Choose from the options provided, by using the same values that you used when you created the service.
 
 ## Step 6. Create a Cloud Foundry alias for the database service.
 {: #create-alias}

@@ -24,7 +24,7 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 
 ## Before you begin
 
-- You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){:new_window}.
+- You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: new_window}.
 - And a {{site.data.keyword.databases-for-elasticsearch}} deployment. You can provision one from the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/databases-for-elasticsearch). Give your deployment a memorable name that appears in your account's Resource List.
 - [Set the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password) for your deployment.
 - Install [Docker](https://www.docker.com/) so that you can pull the Kibana container image to connect to Databases for Elasticsearch.
@@ -40,8 +40,8 @@ On your deployment's _Overview_ page, there is a panel with all the relevant con
 In order to connect, Kibana needs the username, password, url and port.
 
 It also needs the CA certificate to access the database. 
-  1. Copy the certificate information from the _Endpoints_ panel.
-  2. Save the certificate to a file. (You can use the name that is provided in the download, or your own file name.)
+   1. Copy the certificate information from the _Endpoints_ panel.
+   2. Save the certificate to a file. (You can use the name that is provided in the download, or your own file name.)
 
 Remember where you save the certificate on your filesystem. If you are running Kibana locally (not in Docker), then the certificate should go into `$KIBANA_HOME/config/<filename>`.
 

@@ -50,15 +50,15 @@ Any index that originates from an ES5 backup is still in ES5 format, even if it 
 If you have a deployment with such an ES6 backup or restore, and you attempt to upgrade to ES7, those indexes are not restorable without reindexing before the upgrade to ES7.
 
 ### Check whether you have an ES5 index in your ES6 deployment 
-  Some {{site.data.keyword.databases-for-elasticsearch}} deployments were upgraded from ES 5.x to ES 6.x. Any index that was not created on that ES6 deployment, but originated from the ES5 backup, is still in ES5 format.
+Some {{site.data.keyword.databases-for-elasticsearch}} deployments were upgraded from ES 5.x to ES 6.x. Any index that was not created on that ES6 deployment, but originated from the ES5 backup, is still in ES5 format.
   
-  You must check the index version to determine the need to reindex:
+You must check the index version to determine the need to reindex:
     
-  For each index, call the API `indexname/_settings?pretty`. For example,
+For each index, call the API `indexname/_settings?pretty`. For example,
     
   `curl -k https://user:password@host:port/test1/_settings?pretty`
 
-  In the result, look for the version field. For example,
+In the result, look for the version field. For example,
 
   ```
   "version" : {
@@ -66,7 +66,7 @@ If you have a deployment with such an ES6 backup or restore, and you attempt to 
        "upgraded" : "7090299"
      }
   ```
-  If the version field contains an upgraded entry, the index was imported from an older ES version and must be reindexed before upgrading.
+If the version field contains an upgraded entry, the index was imported from an older ES version and must be reindexed before upgrading.
 
   
 ### Reindex in place on your ES6 deployment before upgrading

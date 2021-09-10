@@ -50,9 +50,9 @@ The resource numbers refer to each database node in a deployment. For example, t
 - Autoscaling operations are logged in [{{site.data.keyword.at_full}}](/docs/databases-for-elasticsearch?topic=cloud-databases-activity-tracker).
 
 - Limits
-  - can't set anything to scale in an interval less than 60 seconds.
-  - Maximum Disk = 4 TB per member
-  - Maximum RAM = 112 GB per member
+   - can't set anything to scale in an interval less than 60 seconds.
+   - Maximum Disk = 4 TB per member
+   - Maximum RAM = 112 GB per member
 
 - Autoscaling does not scale down deployments where disk or memory usage has shrunk. The RAM provisioned to your deployment remains for your future needs, or until you scale down your deployment manually. The disk provisioned to your deployment remains because disk cannot be scaled down.
 
