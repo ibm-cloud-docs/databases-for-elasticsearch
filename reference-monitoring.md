@@ -71,6 +71,7 @@ A number derived from the status value of the `/_cluster/health` endpoint. Possi
 | `Value Type`  | `count` |
 | `Segment By` | `Service instance` |
 {: caption="Table 2. Cluster status metric metadata" caption-side="top"}
+
 ### Disk read latency mean
 {: #ibm_databases_for_elasticsearch_disk_read_latency_mean}
 

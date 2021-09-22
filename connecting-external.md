@@ -55,7 +55,6 @@ This example uses Java to connect.
 
 This example uses the Python library [`elasticsearch-py`](https://www.elastic.co/guide/en/elasticsearch/client/python-api/current/index.html) to connect.
 
-{: java}
 ```java
 import io.searchbox.client.JestClientFactory;
 import io.searchbox.client.JestResult;
@@ -123,8 +122,6 @@ public class ESConnect {
 ```
 {: java}
 
-
-{: python}
 ```python
 from elasticsearch import Elasticsearch
 from ssl import create_default_context
