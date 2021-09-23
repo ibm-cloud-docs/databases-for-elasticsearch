@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2021
-lastupdated: "2021-02-02"
+lastupdated: "2021-09-23"
 
 keywords: kibana
 
