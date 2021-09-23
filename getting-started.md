@@ -24,7 +24,7 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 
 ## Before you begin
 
-- You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){:new_window}.
+- You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: new_window}.
 - And a {{site.data.keyword.databases-for-elasticsearch}} deployment. You can provision one from the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/databases-for-elasticsearch). Give your deployment a memorable name that appears in your account's Resource List.
 - [Set the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password) for your deployment.
 - Install [Docker](https://www.docker.com/) so that you can pull the Kibana container image to connect to Databases for Elasticsearch.
@@ -40,8 +40,8 @@ On your deployment's _Overview_ page, there is a panel with all the relevant con
 In order to connect, Kibana needs the username, password, url and port.
 
 It also needs the CA certificate to access the database. 
-  1. Copy the certificate information from the _Endpoints_ panel.
-  2. Save the certificate to a file. (You can use the name that is provided in the download, or your own file name.)
+   1. Copy the certificate information from the _Endpoints_ panel.
+   2. Save the certificate to a file. (You can use the name that is provided in the download, or your own file name.)
 
 Remember where you save the certificate on your filesystem. If you are running Kibana locally (not in Docker), then the certificate should go into `$KIBANA_HOME/config/<filename>`.
 
@@ -63,7 +63,7 @@ The first setting, `elasticsearch.ssl.certificateAuthorities`, is the location w
 
 Next is `elasticsearch.username` and `elasticsearch.password`. Use the deployment's admin username and password. Be sure that you set the admin password prior to trying to connect. For `elasticsearch.url` enter the deployment's hostname and port, separated by a `:`. 
 
-Finally, there is server.name, which is a machine-readable name for the Kibana instance, and server.host, which is the host of the backend server and where you can connect to Kibana in your web browser.
+Finally, there is `server.name`, which is a machine-readable name for the Kibana instance, and `server.host`, which is the host of the backend server and where you can connect to Kibana in your web browser.
 
 The settings are just a simplified example to get started. See the [Kibana documentation](https://www.elastic.co/guide/en/kibana/current/settings.html) for more configuration settings you can set for your use case.
 
@@ -87,24 +87,24 @@ Run the Docker command in your terminal to start up the Kibana container.
 docker container run -it --name kibana \
 -v </path/to/kibana.yml>:/usr/share/kibana/config/kibana.yml \
 -v </path/to/cacert>:/usr/share/kibana/config/cacert \
--p 5601:5601 docker.elastic.co/kibana/kibana-oss:6.5.4
+-p 5601:5601 docker.elastic.co/kibana/kibana-oss:<kibana_version>
 ```
 
 The Docker command has two volumes attached with the `-v` flag. These are mounted to the Kibana container at the path `/usr/share/kibana/config/`, which is a configuration directory that Kibana looks at for configuration files. 
 - The first volume points to your `kibana.yml` file on your local filesystem and maps it to `/usr/share/kibana/config/`. The file name it assigns in the container must be named `kibana.yml` because that’s the file name that the Kibana server reads server properties from. 
 - The second volume first takes the path on your system to the self-signed certificate that you saved earlier, and maps it to `/usr/share/kibana/config/`. The volume path on the container and the path specified as `elasticsearch.ssl.certificateAuthorities` in `kibana.yml` must match.
 - The `-p` specifies which port is exposed from the container, and the port you'll use to access Kibana.
-- Finally, the Kibana image we’ll pull is the kibana-oss version without X-Pack, `docker.elastic.co/kibana/kibana-oss:6.5.4`.
+
 
 When you run the command from your terminal, it downloads the Kibana Docker image and runs Kibana. 
 Once Kibana has connected to your {{site.data.keyword.databases-for-elasticsearch}} deployment and is running successfully, you see the output in your terminal.
 ```
-log   [01:19:31.839] [info][status][plugin:kibana@6.5.4] Status changed from uninitialized to green - Ready
-log   [01:19:31.925] [info][status][plugin:elasticsearch@6.5.4] Status changed from uninitialized to yellow - Waiting for Elasticsearch
-log   [01:19:32.120] [info][status][plugin:timelion@6.5.4] Status changed from uninitialized to green - Ready
-log   [01:19:32.134] [info][status][plugin:console@6.5.4] Status changed from uninitialized to green - Ready
-log   [01:19:32.147] [info][status][plugin:metrics@6.5.4] Status changed from uninitialized to green - Ready
-log   [01:19:33.132] [info][status][plugin:elasticsearch@6.5.4] Status changed from yellow to green - Ready
+log   [01:19:31.839] [info][status][plugin:<kibana_version>] Status changed from uninitialized to green - Ready
+log   [01:19:31.925] [info][status][plugin:elasticsearch@<kibana_version>] Status changed from uninitialized to yellow - Waiting for Elasticsearch
+log   [01:19:32.120] [info][status][plugin:timelion@<kibana_version>] Status changed from uninitialized to green - Ready
+log   [01:19:32.134] [info][status][plugin:console@<kibana_version>] Status changed from uninitialized to green - Ready
+log   [01:19:32.147] [info][status][plugin:metrics@<kibana_version>] Status changed from uninitialized to green - Ready
+log   [01:19:33.132] [info][status][plugin:elasticsearch@<kibana_version>] Status changed from yellow to green - Ready
 log   [01:19:33.378] [info][listening] Server running at http://0.0.0.0:5601
 ```
 
