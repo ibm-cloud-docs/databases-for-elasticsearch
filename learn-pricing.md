@@ -22,8 +22,6 @@ subcollection: databases-for-elasticsearch
 
 An {{site.data.keyword.databases-for-elasticsearch_full}} Standard plan deploys as one highly available Elasticsearch cluster with three data members. Your data is replicated across members. The Standard plan is priced based on the total amount of disk storage, RAM, dedicated cores, and backup storage that is allocated to deployments, prorated hourly. {{site.data.keyword.databases-for-elasticsearch}} deployments have a minimum of 5 GB of disk and 1 GB of RAM per data member.
 
-Templates are provided for ease of use and provide balanced resource allocations appropriate for general purpose workloads. The Custom tab can be used to configure Disk, RAM, and vCPU, as desired.
-
 ## Cost Breakdown
 
 **Disk storage per data member** - gigabytes of disk that are allocated to a {{site.data.keyword.databases-for-elasticsearch}} data member, or the size of your data.  
@@ -43,6 +41,8 @@ All prices here are in US dollars. To see pricing in your local currency, you ca
 {: .tip}
 
 ## Using the Pricing Calculator
+
+Templates are provided for ease of use and provide balanced resource allocations appropriate for general purpose workloads. The **Custom** tab can be used to configure Disk, RAM, and vCPU, as desired.
 
 For pricing estimation, use the **Add to Estimate** button on the [{{site.data.keyword.databases-for-elasticsearch}} catalog page](https://cloud.ibm.com/catalog/databases-for-elasticsearch). Input your total consumption across three data members into the calculator. For example, 5 GB of disk and 1 GB of RAM across three data members would be priced at 15 GB of disk and 3 GB of RAM respectively.
 
