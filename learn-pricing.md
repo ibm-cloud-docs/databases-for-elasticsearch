@@ -22,6 +22,8 @@ subcollection: databases-for-elasticsearch
 
 An {{site.data.keyword.databases-for-elasticsearch_full}} Standard plan deploys as one highly available Elasticsearch cluster with three data members. Your data is replicated across members. The Standard plan is priced based on the total amount of disk storage, RAM, dedicated cores, and backup storage that is allocated to deployments, prorated hourly. {{site.data.keyword.databases-for-elasticsearch}} deployments have a minimum of 5 GB of disk and 1 GB of RAM per data member.
 
+Templates are provided for ease of use and provide balanced resource allocations appropriate for general purpose workloads. The Custom tab can be used to configure Disk, RAM, and vCPU, as desired.
+
 ## Cost Breakdown
 
 **Disk storage per data member** - gigabytes of disk that are allocated to a {{site.data.keyword.databases-for-elasticsearch}} data member, or the size of your data.  
