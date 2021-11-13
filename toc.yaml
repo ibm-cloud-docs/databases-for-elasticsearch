@@ -28,6 +28,7 @@ toc:
       topics:
       - /cloud-databases/cloud-databases-provisioning
       - /cloud-databases/cloud-databases-deprovisioning
+      - /cloud-databases/cloud-databases-migrate-data-center
       - howto-migration.md
       - howto-upgrading.md
       - howto-admin-password.md
