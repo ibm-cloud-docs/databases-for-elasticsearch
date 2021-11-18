@@ -80,7 +80,7 @@ toc:
           - /cloud-databases/cloud-databases-vpes
           - /cloud-databases/cloud-databases-service-endpoints
       - reference-monitoring.md
-      - /cloud-databases/cloud-databases-activity-tracker
+      - /cloud-databases/cloud-databases-activity-tracker-integration
       - /cloud-databases/cloud-databases-logging
       - /cloud-databases/cloud-databases-iam
       - /cloud-databases/cloud-databases-key-protect
