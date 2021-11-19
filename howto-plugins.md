@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019
-lastupdated: "2019-03-04"
+lastupdated: "2021-11-19"
 
 keywords: elasticsearch, keywords
 
@@ -9,7 +9,7 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -22,11 +22,12 @@ subcollection: databases-for-elasticsearch
 Elasticsearch supports a variety of plugins to extend its core functionality. {{site.data.keyword.databases-for-elasticsearch_full}} comes with a selection of plugins that already enabled on your deployment. Plugin management is handled by the service, and users cannot install, uninstall, enable, or disable plugins.
 
 You can check the plug-ins that are installed in your Elasticsearch cluster by using the `/_nodes/plugins` cluster API endpoint. Example, 
-```
+```shell
 CURL_CA_BUNDLE=certificate.crt curl -u ibm_cloud_es_user:password https://f1b5e4a9-7179-4af2-a795-b7a0d71ec80a.974550db55eb4ec0983f023940bf637f.databases.appdomain.cloud:30909/_nodes/plugins
 ```
 
 ## Available Plugins
+{: #avail-plugins}
 
 Name | Description
 -------|-------
@@ -46,5 +47,6 @@ Name | Description
 More details on the plugins are available in the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/plugins/current/index.html).
 
 ## The Search Guard Plugin
+{: #search-guard-plugins}
 
 {{site.data.keyword.databases-for-elasticsearch}} deployments use the [Search Guard plugin](https://docs.search-guard.com/latest/index.html) to provide strong TLS encryption for both internal and external network traffic. It also provides user management features, allows you to create users through _Service Credentials_, and use IAM integration.
