@@ -1,6 +1,6 @@
 ---
 
-Copyright:
+copyright:
   years: 2019, 2020
 lastupdated: "2020-08-16"
 
@@ -10,7 +10,7 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}

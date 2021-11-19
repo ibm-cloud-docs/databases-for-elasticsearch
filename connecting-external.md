@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018,2021
-lastupdated: "2021-10-28"
+  years: 2018, 2021
+lastupdated: "2021-11-19"
 
 keywords: elasticsearch-py, java, elasticsearch driver,
 
@@ -9,7 +9,7 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -25,6 +25,7 @@ Your applications and drivers use connection strings to make a connection to {{s
 The connection strings can be used by any of the credentials you have created on your deployment. While you can use the admin user for all of your connections and applications, it might be better to create users specifically for your applications to connect with. Documentation on creating users is on the [Creating Users and Getting Connection Strings](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) page.
 
 ## Connecting with a language's driver
+{: #lang-driver}
 
 All the information a driver needs to make a connection to your deployment is in the "https" section of your connection strings. The table contains a breakdown for reference.
 
@@ -118,8 +119,6 @@ public class ESConnect {
 }
 ```
 
-{: java}
-
 The following example uses the Python library [`elasticsearch-py`](https://www.elastic.co/guide/en/elasticsearch/client/python-api/current/index.html) to connect.
 
 ```python
@@ -140,13 +139,13 @@ health = es.cluster.health()
 print(health)
 ```
 
-{: python}
-
 ## Driver TLS and self-signed certificate support
+{: #driver-tls-cert-support}
 
 All connections to {{site.data.keyword.databases-for-elasticsearch}} are TLS 1.2 enabled, so the driver you use to connect needs to be able to support encryption. Your deployment also comes with a self-signed certificate so the driver can verify the server upon connection.
 
 ### Using the self-signed certificate
+{: #using-cert}
 
 1. Copy the certificate information from the _Endpoints_ panel or the Base64 field of the connection information.
 2. If needed, decode the Base64 string into text.
@@ -154,10 +153,12 @@ All connections to {{site.data.keyword.databases-for-elasticsearch}} are TLS 1.2
 4. Provide the path to the certificate to the driver or client.
 
 ### CLI plug-in support for the self-signed certificate
+{: #cli-selfsign-cert}
 
 You can display the decoded certificate for your deployment with the CLI plug-in with the command `ibmcloud cdb deployment-cacert "your-service-name"`. It decodes the base64 into text. Copy and save the command's output to a file and provide the file's path to the driver.
 
 ## Other Drivers
+{: #other-drivers}
 
 Elasticsearch has a vast array of language drivers. The table covers a few of the most common.
 

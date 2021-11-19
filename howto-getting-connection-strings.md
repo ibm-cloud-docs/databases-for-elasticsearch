@@ -1,6 +1,6 @@
 ---
 copyright:
-  years: 2018,2019
+  years: 2018, 2019
 lastupdated: "2019-05-03"
 
 keywords: elasticsearch, databases
@@ -9,7 +9,7 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
