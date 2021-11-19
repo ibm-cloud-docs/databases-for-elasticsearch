@@ -1,8 +1,8 @@
 ---
 
-Copyright:
+copyright:
   years: 2019, 2020
-lastupdated: "2020-09-25"
+lastupdated: "2021-11-19"
 
 keywords: elasticsearch, databases, ha
 
@@ -10,7 +10,7 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -28,10 +28,12 @@ When you add an index to Elasticsearch, it splits the data into shards and sprea
 If you [add nodes to your cluster](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling), Elasticsearch automatically rebalances your the shards and replicas of your indexes across the newly added node or nodes. Adding nodes can provide additional stability in the event of a multi-node failure, since you can lose more nodes and maintain a quorum. Additional nodes also improve performance.
 
 ## Staying Production Ready 
+{: #stay-prod-ready}
 
 To keep your {{site.data.keyword.databases-for-elasticsearch_full}} database up and running, do not drop the `icd-auth index`. This index stores your database, as well as all user accounts and is critical to operational integrity.
 
 ## Application-level High-Availability
+{: #app-level-high-availability}
 
 Applications that communicate over networks and cloud services are subject to transient connection failures. You want to design your applications to retry connections when errors are caused by a temporary loss in connectivity to your deployment or to {{site.data.keyword.cloud_notm}}.
 
@@ -42,7 +44,6 @@ Your applications have to be designed to handle temporary interruptions to the d
 Several minutes of database unavailability or connection interruption is not expected. Open a [support ticket](https://cloud.ibm.com/unifiedsupport/cases/add) with details if you have time periods longer than a minute with no connectivity so we can investigate.
 
 ## High availability, disaster recovery, and SLA resources
+{: #high-availability-da-sla}
 
 {{site.data.keyword.databases-for-elasticsearch}} deployments conform to the {{site.data.keyword.cloud_notm}} Databases [HA, DR, and SLA](/docs/cloud-databases?topic=cloud-databases-ha-dr) information and terms.
-
-

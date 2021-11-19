@@ -1,8 +1,8 @@
 ---
 
-Copyright:
+copyright:
   years: 2019, 2020
-lastupdated: "2020-11-20"
+lastupdated: "2021-11-19"
 
 keywords: elasticsearch, filter, index, indices, indexes
 
@@ -10,7 +10,7 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -25,21 +25,23 @@ Files that are uploaded to your deployment use disk resources, both in the index
 {: .tip} 
 
 ## Basic Process
+{: #process}
 
 1. You base64 encode the file on client side.
-2. The base64 strings are stored as documents in an index named `ibm_file_sync` in your Elasticsearch deployment.
-3. You trigger a file sync from the {{site.data.keyword.databases-for}} API.
-4. All nodes in your Elasticsearch cluster download the file contents from the index, decode the base64, and restore the files on the deployment's disk in the `/data/ibm_file_sync/current` directory.
-5. At regular intervals, and on restarts, the files get resynced to assure they are present on all nodes.
-6. Files that are on disk but not in the index get deleted. You can delete files from disk by removing
-them from the index.  
+1. The base64 strings are stored as documents in an index named `ibm_file_sync` in your Elasticsearch deployment.
+1. You trigger a file sync from the {{site.data.keyword.databases-for}} API.
+1. All nodes in your Elasticsearch cluster download the file contents from the index, decode the base64, and restore the files on the deployment's disk in the `/data/ibm_file_sync/current` directory.
+1. At regular intervals, and on restarts, the files get resynced to assure they are present on all nodes.
+1. Files that are on disk but not in the index get deleted. You can delete files from disk by removing them from the index.  
 
 The index in Elasticsearch is `ibm_file_sync`.  
 The location of the files on disk is `/data/ibm_file_sync/current`.
 
 In Elasticsearch 7 the API removes doc types. Refer to the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html) for more details. This is especially good to keep in mind when updating from prior versions.
 {: .note}
+
 ## Uploading the files to the Index
+{: #uploading-files-index}
 
 The structure of the documents in the index is as follows, `name` is the file name of the file, `blob` is the base64-encoded file contents, and `md5` is an optional hash value over the file contents. The recommended mapping for the index are split out based on version.
 
@@ -98,7 +100,7 @@ The download function compares the hash values on each sync run and if the value
 Next, upload the document to the index. Note that the file name is supplied in the URL as well.
 
 For Elasticsearch 6:
-``` 
+``` shell
 curl -X PUT "https://user:password@host:port/ibm_file_sync/files/README1.md" -H 'Content-Type: application/json' -d'
 {
     "name": "README1.md",
@@ -109,7 +111,7 @@ curl -X PUT "https://user:password@host:port/ibm_file_sync/files/README1.md" -H 
 {: .pre}
 
 For Elasticsearch 7 (note only the URL is changed):
-``` 
+``` shell
 curl -X PUT "https://user:password@host:port/ibm_file_sync/_doc/README1.md" -H 'Content-Type: application/json' -d'
 {
     "name": "README1.md",
@@ -122,13 +124,13 @@ curl -X PUT "https://user:password@host:port/ibm_file_sync/_doc/README1.md" -H '
 You can verify the uploaded data. 
 
 For Elasticsearch 6:
-```
+```curl
 curl https://user:password@host:port/ibm_file_sync/files/README.md?pretty
 ```
 {: .pre}
 
 For Elasticsearch 7:
-```
+```curl
 curl https://user:password@host:port/ibm_file_sync/_doc/README.md?pretty
 ```
 {: .pre}
@@ -136,7 +138,7 @@ curl https://user:password@host:port/ibm_file_sync/_doc/README.md?pretty
 If everything went smoothly, the returned data looks like this (shortened) example. Note that the "md5" field can contain a file name alongside the hash.
 
 For Elasticsearch 6:
-``` 
+``` curl
 {
   "_index" : "ibm_file_sync",
   "_type" : "files",
@@ -153,7 +155,7 @@ For Elasticsearch 6:
 {: .pre}
 
 For Elasticsearch 7: 
-``` 
+``` curl
 {
   "_index" : "ibm_file_sync",
   "_id" : "README1.md",
@@ -169,9 +171,10 @@ For Elasticsearch 7:
 {: .pre}
 
 ## Syncing files to disk
+{: #syncing-files}
 
 Once the files are uploaded to the index, they can be synced to the disk. Call the `/elasticsearch/file_syncs` endpoint from the {{site.data.keyword.databases-for}} API.
-```
+```curl
 curl -X POST \
 https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/elasticsearch/file_syncs \
 -H 'authorization: Bearer <token>'
@@ -186,6 +189,7 @@ Any number of files can be uploaded and synced. The contents of the files are no
 {: .tip}
 
 ## Using the files
+{: #using-files}
 
 Elasticsearch features that make use of files on the file system do so by accepting the path to the file when defining the index. An uploaded file `example.txt` is located at `/data/ibm_file_sync/current/example.txt`. These are a few of the features that can use files from the file system. This list contains examples, and is not exhaustive.
 - [Keep Words Token Filter](https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-keep-words-tokenfilter.html)

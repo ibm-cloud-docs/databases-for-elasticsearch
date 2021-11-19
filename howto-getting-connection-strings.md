@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018,2019
-lastupdated: "2019-05-03"
+  years: 2018, 2019
+lastupdated: "2021-11-19"
 
 keywords: elasticsearch, databases
 
@@ -9,7 +9,7 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -22,19 +22,19 @@ subcollection: databases-for-elasticsearch
 
 In order to connect to {{site.data.keyword.databases-for-elasticsearch_full}}, you need some users and connection strings. Connection Strings for your deployment are displayed on the _Dashboard Overview_, in the _Endpoints_ panel. These strings can be used with any set of credentials that you generate.
 
-![Endpoints panel](images/getting-started-endpoints-panel.png)
+![Endpoints panel](images/getting-started-endpoints-panel.png){: caption="Figure 1. Endpoints panel" caption-side="bottom"}
 
 A {{site.data.keyword.databases-for-elasticsearch}} deployment is provisioned with an admin user, and after you [set the admin password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password), you can use its credentials to connect to your deployment.
 {: .tip}
 
 **CLI**  
 You can also grab connection strings from the [CLI](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections).
-```
+```shell
 ibmcloud cdb deployment-connections example-deployment -u <newusername> [--endpoint-type <endpoint type>]
 ```
 
 Full connection information is returned by the `ibmcloud cdb deployment-connections` command with the `--all` flag. To retrieve all the connection information for a deployment named  "example-deployment", use the following command.
-```
+```shell
 ibmcloud cdb deployment-connections example-deployment -u <newusername> --all [--endpoint-type <endpoint type>]
 ```
 
@@ -45,17 +45,19 @@ To use the `ibmcloud cdb` CLI commands, you must [install the {{site.data.keywor
 
 **API**  
 To retrieve user's connection strings from the API, use the [`/users/{userid}/connections`](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026) endpoint. You have to specify in the path which user and which type of endpoint (public or private) should be used in the returned connection strings. The user and endpoint type is not enforced. You can use any user on your deployment with either endpoint (if both exist on your deployment).
-```
+```shell
 curl -X GET -H "Authorization: Bearer $APIKEY" 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/users/{userid}/connections/{endpoint_type}'
 ```
 
 ## Additional Users and Connection Strings
+{: #connection-strings-add-users}
 
 Access to your {{site.data.keyword.databases-for-elasticsearch}} deployment is not limited to the admin user. You can create users by using the _Service Credentials_ panel, the {{site.data.keyword.IBM_notm}} CLI, or through the {{site.data.keyword.IBM_notm}} {{site.data.keyword.databases-for}} API. 
 
 All users on your deployment can use the connection strings, including connection strings for either public or private endpoints. 
 
 ### Creating Users From _Service Credentials_
+{: #connection-strings-creating-users-service-cred}
 
 1. Navigate to the service dashboard for your service.
 2. Click _Service Credentials_ to open the _Service Credentials_ panel.
@@ -67,18 +69,20 @@ All users on your deployment can use the connection strings, including connectio
 The new credentials appear in the table, and the connection strings are available as JSON in a click-to-copy field under _View Credentials_.
 
 ### Creating Users From the Command Line
+{: #connection-strings-creating-users-cli}
 
 If you manage your service through the {{site.data.keyword.cloud_notm}} CLI and the [cloud databases plug-in](/docs/cli?topic=cli-install-ibmcloud-cli), you can create a new user with `cdb user-create`. For example, to create a new user for an "example-deployment", use the following command.
-```
+```shell
 ibmcloud cdb user-create example-deployment <newusername> <newpassword>
 ```
 
 Once the task has finished, you can retrieve the new user's connection strings with the `ibmcloud cdb deployment-connections` command.
 
 ### Creating Users from the API
+{: #connection-strings-creating-users-api}
 
 The _Foundation Endpoint_ that is shown on the _Overview_ panel of your service provides the base URL to access this deployment through the API. To create and manage users, use the base URL with the `/users` endpoint.
-```
+```shell
 curl -X POST 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/users' \
 -H "Authorization: Bearer $APIKEY" \
 -H "Content-Type: application/json" \
@@ -88,6 +92,7 @@ curl -X POST 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{i
 To retrieve a user's connection strings, use the base URL with the `/users/{userid}/connections` endpoint.
 
 ### Adding users to _Service Credentials_ 
+{: #connection-strings-adding-users-service-cred}
 
 Creating a new user from the CLI doesn't automatically populate that user's connection strings into _Service Credentials_. If you want to add them there, you can create a new credential with the existing user information.
 
@@ -97,8 +102,10 @@ Generating credentials from an existing user does not check for or create that u
 {: tip}
 
 ## Connection String Breakdown
+{: #connection-strings-breakdown}
 
 ### The HTTPS Section
+{: #connection-strings-https}
 
 The "https" section contains information that is suited to applications that make connections to Elasticsearch.
 
@@ -119,6 +126,7 @@ Field Name|Index|Description
 * `0...` indicates that there might be one or more of these entries in an array.
 
 ### The CLI Section
+{: #connection-strings-cli}
 
 The "CLI" section contains information that is suited for connecting with `cURL` .
 

@@ -1,8 +1,8 @@
 ---
 
-Copyright:
+copyright:
   years: 2019, 2021
-lastupdated: "2021-02-04"
+lastupdated: "2021-11-19"
 
 keywords: elasticsearch, databases, manual scaling, disk I/O, memory, CPU
 
@@ -10,7 +10,7 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -23,6 +23,7 @@ subcollection: databases-for-elasticsearch
 You can manually adjust the amount of resources available to your {{site.data.keyword.databases-for-elasticsearch_full}} deployment to suit your workload and the size of your data.
 
 ## Resource Breakdown
+{: #resource-breakdown}
 
 A default {{site.data.keyword.databases-for-elasticsearch}} deployment runs with three data members in a cluster, and resources are allocated to all three members equally. For example, the minimum storage of an Elasticsearch deployment is 15360 MB, which equates to an initial size of 5120 MB per member. The minimum RAM for an Elasticsearch deployment is 3072 MB, which equates to an initial allocation of 1028 MB per member.
 
@@ -30,6 +31,7 @@ Billing is based on the _total_ amount of resources that are allocated to the de
 {: .tip}
 
 ### Disk Usage
+{: #resources-scaling-disk-usage}
 
 Storage shows the amount of disk space that is allocated to your service. Each member gets an equal share of the allocated space. Your data is replicated across all the data members in the Elasticsearch cluster.
 
@@ -39,14 +41,17 @@ You cannot scale down storage. If your data set size has decreased, you can reco
 {: .tip} 
 
 ### RAM
+{: #resources-scaling-ram}
 
 If you find that your queries and database activity suffer from performance issues due to a lack of memory, you can scale the amount of RAM allocated to your service. Adding memory to the total allocation adds memory to the members equally. {{site.data.keyword.databases-for-elasticsearch}} deployments have their memory allocation policy set at 50% heap and 50% system memory, so increasing the amount of RAM increases both heap and system memory.
 
 ### Dedicated Cores
+{: #resources-scaling-ded-cores}
 
 You can enable or increase the CPU allocation to the deployment. With dedicated cores, your resource group is given a single-tenant host with a reserve of CPU shares. Your deployment is then guaranteed the minimum number of CPUs you specify. The default of 0 dedicated cores uses compute resources on shared hosts. Going from a 0 to a >0 CPU count provisions and moves your deployment to new hosts, and your databases are restarted as part of that move. Going from >0 to a 0 CPU count, moves your deployment to a shared host and also restarts your databases as part of the move.
 
 ## Scaling Considerations
+{: #resources-scaling-consider}
 
 - Scaling your deployment up might cause your RabbitMQ to restart. If you scale RAM or CPU and your deployment needs to be moved to a host with more capacity, then the RabbitMQ is restarted as part of the move.
 
@@ -63,14 +68,16 @@ You can enable or increase the CPU allocation to the deployment. With dedicated 
 - Elasticsearch is designed to balance work load across a cluster and can benefit from being horizontally scaled. If you are concerned about performance, check out [Adding Elasticsearch Nodes](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling).
 
 ## Scaling in the UI
+{: #resources-scaling-ui}
 
 A visual representation of your data members and their resource allocation is available on the _Resources_ tab of your deployment's _Manage_ page. 
 
-![The Scale Resources Panel in _Resources_](images/scaling-update.png)
+![The Scale Resources Panel in _Resources_](images/scaling-update.png){: caption="Figure 1. The Scale Resources Panel" caption-side="bottom"}
 
 Adjust the slider to increase or decrease the resources that are allocated to your service. The slider controls how much memory or disk is allocated per member. The UI currently uses a coarser-grained resolution of 8 GB increments for disk and 1 GB increments for memory. The UI shows the total allocated memory or disk for the position of the slider. Click **Scale** to trigger the scaling operations and return to the dashboard overview. 
 
 ## Resources and Scaling in the CLI 
+{: #resources-scaling-cli}
 
 [{{site.data.keyword.cloud_notm}} CLI cloud databases plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference) supports viewing and scaling the resources on your deployment. Use the command `cdb deployment-groups` to see current resource information for your service, including which resource groups are adjustable. To scale any of the available resource groups, use `cdb deployment-groups-set` command. 
 
@@ -78,7 +85,7 @@ For example, the command to view the resource groups for a deployment named "exa
 `ibmcloud cdb deployment-groups example-deployment`
 
 This produces the output:
-```
+```shell
 Group   member
 Count   3
 |
@@ -110,16 +117,17 @@ The `cdb deployment-groups-set` command allows either the total RAM or total dis
 `ibmcloud cdb deployment-groups-set example-deployment member --memory 6144`
 
 ## Scaling via the API
+{: #resources-scaling-api}
 
 The _Foundation Endpoint_ that is shown on the _Overview_ panel of your service provides the base URL to access this deployment through the API. Use it with the `/groups` endpoint if you need to manage or automate scaling programmatically.
 
 To view the current and scalable resources on a deployment, use the [/deployments/{id}/groups](https://cloud.ibm.com/apidocs/cloud-databases-api#get-currently-available-scaling-groups-from-a-depl) endpoint.
-```
+```shell
 curl -X GET -H "Authorization: Bearer $APIKEY" `https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups'
 ```
 
 To scale the memory of a deployment to 2048 MB of RAM for each member (there are 3 so a total memory of 6144 MB), use the use the [/deployments/{id}/groups/{group_id}](https://cloud.ibm.com/apidocs/cloud-databases-api#set-scaling-values-on-a-specified-group) API endpoint.
-```
+```shell
 curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member' \
 -H "Authorization: Bearer $APIKEY" \
 -H "Content-Type: application/json" \

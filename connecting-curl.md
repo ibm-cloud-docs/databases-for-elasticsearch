@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018,2019
-lastupdated: "2019-04-10"
+  years: 2018, 2019
+lastupdated: "2021-11-19"
 
 keywords: elasticsearch, databases, curl
 
@@ -9,7 +9,7 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:shortdesc: .shortdesc}
 {:screen: .screen}
 {:codeblock: .codeblock}
@@ -24,7 +24,7 @@ You can access your Elasticsearch database directly from a command-line terminal
 
 Connection strings are displayed in the _Endpoints_ panel of your deployment's _Overview_, and can also be retrieved from the [cloud databases CLI plugin](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections), and the [API](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026).
 
-![CLI Endpoints panel](images/cli-endpoints-pane.png)
+![CLI Endpoints panel](images/cli-endpoints-pane.png){: caption="Figure 1. CLI Endpoints panel" caption-side="bottom"}
 
 The information that you need to make a connection with cURL to your deployment is in the "cli" section of your connection strings. The table contains a breakdown for reference.
 
@@ -42,8 +42,9 @@ Field Name|Index|Description
 * `0...` indicates that there might be one or more of these entries in an array.
 
 ## Elasticsearch API `cURL` example
+{: #elasticsearch-api-curl-example}
 
-```
+```curl
 CURL_CA_BUNDLE="/path-to/your_cert_file" curl -u admin:<password> 'https://d5eeee66-5bc4-499a-b73b-1307848f1eac.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud:31821/_cluster/health?pretty'
 ```
 
@@ -54,13 +55,15 @@ CURL_CA_BUNDLE="/path-to/your_cert_file" curl -u admin:<password> 'https://d5eee
 * `/_cluster/health?pretty` - An Elasticsearch Cluster API endpoint that returns the status of your cluster. 
 
 ## Using the self-signed certificate
+{: #using-cert}
 
 1. Copy the certificate information from the _Endpoints_ panel or the Base64 field of the connection information. 
 2. If needed, decode the Base64 string into text. 
 3. Save the certificate  to a file. (You can use the Name that is provided or your own file name).
 4. Provide the path to the `CURL_CA_BUNDLE` variable.
 
-### CLI plug-in support for the self-signed certificate
+## CLI plug-in support for the self-signed certificate
+{: #cli-plugin-cert-support}
 
 You can display the decoded certificate for your deployment with the CLI plug-in with the command `ibmcloud cdb deployment-cacert "your-service-name"`. It decodes the base64 into text. Copy and save the command's output to a file and provide the file's path to the `CURL_CA_BUNDLE` variable.
 

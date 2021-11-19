@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-02-02"
+  years: 2018, 2019
+lastupdated: "2021-11-19"
 
 keywords: kibana
 
@@ -10,7 +10,7 @@ subcollection: databases-for-elasticsearch
 ---
 
 {:shortdesc: .shortdesc}
-{:new_window: target="_blank"}
+{:external: .external target="_blank"}
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:screen: .screen}
@@ -23,8 +23,9 @@ subcollection: databases-for-elasticsearch
 This tutorial is a short introduction to using an {{site.data.keyword.databases-for-elasticsearch_full}} deployment by connecting with [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html), an open source tool that adds visualization capabilities to your Elasticsearch database. This tutorial runs Kibana in a Docker container, using the Kibana image from the Docker image repository. You can also [download and install Kibana](https://www.elastic.co/guide/en/kibana/current/install.html) to run a system you control. 
 
 ## Before you begin
+{: #before-begin}
 
-- You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: new_window}.
+- You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}.
 - And a {{site.data.keyword.databases-for-elasticsearch}} deployment. You can provision one from the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/databases-for-elasticsearch). Give your deployment a memorable name that appears in your account's Resource List.
 - [Set the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password) for your deployment.
 - Install [Docker](https://www.docker.com/) so that you can pull the Kibana container image to connect to Databases for Elasticsearch.
@@ -32,10 +33,11 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 Review the [`Getting to production`](/docs/cloud-databases?topic=cloud-databases-best-practices) documentation for general guidance on setting up a basic {{site.data.keyword.databases-for-elasticsearch_full}} deployment.
 
 ## Connection Info for your Deployment
+{: #connection-info-deployment}
 
 On your deployment's _Overview_ page, there is a panel with all the relevant connection information.
 
-![Endpoints panel](images/getting-started-endpoints-panel.png)
+![Endpoints panel](images/getting-started-endpoints-panel.png){: caption="Figure 1. Endpoints panel" caption-side="bottom"}
 
 In order to connect, Kibana needs the username, password, url and port.
 
@@ -46,6 +48,7 @@ It also needs the CA certificate to access the database.
 Remember where you save the certificate on your filesystem. If you are running Kibana locally (not in Docker), then the certificate should go into `$KIBANA_HOME/config/<filename>`.
 
 ## Setting up Kibana
+{: #kibana}
 
 Before running the Docker container that includes Kibana, you need to create a configuration file that contains some basic Kibana settings.
 
@@ -70,6 +73,7 @@ The settings are just a simplified example to get started. See the [Kibana docum
 If you are running Kibana locally (not in Docker), then the yaml file goes in `$KIBANA_HOME/config/kibana.yml`, where Kibana reads its configuration from.
 
 ## Running the Kibana Container
+{: #running-kibana-container}
 
 Now that the `kibana.yml` file is set up, you're going to use Docker to attach the yaml file and your certificate file to the Docker container, while pulling the `<kibana_version>` image from the Docker image repository. 
 
@@ -98,7 +102,7 @@ The Docker command has two volumes attached with the `-v` flag. These are mounte
 
 When you run the command from your terminal, it downloads the Kibana Docker image and runs Kibana. 
 Once Kibana has connected to your {{site.data.keyword.databases-for-elasticsearch}} deployment and is running successfully, you see the output in your terminal.
-```
+```shell
 log   [01:19:31.839] [info][status][plugin:<kibana_version>] Status changed from uninitialized to green - Ready
 log   [01:19:31.925] [info][status][plugin:elasticsearch@<kibana_version>] Status changed from uninitialized to yellow - Waiting for Elasticsearch
 log   [01:19:32.120] [info][status][plugin:timelion@<kibana_version>] Status changed from uninitialized to green - Ready
@@ -113,11 +117,12 @@ If you don't want to see the output of Kibana in your terminal, use the `-d` fla
 
 At this point, you can visit `http://0.0.0.0:5601` in your browser to see Kibana. (`0.0.0.0` is the `server.host` in `kibana.yml` and `5601` is the port exposed from the container.) Once you go to the URL, a pop-up window will prompt you for your username and password. You can use the admin credentials or any other credentials you made that have access to your deployment. They don’t have to be the same username and password you provided in the `kibana.yml` file.
 
-![Kibana Start Page](images/getting-started-kibana-start.png)
+![Kibana Start Page](images/getting-started-kibana-start.png){: caption="Figure 1. Kibana start page" caption-side="bottom"}
 
 From here, you can start using Kibana with {{site.data.keyword.databases-for-elasticsearch}}. Be sure to check out the [Kibana documentation](https://www.elastic.co/guide/en/kibana/current/index.html).
 
 ## Next Steps
+{: #elasticsearch-next-steps}
 
 If you are just using Elasticsearch for the first time, it is a good idea to take a tour through the [official Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html). 
 
@@ -130,5 +135,3 @@ If you are planning to use {{site.data.keyword.databases-for-elasticsearch}} for
 Also, to ensure the stability of your applications and your database, check out the pages on 
 - [High-Availability](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-high-availability)
 - [Performance](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-performance)
-
-
