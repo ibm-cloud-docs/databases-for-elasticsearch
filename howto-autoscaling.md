@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2021
-lastupdated: "2021-03-30"
+lastupdated: "2021-11-30"
 
 keywords: elasticsearch, databases, autoscaling, disk I/O, memory
 
@@ -41,7 +41,7 @@ The resource numbers refer to each database node in a deployment. For example, t
 ## AutoScaling Considerations
 {: #autoscaling-consider}
 
-- Scaling your deployment up might cause your Elasticsearch to restart. If you scale RAM or CPU and your deployment needs to be moved to a host with more capacity, then Elasticsearch is restarted as part of the move.
+- Scaling your deployment up might cause your Elasticsearch to restart. If your scaled deployment needs to be moved to a host with more capacity, then the databases are restarted as part of the move.
 
 - Disk cannot be scaled down.
 
