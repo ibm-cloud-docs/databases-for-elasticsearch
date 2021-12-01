@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-11-19"
+lastupdated: "2021-12-01"
 
 keywords: elasticsearch, databases, manual scaling, disk I/O, memory, CPU
 
@@ -53,7 +53,7 @@ You can enable or increase the CPU allocation to the deployment. With dedicated 
 ## Scaling Considerations
 {: #resources-scaling-consider}
 
-- Scaling your deployment up might cause your RabbitMQ to restart. If you scale RAM or CPU and your deployment needs to be moved to a host with more capacity, then the RabbitMQ is restarted as part of the move.
+- Scaling your deployment up might cause your RabbitMQ to restart. If you your deployment needs to be moved to a host with more capacity, then the RabbitMQ is restarted as part of the move.
 
 - Scaling down RAM or CPU does not trigger restarts.
 
