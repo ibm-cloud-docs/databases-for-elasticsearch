@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019
-lastupdated: "2021-11-19"
+lastupdated: "2022-02-08"
 
 keywords: elasticsearch, keywords
 
@@ -41,12 +41,6 @@ Name | Description
 `ingest-attachment` | An ingest processor that uses Apache Tika to extract contents.
 `mapper-size` | The Mapper Size plugin allows document to record their uncompressed size at index time.
 `repository-s3` | The S3 repository plugin adds the repositories that are used for automated backups of your data.
-`search-guard-6` | Provides access control-related features for Elasticsearch 6.
 {: caption="Table 1. Available Elasticsearch plugins" caption-side="top"}
 
 More details on the plugins are available in the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/plugins/current/index.html).
-
-## The Search Guard Plugin
-{: #search-guard-plugins}
-
-{{site.data.keyword.databases-for-elasticsearch}} deployments use the [Search Guard plugin](https://docs.search-guard.com/latest/index.html) to provide strong TLS encryption for both internal and external network traffic. It also provides user management features, allows you to create users through _Service Credentials_, and use IAM integration.
