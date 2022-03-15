@@ -19,7 +19,7 @@ content-type: release-note
 <!-- You must add the release-note content type in your attribute definitions AND to each release note H2. This will ensure that the release note entry is pulled into the notifications library. -->
 
 # Release notes for {{site.data.keyword.databases-for-elasticsearch_full}}
-{: #postgresql-relnotes}
+{: #elasticsearch-relnotes}
 
 <!-- The title of your H1 should be Release notes for _service-name_, where _service-name_ is the non-trademarked short version keyref. Include your service name as a search keyword at the top of your Markdown file. See the example keywords above. -->
 
