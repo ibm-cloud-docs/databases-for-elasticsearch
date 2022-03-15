@@ -24,6 +24,7 @@ toc:
       - learn-performance.md 
       - learn-security-compliance.md 
       - learn-pricing.md
+      - release-notes.md
   - navgroup: 
       id: howto
       topics:
