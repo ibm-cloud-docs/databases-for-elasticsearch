@@ -1,7 +1,7 @@
 toc:
   properties:
     subcollection: databases-for-elasticsearch
-    service-name: databases-for-elasticsearch-group
+    service-name: databases-for-elasticsearch
     version: 2
     category: database
     audience: service
