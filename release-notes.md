@@ -30,5 +30,5 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: #databases-for-elasticsearch-19dec2018}
 {: release-note}
 
-General Availability of {{site.data.keyword.databases-for-etcd}}
+General Availability of {{site.data.keyword.databases-for-elasticsearch_full}}
 :  {{site.data.keyword.databases-for-elasticsearch_full}} added to the [IBM Cloud Databases](https://www.ibm.com/cloud/databases) family. See blog post announcement [here](https://www.ibm.com/cloud/blog/ibm-cloud-databases-for-etcd-elasticsearch-and-messages-for-rabbitmq-are-now-generally-available).
