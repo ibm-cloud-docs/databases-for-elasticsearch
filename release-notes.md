@@ -26,13 +26,6 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
 
-## 20 February 2020
-{: #databases-for-elasticsearch-20feb2020}
-{: release-note}
-
-{{site.data.keyword.databases-for-elasticsearch_full}} customers are now able to scale their {{site.data.keyword.databases-for-elasticsearch_full}} instances up to 20 members. 
-:  This new feature allows Elasticsearch instances to now grow to 2.2TB RAM, 80 TB of Disk, and 560 vCPUs.  See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/databases-for-elasticsearch-introduces-horizontal-scaling).
-
 ## 08 December 2020
 {: #databases-for-elasticsearch-08dec2020}
 {: release-note}
@@ -53,6 +46,13 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 
 {{site.data.keyword.databases-for-elasticsearch_full}} autoscaling
 :  We are excited to announce that autoscaling of your deployments based on disk capacity and disk I/O utilization is now available for {{site.data.keyword.databases-for-elasticsearch_full}} via the UI, API, and CLI. See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-databases-portfolio-introduces-autoscaling).
+
+## 20 February 2020
+{: #databases-for-elasticsearch-20feb2020}
+{: release-note}
+
+{{site.data.keyword.databases-for-elasticsearch_full}} customers are now able to scale their {{site.data.keyword.databases-for-elasticsearch_full}} instances up to 20 members. 
+:  This new feature allows Elasticsearch instances to now grow to 2.2TB RAM, 80 TB of Disk, and 560 vCPUs.  See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/databases-for-elasticsearch-introduces-horizontal-scaling).
 
 ## 6 August 2019
 {: #databases-for-elasticsearch-06aug2019}
