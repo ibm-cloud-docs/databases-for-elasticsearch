@@ -54,6 +54,13 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {{site.data.keyword.databases-for-elasticsearch_full}} autoscaling
 :  We are excited to announce that autoscaling of your deployments based on disk capacity and disk I/O utilization is now available for {{site.data.keyword.databases-for-elasticsearch_full}} via the UI, API, and CLI. See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-databases-portfolio-introduces-autoscaling).
 
+## 6 August 2019
+{: #databases-for-elasticsearch-06aug2019}
+{: release-note}
+
+New Regions Available for IBM Cloud Database Services
+:  {{site.data.keyword.databases-for-elasticsearch_full}} is now available to be deployed in Seoul; South Korea; and Chennai, India. See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/new-regions-available-for-ibm-cloud-database-services).
+
 ## 19 December 2018
 {: #databases-for-elasticsearch-19dec2018}
 {: release-note}
