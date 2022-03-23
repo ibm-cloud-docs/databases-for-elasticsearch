@@ -33,6 +33,13 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 General Availability of {{site.data.keyword.databases-for-elasticsearch_full}}
 :  {{site.data.keyword.databases-for-elasticsearch_full}} added to the [IBM Cloud Databases](https://www.ibm.com/cloud/databases) family. See blog post announcement [here](https://www.ibm.com/cloud/blog/ibm-cloud-databases-for-etcd-elasticsearch-and-messages-for-rabbitmq-are-now-generally-available).
 
+## 09 November 2020
+{: #databases-for-elasticsearch-09nov2020}
+{: release-note}
+
+{{site.data.keyword.databases-for-elasticsearch_full}} v7.9 is now available
+:  We are pleased to announce the release of version 7.9 on {{site.data.keyword.databases-for-elasticsearch_full}}. See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/databases-for-elasticsearch-v7-9-is-now-available).
+
 ## 08 December 2020
 {: #databases-for-elasticsearch-08dec2020}
 {: release-note}
