@@ -26,6 +26,13 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
 
+## 25 March 2022
+{: #databases-for-elasticsearch-25mar2022}
+{: release-note}
+
+{{site.data.keyword.databases-for-elasticsearch_full}} Security Goals Updated
+:  Available security and compliance goals updated. See updated goals [here](/docs/databases-for-mongodb?topic=databases-for-elasticsearch-manage-security-compliance).
+
 ## 08 December 2020
 {: #databases-for-elasticsearch-08dec2020}
 {: release-note}
