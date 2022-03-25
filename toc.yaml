@@ -69,8 +69,8 @@ toc:
       - topicgroup: 
           label: Enhancing security
           topics: 
-          - manage-scc.md
           - learn-security-compliance.md 
+          - manage-scc.md
   - navgroup: 
       id: help
       topics: 
