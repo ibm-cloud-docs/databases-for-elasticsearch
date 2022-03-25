@@ -22,7 +22,6 @@ toc:
       - learn-dashboard-overview.md 
       - learn-high-availability.md 
       - learn-performance.md 
-      - learn-security-compliance.md 
       - learn-pricing.md
       - release-notes.md
   - navgroup: 
@@ -70,7 +69,8 @@ toc:
       - topicgroup: 
           label: Enhancing security
           topics: 
-          - /cloud-databases/cloud-databases-manage-security-compliance
+          - manage-scc.md
+          - learn-security-compliance.md 
   - navgroup: 
       id: help
       topics: 
