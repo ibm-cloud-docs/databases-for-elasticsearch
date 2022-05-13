@@ -1,9 +1,9 @@
 ---
 copyright:
-  years: 2018, 2019
-lastupdated: "2021-11-19"
+  years: 2018, 2012
+lastupdated: "2022-05-13"
 
-keywords: kibana
+keywords: kibana, elasticsearch
 
 subcollection: databases-for-elasticsearch
 
@@ -20,7 +20,7 @@ subcollection: databases-for-elasticsearch
 # Getting Started
 {: #getting-started}
 
-This tutorial is a short introduction to using an {{site.data.keyword.databases-for-elasticsearch_full}} deployment by connecting with [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html), an open source tool that adds visualization capabilities to your Elasticsearch database. This tutorial runs Kibana in a Docker container, using the Kibana image from the Docker image repository. You can also [download and install Kibana](https://www.elastic.co/guide/en/kibana/current/install.html) to run a system you control. 
+This tutorial is a short introduction to using an {{site.data.keyword.databases-for-elasticsearch_full}} deployment by connecting with [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html), an open source tool that adds visualization capabilities to your Elasticsearch database. This tutorial runs Kibana in a Docker container, by using the Kibana image from the Docker image repository. You can also [download and install Kibana](https://www.elastic.co/guide/en/kibana/current/install.html) to run a system you control. 
 
 ## Before you begin
 {: #before-begin}
@@ -32,20 +32,20 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 
 Review the [`Getting to production`](/docs/cloud-databases?topic=cloud-databases-best-practices) documentation for general guidance on setting up a basic {{site.data.keyword.databases-for-elasticsearch_full}} deployment.
 
-## Connection Info for your Deployment
+## Connection information for your deployment
 {: #connection-info-deployment}
 
-On your deployment's _Overview_ page, there is a panel with all the relevant connection information.
+On your deployment's _Overview_ page, see the panel with all the relevant connection information.
 
 ![Endpoints panel](images/getting-started-endpoints-panel.png){: caption="Figure 1. Endpoints panel" caption-side="bottom"}
 
-In order to connect, Kibana needs the username, password, url and port.
+To connect, Kibana needs the username, password, url and port.
 
 It also needs the CA certificate to access the database. 
    1. Copy the certificate information from the _Endpoints_ panel.
    2. Save the certificate to a file. (You can use the name that is provided in the download, or your own file name.)
 
-Remember where you save the certificate on your filesystem. If you are running Kibana locally (not in Docker), then the certificate should go into `$KIBANA_HOME/config/<filename>`.
+Remember where you save the certificate on your file system. If you are running Kibana locally (not in Docker), then the certificate should go into `$KIBANA_HOME/config/<filename>`.
 
 ## Setting up Kibana
 {: #kibana}
@@ -62,13 +62,13 @@ server.name: "kibana"
 server.host: "0.0.0.0"
 ```
 
-The first setting, `elasticsearch.ssl.certificateAuthorities`, is the location where the deployment's certificate will live in the Docker container. It gets placed in this location when you first run Docker. You can change this to a location of your choice, but the example path is the Kibana’s config directory.
+The first setting, `elasticsearch.ssl.certificateAuthorities`, is the location where the deployment's certificate lives in the Docker container. It gets placed in this location when you first run Docker. You can change this to a location of your choice, but the example path is the Kibana’s config directory.
 
-Next is `elasticsearch.username` and `elasticsearch.password`. Use the deployment's admin username and password. Be sure that you set the admin password prior to trying to connect. For `elasticsearch.url` enter the deployment's hostname and port, separated by a `:`. 
+Next, is `elasticsearch.username` and `elasticsearch.password`. Use the deployment's admin username and password. Be sure that you set the admin password before trying to connect. For `elasticsearch.url` enter the deployment's hostname and port, which is separated by a `:`. 
 
 Finally, there is `server.name`, which is a machine-readable name for the Kibana instance, and `server.host`, which is the host of the backend server and where you can connect to Kibana in your web browser.
 
-The settings are just a simplified example to get started. See the [Kibana documentation](https://www.elastic.co/guide/en/kibana/current/settings.html) for more configuration settings you can set for your use case.
+The settings are just a simplified example to get started. See the [Kibana documentation](https://www.elastic.co/guide/en/kibana/current/settings.html) for more configuration settings that you can set for your use case.
 
 If you are running Kibana locally (not in Docker), then the yaml file goes in `$KIBANA_HOME/config/kibana.yml`, where Kibana reads its configuration from.
 
@@ -77,7 +77,7 @@ If you are running Kibana locally (not in Docker), then the yaml file goes in `$
 
 Now that the `kibana.yml` file is set up, you're going to use Docker to attach the yaml file and your certificate file to the Docker container, while pulling the `<kibana_version>` image from the Docker image repository. 
 
-Match the Kibana Version with the appropriate Elasticsearch version; for v7.9.2 it must be 7.9.2. You can get the Elasticsearch version from the http API, using your preferred http client. Here is an example with curl (if you don't have the certificate installed, use the `--insecure` flag to disable peer verification). The referenced `<http_endpoint>` can be found in the _Endpoints_ panel from your instance:
+Match the Kibana Version with the appropriate Elasticsearch version, for v7.9.2 it must be 7.9.2. You can get the Elasticsearch version from the http API, by using your preferred http client. Here is an example with curl (if you don't have the certificate that is installed, use the `--insecure` flag to disable peer verification). The referenced `<http_endpoint>` can be found in the _Endpoints_ panel from your instance:
 
 ```bash
 curl -XGET <https_endpoint>
@@ -86,7 +86,7 @@ curl -XGET <https_endpoint>
 Make sure that you use an image with a version of Kibana that is compatible with the version of Elasticsearch that your deployment is running. Refer to the Elasticsearch [compatibility matrix](https://www.elastic.co/support/matrix#matrix_compatibility).
 {: .tip}
 
-Run the Docker command in your terminal to start up the Kibana container.
+Run the Docker command in your terminal to start the Kibana container.
 ```bash
 docker container run -it --name kibana \
 -v </path/to/kibana.yml>:/usr/share/kibana/config/kibana.yml \
@@ -94,9 +94,9 @@ docker container run -it --name kibana \
 -p 5601:5601 docker.elastic.co/kibana/kibana-oss:<kibana_version>
 ```
 
-The Docker command has two volumes attached with the `-v` flag. These are mounted to the Kibana container at the path `/usr/share/kibana/config/`, which is a configuration directory that Kibana looks at for configuration files. 
-- The first volume points to your `kibana.yml` file on your local filesystem and maps it to `/usr/share/kibana/config/`. The file name it assigns in the container must be named `kibana.yml` because that’s the file name that the Kibana server reads server properties from. 
-- The second volume first takes the path on your system to the self-signed certificate that you saved earlier, and maps it to `/usr/share/kibana/config/`. The volume path on the container and the path specified as `elasticsearch.ssl.certificateAuthorities` in `kibana.yml` must match.
+The Docker command has two volumes that are attached with the `-v` flag. These are mounted to the Kibana container at the path `/usr/share/kibana/config/`, which is a configuration directory that Kibana looks at for configuration files. 
+- The first volume points to your `kibana.yml` file on your local file system and maps it to `/usr/share/kibana/config/`. The file name that it assigns in the container must be named `kibana.yml` because that’s the file name that the Kibana server reads server properties from. 
+- The second volume first takes the path on your system to the self-signed certificate that you saved earlier, and maps it to `/usr/share/kibana/config/`. The volume path on the container and the path that is specified as `elasticsearch.ssl.certificateAuthorities` in `kibana.yml` must match.
 - The `-p` specifies which port is exposed from the container, and the port you'll use to access Kibana.
 
 
@@ -112,14 +112,14 @@ log   [01:19:33.132] [info][status][plugin:elasticsearch@<kibana_version>] Statu
 log   [01:19:33.378] [info][listening] Server running at http://0.0.0.0:5601
 ```
 
-If you don't want to see the output of Kibana in your terminal, use the `-d` flag to detatch the container.
+If you don't want to see the output of Kibana in your terminal, use the `-d` flag to detach the container.
 {: .tip}
 
-At this point, you can visit `http://0.0.0.0:5601` in your browser to see Kibana. (`0.0.0.0` is the `server.host` in `kibana.yml` and `5601` is the port exposed from the container.) Once you go to the URL, a pop-up window will prompt you for your username and password. You can use the admin credentials or any other credentials you made that have access to your deployment. They don’t have to be the same username and password you provided in the `kibana.yml` file.
+At this point, you can visit `http://0.0.0.0:5601` in your browser to see Kibana. (`0.0.0.0` is the `server.host` in `kibana.yml` and `5601` is the port that is exposed from the container.) Once you go to the URL, a pop-up window prompts you for your username and password. You can use the admin credentials or any other credentials you made that have access to your deployment. They don’t have to be the same username and password you provided in the `kibana.yml` file.
 
 ![Kibana Start Page](images/getting-started-kibana-start.png){: caption="Figure 1. Kibana start page" caption-side="bottom"}
 
-From here, you can start using Kibana with {{site.data.keyword.databases-for-elasticsearch}}. Be sure to check out the [Kibana documentation](https://www.elastic.co/guide/en/kibana/current/index.html).
+From here, you can use Kibana with {{site.data.keyword.databases-for-elasticsearch}}. Be sure to check out the [Kibana documentation](https://www.elastic.co/guide/en/kibana/current/index.html).
 
 ## Next Steps
 {: #elasticsearch-next-steps}
