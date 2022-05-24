@@ -62,7 +62,7 @@ toc:
       - topicgroup: 
           label: Logging and monitoring
           topics: 
-          - /cloud-databases/cloud-databases-activity-tracker-integration
+          - /cloud-databases/cloud-databases-activity-tracker
           - /cloud-databases/cloud-databases-logging
           - reference-monitoring.md
       - topicgroup: 
