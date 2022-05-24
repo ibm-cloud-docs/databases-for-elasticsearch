@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2012
-lastupdated: "2022-05-13"
+  years: 2018, 2022
+lastupdated: "2022-05-24"
 
 keywords: kibana, elasticsearch
 
@@ -39,7 +39,7 @@ On your deployment's _Overview_ page, see the panel with all the relevant connec
 
 ![Endpoints panel](images/getting-started-endpoints-panel.png){: caption="Figure 1. Endpoints panel" caption-side="bottom"}
 
-To connect, Kibana needs the username, password, url and port.
+To connect, Kibana needs the username, password, url, and port.
 
 It also needs the CA certificate to access the database. 
    1. Copy the certificate information from the _Endpoints_ panel.
@@ -79,30 +79,27 @@ Now that the `kibana.yml` file is set up, you're going to use Docker to attach t
 
 Match the Kibana Version with the appropriate Elasticsearch version, for v7.9.2 it must be 7.9.2. You can get the Elasticsearch version from the http API, by using your preferred http client. Here is an example with curl (if you don't have the certificate that is installed, use the `--insecure` flag to disable peer verification). The referenced `<http_endpoint>` can be found in the _Endpoints_ panel from your instance:
 
-```bash
-curl -XGET <https_endpoint>
+```sh
+curl --cacert <path-to-cert> <https_endpoint>
 ```
 
 Make sure that you use an image with a version of Kibana that is compatible with the version of Elasticsearch that your deployment is running. Refer to the Elasticsearch [compatibility matrix](https://www.elastic.co/support/matrix#matrix_compatibility).
 {: .tip}
 
 Run the Docker command in your terminal to start the Kibana container.
-```bash
+```sh
 docker container run -it --name kibana \
--v </path/to/kibana.yml>:/usr/share/kibana/config/kibana.yml \
--v </path/to/cacert>:/usr/share/kibana/config/cacert \
+-v <path_to_config_folder>:/usr/share/kibana/config \
 -p 5601:5601 docker.elastic.co/kibana/kibana-oss:<kibana_version>
 ```
 
-The Docker command has two volumes that are attached with the `-v` flag. These are mounted to the Kibana container at the path `/usr/share/kibana/config/`, which is a configuration directory that Kibana looks at for configuration files. 
-- The first volume points to your `kibana.yml` file on your local file system and maps it to `/usr/share/kibana/config/`. The file name that it assigns in the container must be named `kibana.yml` because that’s the file name that the Kibana server reads server properties from. 
-- The second volume first takes the path on your system to the self-signed certificate that you saved earlier, and maps it to `/usr/share/kibana/config/`. The volume path on the container and the path that is specified as `elasticsearch.ssl.certificateAuthorities` in `kibana.yml` must match.
+The Docker command has 1 volume attached with the `-v` flag. These are mounted to the Kibana container at the path `/usr/share/kibana/config/`, which is a configuration directory that Kibana looks at for configuration files. 
 - The `-p` specifies which port is exposed from the container, and the port you'll use to access Kibana.
-
+- The Kibana version should correspond to the version of Elasticsearch you are using.
 
 When you run the command from your terminal, it downloads the Kibana Docker image and runs Kibana. 
 Once Kibana has connected to your {{site.data.keyword.databases-for-elasticsearch}} deployment and is running successfully, you see the output in your terminal.
-```shell
+```sh
 log   [01:19:31.839] [info][status][plugin:<kibana_version>] Status changed from uninitialized to green - Ready
 log   [01:19:31.925] [info][status][plugin:elasticsearch@<kibana_version>] Status changed from uninitialized to yellow - Waiting for Elasticsearch
 log   [01:19:32.120] [info][status][plugin:timelion@<kibana_version>] Status changed from uninitialized to green - Ready
