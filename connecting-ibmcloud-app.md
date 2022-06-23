@@ -2,9 +2,9 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-06-07"
+lastupdated: "2022-06-23"
 
-keywords: elasticsearch, databases, kubernetes, cloud foundry
+keywords: elasticsearch connection strings, databases, kubernetes, cloud foundry
 
 subcollection: databases-for-elasticsearch
 
@@ -27,9 +27,9 @@ Applications running in {{site.data.keyword.cloud_notm}} can be bound to your {{
 ## Connecting a Kubernetes Service application
 {: #connecting-kub-serv-app}
 
-There are two steps to connecting a Cloud databases deployment to a Kubernetes Service application. First, your deployment needs a to be bound to your cluster and its connection strings stored in a secret. The second step is configuring your application to use the connection strings.
+There are two steps to connecting a Cloud databases deployment to a Kubernetes Service application. First, your deployment needs to be bound to your cluster and its connection strings stored in a secret. The second step is configuring your application to use the connection strings.
 
-The sample app in the [Connecting a Kubernetes Service Tutorial](/docs/databases-for-elasticsearch?topic=cloud-databases-tutorial-k8s-app) provides a sample application that uses Node.js and demonstrates how to bind the sample application to a {{site.data.keyword.databases-for}} deployment.
+The sample app in [Connecting a Kubernetes Service Tutorial](/docs/databases-for-elasticsearch?topic=cloud-databases-tutorial-k8s-app) provides a sample application that uses Node.js and demonstrates how to bind the sample application to a {{site.data.keyword.databases-for}} deployment.
 {: .tip}
 
 Before connecting your Kubernetes Service application to a deployment, make sure that the deployment and cluster are both in the same region and resource group.
@@ -38,21 +38,21 @@ Before connecting your Kubernetes Service application to a deployment, make sure
 {: #bind-deployment}
 
 **Public Endpoints** - If you are using the default public service endpoint to connect to your deployment, you can run the `cluster service bind` command with your cluster name, the resource group and your deployment name.
-```shell
+```sh
 ibmcloud ks cluster service bind <your_cluster_name> <resource_group> <your_database_deployment>
 ```
 OR  
 **Private Endpoints** - If you want to use a private endpoint (if one is enabled on your deployment), then first you need to create a service key for your database so Kubernetes can use it when binding to the database.
-```shell
+```sh
 ibmcloud resource service-key-create <your-private-key> --instance-name <your_database_deployment> --service-endpoint private
 ```
 The private service endpoint is selected with `--service-endpoint private`. After that, you bind the database to the Kubernetes cluster through the private endpoint with the `cluster service bind` command. 
-```shell
+```sh
 ibmcloud ks cluster service bind <your_cluster_name> <resource_group> <your_database_deployment> --key <your-private-key>
 ```
 
 **Verify** - Verify that the Kubernetes secret was created in your cluster namespace. Running the following command, you get the API key for accessing the instance of your deployment that's provisioned in your account.
-```shell
+```sh
 kubectl get secrets --namespace=default
 ```
 More information on binding services is found in the [Kubernetes Service documentation](/docs/containers?topic=containers-service-binding#bind-services).
@@ -96,7 +96,7 @@ The alias appears in the list of _Cloud Foundry Apps_ in your _Resource List_. M
 Cloud Foundry uses a manifest file - `manifest.yml` to associate an application with another {{site.data.keyword.cloud_notm}} service.
 
 To create the file, open a new file and add the text:
-   ```shell
+   ```sh
    ---
    applications:
    - name:    example-application
@@ -111,7 +111,7 @@ To create the file, open a new file and add the text:
 - Change the name value. The value that you choose is the name of the app as it appears in your {{site.data.keyword.cloud_notm}} dashboard.
 - Update the services value to match  Cloud Foundry alias of your {{site.data.keyword.databases-for-elasticsearch}} deployment.
 
-If you have an existing application that you are just adding a Cloud Databases deployment to, then you probably already have a `manifest.yml`. In that case, you just need to be sure to add the alias of your deployment under `services`.
+If you have an existing application that you are just adding a Cloud Databases deployment to, then you probably already have a `manifest.yml`. In that case, be sure to add the alias of your deployment under `services`.
 
 You can verify that the services are connected by navigating to the _Connections_ panel. If the deployment and the application are connected, the connection shows up in both services.
 
