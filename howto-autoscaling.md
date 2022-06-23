@@ -1,9 +1,9 @@
 ---
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-11-30"
+  years: 2020, 2022
+lastupdated: "2022-06-23"
 
-keywords: elasticsearch, databases, autoscaling, disk I/O, memory
+keywords: elasticsearch autoscaling, databases, disk I/O, memory
 
 subcollection: databases-for-elasticsearch
 
@@ -25,7 +25,7 @@ Autoscaling is designed to respond to the short-to-medium term trends in resourc
 You can set your deployment to autoscale disk, RAM, or both. 
 
 General Autoscaling parameters
-- When to scale, based on usage over a period of time.
+- When to scale, based on usage over time.
 - By how much to scale, as a percentage of the resources per member.
 - How often to scale, measured either in seconds, minutes, or hours.
 - A hard limit on scaling, your deployment stops scaling at the limit.
@@ -56,7 +56,7 @@ The resource numbers refer to each database node in a deployment. For example, t
 
 - Autoscaling does not scale down deployments where disk or memory usage has shrunk. The RAM provisioned to your deployment remains for your future needs, or until you scale down your deployment manually. The disk provisioned to your deployment remains because disk cannot be scaled down.
 
-- If you just need to add resources to your deployment occasionally or rarely, you can [manually scale](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling) your deployment.
+- If you need to add resources to your deployment occasionally or rarely, you can [manually scale](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling) your deployment.
 
 - Elasticsearch is designed to balance work load across a cluster and can benefit from being horizontally scaled. If you are concerned about performance, check out [Adding Elasticsearch Nodes](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling).
 
@@ -71,12 +71,12 @@ To disable autoscaling, clear the boxes for the parameters that you no longer wa
 {: #config-autoscaling-cli}
 
 You can get the autoscaling parameters for your deployment through the CLI by using the [`cdb deployment-autoscaling`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#-ibmcloud-cdb-deployment-autoscaling-) command.
-```shell
+```sh
 ibmcloud cdb deployment-autoscaling <deployment name or CRN> member
 ```
 
 To enable and set autoscaling parameters through the CLI, use a JSON object or file with the [`cdb deployment-autoscaling-set`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#-ibmcloud-cdb-deployment-autoscaling-set-) command.
-```shell
+```sh
 ibmcloud cdb deployment-autoscaling-set <deployment name or CRN> member '{"autoscaling": { "memory": {"scalers": {"io_utilization": {"enabled": true, "over_period": "5m","above_percent": 90}},"rate": {"increase_percent": 10.0, "period_seconds": 300,"limit_mb_per_member": 125952,"units": "mb"}}}}'
 ```
 
@@ -84,12 +84,12 @@ ibmcloud cdb deployment-autoscaling-set <deployment name or CRN> member '{"autos
 {: #config-autoscaling-api}
 
 You can get the autoscaling parameters for your deployment through the API by sending a `GET` request to the [`/deployments/{id}/groups/{group_id}/autoscaling`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-the-autoscaling-configuration-from-a-deploymen) endpoint. 
-```shell
+```sh
 curl -X GET -H "Authorization: Bearer $APIKEY" 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member/autoscaling'
 ```
 
 To enable and set the autoscaling parameters for your deployment through the API, send a `POST` request to the endpoint. Enabling autoscaling works by setting the `scalers` (`io_utilization` or `capacity`) to `true`.
-```shell
+```sh
 curl -X PATCH https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member/autoscaling -H 'Authorization: Bearer <>' 
 -H 'Content-Type: application/json' 
 -d '{"autoscaling": {
