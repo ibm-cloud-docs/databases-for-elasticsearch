@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2018, 2022
-lastupdated: "2022-05-24"
+lastupdated: "2022-06-23"
 
-keywords: kibana, elasticsearch
+keywords: kibana, elasticsearch container, elasticsearch getting started
 
 subcollection: databases-for-elasticsearch
 
@@ -93,8 +93,8 @@ docker container run -it --name kibana \
 -p 5601:5601 docker.elastic.co/kibana/kibana-oss:<kibana_version>
 ```
 
-The Docker command has 1 volume attached with the `-v` flag. These are mounted to the Kibana container at the path `/usr/share/kibana/config/`, which is a configuration directory that Kibana looks at for configuration files. 
-- The `-p` specifies which port is exposed from the container, and the port you'll use to access Kibana.
+The Docker command has one volume that is attached with the `-v` flag. These are mounted to the Kibana container at the path `/usr/share/kibana/config/`, which is a configuration directory that Kibana looks at for configuration files. 
+- The `-p` specifies which port is exposed from the container, and the port you use to access Kibana.
 - The Kibana version should correspond to the version of Elasticsearch you are using.
 
 When you run the command from your terminal, it downloads the Kibana Docker image and runs Kibana. 
