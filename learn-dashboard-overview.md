@@ -1,10 +1,10 @@
 ---
 
 copyright:
-  years: 2018, 2021
-lastupdated: "2021-11-19"
+  years: 2018, 2022
+lastupdated: "2022-06-28"
 
-keywords: deployment, crn, task, gui, api endpoint
+keywords: deployment, crn, task, gui, api endpoint, elasticsearch dashboard, elasticsearch connection strings
 
 subcollection: databases-for-elasticsearch
 
@@ -30,17 +30,17 @@ The type of database that is offered by the service, and the database version th
 ## ID
 {: #dashboard-overview-id}
 
-The ID is a [CRN (Cloud Resource Name)](/docs/account?topic=account-crn) which uniquely identifies the database deployment. The CRN is used to refer to the database in the API and can be used with the CLI.The _Overview_ pane shows details of your service.
+The ID is a [CRN (Cloud Resource Name)](/docs/account?topic=account-crn) which uniquely identifies the database deployment. The CRN is used to refer to the database in the API and can be used with the CLI. The _Overview_ pane shows details of your service.
 
 ## Recent Tasks
 {: #dashboard-overview-tasks}
 
-Every time that you make administrative changes to your service (such as scaling, or taking a manual backup), a task starts up. The _Recent Tasks_ panel shows the task name and progress bar for any running tasks, and a list of the most recent completed tasks. Depending on how busy your deployment is, successful tasks can be shown for 24-48 hours. Unsuccessful tasks can show for 7-8 days. Tasks can also be retrieved from the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api#get-currently-running-tasks-on-a-deployment) and [CLI plug-in](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-tasks-list). A historical record of tasks from any time period is available through the [{{site.data.keyword.at_full}} integration](/docs/databases-for-elasticsearch?topic=cloud-databases-activity-tracker).
+Every time that you make administrative changes to your service (such as scaling, or taking a manual backup), a task starts up. The _Recent Tasks_ panel shows the task name and progress bar for any running tasks, and a list of the most recently completed tasks. Depending on how busy your deployment is, successful tasks can be shown for 24 - 48 hours. Unsuccessful tasks can show for 7 - 8 days. Tasks can also be retrieved from the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api#get-currently-running-tasks-on-a-deployment) and [CLI plug-in](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-tasks-list). A historical record of tasks from any time period is available through the [{{site.data.keyword.at_full}} integration](/docs/databases-for-elasticsearch?topic=cloud-databases-activity-tracker).
 
 ## Endpoints
 {: #dashboard-overview-endpoints}
 
-The _Endpoints_ pane within the _Overview_ pane contains connection strings for your deployment. Each tab contains connection information tailored to the type of connection or the protocol that uses it. Basic information includes things like _hostname_ and _port_, as well as the TLS self-signed certificate, TLS/SSL parameters, and the default database of your deployment.
+The _Endpoints_ pane within the _Overview_ pane contains connection strings for your deployment. Each tab contains connection information that is tailored to the type of connection or the protocol that uses it. Basic information includes things like _hostname_ and _port_, the TLS self-signed certificate, TLS/SSL parameters, and the default database of your deployment.
 
 Reference tables for the different connection types are available on the [Getting Credentials and Connection Strings](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) page.
 
@@ -63,7 +63,7 @@ The _Backups_ tab is the UI for managing your deployments backups. All of the av
 ## Observability
 {: #dashboard-overview-observability}
 
-The _Observability_ tab provides access to the IBM Cloud monitoring, logging, and event tracking integrations available for your deployment. 
+The _Observability_ tab provides access to the IBM Cloud Monitoring, logging, and event tracking integrations available for your deployment. 
 - [{{site.data.keyword.at_full}}](/docs/databases-for-elasticsearch?topic=cloud-databases-activity-tracker)
 - [{{site.data.keyword.la_full}}](/docs/databases-for-elasticsearch?topic=cloud-databases-logging)
 - [{{site.data.keyword.monitoringfull}}](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-monitoring)
@@ -84,7 +84,7 @@ You can generate a new set of credentials for cases where you want to manually [
 ## Connections
 {: #dashboard-overview-conn}
 
-Shows connected resources. You can use the `Create connection` button to to bind this service to another resource.
+Shows connected resources. You can use the `Create connection` button to bind this service to another resource.
 
 ## View docs
 {: #dashboard-overview-view-docs}
