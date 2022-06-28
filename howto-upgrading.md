@@ -20,7 +20,7 @@ subcollection: databases-for-elasticsearch
 # Upgrading to a new Major Version
 {: #upgrading}
 
-When a major version of a database is at its end of life (EOL), it is a good idea to upgrade to the current major version. You can upgrade {{site.data.keyword.databases-for-elasticsearch_full}} deployments to use the newest version of Elasticsearch. It is possible to upgrade from Elasticsearch 6.x to 7.x.
+When a major version of a database is at its end of life (EOL), upgrade to the current major version. You can upgrade {{site.data.keyword.databases-for-elasticsearch_full}} deployments to use the newest version of Elasticsearch. It is possible to upgrade from Elasticsearch 6.x to 7.x.
 
 Upgrade to the latest version of Elasticsearch available to {{site.data.keyword.databases-for-elasticsearch}}. You can find the latest version from the catalog page, from the cloud databases cli plug-in command [`ibmcloud cdb deployables-show`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployables-show), or from the cloud databases API [`/deployables`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-all-deployable-databases) endpoint.
 
@@ -36,8 +36,8 @@ Upgrading is handled through [restoring a backup](/docs/databases-for-elasticsea
 
 Before you start to upgrade your cluster to version 7.x, you must take the following actions.
 
-- Check the [deprecation logs](https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html#deprecation-logging) that are automatically enabled on Databases for Elasticsearch and sent to [{{site.data.keyword.la_full}}](/docs/databases-for-elasticsearch?topic=cloud-databases-logging) to see whether you are using any deprecated features and update your code.
-- Review the [breaking changes](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html) and make any necessary changes to your code and configuration for version 7.x.
+- Check the [deprecation logs](https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html#deprecation-logging){: .external} that are automatically enabled on Databases for Elasticsearch and sent to [{{site.data.keyword.la_full}}](/docs/databases-for-elasticsearch?topic=cloud-databases-logging) to see whether you are using any deprecated features and update your code.
+- Review the [breaking changes](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html){: .external} and make any necessary changes to your code and configuration for version 7.x.
 - If you use any plug-ins, make sure that there is a version of each plug-in that is compatible with Elasticsearch version 7.x.
 - Reindex your data before running the 6.x to 7.x version upgrade by using [the guidance here](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-upgrading#upgrade-reindexing).
 
@@ -81,14 +81,14 @@ If the version field contains an upgraded entry, the index was imported from an 
 
    1. Create a new index in your ES6 deployment with 7.x compatible mappings.
    2. Note down the existing `refresh_interval` and `number_of_replicas` values, then set the `refresh_interval` to `-1` and the `number_of_replicas` to `0` for efficient reindexing.
-   3. Use the [reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html) to copy documents from the ES5 index into your new ES6 index. 
+   3. Use the [reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html){: .external} to copy documents from the ES5 index into your new ES6 index. 
    4. Reset the `refresh_interval` and `number_of_replicas` to the values that you noted in step 2.
    5. After the index status changes to green, use a single `update aliases` request to:
        - Delete the old index.
        - Add an alias with the old index name to the new index.
        - Add any other aliases that existed on the old index to the new index.
  
-   For more information, see [Reindex in place](https://www.elastic.co/guide/en/elasticsearch/reference/current/reindex-upgrade-inplace.html).
+   For more information, see [Reindex in place](https://www.elastic.co/guide/en/elasticsearch/reference/current/reindex-upgrade-inplace.html){: .external}.
 
 Use a script to perform any necessary modifications to the document data and metadata during reindexing.
 {: .tip}
@@ -138,11 +138,11 @@ curl -X POST \
 ## Migration Notes for New Elasticsearch 7.x Users 
  {: #migration-notes}
 
-As in previous version upgrades, there are many changes. Full documentation of breaking changes can be found in the [Elastic documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html). 
+As in previous version upgrades, there are many changes. For more information, see [Elastic documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html){: .external}. 
  
 
 ### Index mappings 
 {: #index-mappings}
 
-Mapping types are removed in Elasticsearch 7.x and above. Indexes that are created in Elasticsearch 7.x or later no longer accept a _default_ mapping. Types are also deprecated in APIs in 7.x. Further details on these changes are in the Elastic documentation on the [removal of mapping types](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html).
+Mapping types are removed in Elasticsearch 7.x and above. Indexes that are created in Elasticsearch 7.x or later no longer accept a _default_ mapping. Types are also deprecated in APIs in 7.x. Further details on these changes are in the Elastic documentation on the [removal of mapping types](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html){: .external}.
 
