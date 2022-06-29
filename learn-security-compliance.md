@@ -1,9 +1,9 @@
 ---
 copyright:
-  years: 2018, 2020
-lastupdated: "2021-11-19"
+  years: 2018, 2022
+lastupdated: "2022-06-29"
 
-keywords: elasticsearch, databases, soc, hipaa, gdpr, terms
+keywords: elasticsearch security compliance, soc, hipaa, gdpr, terms
 
 subcollection: databases-for-elasticsearch
 
@@ -23,19 +23,19 @@ subcollection: databases-for-elasticsearch
 
 {{site.data.keyword.databases-for-elasticsearch_full}} use the following methods to protect data in transit or in storage.
 - All {{site.data.keyword.databases-for-elasticsearch}} connections use TLS/SSL encryption for data in transit. The current supported version of this encryption is TLS 1.2.
-- Access to the Account, Management Console UI, and API is secured via [Identity and Access Management (IAM)](/docs/databases-for-elasticsearch?topic=cloud-databases-iam).
+- Access to the Account, Management Console UI, and API is secured through [Identity and Access Management (IAM)](/docs/databases-for-elasticsearch?topic=cloud-databases-iam).
 - Access to the database is secured through the standard access controls provided by the database. These access controls are configured to require valid database-level credentials that are obtainable only through prior access to the database or through our Management Console UI or API.
 - All {{site.data.keyword.databases-for-elasticsearch}} storage is provided on storage encrypted with LUKS using AES-256. The default keys are managed by [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about). Bring-your-own-key (BYOK) for encryption is also available through [Key Protect Integration](/docs/databases-for-elasticsearch?topic=cloud-databases-key-protect).
 - IP allowlisting - All deployments support [allowlisting IP addresses](/docs/databases-for-elasticsearch?topic=cloud-databases-allowlisting) to restrict access to the service.
 - Public and Private Networking - {{site.data.keyword.databases-for-elasticsearch}} is integrated with [Service Endpoints](/docs/databases-for-elasticsearch?topic=cloud-databases-service-endpoints). You can select whether to use connections over the public network, the {{site.data.keyword.cloud_notm}} internal network, or both.
-- Dedicated Cores - Allocating dedicated cores to your deployment introduces hypervisor-level isolation to your database instance, using isolated virtual machines to ensure your data processing remains separated from other customers. It also provides a guaranteed minimum amount of CPUs to your deployment. Deployments with dedicated cores in the same Resource Group and {{site.data.keyword.cloud_notm}} Region may share a virtual machine.
+- Dedicated Cores - Allocating dedicated cores to your deployment introduces hypervisor-level isolation to your database instance, by using isolated virtual machines to ensure that your data processing remains separated from other customers. It also provides a minimum number of CPUs to your deployment. Deployments with dedicated cores in the same Resource Group and {{site.data.keyword.cloud_notm}} Region can share a virtual machine.
 
 ## Data Resilience
 {: #security-compliance-data-resilience}
 
 - [Backups](/docs/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups) are included in the service. {{site.data.keyword.databases-for-elasticsearch}} backups reside in [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage&cloud-object-storage-about-cloud-object-storage) and are also [encrypted](/docs/cloud-object-storage?topic=cloud-object-storage-security).
-- {{site.data.keyword.databases-for-elasticsearch}} deployments are configured with replication. Deployments contain a cluster with three nodes where all three are data nodes and any node can be the primary node. You can also [add nodes](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling) to provide additional stability in the event of a multi-node failure, since you can lose more nodes and maintain a quorum.
-- If you deploy to an {{site.data.keyword.cloud_notm}} Single-Zone Region (SZR), each database node resides on a different host in the datacenter. 
+- {{site.data.keyword.databases-for-elasticsearch}} deployments are configured with replication. Deployments contain a cluster with three nodes where all three are data nodes and any node can be the primary node. You can also [add nodes](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling) to provide more stability in a multi-node failure, since you can lose more nodes and maintain a quorum.
+- If you deploy to an {{site.data.keyword.cloud_notm}} Single-Zone Region (SZR), each database node resides on a different host in the data center. 
 - If you deploy to an {{site.data.keyword.cloud_notm}} Multi-Zone Region (MZR), the nodes are spread over the region's availability zone locations.
 
 ## SOC 2 Type 2 Certification
@@ -48,17 +48,17 @@ You can request an SOC 2 Type 2 report from the customer portal or contact your 
 ## ISO 27017, ISO 27018
 {: #security-compliance-iso}
 
-{{site.data.keyword.databases-for-elasticsearch}} conforms to the guidelines for information security controls applicable to the provision and use of cloud services defined in [ISO 27017](https://www.iso.org/standard/43757.html) and [ISO 27018](https://www.iso.org/standard/76559.html).
+{{site.data.keyword.databases-for-elasticsearch}} conforms to the guidelines for information security controls applicable to the provision and use of cloud services that are defined in [ISO 27017](https://www.iso.org/standard/43757.html){: .external} and [ISO 27018](https://www.iso.org/standard/76559.html){: .external}.
 
 ## General Data Protection Regulation (GDPR) 
 {: #security-compliance-gdpr}
 
 If you have an account with IBM Cloud, your personal data is held by {{site.data.keyword.cloud_notm}}. The {{site.data.keyword.IBM_notm}} Data Processing Addendum (Addendum) applies to the processing of client's personal data by {{site.data.keyword.IBM_notm}} on behalf of client in order to provide {{site.data.keyword.IBM_notm}} standard services.  
-[IBM DPA](https://www.ibm.com/support/customer/zz/en/dpa.html){: external}
+[IBM DPA](https://www.ibm.com/support/customer/zz/en/dpa.html){: .external}
 
 {{site.data.keyword.databases-for-elasticsearch}} processes limited client Personal Information (PI) in the course of running the service and optimizing the user experience. 
 
-{{site.data.keyword.databases-for-elasticsearch}} provides a [Data Sheet Addendum (DSA)](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=B9C96C207A5E11E89D57EFEED3CB8BE9){: external} with its policies as a Data Processor regarding content and data protection. 
+{{site.data.keyword.databases-for-elasticsearch}} provides a [Data Sheet Addendum (DSA)](https://www.ibm.com/software/reports/compatibility/clarity-reports/report/html/softwareReqsForProduct?deliverableId=B9C96C207A5E11E89D57EFEED3CB8BE9){: .external} with its policies as a Data Processor regarding content and data protection. 
 
 ## HIPAA
 {: #security-compliance-hipaa}
