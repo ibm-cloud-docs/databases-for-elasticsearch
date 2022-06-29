@@ -1,9 +1,9 @@
 ---
 copyright:
-  years: 2020, 2021
-lastupdated: "2021-11-19"
+  years: 2020, 2022
+lastupdated: "2022-06-29"
 
-keywords: elasticsearch, monitoring, metrics, cluster status, JVM heap
+keywords: elasticsearch disk i/o, monitoring elasticsearch, metrics, cluster status, JVM heap
 
 subcollection: databases-for-elasticsearch
 
@@ -20,7 +20,7 @@ subcollection: databases-for-elasticsearch
 # Monitoring Integration
 {: #monitoring}
 
-Monitoring for {{site.data.keyword.databases-for-elasticsearch_full}} deployments is provided through integration with the {{site.data.keyword.monitoringfull}} service. Your deployments forward selected information so you can monitor deployment health and resource usage. To see your {{site.data.keyword.databases-for-elasticsearch}} dashboards in {{site.data.keyword.monitoringfull_notm}}, you have to [Enable Platform Metrics](/docs/monitoring?topic=monitoring-platform_metrics_enabling) in the same region as your deployment. If you have deployments in more than one region, you have to provision {{site.data.keyword.monitoringfull_notm}} and enable platform metrics in each region.
+Monitoring for {{site.data.keyword.databases-for-elasticsearch_full}} deployments is provided through integration with the {{site.data.keyword.monitoringfull}} service. Your deployments forward select information so you can monitor deployment health and resource usage. To see your {{site.data.keyword.databases-for-elasticsearch}} dashboards in {{site.data.keyword.monitoringfull_notm}}, you must [Enable Platform Metrics](/docs/monitoring?topic=monitoring-platform_metrics_enabling) in the same region as your deployment. If you have deployments in more than one region, you must provision {{site.data.keyword.monitoringfull_notm}} and enable platform metrics in each region.
 
 To access {{site.data.keyword.monitoringfull_notm}} from your deployment, use the _Monitoring_ link from the right menu. (If you do not already have a monitoring service in the same region as your deployment it says _Add monitoring_.)
 
@@ -46,10 +46,10 @@ If you have deployments that are in a Single-zone Region (SZR) - `che01`, or `se
 | [Disk read latency mean](#ibm_databases_for_elasticsearch_disk_read_latency_mean) | 
 | [Disk write latency mean](#ibm_databases_for_elasticsearch_disk_write_latency_mean) | 
 | [GC Percentage](#ibm_databases_for_elasticsearch_garbage_collection_percent_average_15m)|
-| [IO utilization as a percent -  5 minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_5m) |
-| [IO utilization as a percent - 15 minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_15m) | 
-| [IO utilization as a percent - 30 minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_30m) | 
-| [IO utilization as a percent - 60 minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_60m) | 
+| [IO usage as a percent -  5-minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_5m) |
+| [IO usage as a percent - 15-minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_15m) | 
+| [IO usage as a percent - 30-minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_30m) | 
+| [IO usage as a percent - 60-minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_60m) | 
 | [IOPS read and write total count for an instance.](#ibm_databases_for_elasticsearch_disk_iops_read_write_total) | 
 | [Max allowed memory for an instance.](#ibm_databases_for_elasticsearch_memory_limit_bytes) | 
 | [The number of unassigned shards.](#ibm_databases_for_elasticsearch_unassigned_shards_total) | 
@@ -112,10 +112,10 @@ Percentage of time the Elasticsearch JVM spends on garbage collection over 15 mi
 | `Segment By` | `Service instance` |
 {: caption="Table 5. Cluster status metric metadata" caption-side="top"}
 
-### IO utilization in percent 15 minute average
+### IO usage in percent 15-minute average
 {: #ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_15m}
 
-How much disk I/O has been used over 15 minutes as a percentage of total disk I/O available.
+Disk I/O usage over 15 minutes as a percentage of total disk I/O available.
 
 | Metadata | Description |
 |----------|-------------|
@@ -125,10 +125,10 @@ How much disk I/O has been used over 15 minutes as a percentage of total disk I/
 | `Segment By` | `Service instance` |
 {: caption="Table 6. IO utilization in percent 15 minute average metric metadata" caption-side="top"}
 
-### IO utilization in percent 30 minute average
+### IO usage in percent 30-minute average
 {: #ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_30m}
 
-How much disk I/O has been used over 30 minutes as a percentage of total disk I/O available.
+Disk I/O usage over 30 minutes as a percentage of total disk I/O available.
 
 | Metadata | Description |
 |----------|-------------|
@@ -138,10 +138,10 @@ How much disk I/O has been used over 30 minutes as a percentage of total disk I/
 | `Segment By` | `Service instance` |
 {: caption="Table 7. IO utilization in percent 30 minute average metric metadata" caption-side="top"}
 
-### IO utilization in percent 5 minute average
+### IO usage in percent 5-minute average
 {: #ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_5m}
 
-How much disk I/O has been used over 5 minutes as a percentage of total disk I/O available.
+Disk I/O usage over 5 minutes as a percentage of total disk I/O available.
 
 | Metadata | Description |
 |----------|-------------|
@@ -151,10 +151,10 @@ How much disk I/O has been used over 5 minutes as a percentage of total disk I/O
 | `Segment By` | `Service instance` |
 {: caption="Table 8. IO utilization in percent 5 minute average metric metadata" caption-side="top"}
 
-### IO utilization in percent 60 minute average
+### IO usage in percent 60 minute average
 {: #ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_60m}
 
-How much disk I/O has been used over 60 minutes as a percentage of total disk I/O available.
+Disk I/O usage over 60 minutes as a percentage of total disk I/O available.
 
 | Metadata | Description |
 |----------|-------------|
@@ -164,7 +164,7 @@ How much disk I/O has been used over 60 minutes as a percentage of total disk I/
 | `Segment By` | `Service instance` |
 {: caption="Table 9. IO utilization in percent 60 minute average metric metadata" caption-side="top"}
 
-### IOPS read & write total count for an instance
+### IOPS read and write total count for an instance
 {: #ibm_databases_for_elasticsearch_disk_iops_read_write_total}
 
 How many input/output operations per second your deployment is performing.
@@ -175,7 +175,7 @@ How many input/output operations per second your deployment is performing.
 | `Metric Type` | `gauge` |
 | `Value Type`  | `count` |
 | `Segment By` | `Service instance` |
-{: caption="Table 10. IOPS read & write total count for an instance metric metadata" caption-side="top"}
+{: caption="Table 10. IOPS read and write total count for an instance metric metadata" caption-side="top"}
 
 ### Max allowed memory for an instance
 {: #ibm_databases_for_elasticsearch_memory_limit_bytes}
@@ -268,7 +268,7 @@ How much memory your deployment is using.
 | `Segment By` | `Service instance` |
 {: caption="Table 16. Used memory for an instance metric metadata" caption-side="top"}
 
-## Attributes for Segmentation
+## Attributes for segmentation
 {: #attributes}
 
 ### Global Attributes
@@ -285,15 +285,15 @@ The following attributes are available for segmenting all of the metrics.
 | `Scope` | `ibm_scope` | The scope is the account, organization, or space GUID associated with this metric. |
 {: caption="Table 17. Global Attributes" caption-side="top"}
 
-### Additional Attributes
+### More Attributes
 {: #additional-attributes}
 
 The following attributes are available for segmenting one or more attributes as described in the reference. See the individual metrics for segmentation options.
 
 | Attribute | Attribute Name | Attribute Description |
 |-----------|----------------|-----------------------|
-| `Service instance` | `ibm_service_instance` | The service instance segment identifies the instance the metric is associated with. |
-| `Service instance name` | `ibm_service_instance_name` | The service instance name provides the user-provided name of the service instance, which isn't necessarily a unique value depending on the name provided by the user. |
+| `Service instance` | `ibm_service_instance` | The service instance segment identifies the instance that the metric is associated with. |
+| `Service instance name` | `ibm_service_instance_name` | The service instance name provides the user-provided name of the service instance, which isn't necessarily a unique value depending on the name that is provided by the user. |
 | `Resource group` | `ibm_resource_group_name` | The resource group where the service instance was created. |
 {: caption="Table 18. Additional Attributes" caption-side="top"}
 
