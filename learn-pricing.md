@@ -1,9 +1,9 @@
 ---
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-11-02"
+  years: 2019, 2022
+lastupdated: "2022-06-29"
 
-keyowrds: elasticsearch, databases, pricing, resources, scaling
+keyowrds: elasticsearch pricing
 
 subcollection: databases-for-elasticsearch
 
@@ -32,7 +32,7 @@ An {{site.data.keyword.databases-for-elasticsearch_full}} Standard plan deploys 
 Resources | Breakdown | Price
 -------|-------|-------
 5 GB-Month disk | 3 members x 5 GB x $0.58 | $8.70
-1 GB-Month RAM | 3 members x 1 GB  x $5 | $15
+1 GB-Month RAM | 3 members x 1 GB x $5 | $15
 {: caption="Table 1. Pricing example for three data members" caption-side="top"}
 
 Total per month = $23.70/Month  
@@ -44,7 +44,7 @@ All prices here are in US dollars. To see pricing in your local currency, you ca
 ## Using the Pricing Calculator
 {: #pricing-calc}
 
-Templates are provided for ease of use and provide balanced resource allocations appropriate for general purpose workloads. The **Custom** tab can be used to configure Disk, RAM, and vCPU, as desired.
+Templates are provided for ease of use and provide balanced resource allocations appropriate for general-purpose workloads. The **Custom** tab can be used to configure Disk, RAM, and vCPU, as wanted.
 
 For pricing estimation, use the **Add to Estimate** button on the [{{site.data.keyword.databases-for-elasticsearch}} catalog page](https://cloud.ibm.com/catalog/databases-for-elasticsearch). Input your total consumption across three data members into the calculator. For example, 5 GB of disk and 1 GB of RAM across three data members would be priced at 15 GB of disk and 3 GB of RAM respectively.
 
@@ -60,7 +60,7 @@ Dedicated cores are an optional feature. The default `Shared CPU` setting provis
 ## Backups Pricing
 {: #pricing-backup}
 
-Users also receive their total disk space purchased, per database, in free backup storage. For example, in a month, if you have a {{site.data.keyword.databases-for-elasticsearch}} deployment that has 5 GB of disk per member, which has three data members, you receive 15 GB of backup storage free for that month. If your backup storage utilization is greater than 15 GB for the month in this scenario, each gigabyte is charged at an overage $0.03/month. Most deployments will not ever go over the allotted credit.
+Users also receive their total disk space purchased, per database, in free backup storage. For example, in a month, if you have a {{site.data.keyword.databases-for-elasticsearch}} deployment that has 5 GB of disk per member, which has three data members, you receive 15 GB of backup storage free for that month. If your backup storage utilization is greater than 15 GB for the month in this scenario, each gigabyte is charged at an overage $0.03/month. Most deployments don't exceed the allotted credit.
 
 ## Scaling per Member
 {: #pricing-member}
