@@ -1,7 +1,7 @@
 ---
 
 copyright:
-  years: 2018, 2019
+  years: 2018, 2022
 lastupdated: "2022-03-25"
 
 keywords: databases-for-elasticsearch release notes
