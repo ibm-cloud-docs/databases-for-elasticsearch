@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-07-25"
 
 keywords: connecting elasticsearch, databases, curl
 
@@ -28,16 +28,16 @@ Connection strings are displayed in the _Endpoints_ panel of your deployment's _
 
 The information that you need to make a connection with cURL to your deployment is in the "cli" section of your connection strings. The table contains a breakdown for reference.
 
-Field Name|Index|Description
-----------|-----|-----------
-`Bin`||The recommended binary to create a connection; in this case it is `curl`.
-`Composed`||A formatted command to establish a connection to your deployment. The command combines the `Bin` executable, `Environment` variable settings, and uses `Arguments` as command-line parameters.
-`Environment`||A list of key/values you set as environment variables.
-`Arguments`|0...|The information that is passed as arguments to the command shown in the Bin field.
-`Certificate`|Base64|A self-signed certificate that is used to confirm that an application is connecting to the appropriate server. It is base64 encoded.
-`Certificate`|Name|The allocated name for the self-signed certificate.
-`Type`||The type of package that uses this connection information; in this case `cli`. 
-{: caption="Table 1. `curl` connection information" caption-side="top"}
+| Field Name | Index | Description |
+| ---------- | ----- | ----------- |
+| `Bin` | | The recommended binary to create a connection; in this case it is `curl`. |
+`Composed` | | A formatted command to establish a connection to your deployment. The command combines the `Bin` executable, `Environment` variable settings, and uses `Arguments` as command-line parameters.
+| `Environment` | | A list of key/values you set as environment variables. |
+| `Arguments` | 0... | The information that is passed as arguments to the command shown in the Bin field. |
+| `Certificate` | Base64 | A self-signed certificate that is used to confirm that an application is connecting to the appropriate server. It is base64 encoded. |
+| `Certificate` | Name | The allocated name for the self-signed certificate. |
+| `Type` | | The type of package that uses this connection information; in this case `cli`.  |
+{: caption="Table 1. curl connection information" caption-side="top"}
 
 * `0...` indicates that there might be one or more of these entries in an array.
 
