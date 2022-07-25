@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2022
-lastupdated: "2022-06-23"
+lastupdated: "2022-07-25"
 
 keywords: elasticsearch-py, java, elasticsearch driver, elasticsearch connection string
 
@@ -29,18 +29,18 @@ The connection strings can be used by any of the credentials you have created on
 
 All the information a driver needs to make a connection to your deployment is in the "https" section of your connection strings. The table contains a breakdown for reference.
 
-Field Name|Index|Description
-----------|-----|-----------
-`Type`||Type of connection - for Elasticsearch, it is "uri"
-`Scheme`||Scheme for a URI - for Elasticsearch, it is "https"
-`Path`||Path for a uri
-`Authentication`|`Username`|The username that you use to connect.
-`Authentication`|`Password`|A password for the user - might be shown as `$PASSWORD`
-`Authentication`|`Method`|How authentication takes place; "direct" authentication is handled by the driver.
-`Hosts`|`0...`|A hostname and port to connect to
-`Composed`|`0...`|A URI combining Scheme, Authentication, Host, and Path
-`Certificate`|`Name`|The allocated name for the self-signed certificate for database deployment
-`Certificate`|Base64|A base64 encoded version of the certificate.
+| Field Name | Index | Description |
+| ---------- | ----- | ----------- |
+| `Type` | | Type of connection - for Elasticsearch, it is "uri" |
+| `Scheme` | | Scheme for a URI - for Elasticsearch, it is "https" |
+| `Path` | | Path for a uri |
+| `Authentication` | `Username` | The username that you use to connect. |
+| `Authentication` | `Password` | A password for the user - might be shown as `$PASSWORD` |
+| `Authentication` | `Method` | How authentication takes place; "direct" authentication is handled by the driver. |
+| `Hosts` | `0...` | A hostname and port to connect to |
+| `Composed` | `0...` | A URI combining Scheme, Authentication, Host, and Path |
+| `Certificate` | `Name` | The allocated name for the self-signed certificate for database deployment |
+| `Certificate` | Base64 | A base64 encoded version of the certificate. |
 {: caption="Table 1. https/URI connection information" caption-side="top"}
 
 * `0...` indicates that there might be one or more of these entries in an array.
@@ -164,12 +164,12 @@ You can display the decoded certificate for your deployment with the CLI plug-in
 
 Elasticsearch has a vast array of language drivers. The table covers a few of the most common.
 
-Language|Driver|Documentation
--------|-------|-------
-Node|`elasticsearch-js`|[Link](https://github.com/elastic/elasticsearch-js)
-Ruby|`elasticsearch-ruby`|[Link](https://github.com/elastic/elasticsearch-ruby)
-Ruby on Rails|elasticsearch-rails|[Link](https://github.com/elastic/elasticsearch-rails)
-Python|`elasticsearch-py`|[Link](https://www.elastic.co/guide/en/elasticsearch/client/python-api/current/index.html)
-Java|`Jest`|[Link](https://github.com/searchbox-io/Jest/tree/master/jest)
-Go|`elastic`|[Link](https://olivere.github.io/elastic/)
+| Language | Driver | Documentation |
+| ------- | ------- | ------- |
+| Node | `elasticsearch-js` | [Link](https://github.com/elastic/elasticsearch-js) |
+| Ruby | `elasticsearch-ruby` | [Link](https://github.com/elastic/elasticsearch-ruby) |
+| Ruby on Rails | elasticsearch-rails | [Link](https://github.com/elastic/elasticsearch-rails) |
+| Python | `elasticsearch-py` | [Link](https://www.elastic.co/guide/en/elasticsearch/client/python-api/current/index.html) |
+| Java | `Jest` | [Link](https://github.com/searchbox-io/Jest/tree/master/jest) |
+| Go | `elastic` | [Link](https://olivere.github.io/elastic/) |
 {: caption="Table 2. Common Elasticsearch drivers" caption-side="top"}
