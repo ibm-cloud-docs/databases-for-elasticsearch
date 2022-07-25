@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-12-14"
+  years: 2020, 2022
+lastupdated: "2022-07-25"
 
 keywords: troubleshooting for Elasticsearch
 
