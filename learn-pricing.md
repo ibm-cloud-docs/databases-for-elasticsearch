@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2022
-lastupdated: "2022-06-29"
+lastupdated: "2022-07-25"
 
 keyowrds: elasticsearch pricing
 
@@ -29,10 +29,10 @@ An {{site.data.keyword.databases-for-elasticsearch_full}} Standard plan deploys 
 **RAM per data member** - gigabytes of RAM that are allocated to a {{site.data.keyword.databases-for-elasticsearch}} data member.  
 **Backup storage** - amount of storage used for backups by a {{site.data.keyword.databases-for-elasticsearch}} deployment.
 
-Resources | Breakdown | Price
--------|-------|-------
-5 GB-Month disk | 3 members x 5 GB x $0.58 | $8.70
-1 GB-Month RAM | 3 members x 1 GB x $5 | $15
+| Resources | Breakdown | Price |
+| ------- | ------- | ------- |
+| 5 GB-Month disk | 3 members x 5 GB x $0.58 | $8.70 |
+| 1 GB-Month RAM | 3 members x 1 GB x $5 | $15 |
 {: caption="Table 1. Pricing example for three data members" caption-side="top"}
 
 Total per month = $23.70/Month  
@@ -67,10 +67,10 @@ Users also receive their total disk space purchased, per database, in free backu
 
 {{site.data.keyword.databases-for-elasticsearch}} deployments have minimum and maximum allocation for disk and RAM as shown. Scaling deployments through the API/CLI provides more granularity and also allows a user to scale a database instance up to 4 TB of disk per member.
 
-Resource | Minimum | Maximum | Scaling Granularity (API/CLI)
-----------|-----|-----|-------
-Disk | 5 GB per member | 4 TB per member | 1024 MB per member
-RAM | 1 GB per member | 112 GB per member | 128 MB per member
-CPU (if enabled) | 3 CPUs per member | 28 CPUs per member| 1 CPU per member
+| Resource | Minimum | Maximum | Scaling Granularity (API/CLI) |
+| ---------- | ----- | ----- | ------- |
+| Disk | 5 GB per member | 4 TB per member | 1024 MB per member |
+| RAM | 1 GB per member | 112 GB per member | 128 MB per member |
+| CPU (if enabled) | 3 CPUs per member | 28 CPUs per member| 1 CPU per member |
 {: caption="Table 2. Per Member Scaling Limits" caption-side="top"}
 
