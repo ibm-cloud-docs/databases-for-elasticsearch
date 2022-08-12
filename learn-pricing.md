@@ -60,7 +60,19 @@ Dedicated cores are an optional feature. The default `Shared CPU` setting provis
 ## Backups Pricing
 {: #pricing-backup}
 
-Users also receive their total disk space purchased, per database, in free backup storage. For example, in a month, if you have a {{site.data.keyword.databases-for-elasticsearch}} deployment that has 5 GB of disk per member, which has three data members, you receive 15 GB of backup storage free for that month. If your backup storage utilization is greater than 15 GB for the month in this scenario, each gigabyte is charged at an overage $0.03/month. Most deployments don't exceed the allotted credit.
+Users also receive their total disk space purchased, per database, in free backup storage. For example, in a given month, if you have a {{site.data.keyword.databases-for-elasticsearch}} deployment that has 20 GB of disk per member, and has three data members, you receive 60 GB of backup storage free for that month. If your backup storage utilization is greater than 60 GB for the month in this scenario, each gigabyte is charged at an overage $0.03/month. 
+
+
+Remember that, by default, we provide a daily backup which is stored for 30 days. These backups, and any on-demand backups you make, all count towards the above allocation.
+
+
+In the above example, if your database contains 2GB of data and you have not taken any on-demand backups, then your total backup size will be 2GBx30 = 60GB. Your backup costs are nil.
+
+
+If, on the other hand, your database contains 15GB of data and you have not taken any on-demand backups, then your total backup size will be 15GBx30 = 450GB. Your backup costs in this scenario are (450-60)*0.03 = $11.7 per month.
+
+
+Most deployments will not ever go over the allotted credit.
 
 ## Scaling per Member
 {: #pricing-member}
