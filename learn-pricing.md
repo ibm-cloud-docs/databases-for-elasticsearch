@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2019, 2022
-lastupdated: "2022-07-25"
+lastupdated: "2022-09-15"
 
-keyowrds: elasticsearch pricing
+keywords: elasticsearch pricing, backup pricing
 
 subcollection: databases-for-elasticsearch
 
@@ -38,7 +38,7 @@ An {{site.data.keyword.databases-for-elasticsearch_full}} Standard plan deploys 
 Total per month = $23.70/Month  
 Total per hour = $.032/Hour
 
-All prices here are in US dollars. To see pricing in your local currency, you can to use the pricing calculator.
+All prices here are in US dollars. To see pricing in your local currency, use the pricing calculator.
 {: .tip}
 
 ## Using the Pricing Calculator
@@ -60,17 +60,13 @@ Dedicated cores are an optional feature. The default `Shared CPU` setting provis
 ## Backups Pricing
 {: #pricing-backup}
 
-Users also receive their total disk space purchased, per database, in free backup storage. For example, in a given month, if you have a {{site.data.keyword.databases-for-elasticsearch}} deployment that has 20 GB of disk per member, and has three data members, you receive 60 GB of backup storage free for that month. If your backup storage utilization is greater than 60 GB for the month in this scenario, each gigabyte is charged at an overage $0.03/month. 
+You receive your total disk space purchased, per database, in free backup storage. For example, in a given month, if you have a {{site.data.keyword.databases-for-elasticsearch}} deployment that has 20 GB of disk per member, and has three data members, you receive 60 GB of backup storage free for that month. If your backup storage utilization is greater than 60 GB for the month (in this scenario), you are charged an overage of $0.03/month per gigabyte. 
 
+By default, {{site.data.keyword.databases-for}} provides a daily backup that is stored for 30 days. These backups, and any on-demand backups you make, all count toward the above allocation.
 
-Remember that, by default, we provide a daily backup which is stored for 30 days. These backups, and any on-demand backups you make, all count towards the above allocation.
+In the above example, if your database contains 2 GB of data and you have not taken any on-demand backups, then your total backup size is 2 GB x 30 = 60 GB. Your backup costs are nil.
 
-
-In the above example, if your database contains 2GB of data and you have not taken any on-demand backups, then your total backup size will be 2GBx30 = 60GB. Your backup costs are nil.
-
-
-If, on the other hand, your database contains 15GB of data and you have not taken any on-demand backups, then your total backup size will be 15GBx30 = 450GB. Your backup costs in this scenario are (450-60)*0.03 = $11.7 per month.
-
+If your database contains 15 GB of data and you have not taken any on-demand backups, then your total backup size is 15 GB x 30 = 450 GB. In this scenario, your backup costs are (450 GB - 60 GB) * 0.03 = $11.7 per month.
 
 Most deployments will not ever go over the allotted credit.
 
