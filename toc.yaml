@@ -28,6 +28,7 @@ toc:
       id: howto
       topics:
       - /cloud-databases/cloud-databases-provisioning
+      - /cloud-databases/cloud-databases-cbr
       - /cloud-databases/cloud-databases-deprovisioning
       - /cloud-databases/cloud-databases-migrate-data-center
       - howto-migration.md
