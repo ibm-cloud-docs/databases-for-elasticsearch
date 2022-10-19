@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2022
-lastupdated: "2022-10-11"
+lastupdated: "2022-10-19"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 19 October 2022
+{: #databases-for-elasticsearch-19oct2022}
+{: release-note}
+
+Deploying and Connecting a Cloud Databases Instance Tutorial
+:  This tutorial guides you through the process of deploying a {{site.data.keyword.databases-for}} instance and connecting it to a web front end by creating a webpage that allows visitors to input a word and its definition. These values are then stored in a database running on {{site.data.keyword.databases-for}}. You install the database infrastructure by using Terraform and your web application uses the popular Express framework. The application can then be run locally, or by using Docker. For more information, see [Deploying and Connecting a {{site.data.keyword.databases-for}} Instance](/docs/databases-for-elasticsearch?topic=cloud-databases-create-instance-tutorial).
 
 ## 11 October 2022
 {: #databases-for-elasticsearch-11oct2022}
