@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2022
-lastupdated: "2022-06-28"
+lastupdated: "2022-10-24"
 
 keyowrds: elasticsearch, databases, upgrading, 5.x, 6.x, 7.x, reindex, indices
 
@@ -15,6 +15,7 @@ subcollection: databases-for-elasticsearch
 {:codeblock: .codeblock}
 {:pre: .pre}
 {:tip: .tip}
+{{site.data.keyword.attribute-definition-list}}
 
 
 # Upgrading to a new Major Version
@@ -58,8 +59,9 @@ Some {{site.data.keyword.databases-for-elasticsearch}} deployments were upgraded
 You must check the index version to determine the need to reindex:
     
 For each index, call the API `indexname/_settings?pretty`. For example,
-    
+   ```sh 
    `curl -k https://user:password@host:port/test1/_settings?pretty`
+   ```
 
 In the result, look for the version field. For example,
 
@@ -95,11 +97,13 @@ Use a script to perform any necessary modifications to the document data and met
 
 ## Upgrading in the UI
 {: #upgrading-ui}
+{: ui}
 
 You can upgrade to a new version when [restoring a backup](/docs/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups#restoring-a-backup) from the _Backups_ tab of your _Deployment Overview_. Clicking **Restore** on a backup brings up a dialog box where you can change some options for the new deployment. One of them is the database version, which is auto-populated with the versions available for you to upgrade to. Select a version and click **Restore** to start the provision and restore process.
 
 ## Upgrading through the CLI
 {: #upgrading-cli}
+{: cli}
 
 When you upgrade and restore from backup through the {{site.data.keyword.cloud_notm}} CLI, use the provisioning command from the resource controller.
 ```sh
@@ -117,6 +121,7 @@ ibmcloud resource service-instance-create example-es-upgrade databases-for-elast
 
 ## Upgrading through the API
 {: #upgrading-api}
+{: api}
 
 Similar to provisioning through the API, you need to complete [the necessary steps to use the resource controller API](/docs/databases-for-elasticsearch?topic=cloud-databases-provisioning#provisioning-through-the-resource-controller-api) before you can use it to upgrade from a backup. Then, send the API a POST request. The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required. You also supply the version and backup ID. The new deployment has the same memory and disk allocation as the source deployment at the time of the backup.
 
@@ -135,7 +140,7 @@ curl -X POST \
   }'
 ```
 
-## Migration Notes for New Elasticsearch 7.x Users 
+## Migration Notes for New Elasticsearch 7.x Users
  {: #migration-notes}
 
 As in previous version upgrades, there are many changes. For more information, see [Elastic documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html){: .external}. 
@@ -145,4 +150,3 @@ As in previous version upgrades, there are many changes. For more information, s
 {: #index-mappings}
 
 Mapping types are removed in Elasticsearch 7.x and above. Indexes that are created in Elasticsearch 7.x or later no longer accept a _default_ mapping. Types are also deprecated in APIs in 7.x. Further details on these changes are in the Elastic documentation on the [removal of mapping types](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html){: .external}.
-
