@@ -28,7 +28,6 @@ toc:
       id: howto
       topics:
       - /cloud-databases/cloud-databases-provisioning
-      - /cloud-databases/cloud-databases-cbr
       - /cloud-databases/cloud-databases-deprovisioning
       - /cloud-databases/cloud-databases-migrate-data-center
       - howto-migration.md
@@ -75,6 +74,8 @@ toc:
           topics: 
           - learn-security-compliance.md 
           - manage-scc.md
+          - /cloud-databases/cloud-databases-cbr
+          - /cloud-databases/cloud-databases-cbr-tutorial
   - navgroup: 
       id: help
       topics: 
