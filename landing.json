@@ -1,0 +1,53 @@
+{
+    "title": "IBM Cloud® Databases for Elasticsearch docs",
+    "lastupdated": "2023-02-21",
+    "introduction": "Elasticsearch combines the power of a full text search engine with the indexing strengths of a JSON document database.",
+    "section_devtools": {
+      "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction", 
+      "cli": "/docs/databases-cli-plugin", 
+      "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database"
+    },
+    "section_recommended": [
+      {
+        "title": "Getting Started",
+        "description": "A brief tutorial to introduce using an IBM Cloud® Databases for Elasticsearch deployment.",
+        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started"
+      },
+      {
+        "title": "Setting the Admin Password",
+        "description": "The Databases for Elasticsearch service is provisioned with an admin user. You must set the admin password before you use it to connect.",
+        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password&interface=cli"
+      },
+      {
+        "title": "Getting Connection Strings",
+        "description": "To connect to IBM Cloud® Databases for Elasticsearch, you need some users and connection strings. Connection Strings for your deployment are displayed on the Dashboard Overview, in the Endpoints panel. These strings can be used with any set of credentials that you generate.",
+        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings&interface=cli"
+      }
+    ],
+    "section_learn": {
+      "developer": "https://developer.ibm.com/depmodels/cloud/",
+      "architecture": "https://www.ibm.com/cloud/architecture",
+      "training": "https://www.ibm.com/training/cloud",
+      "community": "https://community.ibm.com/community/user/publiccloud/home"
+    },
+    "section_updates": {
+      "view_more": "/docs/acme-test?topic=acme-test-release-notes",
+      "tiles": [
+        {
+          "date": "19 October 2022",
+          "title": "Deploying and Connecting an IBM Cloud® Databases Instance Tutorial",
+          "description": "This tutorial guides you through the process of deploying a Cloud Databases instance and connecting it to a web front end by creating a webpage that allows visitors to input a word and its definition. These values are then stored in a database running on Cloud Databases. You install the database infrastructure by using Terraform and your web application uses the popular Express framework. The application can then be run locally, or by using Docker."
+        },
+        {
+          "date": "11 October 2022",
+          "title": "Protecting IBM Cloud® Databases for Elasticsearch resources with context-based restrictions",
+          "description": "Context-based restrictions (CBR) give account owners and administrators the ability to define and enforce access restrictions for IBM Cloud® resources based on the context of access requests. Access to Cloud Databases resources can be controlled with CBR and identity and access management (IAM) policies."
+        },
+        {
+          "date": "25 March 2022",
+          "title": "IBM Cloud® Databases for Elasticsearch Security Goals Updated",
+          "description": "Available security and compliance goals updated."
+        }
+      ]
+    }
+  }
