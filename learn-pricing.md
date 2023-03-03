@@ -1,45 +1,20 @@
 ---
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-07-25"
+  years: 2019, 2023
+lastupdated: "2023-03-03"
 
-keyowrds: elasticsearch pricing
+keywords: elasticsearch pricing, backup pricing
 
 subcollection: databases-for-elasticsearch
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Pricing
 {: #pricing}
 
 An {{site.data.keyword.databases-for-elasticsearch_full}} Standard plan deploys as one highly available Elasticsearch cluster with three data members. Your data is replicated across members. The Standard plan is priced based on the total amount of disk storage, RAM, dedicated cores, and backup storage that is allocated to deployments, prorated hourly. {{site.data.keyword.databases-for-elasticsearch}} deployments have a minimum of 5 GB of disk and 1 GB of RAM per data member.
-
-## Cost Breakdown
-{: #cost}
-
-**Disk storage per data member** - gigabytes of disk that are allocated to a {{site.data.keyword.databases-for-elasticsearch}} data member, or the size of your data.  
-**RAM per data member** - gigabytes of RAM that are allocated to a {{site.data.keyword.databases-for-elasticsearch}} data member.  
-**Backup storage** - amount of storage used for backups by a {{site.data.keyword.databases-for-elasticsearch}} deployment.
-
-| Resources | Breakdown | Price |
-| ------- | ------- | ------- |
-| 5 GB-Month disk | 3 members x 5 GB x $0.58 | $8.70 |
-| 1 GB-Month RAM | 3 members x 1 GB x $5 | $15 |
-{: caption="Table 1. Pricing example for three data members" caption-side="top"}
-
-Total per month = $23.70/Month  
-Total per hour = $.032/Hour
-
-All prices here are in US dollars. To see pricing in your local currency, you can to use the pricing calculator.
-{: .tip}
 
 ## Using the Pricing Calculator
 {: #pricing-calc}
@@ -60,7 +35,15 @@ Dedicated cores are an optional feature. The default `Shared CPU` setting provis
 ## Backups Pricing
 {: #pricing-backup}
 
-Users also receive their total disk space purchased, per database, in free backup storage. For example, in a month, if you have a {{site.data.keyword.databases-for-elasticsearch}} deployment that has 5 GB of disk per member, which has three data members, you receive 15 GB of backup storage free for that month. If your backup storage utilization is greater than 15 GB for the month in this scenario, each gigabyte is charged at an overage $0.03/month. Most deployments don't exceed the allotted credit.
+You receive your total disk space purchased, per database, in free backup storage. For example, in a given month, if you have a {{site.data.keyword.databases-for-elasticsearch}} deployment that has 20 GB of disk per member, and has three data members, you receive 60 GB of backup storage free for that month. If your backup storage utilization is greater than 60 GB for the month (in this scenario), you are charged an overage of $0.03/month per gigabyte. 
+
+By default, {{site.data.keyword.databases-for}} provides a daily backup that is stored for 30 days. These backups, and any on-demand backups you make, all count toward the above allocation.
+
+In the above example, if your database contains 2 GB of data and you have not taken any on-demand backups, then your total backup size is 2 GB x 30 = 60 GB. Your backup costs are nil.
+
+If your database contains 15 GB of data and you have not taken any on-demand backups, then your total backup size is 15 GB x 30 = 450 GB. In this scenario, your backup costs are (450 GB - 60 GB) * 0.03 = $11.7 per month.
+
+Most deployments will not ever go over the allotted credit.
 
 ## Scaling per Member
 {: #pricing-member}
@@ -72,5 +55,5 @@ Users also receive their total disk space purchased, per database, in free backu
 | Disk | 5 GB per member | 4 TB per member | 1024 MB per member |
 | RAM | 1 GB per member | 112 GB per member | 128 MB per member |
 | CPU (if enabled) | 3 CPUs per member | 28 CPUs per member| 1 CPU per member |
-{: caption="Table 2. Per Member Scaling Limits" caption-side="top"}
+{: caption="Table 1. Per Member Scaling Limits" caption-side="top"}
 
