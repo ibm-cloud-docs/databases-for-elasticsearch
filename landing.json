@@ -31,7 +31,7 @@
       "community": "https://community.ibm.com/community/user/publiccloud/home"
     },
     "section_updates": {
-      "view_more": "/docs/databases-for-elasticsearch",
+      "view_more": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elasticsearch-relnotes",
       "tiles": [
         {
           "date": "19 October 2022",
