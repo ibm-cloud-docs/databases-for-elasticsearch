@@ -23,8 +23,6 @@ Templates are provided for ease of use and provide balanced resource allocations
 
 For pricing estimation, use the **Add to Estimate** button on the [{{site.data.keyword.databases-for-elasticsearch}} catalog page](https://cloud.ibm.com/catalog/databases-for-elasticsearch). Input your total consumption across three data members into the calculator. For example, 5 GB of disk and 1 GB of RAM across three data members would be priced at 15 GB of disk and 3 GB of RAM respectively.
 
-![Pricing calculator estimation with 5 GB of disk and 1 GB of RAM, per member](images/pricing-calc.png){: caption="Figure 1. Pricing calculator estimation" caption-side="bottom"}
-
 ## Dedicated Cores Pricing
 {: #pricing-cores}
 
