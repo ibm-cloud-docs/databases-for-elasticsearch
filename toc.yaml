@@ -32,6 +32,7 @@ toc:
       - include: ../cloud-databases/closures.md
       - howto-migration.md
       - howto-upgrading.md
+      - howto-esee-upgrade.md
       - howto-admin-password.md
       - howto-getting-connection-strings.md
       - include: ../cloud-databases/ha-dr.md
