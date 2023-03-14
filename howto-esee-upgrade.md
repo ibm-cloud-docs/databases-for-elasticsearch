@@ -18,6 +18,25 @@ To upgrade your {{site.data.keyword.databases-for-elasticsearch_full}}, take ste
 
 The migration process entails taking snapshots of your current Elasticsearch database and storing those securely in your preferred {{site.data.keyword.cos_full_notm}}/S3-compatible object storage bucket. Then, restore those snapshots in your {{site.data.keyword.databases-for-elasticsearch}} deployment. 
 
+## Getting productive 
+{: #esupgrade-install-terraform}
+
+To begin the process, install [Terraform](https://www.terraform.io/){: external} - to codify and deploy infrastructure
+
+## Clone the project
+{: #esupgrade-clone-project}
+
+Clone the project from the {{site.data.keyword.databases-for}} [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore).{: external}.
+
+```sh
+git clone https://github.com/IBM/elasticsearch-cos-snapshot-restore.git
+```
+{: pre}
+
+## Install the infrastructure
+{: #esupgrade-install-infra}
+
+In this step, you <>. The GitHub repository contains <>.
 
 ## Update user passwords
 {: #update-user-passwords}
