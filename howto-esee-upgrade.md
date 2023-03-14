@@ -11,22 +11,17 @@ subcollection: databases-for-elasticsearch
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Use snapshot/restore to upgrade to Elasticsearch 7.17 
+# Upgrade to Elasticsearch 7.17 
 {: #snapshot-elasticsearch-upgrade}
 
-To upgrade your {{site.data.keyword.databases-for-elasticsearch_full}}, take steps to successfully migrate all of your data using your own [object storage](https://www.ibm.com/topics/object-storage).
+To upgrade your {{site.data.keyword.databases-for-elasticsearch_full}} deployment, migrate all of your data by using your own [object storage](https://www.ibm.com/topics/object-storage) and snapshots of your current Elasticsearch database. Store those snapshots securely in your preferred {{site.data.keyword.cos_full_notm}}/S3-compatible object storage bucket. Then, restore those snapshots in your {{site.data.keyword.databases-for-elasticsearch}} deployment. 
 
-The migration process entails taking snapshots of your current Elasticsearch database and storing those securely in your preferred {{site.data.keyword.cos_full_notm}}/S3-compatible object storage bucket. Then, restore those snapshots in your {{site.data.keyword.databases-for-elasticsearch}} deployment. 
+Before you begin migration, install [Terraform](https://www.terraform.io/){: external} - to codify and deploy infrastructure.
 
-## Getting productive 
-{: #esupgrade-install-terraform}
-
-To begin the process, install [Terraform](https://www.terraform.io/){: external} - to codify and deploy infrastructure
-
-## Clone the project
+## Clone the Elasticsearch Snapshot/Restore GitHub Repository
 {: #esupgrade-clone-project}
 
-Clone the project from the {{site.data.keyword.databases-for}} [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore).{: external}.
+Clone the [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore).{: external}.
 
 ```sh
 git clone https://github.com/IBM/elasticsearch-cos-snapshot-restore.git
