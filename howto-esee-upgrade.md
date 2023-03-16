@@ -14,7 +14,7 @@ subcollection: databases-for-elasticsearch
 # Upgrade to Elasticsearch 7.17 
 {: #snapshot-elasticsearch-upgrade}
 
-To upgrade your {{site.data.keyword.databases-for-elasticsearch_full}} deployment, migrate all of your data by using your own [object storage](https://www.ibm.com/topics/object-storage) and snapshots of your current Elasticsearch database. Store those snapshots securely in your preferred {{site.data.keyword.cos_full_notm}}/S3-compatible object storage bucket. Then, restore those snapshots in your {{site.data.keyword.databases-for-elasticsearch}} deployment. 
+To upgrade your {{site.data.keyword.databases-for-elasticsearch_full}} deployment, migrate all of your data by using your own [object storage](https://www.ibm.com/topics/object-storage) and snapshots of your current Elasticsearch database. Store those snapshots securely in your preferred {{site.data.keyword.cos_full_notm}}/S3-compatible object storage bucket. Lastly, restore those snapshots in your {{site.data.keyword.databases-for-elasticsearch}} deployment. 
 
 Before you begin migration, install [Terraform](https://www.terraform.io/){: external} to codify and deploy infrastructure.
 
@@ -31,13 +31,13 @@ git clone https://github.com/IBM/elasticsearch-cos-snapshot-restore.git
 ## Install the infrastructure
 {: #esupgrade-install-infra}
 
-Within the [repository's terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore/tree/main/terraform).{: external} there are the following files that will create the infrastructure necessary to create and restore your snapshots: 
-- cos.tf (creates a COS insstance and a bucket)
-- elastic.tf (creates a source and a target, as well as necessary configuration)
+Within the [repository's terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore/tree/main/terraform){: external} there are the following files that create the infrastructure necessary to create and restore your snapshots: 
+- cos.tf (creates a Cloud Object Storage instance and a bucket)
+- elastic.tf (creates a source and target, and necessary configuration)
 - main.tf (contains the main set of configuration for your module)
 - variables.tf (contains the variable definitions)
 
-After you have cloned the repo, navigate to the folder and install the infrastructure with the following command:
+After cloning the repo, navigate to the folder and install the infrastructure with the following command:
 
 ```sh
 terraform init 
@@ -54,8 +54,17 @@ terraform output -json >../config.json
 ## Run the shell snapshot script
 {: #esupgrade-snapshot-script}
 
-In the main [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore){: external} main folder, you find the *migrate.sh* file. This shell script uses the information provided by the `config.json` file to 
+In the [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore){: external} main folder, find the *migrate.sh* file. This shell script uses the information that is provided by the `config.json` file to perform the necessary migration steps.
 
+- Create different snapshot names by adding a timestamp.
+- Get database and S3 parameters.
+- Mount S3/COS bucket on source deployment.
+- Mount S3/COS bucket on {{site.data.keyword.databases-for-elasticsearch_full}}
+- Close all indices on the target so the restore can be performed on top of it without touching the `icd-auth index`, which is protected by {{site.data.keyword.databases-for}}.
+
+Run *migrate.sh* as many times as necessary to fully bake up your data. Snapshots are incremental, so the first snapshot will take longer than the rest. 
+
+Once your COS bucket has all the necessary snapshots, stop writes to the source. Then, take a final snapshot and restore it to the target. All of your data is now in the target, just point your applications to the target database. Your upgrade is now complete.
 
 ## Update user passwords
 {: #update-user-passwords}
