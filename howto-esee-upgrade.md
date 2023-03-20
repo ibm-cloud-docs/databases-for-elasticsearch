@@ -18,7 +18,7 @@ To upgrade your {{site.data.keyword.databases-for-elasticsearch_full}} deploymen
 
 Before you begin migration, install [Terraform](https://www.terraform.io/){: external} to codify and deploy infrastructure.
 
-## Clone the Elasticsearch Snapshot/Restore GitHub Repository
+## Step 1: Clone the Elasticsearch Snapshot/Restore GitHub Repository
 {: #esupgrade-clone-project}
 
 Clone the [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore){: external}.
@@ -28,16 +28,16 @@ git clone https://github.com/IBM/elasticsearch-cos-snapshot-restore.git
 ```
 {: pre}
 
-## Install the infrastructure
+## Step 2: Install the infrastructure with Terraform
 {: #esupgrade-install-infra}
 
-Within the [repository's terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore/tree/main/terraform){: external} there are the following files that create the infrastructure necessary to create and restore your snapshots: 
-- cos.tf (creates a Cloud Object Storage instance and a bucket)
-- elastic.tf (creates a source and target, and necessary configuration)
-- main.tf (contains the main set of configuration for your module)
-- variables.tf (contains the variable definitions)
+Within the [repository's terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore/tree/main/terraform){: external} the following files create the infrastructure necessary to create and restore your snapshots: 
+- [`cos.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/cos.tf) (creates a Cloud Object Storage instance and a bucket)
+- [`elastic.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/elastic.tf) (creates a source and target, and necessary configuration)
+- [`main.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/main.tf) (contains the main set of configuration for your module)
+- [`variables.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/variables.tf) (contains the variable definitions)
 
-After cloning the repo, navigate to the folder and install the infrastructure with the following command:
+After cloning the repo, navigate to your terraform folder and install the infrastructure with the following command:
 
 ```sh
 terraform init 
