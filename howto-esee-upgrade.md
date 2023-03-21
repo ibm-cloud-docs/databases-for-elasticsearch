@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-20"
+lastupdated: "2023-03-21"
 
 keywords: elasticsearch migration, databases, elasticsearch migrating, elasticsearch enterprise, snapshot, elasticsearch update
 
@@ -100,6 +100,27 @@ Once your COS bucket has all the necessary snapshots, stop any writes to the sou
 
 A restore to Elasticsearch 7.17 invalidates existing user passwords. Existing user passwords must be reset after the restore. Follow the procedure below to list all users and change user passwords. 
 
-Use the following command to list all users:
 
 [final process from Takshil](https://github.ibm.com/ibm-cloud-databases/cloud-databases/pull/128)
+
+First, run the following command: 
+
+```sh
+`ibmcloud plugin update cloud-databases` 
+```
+{: pre}
+
+
+Update plugin in ibmcloud - I am assuming they already have it). In case they don't need to install ibmcloud plugin install cloud-databases
+
+Then, run the following command: 
+
+```sh
+`ibmcloud login -a cloud.ibm.com -r eu-gb --sso`
+```
+{: pre}
+
+ This is what I do for logging in to cloud with specific region, they might also need this ? not 100 % sure on this.
+`ibmcloud cloud-databases es user-list --help` This will show them the command with all the required & optional arguments.
+`ibmcloud cloud-databases es user-list $formation_name $admin_password` - This is command in which they would have to replace the formation name & admin password from what they find. (Pre-requite - From UI change admin password)
+If they go without the --json option, the plugin would also print the reset password commands for all users which they can copy paste.
