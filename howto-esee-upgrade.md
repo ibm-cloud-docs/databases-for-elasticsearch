@@ -110,7 +110,7 @@ First, run the [ibmcloud plugin update](https://cloud.ibm.com/docs/cli?topic=cli
 ```
 {: pre}
 
-Then, ensure you are logged in to the correct region, using the `-r` flag:
+Then, log in to your {{site.data.keyword.cloud}} account:
 
 ```sh
 `ibmcloud login -a cloud.ibm.com -r <region> --sso`
