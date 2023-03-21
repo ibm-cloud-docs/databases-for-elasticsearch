@@ -103,24 +103,34 @@ A restore to Elasticsearch 7.17 invalidates existing user passwords. Existing us
 
 [final process from Takshil](https://github.ibm.com/ibm-cloud-databases/cloud-databases/pull/128)
 
-First, run the following command: 
+First, run the [ibmcloud plugin update](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_update) command: 
 
 ```sh
 `ibmcloud plugin update cloud-databases` 
 ```
 {: pre}
 
-
-Update plugin in ibmcloud - I am assuming they already have it). In case they don't need to install ibmcloud plugin install cloud-databases
-
-Then, run the following command: 
+Then, ensure you are logged in to the correct region, using the `-r` flag:
 
 ```sh
-`ibmcloud login -a cloud.ibm.com -r eu-gb --sso`
+`ibmcloud login -a cloud.ibm.com -r <region> --sso`
 ```
 {: pre}
 
- This is what I do for logging in to cloud with specific region, they might also need this ? not 100 % sure on this.
-`ibmcloud cloud-databases es user-list --help` This will show them the command with all the required & optional arguments.
-`ibmcloud cloud-databases es user-list $formation_name $admin_password` - This is command in which they would have to replace the formation name & admin password from what they find. (Pre-requite - From UI change admin password)
-If they go without the --json option, the plugin would also print the reset password commands for all users which they can copy paste.
+Then, run the following command:
+
+```sh
+`ibmcloud cloud-databases es user-list --help`
+```
+{: pre}
+
+This outputs the command with all the required and optional arguments.
+
+Before running the final command, ensure that you have used the UI to update the admin password. Then, run the following command: 
+
+```sh
+`ibmcloud cloud-databases es user-list <$formation_name> <$admin_password>`
+```
+{: pre}
+
+If this command is run without the `--json` option, the plugin`user-list` also prints the reset password commands for all users.
