@@ -98,10 +98,7 @@ Once your COS bucket has all the necessary snapshots, stop any writes to the sou
 ## Update user passwords
 {: #update-user-passwords}
 
-A restore to Elasticsearch 7.17 invalidates existing user passwords. Existing user passwords must be reset after the restore. Follow the procedure below to list all users and change user passwords. 
-
-
-[final process from Takshil](https://github.ibm.com/ibm-cloud-databases/cloud-databases/pull/128)
+A restore to Elasticsearch 7.17 invalidates existing user passwords. Existing user passwords must be reset after the restore. Follow the procedure below to list all users and change user passwords.
 
 First, run the [ibmcloud plugin update](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_update) command: 
 
@@ -117,16 +114,16 @@ Then, log in to your {{site.data.keyword.cloud}} account:
 ```
 {: pre}
 
-Then, run the following command:
+Next, run the following command to generate a list of account users:
 
 ```sh
 `ibmcloud cloud-databases es user-list --help`
 ```
 {: pre}
 
-This outputs the command with all the required and optional arguments.
+The `user-list` command will output all the required and optional arguments for the final command.
 
-Before running the final command, ensure that you have used the UI to update the admin password. Then, run the following command: 
+Before running the final command to update user passwords, ensure that you have updated the admin password. For more information, see [Setting the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password&interface=cli). Then, run the following command: 
 
 ```sh
 `ibmcloud cloud-databases es user-list <$formation_name> <$admin_password>`
