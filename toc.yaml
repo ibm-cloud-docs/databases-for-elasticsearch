@@ -32,7 +32,6 @@ toc:
       - include: ../cloud-databases/closures.md
       - howto-migration.md
       - howto-upgrading.md
-      - howto-esee-upgrade.md
       - howto-admin-password.md
       - howto-getting-connection-strings.md
       - include: ../cloud-databases/ha-dr.md
@@ -58,12 +57,10 @@ toc:
       - topicgroup: 
           label: Tutorials
           topics: 
+          - howto-es-migrate-tutorial.md
           - include: ../cloud-databases/howto-tutorials.md
           - include: ../cloud-databases/hello-world-tutorial.md
-          - include: ../cloud-databases/terra-postgres-tutorial.md
-          - include: ../cloud-databases/terra-mongodb-tutorial.md
           - include: ../cloud-databases/k8-tutorial.md
-          - include: ../cloud-databases/truck-tracker-tutorial.md
       - topicgroup: 
           label: Logging and monitoring
           topics: 
