@@ -1,22 +1,15 @@
 ---
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-10-24"
+  years: 2019, 2023
+lastupdated: "2023-03-24"
 
-keyowrds: elasticsearch, databases, upgrading, 5.x, 6.x, 7.x, reindex, indices
+keyowrds: elasticsearch, databases, upgrading, 5.x, 6.x, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17
 
 subcollection: databases-for-elasticsearch
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
 {{site.data.keyword.attribute-definition-list}}
-
 
 # Upgrading to a new Major Version
 {: #upgrading}
@@ -150,3 +143,106 @@ As in previous version upgrades, there are many changes. For more information, s
 {: #index-mappings}
 
 Mapping types are removed in Elasticsearch 7.x and above. Indexes that are created in Elasticsearch 7.x or later no longer accept a _default_ mapping. Types are also deprecated in APIs in 7.x. Further details on these changes are in the Elastic documentation on the [removal of mapping types](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html){: .external}.
+
+## Retrieve and update user passwords
+{: #esupgrade-retrieve-update-user-passwords}
+
+### Retrieve Elasticsearch user passwords
+{: #esupgrade-retrieve-user-passwords}
+
+A restore to Elasticsearch 7.17 invalidates existing user passwords. Existing user passwords must be reset after the restore. Follow this procedure to list all users and change user passwords.
+
+First, run the [ibmcloud plug-in update](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_update) command: 
+
+```sh
+ibmcloud plugin update cloud-databases
+```
+{: pre}
+
+Then, log in to your {{site.data.keyword.cloud}} account:
+
+```sh
+ibmcloud login -a cloud.ibm.com -r <region> --sso
+```
+{: pre}
+
+Next, run the `user-list` command with the `--help` flag. This command outputs various options for your account's user list.
+
+```sh
+ibmcloud cloud-databases es user-list --help
+```
+{: pre}
+
+The `user-list` command output looks like: 
+
+```screen
+ibmcloud cloud-databases es user-list --help
+NAME:
+  user-list, ul - List all users from the database internal credential store.
+
+USAGE:
+  ibmcloud cdb elasticsearch user-list (NAME|ID) (ADMIN_PASSWORD) [--json] [-c DIRECTORY] [--api-version]
+  
+OPTIONS:
+  --json, -j         --json, -j                     Results as JSON.
+  --certroot, -c     --certroot value, -c value     Certificate Root. (default: "< >") [$CERTROOT]
+  --api-version, -v  --api-version value, -v value  API Version used for request.
+```
+
+Before running the command to update user passwords, ensure that you have updated the admin password. For more information, see [Setting the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password&interface=cli). Then, run the following command: 
+
+```sh
+ibmcloud cloud-databases es user-list <formation_name> <admin_password>
+```
+{: pre}
+
+If this command is run without the `--json` option, the plug-in `user-list` also prints the reset password commands for all users.
+
+The `user-list` command output looks like: 
+
+```screen
+ibmcloud cloud-databases es user-list es-akshay-res-717-new 12345678987654321   
+Getting user list for es-akshay-res-717-new...
+8 user accounts are present in the Elasticsearch credential store:
+Username                                         Fullname         Email
+fred                                             Fred Name        fred@example.com
+admin                                            admin Name       admin@example.com
+ibmkibana                                        ibmkibana Name   ibmkibana@example.com
+ibm_cloud_d68c8129_fea9_4e83_abc8_4a6c514248ac
+ibm_cloud_2a526d0b_e101_49f3_bd13_7c065870a7b1
+ibm_cloud_7052ee45_d702_4073_aea2_a5435989568e
+ibm_cloud_29075661_76d0_405a_9619_480eb7a173d4
+ibm_cloud_eb148643_099a_4334_a88a_f2e5e1f8ccdd
+
+You can use these commands to set new passwords for them: 
+ibmcloud cdb deployment-user-password "es-akshay-res-717-new" fred
+
+ibmcloud cdb deployment-user-password "es-akshay-res-717-new" admin
+
+ibmcloud cdb deployment-user-password "es-akshay-res-717-new" ibmkibana
+
+ibmcloud cdb deployment-user-password "es-akshay-res-717-new" ibm_cloud_d68c8129_fea9_4e83_abc8_4a6c514248ac
+
+ibmcloud cdb deployment-user-password "es-akshay-res-717-new" ibm_cloud_2a526d0b_e101_49f3_bd13_7c065870a7b1
+
+ibmcloud cdb deployment-user-password "es-akshay-res-717-new" ibm_cloud_7052ee45_d702_4073_aea2_a5435989568e
+
+ibmcloud cdb deployment-user-password "es-akshay-res-717-new" ibm_cloud_29075661_76d0_405a_9619_480eb7a173d4
+
+ibmcloud cdb deployment-user-password "es-akshay-res-717-new" ibm_cloud_eb148643_099a_4334_a88a_f2e5e1f8ccdd
+
+OK
+```
+
+## Step 6: Update Elasticsearch user passwords
+{: #esupgrade-update-user-passwords}
+
+To update user passwords, run the following command for _each_ user. You are then prompted to enter the new password for that user.
+
+```sh
+ibmcloud cdb deployment-user-password "example-deployment" <your-user-1>
+```
+{: pre}
+
+The `deployment-user-password` command needs to be run for each user.
+{: important}
