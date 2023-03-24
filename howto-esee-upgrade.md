@@ -21,12 +21,16 @@ We've simplified the migration process by using Terraform and shell scripts. Sim
 ## Getting Productive
 {: #esmigration-get-productive}
 
-Before you migrate your data, install [Terraform](https://www.terraform.io/){: external} to codify and deploy necessary infrastructure.
+Before you migrate your data, install [Terraform](https://www.terraform.io/){: external} to codify and deploy necessary infrastructure. You also need an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration).
 
-## Taking and restoring snapshots
-{: #esmigration-take-restore-snapshots}
+## Step 1: Obtain an API key to deploy infrastructure to your account
+{: #esmigration-obtain-api-key}
 
-### Step 1: Clone the Elasticsearch Snapshot/Restore GitHub Repository
+Follow [these steps](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key) to create an {{site.data.keyword.cloud_notm}} API key that enables Terraform to provision infrastructure into your account. You can create up to 20 API keys.
+
+For security reasons, the API key is only available to be copied or downloaded at the time of creation. If the API key is lost, you must create a new API key.{: .important}
+
+## Step 2: Clone the Elasticsearch Snapshot/Restore GitHub Repository
 {: #esmigration-clone-project}
 
 Clone the [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore){: external} to your local machine.
@@ -38,7 +42,7 @@ git clone https://github.com/IBM/elasticsearch-cos-snapshot-restore.git
 
 After cloning this folder, navigate to the newly created project folder on your local machine. 
 
-### Step 2: Install the infrastructure with Terraform
+## Step 3: Install the infrastructure with Terraform
 {: #esmigration-install-infra}
 
 The [terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore/tree/main/terraform){: external} contains files that create the necessary infrastructure to create and restore your snapshots: 
@@ -47,28 +51,28 @@ The [terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore
 - [`main.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/main.tf) (contains the main set of configuration for your module)
 - [`variables.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/variables.tf) (contains the variable definitions)
 
-#### cos.tf
+### cos.tf
 {: #esmigration-costf}
 
 [`cos.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/cos.tf) creates a Cloud Object Storage instance and a bucket. Before you run the script, you need to update your resources for the `restoreCOSInstance`, `restoreBucket`, `resourceKey`. This script then outputs the `bucket_credentials` and `bucket_name`.
 
-#### elastic.tf
+### elastic.tf
 {: #esmigration-elastictf}
 
 [`elastic.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/elastic.tf) creates a source and target, and necessary configuration. Input the variables for the `resource "ibm_database" "esSource"` and `resource "ibm_database" "esTarget"` the script will output the necessary configuration variables. 
 
-#### main.tf
+### main.tf
 {: #esmigration-maintf}
 
 [`main.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/main.tf) contains the main set of configuration for your module. For the `ibmcloud_api_key` variable, create or retrieve an [{{site.data.keyword.cloud}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). Then, specify the Resource Group and `ibm_resource_group` variable, which outputs the `resource_group_name`.
 
-#### variables.tf
+### variables.tf
 {: #esmigration-varstf}
 
 [`variables.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/variables.tf) contains the variable definitions `ibmcloud_api_key`, `region`, and `elastic_password`. After you input these variables, you're ready to run your Terraform script.
 
 
-### Step 3: Run the Terraform Script
+## Step 4: Run the Terraform Script
 {: #esmigration-run-tf-script}
 
 Navigate to your terraform folder and install the infrastructure with the following command:
@@ -85,7 +89,7 @@ terraform output -json >../config.json
 ```
 {: pre}
 
-### Step 4: Run the shell snapshot script
+## Step 5: Run the shell snapshot script
 {: #esmigration-snapshot-script}
 
 In the [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore){: external} main folder, find the *migrate.sh* file. This shell script uses the information that is provided by the `config.json` file to perform the necessary migration steps.
