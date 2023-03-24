@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-23"
+lastupdated: "2023-03-24"
 
 keywords: elasticsearch migration, databases, elasticsearch migrating, elasticsearch enterprise, snapshot, elasticsearch update
 
@@ -18,7 +18,10 @@ To upgrade your {{site.data.keyword.databases-for-elasticsearch_full}} deploymen
 
 Before you begin migration, install [Terraform](https://www.terraform.io/){: external} to codify and deploy infrastructure.
 
-## Step 1: Clone the Elasticsearch Snapshot/Restore GitHub Repository
+## Taking and restoring snapshots
+{: #esupgrade-take-restore-snapshots}
+
+### Step 1: Clone the Elasticsearch Snapshot/Restore GitHub Repository
 {: #esupgrade-clone-project}
 
 Clone the [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore){: external} to your local machine. 
@@ -30,7 +33,7 @@ git clone https://github.com/IBM/elasticsearch-cos-snapshot-restore.git
 
 After cloning this folder, navigate to the newly created project folder on your local machine. 
 
-## Step 2: Install the infrastructure with Terraform
+### Step 2: Install the infrastructure with Terraform
 {: #esupgrade-install-infra}
 
 The [terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore/tree/main/terraform){: external} contains files that create the necessary infrastructure to create and restore your snapshots: 
@@ -39,28 +42,28 @@ The [terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore
 - [`main.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/main.tf) (contains the main set of configuration for your module)
 - [`variables.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/variables.tf) (contains the variable definitions)
 
-### cos.tf
+#### cos.tf
 {: #esupgrade-costf}
 
 [`cos.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/cos.tf) creates a Cloud Object Storage instance and a bucket. Before you run the script, you need to update your resources for the `restoreCOSInstance`, `restoreBucket`, `resourceKey`. This script then outputs the `bucket_credentials` and `bucket_name`.
 
-### elastic.tf
+#### elastic.tf
 {: #esupgrade-elastictf}
 
 [`elastic.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/elastic.tf) creates a source and target, and necessary configuration. Input the variables for the `resource "ibm_database" "esSource"` and `resource "ibm_database" "esTarget"` the script will output the necessary configuration variables. 
 
-### main.tf
+#### main.tf
 {: #esupgrade-maintf}
 
 [`main.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/main.tf) contains the main set of configuration for your module. For the `ibmcloud_api_key` variable, create or retrieve an [{{site.data.keyword.cloud}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). Then, specify the Resource Group and `ibm_resource_group` variable, which outputs the `resource_group_name`.
 
-### variables.tf
+#### variables.tf
 {: #esupgrade-varstf}
 
 [`variables.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/variables.tf) contains the variable definitions `ibmcloud_api_key`, `region`, and `elastic_password`. After you input these variables, you're ready to run your Terraform script.
 
 
-## Step 3: Run the Terraform Script
+### Step 3: Run the Terraform Script
 {: #esupgrade-run-tf-script}
 
 Navigate to your terraform folder and install the infrastructure with the following command:
@@ -77,7 +80,7 @@ terraform output -json >../config.json
 ```
 {: pre}
 
-## Step 4: Run the shell snapshot script
+### Step 4: Run the shell snapshot script
 {: #esupgrade-snapshot-script}
 
 In the [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore){: external} main folder, find the *migrate.sh* file. This shell script uses the information that is provided by the `config.json` file to perform the necessary migration steps.
@@ -95,7 +98,10 @@ Snapshots are incremental, so the first snapshot takes longer than the rest.
 
 Once your COS bucket has all the necessary snapshots, stop any writes to the source. Then, take a final snapshot and restore it to the target. All of your data is now in the target. Point your applications to the target database and your upgrade is complete.
 
-## Step 5: Retrieve user passwords
+## Retrieve and update user passwords
+{: #esupgrade-retrieve-update-user-passwords}
+
+### Retrieve Elasticsearch user passwords
 {: #esupgrade-retrieve-user-passwords}
 
 A restore to Elasticsearch 7.17 invalidates existing user passwords. Existing user passwords must be reset after the restore. Follow this procedure to list all users and change user passwords.
@@ -182,7 +188,7 @@ ibmcloud cdb deployment-user-password "es-akshay-res-717-new" ibm_cloud_eb148643
 OK
 ```
 
-## Step 6: Update user passwords
+## Step 6: Update Elasticsearch user passwords
 {: #esupgrade-update-user-passwords}
 
 To update user passwords, run the following command for *each* user. You are then prompted to enter the new password for that user.
