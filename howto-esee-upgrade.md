@@ -11,18 +11,23 @@ subcollection: databases-for-elasticsearch
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Datas migration using snapshot and restore
-{: #snapshot-elasticsearch-upgrade}
+# Elasticsearch data migration using snapshot and restore
+{: #esmigration-elasticsearch-snapshot-restore}
 
-To upgrade your {{site.data.keyword.databases-for-elasticsearch_full}} deployment, migrate all of your data by using your own [object storage](https://www.ibm.com/topics/object-storage) and snapshots of your current Elasticsearch database. Store those snapshots securely in your preferred {{site.data.keyword.cos_full_notm}}/S3-compatible object storage bucket. Lastly, restore those snapshots in your {{site.data.keyword.databases-for-elasticsearch}} deployment. 
+To migrate your existing Elasticsearch data to a new {{site.data.keyword.databases-for-elasticsearch_full}} deployment, use your own [object storage](https://www.ibm.com/topics/object-storage) and snapshots of your current Elasticsearch database. Store those snapshots securely in your preferred {{site.data.keyword.cos_full_notm}}/S3-compatible object storage bucket. Then, complete the migration process by restoring those snapshots into a {{site.data.keyword.databases-for-elasticsearch}} deployment.
 
-Before you begin migration, install [Terraform](https://www.terraform.io/){: external} to codify and deploy infrastructure.
+We've simplified the migration process by using Terraform and shell scripts. Simply follow the prodecure outlined on this page, plugging in the necessary variables as you go.
+
+## Getting Productive
+{: #esmigration-get-productive}
+
+Before you migrate your data, install [Terraform](https://www.terraform.io/){: external} to codify and deploy necessary infrastructure.
 
 ## Taking and restoring snapshots
-{: #esupgrade-take-restore-snapshots}
+{: #esmigration-take-restore-snapshots}
 
 ### Step 1: Clone the Elasticsearch Snapshot/Restore GitHub Repository
-{: #esupgrade-clone-project}
+{: #esmigration-clone-project}
 
 Clone the [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore){: external} to your local machine.
 
@@ -34,7 +39,7 @@ git clone https://github.com/IBM/elasticsearch-cos-snapshot-restore.git
 After cloning this folder, navigate to the newly created project folder on your local machine. 
 
 ### Step 2: Install the infrastructure with Terraform
-{: #esupgrade-install-infra}
+{: #esmigration-install-infra}
 
 The [terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore/tree/main/terraform){: external} contains files that create the necessary infrastructure to create and restore your snapshots: 
 - [`cos.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/cos.tf) (creates a Cloud Object Storage instance and a bucket)
@@ -43,28 +48,28 @@ The [terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore
 - [`variables.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/variables.tf) (contains the variable definitions)
 
 #### cos.tf
-{: #esupgrade-costf}
+{: #esmigration-costf}
 
 [`cos.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/cos.tf) creates a Cloud Object Storage instance and a bucket. Before you run the script, you need to update your resources for the `restoreCOSInstance`, `restoreBucket`, `resourceKey`. This script then outputs the `bucket_credentials` and `bucket_name`.
 
 #### elastic.tf
-{: #esupgrade-elastictf}
+{: #esmigration-elastictf}
 
 [`elastic.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/elastic.tf) creates a source and target, and necessary configuration. Input the variables for the `resource "ibm_database" "esSource"` and `resource "ibm_database" "esTarget"` the script will output the necessary configuration variables. 
 
 #### main.tf
-{: #esupgrade-maintf}
+{: #esmigration-maintf}
 
 [`main.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/main.tf) contains the main set of configuration for your module. For the `ibmcloud_api_key` variable, create or retrieve an [{{site.data.keyword.cloud}} API key](/docs/account?topic=account-userapikey&interface=ui#create_user_key). Then, specify the Resource Group and `ibm_resource_group` variable, which outputs the `resource_group_name`.
 
 #### variables.tf
-{: #esupgrade-varstf}
+{: #esmigration-varstf}
 
 [`variables.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/variables.tf) contains the variable definitions `ibmcloud_api_key`, `region`, and `elastic_password`. After you input these variables, you're ready to run your Terraform script.
 
 
 ### Step 3: Run the Terraform Script
-{: #esupgrade-run-tf-script}
+{: #esmigration-run-tf-script}
 
 Navigate to your terraform folder and install the infrastructure with the following command:
 
@@ -81,7 +86,7 @@ terraform output -json >../config.json
 {: pre}
 
 ### Step 4: Run the shell snapshot script
-{: #esupgrade-snapshot-script}
+{: #esmigration-snapshot-script}
 
 In the [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore){: external} main folder, find the *migrate.sh* file. This shell script uses the information that is provided by the `config.json` file to perform the necessary migration steps.
 
@@ -98,4 +103,8 @@ Snapshots are incremental, so the first snapshot takes longer than the rest.
 
 Once your COS bucket has all the necessary snapshots, stop any writes to the source. Then, take a final snapshot and restore it to the target. All of your data is now in the target. Point your applications to the target database and your upgrade is complete.
 
-LINK TO RETRIEVING AND UPDATING PASSWORDS
+## Retrieve and update user passwords
+{: #esmigration-retrieve-update-user-passwords}
+
+If you're restoring to Elasticsearch 7.17 as an update from an earlier version, existing user passwords will be invalidated and must be reset after the restore. Follow <INSERT URL HERE> this procedure to list all users and change user passwords.
+
