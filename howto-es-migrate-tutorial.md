@@ -69,8 +69,9 @@ The [terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore
 ### variables.tf
 {: #esmigration-varstf}
 
-[`variables.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/variables.tf) contains the variable definitions `ibmcloud_api_key`, `region`, and `elastic_password`. After you input these variables, you're ready to run your Terraform script.
+[`variables.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/variables.tf) contains the variable definitions `ibmcloud_api_key`, `region`, and `elastic_password`. 
 
+After you input these variables, you're ready to run your Terraform script.
 
 ## Step 4: Run the Terraform Script
 {: #esmigration-run-tf-script}
@@ -79,6 +80,7 @@ Navigate to your terraform folder and install the infrastructure with the follow
 
 ```sh
 terraform init 
+terraform apply --auto-approve
 ```
 {: pre}
 
