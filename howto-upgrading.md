@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-24"
+lastupdated: "2023-03-27"
 
 keyowrds: elasticsearch, databases, upgrading, 5.x, 6.x, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17
 
@@ -234,7 +234,7 @@ ibmcloud cdb deployment-user-password "es-akshay-res-717-new" ibm_cloud_eb148643
 OK
 ```
 
-## Step 6: Update Elasticsearch user passwords
+### Update Elasticsearch user passwords
 {: #esupgrade-update-user-passwords}
 
 To update user passwords, run the following command for _each_ user. You are then prompted to enter the new password for that user.
