@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-24"
+lastupdated: "2023-03-27"
 
 keywords: elasticsearch migration, databases, elasticsearch migrating, elasticsearch enterprise, snapshot, elasticsearch update
 
@@ -110,5 +110,4 @@ Once your COS bucket has all the necessary snapshots, stop any writes to the sou
 ## Retrieve and update user passwords
 {: #esmigration-retrieve-update-user-passwords}
 
-If you're restoring to Elasticsearch 7.17 as an update from an earlier version, existing user passwords will be invalidated and must be reset after the restore. Follow <INSERT URL HERE> this procedure to list all users and change user passwords.
-
+If you're restoring to Elasticsearch 7.17 as an update from an earlier version, existing user passwords will be invalidated and must be reset after the restore. For more information, see [Retrieve and update user passwords](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-upgrading&interface=ui#esupgrade-retrieve-update-user-passwords).
