@@ -73,7 +73,7 @@ The [terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore
 After setting up your resources, configurations, and variables, go ahead and run your Terraform script. Navigate to your terraform folder and install the infrastructure with the following command:
 
 ```sh
-terraform init 
+terraform init
 terraform apply --auto-approve
 ```
 {: pre}
