@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-27"
+lastupdated: "2023-03-28"
 
 keywords: elasticsearch migration, databases, elasticsearch migrating, elasticsearch enterprise, snapshot, elasticsearch update
 
@@ -14,9 +14,11 @@ subcollection: databases-for-elasticsearch
 # Elasticsearch data migration using snapshot and restore
 {: #esmigration-elasticsearch-snapshot-restore}
 
-To migrate your existing Elasticsearch data to a new {{site.data.keyword.databases-for-elasticsearch_full}} deployment, use your own [object storage](https://www.ibm.com/topics/object-storage) and snapshots of your current Elasticsearch database. Store those snapshots securely in your preferred {{site.data.keyword.cos_full_notm}}/S3-compatible object storage bucket. Then, complete the migration process by restoring those snapshots into a {{site.data.keyword.databases-for-elasticsearch}} deployment.
+Migrate data between two instances of Elasticsearch with the help of Object Storage. Using the snapshot and restore method, take snapshots from your source instance, store them in Object Storage, and then restore those snapshots from Object Storage into your target instance.
 
-We've simplified the migration process by using Terraform and shell scripts. Simply follow the prodecure outlined on this page, plugging in the necessary variables as you go.
+This tutorial uses snapshot and restore, {{site.data.keyword.cos_full_notm}} and two instances of {{site.data.keyword.databases-for-elasticsearch}}. However, this process is applicable to any S3-compatible object storage solution and any deployment of Elasticsearch.
+
+We've simplified the process by using [Terraform](https://www.terraform.io/){: external} and shell scripts. Simply follow the procedure outlined on this page, plugging in the necessary variables as you go.
 
 ## Getting Productive
 {: #esmigration-get-productive}
@@ -42,7 +44,7 @@ git clone https://github.com/IBM/elasticsearch-cos-snapshot-restore.git
 
 After cloning this folder, navigate to the newly created project folder on your local machine. 
 
-## Step 3: Install the infrastructure with Terraform
+## Step 3: Install and run the Terraform script
 {: #esmigration-install-infra}
 
 The [terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore/tree/main/terraform){: external} contains files that create the necessary infrastructure to create and restore your snapshots: 
@@ -71,12 +73,7 @@ The [terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore
 
 [`variables.tf`](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/terraform/variables.tf) contains the variable definitions `ibmcloud_api_key`, `region`, and `elastic_password`. Update these variables with your API key, preferred region, and your Elasticsearch password. 
 
-After setting up your resources, configurations, and variables, go ahead and run your Terraform script.
-
-## Step 4: Run the Terraform Script
-{: #esmigration-run-tf-script}
-
-Navigate to your terraform folder and install the infrastructure with the following command:
+After setting up your resources, configurations, and variables, go ahead and run your Terraform script. Navigate to your terraform folder and install the infrastructure with the following command:
 
 ```sh
 terraform init 
@@ -97,9 +94,9 @@ terraform output -json >../config.json
 In the [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore){: external} main folder, find the *migrate.sh* file. This shell script uses the information that is provided by the `config.json` file to perform the necessary migration steps.
 
 - Create different snapshot names by adding a timestamp.
-- Get database and S3 parameters.
+- Get database and S3/COS parameters.
 - Mount S3/COS bucket on source deployment.
-- Mount S3/COS bucket on {{site.data.keyword.databases-for-elasticsearch_full}}
+- Mount S3/COS bucket on target deployment.
 - Close all indexes on the target so the restore can be run without touching the `icd-auth index`, which is protected by {{site.data.keyword.databases-for}}.
 
 Run *migrate.sh* as many times as necessary to fully back up your data. 
@@ -107,7 +104,7 @@ Run *migrate.sh* as many times as necessary to fully back up your data.
 Snapshots are incremental, so the first snapshot takes longer than the rest. 
 {: note}
 
-Once your COS bucket has all the necessary snapshots, stop any writes to the source. Then, take a final snapshot and restore it to the target. All of your data is now in the target. Point your applications to the target database and your upgrade is complete.
+Once your COS bucket has all the necessary snapshots, stop any writes to the source. Then, run *migrate.sh* one more time to take a final snapshot and restore it to the target. All of your data is now in the target. Point your applications to the target database and your upgrade is complete.
 
 ## Retrieve and update user passwords
 {: #esmigration-retrieve-update-user-passwords}
