@@ -44,7 +44,7 @@ git clone https://github.com/IBM/elasticsearch-cos-snapshot-restore.git
 
 After cloning this folder, navigate to the newly created project folder on your local machine. 
 
-## Step 3: Install and run the Terraform script
+## Step 2: Install and run the Terraform script
 {: #esmigration-install-infra}
 
 The [terraform folder](https://github.com/IBM/elasticsearch-cos-snapshot-restore/tree/main/terraform){: external} contains files that create the necessary infrastructure to create and restore your snapshots: 
@@ -88,7 +88,7 @@ terraform output -json >../config.json
 ```
 {: pre}
 
-## Step 5: Run the shell snapshot script
+## Step 3: Run the shell snapshot script
 {: #esmigration-snapshot-script}
 
 In the [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore){: external} main folder, find the *migrate.sh* file. This shell script uses the information that is provided by the `config.json` file to perform the necessary migration steps.
