@@ -25,17 +25,14 @@ We've simplified the process by using [Terraform](https://www.terraform.io/){: e
 
 Before you migrate your data, install [Terraform](https://www.terraform.io/){: external} to codify and deploy necessary infrastructure. You also need an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration).
 
-## Step 1: Obtain an API key to deploy infrastructure to your account
+## Step 1: Obtain an {{site.data.keyword.cloud_notm}} API key and clone the GitHub repository
 {: #esmigration-obtain-api-key}
 
 Follow [these steps](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key) to create an {{site.data.keyword.cloud_notm}} API key that enables Terraform to provision infrastructure into your account. You can create up to 20 API keys.
 
 For security reasons, the API key is only available to be copied or downloaded at the time of creation. If the API key is lost, you must create a new API key.{: .important}
 
-## Step 2: Clone the Elasticsearch Snapshot/Restore GitHub Repository
-{: #esmigration-clone-project}
-
-Clone the [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore){: external} to your local machine.
+Next, clone the [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore){: external} to your local machine.
 
 ```sh
 git clone https://github.com/IBM/elasticsearch-cos-snapshot-restore.git
@@ -91,7 +88,7 @@ terraform output -json >../config.json
 ## Step 3: Run the shell snapshot script
 {: #esmigration-snapshot-script}
 
-In the [Elasticsearch Snapshot/Restore GitHub Repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore){: external} main folder, find the *migrate.sh* file. This shell script uses the information that is provided by the `config.json` file to perform the necessary migration steps.
+Run the [*migrate.sh*](https://github.com/IBM/elasticsearch-cos-snapshot-restore/blob/main/migrate.sh){: external} file in the main project folder. This shell script uses the information that is provided by the `config.json` file to perform the necessary migration steps.
 
 - Create different snapshot names by adding a timestamp.
 - Get database and S3/COS parameters.
