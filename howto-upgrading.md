@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-27"
+lastupdated: "2023-03-29"
 
-keyowrds: elasticsearch, databases, upgrading, 5.x, 6.x, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17
+keyowrds: elasticsearch, databases, upgrading, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17
 
 subcollection: databases-for-elasticsearch
 
@@ -14,7 +14,7 @@ subcollection: databases-for-elasticsearch
 # Upgrading to a new Major Version
 {: #upgrading}
 
-When a major version of a database is at its end of life (EOL), upgrade to the current major version. You can upgrade {{site.data.keyword.databases-for-elasticsearch_full}} deployments to use the newest version of Elasticsearch. It is possible to upgrade from Elasticsearch 6.x to 7.x.
+When a major version of a database is at its end of life (EOL), upgrade to the current major version. You can upgrade {{site.data.keyword.databases-for-elasticsearch_full}} deployments to use the newest version of Elasticsearch.
 
 Upgrade to the latest version of Elasticsearch available to {{site.data.keyword.databases-for-elasticsearch}}. You can find the latest version from the catalog page, from the cloud databases cli plug-in command [`ibmcloud cdb deployables-show`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployables-show), or from the cloud databases API [`/deployables`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-all-deployable-databases) endpoint.
 
@@ -38,55 +38,7 @@ Before you start to upgrade your cluster to version 7.x, you must take the follo
 ### Reindexing guidelines
 {: #upgrade-reindexing}
 
-{{site.data.keyword.databases-for-elasticsearch}} indexes are only compatible with the same version or plusOne version from the release on which they are created. By example, if you create an index on Elasticsearch (ES) 5 it can be read by ES5 and ES6. An index that is created in Elasticsearch 6 can be read by ES6 and ES7. Only an explicit reindex operation updates an index to the current database version.
-
-Any index that originates from an ES5 backup is still in ES5 format, even if it resides in an ES6 deployment. In these cases, ES7 can't read those indexes. 
-
-If you have a deployment with such an ES6 backup or restore, and you attempt to upgrade to ES7, those indexes are not restorable without reindexing before the upgrade to ES7.
-
-### Check whether you have an ES5 index in your ES6 deployment
-{: #es5-es6}
-
-Some {{site.data.keyword.databases-for-elasticsearch}} deployments were upgraded from ES 5.x to ES 6.x. Any index that was not created on that ES6 deployment, but originated from the ES5 backup, is still in ES5 format.
-  
-You must check the index version to determine the need to reindex:
-    
-For each index, call the API `indexname/_settings?pretty`. For example,
-   ```sh 
-   `curl -k https://user:password@host:port/test1/_settings?pretty`
-   ```
-
-In the result, look for the version field. For example,
-
-   ```sh
-   "version" : {
-        "created" : "6080699",
-        "upgraded" : "7090299"
-      }
-   ```
-
-If the version field contains an upgraded entry, the index was imported from an older ES version and must be reindexed before upgrading.
-  
-### Reindex in place on your ES6 deployment before upgrading
-{: #reindex-es6}
-
-   If you have indexes that were created in ES5, you must reindex or delete them before upgrading to ES7. 
-
-   To reindex your ES5 indexes in place:
-
-   1. Create a new index in your ES6 deployment with 7.x compatible mappings.
-   2. Note down the existing `refresh_interval` and `number_of_replicas` values, then set the `refresh_interval` to `-1` and the `number_of_replicas` to `0` for efficient reindexing.
-   3. Use the [reindex API](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-reindex.html){: .external} to copy documents from the ES5 index into your new ES6 index. 
-   4. Reset the `refresh_interval` and `number_of_replicas` to the values that you noted in step 2.
-   5. After the index status changes to green, use a single `update aliases` request to:
-       - Delete the old index.
-       - Add an alias with the old index name to the new index.
-       - Add any other aliases that existed on the old index to the new index.
- 
-   For more information, see [Reindex in place](https://www.elastic.co/guide/en/elasticsearch/reference/current/reindex-upgrade-inplace.html){: .external}.
-
-Use a script to perform any necessary modifications to the document data and metadata during reindexing.
-{: .tip}
+{{site.data.keyword.databases-for-elasticsearch}} indexes are only compatible with the same version or plusOne version from the release on which they are created. Only an explicit reindex operation updates an index to the current database version.
 
 ## Upgrading in the UI
 {: #upgrading-ui}
