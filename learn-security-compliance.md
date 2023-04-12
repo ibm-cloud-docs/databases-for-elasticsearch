@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-06-29"
+  years: 2018, 2023
+lastupdated: "2023-04-12"
 
 keywords: elasticsearch security compliance, soc, hipaa, gdpr, terms
 
@@ -9,11 +9,7 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Security and Compliance
 {: #security-compliance}
@@ -33,7 +29,7 @@ subcollection: databases-for-elasticsearch
 ## Data Resilience
 {: #security-compliance-data-resilience}
 
-- [Backups](/docs/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups) are included in the service. {{site.data.keyword.databases-for-elasticsearch}} backups reside in [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage&cloud-object-storage-about-cloud-object-storage) and are also [encrypted](/docs/cloud-object-storage?topic=cloud-object-storage-security).
+- [Backups](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups) are included in the service. {{site.data.keyword.databases-for-elasticsearch}} backups reside in [{{site.data.keyword.cos_full_notm}}](/docs/cloud-object-storage?topic=cloud-object-storage-about-cloud-object-storage&cloud-object-storage-about-cloud-object-storage) and are also [encrypted](/docs/cloud-object-storage?topic=cloud-object-storage-security).
 - {{site.data.keyword.databases-for-elasticsearch}} deployments are configured with replication. Deployments contain a cluster with three nodes where all three are data nodes and any node can be the primary node. You can also [add nodes](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling) to provide more stability in a multi-node failure, since you can lose more nodes and maintain a quorum.
 - If you deploy to an {{site.data.keyword.cloud_notm}} Single-Zone Region (SZR), each database node resides on a different host in the data center. 
 - If you deploy to an {{site.data.keyword.cloud_notm}} Multi-Zone Region (MZR), the nodes are spread over the region's availability zone locations.
