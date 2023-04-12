@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-29"
+lastupdated: "2023-04-12"
 
 keyowrds: elasticsearch, databases, upgrading, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17
 
@@ -18,7 +18,7 @@ When a major version of a database is at its end of life (EOL), upgrade to the c
 
 Upgrade to the latest version of Elasticsearch available to {{site.data.keyword.databases-for-elasticsearch}}. You can find the latest version from the catalog page, from the cloud databases cli plug-in command [`ibmcloud cdb deployables-show`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployables-show), or from the cloud databases API [`/deployables`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-all-deployable-databases) endpoint.
 
-Upgrading is handled through [restoring a backup](/docs/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups#restoring-a-backup) of your data into a new deployment. Restoring from a backup has a number of advantages:
+Upgrading is handled through [restoring a backup](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups&interface=ui#restore-backup) of your data into a new deployment. Restoring from a backup has a number of advantages:
 
 - The original database stays running and production work can be uninterrupted.
 - You can test the new database out of production and act on any application incompatibilities.
@@ -30,7 +30,7 @@ Upgrading is handled through [restoring a backup](/docs/databases-for-elasticsea
 
 Before you start to upgrade your cluster to version 7.x, you must take the following actions.
 
-- Check the [deprecation logs](https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html#deprecation-logging){: .external} that are automatically enabled on Databases for Elasticsearch and sent to [{{site.data.keyword.la_full}}](/docs/databases-for-elasticsearch?topic=cloud-databases-logging) to see whether you are using any deprecated features and update your code.
+- Check the [deprecation logs](https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html#deprecation-logging){: .external} that are automatically enabled on Databases for Elasticsearch and sent to [{{site.data.keyword.la_full}}](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-logging) to see whether you are using any deprecated features and update your code.
 - Review the [breaking changes](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html){: .external} and make any necessary changes to your code and configuration for version 7.x.
 - If you use any plug-ins, make sure that there is a version of each plug-in that is compatible with Elasticsearch version 7.x.
 
@@ -43,7 +43,7 @@ Before you start to upgrade your cluster to version 7.x, you must take the follo
 {: #upgrading-ui}
 {: ui}
 
-You can upgrade to a new version when [restoring a backup](/docs/databases-for-elasticsearch?topic=cloud-databases-dashboard-backups#restoring-a-backup) from the _Backups_ tab of your _Deployment Overview_. Clicking **Restore** on a backup brings up a dialog box where you can change some options for the new deployment. One of them is the database version, which is auto-populated with the versions available for you to upgrade to. Select a version and click **Restore** to start the provision and restore process.
+You can upgrade to a new version when [restoring a backup](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups&interface=ui#restore-backup) from the _Backups_ tab of your _Deployment Overview_. Clicking **Restore** on a backup brings up a dialog box where you can change some options for the new deployment. One of them is the database version, which is auto-populated with the versions available for you to upgrade to. Select a version and click **Restore** to start the provision and restore process.
 
 ## Upgrading through the CLI
 {: #upgrading-cli}
