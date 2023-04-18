@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2023
-lastupdated: "2023-01-13"
+lastupdated: "2023-04-18"
 
 keywords: elasticsearch migration, databases, elasticsearch migrating
 
@@ -26,7 +26,7 @@ To migrate while data is still being written to your existing Elasticsearch, tak
 
 Ensure you meet the following requirements before migrating: 
 
-- Your existing Elasticsearch must have the [S3 repository plug-in](https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-s3.html){: external}. If you are migrating from a Compose for Elasticsearch deployment, the plug-in is already enabled.
+- Your existing Elasticsearch must have the [S3 repository plug-in](https://www.elastic.co/guide/en/elasticsearch/plugins/current/repository-s3.html){: external}.
 - An Elasticsearch that is version 5.x or 6.x. Migration is possible between major versions, but the versions must have compatible indexes. Indexes that are made in Elasticsearch 2.x are not compatible with 6.x and need reindexing in 5.x before migration.
 - A matching {{site.data.keyword.databases-for-elasticsearch}} deployment that has _at least_ as many resources allocated to it your existing Elasticsearch. Also, ensure that the same [plug-ins](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-plugins) are available on {{site.data.keyword.databases-for-elasticsearch}} that you have on the existing Elasticsearch.
 - Your our own S3 or IBM Cloud Object Storage repository.
@@ -37,8 +37,8 @@ Incremental restores work only if the number of shards of each index on both dep
 ## Example Migration
 {: #compose-migrating-example-migrate}
 
-A migration is explored in detail in [Migrate your data from Compose to Databases for Elasticsearch](https://www.ibm.com/cloud/blog/a-how-to-for-migrating-elasticsearch-to-ibm-cloud-databases-for-elasticsearch). 
+A migration is explored in detail in [Elasticsearch data migration using snapshot and restore](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-esmigration-elasticsearch-snapshot-restore). 
 
-The example migrates a Compose Elasticsearch deployment that has 20 indexes and a total size on disk of 35 GB to a {{site.data.keyword.databases-for-elasticsearch}} deployment. Data is still being written while the migration occurs, so the example uses multiple snapshots and restores.
+In this example, data is still being written while the migration occurs, so multiple snapshots and restores are used.
 
-The example's shell script is available in the [{{site.data.keyword.cloud_notm}} GitHub repository](https://github.com/IBM-Cloud/clouddatabases-migration-examples/tree/master/elasticsearch). It is provided as a starting point for you to adapt for your use-case.
+The example's shell script is available in the [{{site.data.keyword.cloud_notm}} GitHub repository](https://github.com/IBM/elasticsearch-cos-snapshot-restore). It is provided as a starting point for you to adapt for your use-case.
