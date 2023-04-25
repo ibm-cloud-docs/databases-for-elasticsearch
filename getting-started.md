@@ -1,26 +1,28 @@
 ---
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-06-23"
+  years: 2018, 2023
+lastupdated: "2023-04-25"
 
 keywords: kibana, elasticsearch container, elasticsearch getting started
 
 subcollection: databases-for-elasticsearch
 
+content-type: tutorial
+services: 
+account-plan: paid
+completion-time: 30m
+
 ---
 
-{:shortdesc: .shortdesc}
-{:external: .external target="_blank"}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:screen: .screen}
-{:tip: .tip}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Getting Started
 {: #getting-started}
+{: toc-content-type="tutorial"}
+{: toc-services=""}
+{: toc-completion-time="30m"}
 
-This tutorial is a short introduction to using an {{site.data.keyword.databases-for-elasticsearch_full}} deployment by connecting with [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html), an open source tool that adds visualization capabilities to your Elasticsearch database. This tutorial runs Kibana in a Docker container, by using the Kibana image from the Docker image repository. You can also [download and install Kibana](https://www.elastic.co/guide/en/kibana/current/install.html) to run a system you control. 
+This tutorial is a short introduction to using an {{site.data.keyword.databases-for-elasticsearch_full}} deployment. You will connect to your deployment using [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html){: external}, an open source tool that adds visualization capabilities to your Elasticsearch database. This tutorial runs Kibana in a Docker container, by using the Kibana image from the Docker image repository. You can also [download and install Kibana](https://www.elastic.co/guide/en/kibana/current/install.html) to run a system you control. 
 
 ## Before you begin
 {: #before-begin}
@@ -32,25 +34,28 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 
 Review the [`Getting to production`](/docs/cloud-databases?topic=cloud-databases-best-practices) documentation for general guidance on setting up a basic {{site.data.keyword.databases-for-elasticsearch_full}} deployment.
 
-## Connection information for your deployment
+## Connection to your deployment
 {: #connection-info-deployment}
+{: step}
 
-On your deployment's _Overview_ page, see the panel with all the relevant connection information.
+Your deployment's _Overview_ page shows all the relevant connection information.
 
 ![Endpoints panel](images/getting-started-endpoints-panel.png){: caption="Figure 1. Endpoints panel" caption-side="bottom"}
 
 To connect, Kibana needs the username, password, url, and port.
 
 It also needs the CA certificate to access the database. 
-   1. Copy the certificate information from the _Endpoints_ panel.
-   2. Save the certificate to a file. (You can use the name that is provided in the download, or your own file name.)
+   1. Copy the certificate information from _Endpoints_.
+   2. Save the certificate to a file. You can use the name that is provided in the download, or your own file name.
 
 Remember where you save the certificate on your file system. If you are running Kibana locally (not in Docker), then the certificate should go into `$KIBANA_HOME/config/<filename>`.
+{: important}
 
-## Setting up Kibana
+## Set up Kibana
 {: #kibana}
+{: step}
 
-Before running the Docker container that includes Kibana, you need to create a configuration file that contains some basic Kibana settings.
+Before running the Docker container that includes Kibana, create a configuration file that contains some basic Kibana settings.
 
 Create a YAML file called `kibana.yml`. Inside the file, you need the following Kibana configuration settings:
 ```yaml
@@ -68,22 +73,23 @@ Next, is `elasticsearch.username` and `elasticsearch.password`. Use the deployme
 
 Finally, there is `server.name`, which is a machine-readable name for the Kibana instance, and `server.host`, which is the host of the backend server and where you can connect to Kibana in your web browser.
 
-The settings are just a simplified example to get started. See the [Kibana documentation](https://www.elastic.co/guide/en/kibana/current/settings.html) for more configuration settings that you can set for your use case.
+The settings are just a simplified example to get started. See the [Kibana documentation](https://www.elastic.co/guide/en/kibana/current/settings.html){: external} for more configuration settings that you can set for your use case.
 
 If you are running Kibana locally (not in Docker), then the yaml file goes in `$KIBANA_HOME/config/kibana.yml`, where Kibana reads its configuration from.
 
-## Running the Kibana Container
+## Run the Kibana Container
 {: #running-kibana-container}
+{: step}
 
-Now that the `kibana.yml` file is set up, you're going to use Docker to attach the yaml file and your certificate file to the Docker container, while pulling the `<kibana_version>` image from the Docker image repository. 
+Now that the `kibana.yml` file is set up, use Docker to attach the yaml file and your certificate file to the Docker container, while pulling the `<kibana_version>` image from the Docker image repository. 
 
-Match the Kibana Version with the appropriate Elasticsearch version, for v7.9.2 it must be 7.9.2. You can get the Elasticsearch version from the http API, by using your preferred http client. Here is an example with curl (if you don't have the certificate that is installed, use the `--insecure` flag to disable peer verification). The referenced `<http_endpoint>` can be found in the _Endpoints_ panel from your instance:
+Match the Kibana Version with the appropriate Elasticsearch version, for v7.9.2 it must be 7.9.2. Retrieve the Elasticsearch version from the `https_endpoint` API endpoint, by using your preferred http client. Here is an example with curl (if you don't have the certificate that is installed, use the `--insecure` flag to disable peer verification). The referenced `<http_endpoint>` can be found in the _Endpoints_ panel from your instance:
 
 ```sh
 curl --cacert <path-to-cert> <https_endpoint>
 ```
 
-Make sure that you use an image with a version of Kibana that is compatible with the version of Elasticsearch that your deployment is running. Refer to the Elasticsearch [compatibility matrix](https://www.elastic.co/support/matrix#matrix_compatibility).
+Use an image with a version of Kibana that is compatible with the version of Elasticsearch that your deployment is running. Refer to the Elasticsearch [compatibility matrix](https://www.elastic.co/support/matrix#matrix_compatibility){: external}.
 {: .tip}
 
 Run the Docker command in your terminal to start the Kibana container.
@@ -112,23 +118,17 @@ log   [01:19:33.378] [info][listening] Server running at http://0.0.0.0:5601
 If you don't want to see the output of Kibana in your terminal, use the `-d` flag to detach the container.
 {: .tip}
 
-At this point, you can visit `http://0.0.0.0:5601` in your browser to see Kibana. (`0.0.0.0` is the `server.host` in `kibana.yml` and `5601` is the port that is exposed from the container.) Once you go to the URL, a pop-up window prompts you for your username and password. You can use the admin credentials or any other credentials you made that have access to your deployment. They don’t have to be the same username and password you provided in the `kibana.yml` file.
+Visit `http://0.0.0.0:5601` in your browser to see Kibana. (`0.0.0.0` is the `server.host` in `kibana.yml` and `5601` is the port that is exposed from the container.) Once you go to the URL, a pop-up window prompts you for your username and password. Use the admin credentials or any other credentials you made that have access to your deployment. They don’t have to be the same username and password you provided in the `kibana.yml` file.
 
 ![Kibana Start Page](images/getting-started-kibana-start.png){: caption="Figure 1. Kibana start page" caption-side="bottom"}
-
-From here, you can use Kibana with {{site.data.keyword.databases-for-elasticsearch}}. Be sure to check out the [Kibana documentation](https://www.elastic.co/guide/en/kibana/current/index.html).
 
 ## Next Steps
 {: #elasticsearch-next-steps}
 
-If you are just using Elasticsearch for the first time, it is a good idea to take a tour through the [official Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html). 
+For more information, see the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html){: external}. 
 
-Looking for more tools on managing your databases and data? You can connect to your deployment with [IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli) and the [Cloud Databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference). Or use the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api).
+Looking for more tools on managing your databases and data? You can connect to your deployment with the [IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli), the [Cloud Databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference), or the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api).
 
-If you are planning to use {{site.data.keyword.databases-for-elasticsearch}} for your applications, check out some of our other documentation pages.
-- [Connecting an external application](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-external-app)
-- [Connecting an IBM Cloud application](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-ibmcloud-app)
+If you plan to use {{site.data.keyword.databases-for-elasticsearch}} for your applications, check out [Connecting an external application](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-external-app) and [Connecting an IBM Cloud application](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-ibmcloud-app).
 
-Also, to ensure the stability of your applications and your database, check out the pages on 
-- [High-Availability](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-high-availability)
-- [Performance](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-performance)
+To ensure the stability of your applications and your database, check out [High-Availability](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-high-availability) and [Performance](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-performance).
