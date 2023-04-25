@@ -38,7 +38,7 @@ Review the [`Getting to production`](/docs/cloud-databases?topic=cloud-databases
 {: #connection-info-deployment}
 {: step}
 
-Your deployment's _Overview_ page shows all the relevant connection information.
+Your deployment's _Overview_ shows all the relevant connection information.
 
 ![Endpoints panel](images/getting-started-endpoints-panel.png){: caption="Figure 1. Endpoints panel" caption-side="bottom"}
 
