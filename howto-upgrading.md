@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2023
-lastupdated: "2023-04-12"
+lastupdated: "2023-04-26"
 
 keyowrds: elasticsearch, databases, upgrading, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17
 
@@ -34,6 +34,9 @@ Before you start to upgrade your cluster to version 7.x, you must take the follo
 - Review the [breaking changes](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html){: .external} and make any necessary changes to your code and configuration for version 7.x.
 - If you use any plug-ins, make sure that there is a version of each plug-in that is compatible with Elasticsearch version 7.x.
 
+To upgrade from Elasticsearch 7.9/7.10 to version 7.17, you must change your plan from Standard to Enterprise. Change your plan by clicking *Restore* on the Provisioning page on the backup you want to restore, then select 7.17 from the dropdown menu. 
+{: important}
+
 ### Reindexing guidelines
 {: #upgrade-reindexing}
 
@@ -43,7 +46,10 @@ Before you start to upgrade your cluster to version 7.x, you must take the follo
 {: #upgrading-ui}
 {: ui}
 
-You can upgrade to a new version when [restoring a backup](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups&interface=ui#restore-backup) from the _Backups_ tab of your _Deployment Overview_. Clicking **Restore** on a backup brings up a dialog box where you can change some options for the new deployment. One of them is the database version, which is auto-populated with the versions available for you to upgrade to. Select a version and click **Restore** to start the provision and restore process.
+You can upgrade to a new version when [restoring a backup](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups&interface=ui#restore-backup) from the _Backups_ tab of your _Deployment Overview_. Clicking **Restore** on a backup brings up a dialog box where you can change some options for the new deployment. One of them is the database version, which is auto-populated with the versions available for you to upgrade to. Select a version and click **Restore** to start the provision and restore process. 
+
+To upgrade from Elasticsearch 7.9/7.10 to version 7.17, you must change your plan from Standard to Enterprise. Change your plan by clicking *Restore* on the Provisioning page on the backup you want to restore, then select 7.17 from the dropdown menu. 
+{: important}
 
 ## Upgrading through the CLI
 {: #upgrading-cli}
