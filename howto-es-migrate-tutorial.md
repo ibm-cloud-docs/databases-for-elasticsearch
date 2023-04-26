@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2023
-lastupdated: "2023-03-28"
+lastupdated: "2023-04-26"
 
 keywords: elasticsearch migration, databases, elasticsearch migrating, elasticsearch enterprise, snapshot, elasticsearch update
 
@@ -19,6 +19,9 @@ Migrate data between two instances of Elasticsearch with the help of Object Stor
 This tutorial uses snapshot and restore, {{site.data.keyword.cos_full_notm}} and two instances of {{site.data.keyword.databases-for-elasticsearch}}. However, this process is applicable to any S3-compatible object storage solution and any deployment of Elasticsearch.
 
 We've simplified the process by using [Terraform](https://www.terraform.io/){: external} and shell scripts. Simply follow the procedure outlined on this page, plugging in the necessary variables as you go.
+
+If you are using the snapshot and restore process to upgrade from Elasticsearch 7.9/7.10 to version 7.17, you must change your plan from Standard to Enterprise. Change your plan by clicking *Restore* on the Provisioning page on the backup you want to restore, then select 7.17 from the dropdown menu. 
+{: important}
 
 ## Getting Productive
 {: #esmigration-get-productive}
