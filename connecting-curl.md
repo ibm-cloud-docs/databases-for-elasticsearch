@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-07-25"
+  years: 2018, 2023
+lastupdated: "2023-04-27"
 
 keywords: connecting elasticsearch, databases, curl
 
@@ -9,13 +9,7 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
-
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting with `cURL`
 {: #connecting-curl}
