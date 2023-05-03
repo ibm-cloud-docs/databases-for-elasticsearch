@@ -21,10 +21,8 @@ All {{site.data.keyword.databases-for-elasticsearch}} plans deploy as one highly
 ## {{site.data.keyword.databases-for-elasticsearch_full}} Enterprise Plan
 {: #elastic-enterprise}
 
-Version 7.17 is the current supported version of {{site.data.keyword.databases-for-elasticsearch}} and is offered under our Enterprise Plan. This version includes functionality that is not available in our Standard plan. These were features that were previously offered by Elastic as paid-for add-ons under the X-Pack label, such as [Role Based Access Control (RBAC)](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/es-security-principles.html#security-create-appropriate-users){: external} and Index Lifecycle Management (ILM).
-Once deployed, {{site.data.keyword.databases-for-elasticsearch}} clusters make full use of other Elastic Stack components such as Kibana, Logstash, and Beats.
-
-An {{site.data.keyword.databases-for-elasticsearch_full}} Standard plan deploys as one highly available Elasticsearch cluster with three data members. Your data is replicated across members. The Standard plan is priced based on the total amount of disk storage, RAM, dedicated cores, and backup storage that is allocated to deployments, prorated hourly. {{site.data.keyword.databases-for-elasticsearch}} deployments have a minimum of 5 GB of disk and 1 GB of RAM per data member.
+Version 7.17 is the current supported version of {{site.data.keyword.databases-for-elasticsearch}} and is offered under our Enterprise Plan. This version includes functionality that is not available in our Standard plan. These were features that were previously offered by Elastic as paid-for add-ons under the X-Pack label, such as [Role Based Access Control (RBAC)](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/es-security-principles.html#security-create-appropriate-users){: external} and [Index Lifecycle Management (ILM)](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/index-lifecycle-management.html){: external}.
+Once deployed, {{site.data.keyword.databases-for-elasticsearch}} clusters make full use of other Elastic Stack components such as [Kibana](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started#kibana), [Logstash](https://www.elastic.co/logstash/){: external}, and [Beats](https://www.elastic.co/beats/){: external}.
 
 ## {{site.data.keyword.databases-for-elasticsearch_full}} Standard Plan
 {: #elastic-standard}
@@ -34,7 +32,7 @@ Versions 7.9 and 7.10 are available on {{site.data.keyword.databases-for}} under
 ## Using the Pricing Calculator
 {: #pricing-calc}
 
-Prices for the different plans reflect the different levels of available functionality. Templates are provided for ease of use and provide balanced resource allocations appropriate for general-purpose workloads. The **Custom** tab can be used to configure Disk, RAM, and vCPU, as wanted.
+Prices for the different plans reflect different levels of available functionality. Be aware that prices for the Standard Plan will increase starting July 1 to bring them into line with the prices for the Enterprise Plan. Templates are provided for ease of use and provide balanced resource allocations appropriate for general-purpose workloads. The **Custom** tab can be used to configure Disk, RAM, and vCPU, as wanted.
 
 For pricing estimation, use the **Add to Estimate** button on the [{{site.data.keyword.databases-for-elasticsearch}} catalog page](https://cloud.ibm.com/catalog/databases-for-elasticsearch). Input your total consumption across three data members into the calculator. For example, 5 GB of disk and 1 GB of RAM across three data members would be priced at 15 GB of disk and 3 GB of RAM.
 
