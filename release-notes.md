@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-10-27"
+  years: 2018, 2023
+lastupdated: "2023-05-03"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -20,6 +20,13 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
 
+## 03 May 2023
+{: #databases-for-elasticsearch-03may2023}
+{: release-note}
+
+{{site.data.keyword.databases-for-elasticsearch_full}} Enterprise Plan
+:  Our strategic partnership with [Elastic](https://www.elastic.co/about/){: external} since January 2023 means that we are able to offer more and richer functionality, as well as world-class levels of support. {{site.data.keyword.databases-for-elasticsearch_full}} Enterprise Plan Version 7.17 is the current supported version of {{site.data.keyword.databases-for-elasticsearch}} and is offered under our Enterprise Plan. This version includes functionality that is not available in our Standard plan. {{site.data.keyword.databases-for-elasticsearch_full}} Standard Plan Versions 7.9 and 7.10 are available on {{site.data.keyword.databases-for}} under the Standard Plan, but will be End of Life (EOL) by 30 November 2023. For more information, see [{{site.data.keyword.databases-for-elasticsearch}} Pricing](https://test.cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-pricing).
+
 ## 19 October 2022
 {: #databases-for-elasticsearch-19oct2022}
 {: release-note}
@@ -32,7 +39,7 @@ Deploying and Connecting a Cloud Databases Instance Tutorial
 {: release-note}
 
 Protecting {{site.data.keyword.databases-for-elasticsearch_full}} resources with context-based restrictions
-:  Context-based restrictions (CBR) give account owners and administrators the ability to define and enforce access restrictions for {{site.data.keyword.cloud}} resources based on the context of access requests. Access to {{site.data.keyword.databases-for}} resources can be controlled with CBR and identity and access management (IAM) policies. For more information, see [Protecting Cloud Databases resources with context-based restrictions](/docs/databases-for-elasticsearch?topic=cloud-databases-cbr&interface=ui).
+:  Context-based restrictions (CBR) give account owners and administrators the ability to define and enforce access restrictions for {{site.data.keyword.cloud}} resources based on the context of access requests. Access to {{site.data.keyword.databases-for}} resources can be controlled with CBR and identity and access management (IAM) policies. For more information, see [Protecting Cloud Databases resources with context-based restrictions](/docs/databases-for-cassandra?topic=cloud-databases-cbr&interface=ui).
 
 ## 25 March 2022
 {: #databases-for-elasticsearch-25mar2022}
