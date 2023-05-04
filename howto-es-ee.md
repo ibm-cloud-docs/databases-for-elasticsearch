@@ -11,7 +11,7 @@ subcollection: databases-for-elasticsearch
 
 {{site.data.keyword.attribute-definition-list}}
 
-# {{site.data.keyword.databases-for-elasticsearch_full}} Enterprise Plan
+# {{site.data.keyword.databases-for-elasticsearch_full}} Enterprise
 {: #elastic-enterprise}
 
 Our strategic partnership with [Elastic](https://www.elastic.co/about/){: external} since January 2023 means that we are able to offer more and richer functionality, as well as world-class levels of support.
