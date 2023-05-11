@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2023
-lastupdated: "2023-04-26"
+lastupdated: "2023-05-11"
 
 keywords: kibana, elasticsearch container, elasticsearch getting started
 
@@ -20,7 +20,7 @@ completion-time: 30m
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30m"}
 
-This tutorial is a short introduction to using an {{site.data.keyword.databases-for-elasticsearch_full}} deployment. Connect to your deployment using [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html){: external}, an open source tool that adds visualization capabilities to your Elasticsearch database. This tutorial runs Kibana in a Docker container, by using the Kibana image from the Docker image repository. You can also [download and install Kibana](https://www.elastic.co/guide/en/kibana/current/install.html) to run a system you control. 
+This tutorial is a short introduction to using an {{site.data.keyword.databases-for-elasticsearch_full}} deployment. Connect to your deployment using [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html){: external}, an open source tool that adds visualization capabilities to your Elasticsearch database. This tutorial runs Kibana in a Docker container by using the Kibana image from the Docker image repository. [Install Kibana with Docker](https://www.elastic.co/guide/en/kibana/7.17/docker.html){: external} to run a system you control.
 
 ## Before you begin
 {: #before-begin}
@@ -37,11 +37,9 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 
 Your deployment's _Overview_ shows all the relevant connection information.
 
-![Endpoints panel](images/getting-started-endpoints-panel.png){: caption="Figure 1. Endpoints panel" caption-side="bottom"}
-
 To connect, Kibana needs the username, password, url, and port for your deployment. It also needs the CA certificate to access the database. To get this, copy the certificate information from _Endpoints_. Then, save the certificate to a file. You can use the name that is provided in the download, or your own file name.
 
-Remember where you save the certificate on your file system. If you are running Kibana locally (not in Docker), then the certificate should go into `$KIBANA_HOME/config/<filename>`.
+Remember where you save the certificate on your file system. If you are running Kibana locally, not in Docker, then the certificate goes in `$KIBANA_HOME/config/<filename>`.
 {: important}
 
 ## Set up Kibana
@@ -68,7 +66,7 @@ Lastly, `server.name` is a machine-readable name for the Kibana instance and `se
 
 These settings are just a simplified example to get started. For more infortmation, see [Configure Kibana](https://www.elastic.co/guide/en/kibana/current/settings.html){: external}.
 
-If you are running Kibana locally (not in Docker), then the YAML file goes in `$KIBANA_HOME/config/kibana.yml`, where Kibana reads its configuration.
+If you are running Kibana locally, not in Docker, then the YAML file goes in `$KIBANA_HOME/config/kibana.yml`, where Kibana reads its configuration.
 
 ## Run the Kibana Container
 {: #running-kibana-container}
@@ -76,20 +74,21 @@ If you are running Kibana locally (not in Docker), then the YAML file goes in `$
 
 Now that the `kibana.yml` file is set up, use Docker to attach the YAML file and your certificate file to the Docker container, while pulling the `<kibana_version>` image from the Docker image repository. 
 
-Here is an example with curl (if you don't have the certificate that is installed, use the `--insecure` flag to disable peer verification). `<http_endpoint>` can be found in the _Endpoints_ panel from your instance:
+Use an image with a version of Kibana that is compatible with the version of Elasticsearch that your deployment is running. Retrieve the Elasticsearch version from the `https_endpoint` API endpoint by using your preferred http client. For more information, see the [Elasticsearch compatibility matrix](https://www.elastic.co/support/matrix#matrix_compatibility){: external}.
+{: .important}
+
+Here is an example with curl. If you don't have the certificate that is installed, use the `--insecure` flag to disable peer verification. The `<http_endpoint>` can be found in your instance's _Endpoints_ UI:
 
 ```sh
 curl --cacert <path-to-cert> <https_endpoint>
 ```
-
-Use an image with a version of Kibana that is compatible with the version of Elasticsearch that your deployment is running. Retrieve the Elasticsearch version from the `https_endpoint` API endpoint by using your preferred http client. For more information, see the [Elasticsearch compatibility matrix](https://www.elastic.co/support/matrix#matrix_compatibility){: external}.
-{: .important}
+{: pre}
 
 Next, run the Docker command in your terminal to start the Kibana container.
 ```sh
 docker container run -it --name kibana \
 -v <path_to_config_folder>:/usr/share/kibana/config \
--p 5601:5601 docker.elastic.co/kibana/kibana-oss:<kibana_version>
+-p 5601:5601 https://www.docker.elastic.co/r/kibana/kibana:<kibana_version>
 ```
 {: pre}
 
