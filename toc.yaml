@@ -74,6 +74,7 @@ toc:
           - manage-scc.md
           - include: ../cloud-databases/howto-cbr.md
           - include: ../cloud-databases/cbr-tutorial.md
+          - include: ../cloud-databases/disk-util-alerts-tutorial.md
   - navgroup: 
       id: help
       topics: 
