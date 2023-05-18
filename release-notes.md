@@ -20,6 +20,13 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
 
+## 18 May 2023
+{: #databases-for-elasticsearch-18may2023}
+{: release-note}
+
+Setting up disk alerts for disk utilization tutorial
+:  In this tutorial, you use the {{site.data.keyword.cloud_notm}} API and the [{{site.data.keyword.cloud_notm}} CLI](https://cloud.ibm.com/docs/cli?topic=cli-getting-started){: external} to set up an alert that emails you whenever the disk utilization of your database exceeds 90%. This specific example creates an alert on a {{site.data.keyword.databases-for-elasticsearch}} deployment, but it is applicable to all the databases in the IBM {{site.data.keyword.databases-for}} catalog. For more information, see [Setting up disk alerts for disk utilization](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-disk-util-alert-tutorial).
+
 ## 03 May 2023
 {: #databases-for-elasticsearch-03may2023}
 {: release-note}
