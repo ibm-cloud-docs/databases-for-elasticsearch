@@ -19,6 +19,7 @@ toc:
       - link: 
           label: What is Elasticsearch?
           href: https://www.ibm.com/cloud/learn/elasticsearch
+      - learn-es-plat.md
       - learn-dashboard-overview.md 
       - learn-high-availability.md 
       - learn-performance.md 
