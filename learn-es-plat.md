@@ -16,8 +16,8 @@ subcollection: databases-for-elasticsearch
 
 
 
-# {{site.data.keyword.databases-for-elasticsearch_full}} Platinum Feature Comparison
-{: ##es-platinum-features}
+## {{site.data.keyword.databases-for-elasticsearch_full}} Platinum Feature Comparison
+{: #es-platinum-features}
 
 {{site.data.keyword.databases-for-elasticsearch_full}} Platinum offers a number of features that enhance your experience. 
 
