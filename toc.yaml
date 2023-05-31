@@ -29,7 +29,6 @@ toc:
       id: howto
       topics:
       - include: ../cloud-databases/howto-provisioning.md
-      - howto-es-ee.md
       - include: ../cloud-databases/howto-deprovisioning.md
       - include: ../cloud-databases/closures.md
       - howto-migration.md

@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-05-22"
+lastupdated: "2023-05-31"
 
-keywords: elasticsearch platinum
+keywords: elasticsearch enterprise
 
 subcollection: databases-for-elasticsearch
 
@@ -11,83 +11,105 @@ subcollection: databases-for-elasticsearch
 
 {{site.data.keyword.attribute-definition-list}}
 
-# {{site.data.keyword.databases-for-elasticsearch_full}} Platinum
-{: #es-platinum}
+# {{site.data.keyword.databases-for-elasticsearch_full}} Enterprise
+{: #elastic-enterprise}
+
+Our strategic partnership with [Elastic](https://www.elastic.co/about/){: external} since January 2023 means that we are able to offer more and richer functionality, as well as world-class levels of support.
+
+All {{site.data.keyword.databases-for-elasticsearch}} plans deploy as one highly available Elasticsearch cluster with three data members. Your data is replicated across members. Plans are priced based on the total amount of disk storage, RAM, dedicated cores, and backup storage that is allocated to deployments, prorated hourly. {{site.data.keyword.databases-for-elasticsearch}} deployments have a minimum of 5 GB of disk and 1 GB of RAM per data member.
+
+Version 7.17 is the current supported version of {{site.data.keyword.databases-for-elasticsearch}} and is offered under our Enterprise Plan. This version includes functionality that is not available in our Standard plan. These were features that were previously offered by Elastic as paid-for add-ons under the X-Pack label, such as [Role Based Access Control (RBAC)](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/es-security-principles.html#security-create-appropriate-users){: external} and [Index Lifecycle Management (ILM)](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/index-lifecycle-management.html){: external}.
+Once deployed, {{site.data.keyword.databases-for-elasticsearch}} clusters make full use of other Elastic Stack components such as [Kibana](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started#kibana), [Logstash](https://www.elastic.co/logstash/){: external}, and [Beats](https://www.elastic.co/beats/){: external}.
+
+## {{site.data.keyword.databases-for-elasticsearch_full}} Plan Features
+{: #elastic-features}
+
+{{site.data.keyword.databases-for}} offers two Elasticsearch services: {{site.data.keyword.databases-for-elasticsearch}} Enterprise and {{site.data.keyword.databases-for-elasticsearch}} Platinum.
+
+{{site.data.keyword.databases-for-elasticsearch}} Enterprise Plan deploys the Basic version of Elasticsearch. 
+
+{{site.data.keyword.databases-for-elasticsearch}} Enterprise Plan does not deploy Elasticsearch Enterprise version.
+{: note}
+
+{{site.data.keyword.databases-for-elasticsearch}} Platinum Plan deploys the Platinum version of Elasticsearch. There will be confusion because Elastic themselves also have an Enterprise version, which is actually MORE, not less, than Platinum.... so we are going to have to be really clear in our docs about what our service deploys... I think there is a general move from us to talk about our Plans (not versions) and there is already precedent with Mongo in that our Standard Plan deploys their Community version and our Enterprise Plan deploys their Enterprise version (i.e. these things are not always matching)... My challenge to you is that over time we need to make our docs crystal clear about what we are doing and what does what.
+
+{{site.data.keyword.databases-for-elasticsearch}} Platinum offers rich functionality primarily determined by the accessibility of a feature through the Elasticsearch API and the need for modifications to the configuration files. If a particular feature can be accessed and utilized through the API, it is highly likely that we support it. These features are designed to seamlessly integrate with our system, providing a smooth and efficient user experience.
+
+Features may require changes to the configuration files, which may limit our ability to provide support. While we strive to accommodate as many features as possible, those that necessitate alterations to the configuration files are not within our current support scope.
+
+|                                                          **Feature**                                                          | **Basic** | **Platinum** |
+|:-----------------------------------------------------------------------------------------------------------------------------:|:---------:|:------------:|
+| Storage Types - Inverted index (for search)                                                                                   | x         | x            |
+| Storage Types - Evaluating calculated fields at index time                                                                    | x         | x            |
+| Storage Types - Runtime fields                                                                                                | x         | x            |
+| Storage Types - Lookup runtime field                                                                                          | x         | x            |
+| Storage Types - Document store (for unstructured)                                                                             | x         | x            |
+| Storage Types - Columnar store (for analytics)                                                                                | x         | x            |
+| Storage Types - BKD trees (for numeric, dates, & geo)                                                                         | x         | x            |
+| Storage Types - Flattened field type                                                                                          | x         | x            |
+| Storage Types - Histogram field type                                                                                          | x         | x            |
+| Storage Types - Match only text field type                                                                                    | x         | x            |
+| Storage Types - Shape field type                                                                                              | x         | x            |
+| Storage Types - Vector field type                                                                                             | x         | x            |
+| Storage Types - Version field type                                                                                            | x         | x            |
+| Storage Types - Wildcard field type                                                                                           | x         | x            |
+| Data Management - Searchable Snapshots                                                                                        |           | x            |
+| Data Management - Snapshot/restore APIs                                                                                       | x         | x            |
+| Data Management - Snapshot as simple archives                                                                                 |           | x            |
+| Data Management - Snapshot lifecycle management                                                                               | x         | x            |
+| Data Management - Snapshot-based peer recoveries                                                                              |           | x            |
+| Data Management - Data rollups                                                                                                | x         | x            |
+| Data Management - Data streams                                                                                                | x         | x            |
+| Data Management - Index lifecycle management                                                                                  | x         | x            |
+| Stack Management - Upgrade Assistant                                                                                          | x         | x            |
+| Stack Management - License management                                                                                         | x         | x            |
+| Stack Management - Centralized Logstash pipeline management                                                                   |           | x            |
+| Scalability & resiliency - Clustering & high availability                                                                     | x         | x            |
+| Scalability & resiliency - Cluster rebalancing                                                                                | x         | x            |
+| Elastic Stack Security - Encrypted communications                                                                             | x         | x            |
+| Elastic Stack Security - Role-based access control                                                                            | x         | x            |
+| Elastic Stack Security - File and native authentication                                                                       | x         | x            |
+| Elastic Stack Security - Kibana Spaces, Kibana feature controls                                                               | x         | x            |
+| Elastic Stack Security - Kibana sub-feature privileges                                                                        |           | x            |
+| Elastic Stack Security - API keys management                                                                                  | x         | x            |
+| Elastic Stack Security - Kibana audit logging                                                                                 |           | x            |
+| Elastic Stack Security - IP filtering                                                                                         |           | x            |
+| Elastic Stack Security - Elasticsearch Token Service                                                                          |           | x            |
+| Elastic Stack Security - Attribute-based access control                                                                       |           | x            |
+| Elastic Stack Security - Field- and document-level security                                                                   |           | x            |
+| Stack Monitoring - Multi-stack monitoring                                                                                     |           | x            |
+| Stack Monitoring - Kibana alerting and actions                                                                                | x         | x            |
+| Alerting - Noise reduction capabilities                                                                                       | x         | x            |
+| Alerting - Geofencing / Tracking containment rule type                                                                        |           | x            |
+| Alerting - Search threshold rule types for Discover                                                                           | x         | x            |
+| Alerting - Case Management                                                                                                    | x         | x            |
+| Alerting - Connectors (Actions) like: email, webhook, Jira, MS Teams, PagerDuty, Slack, IBM Resilient, ServiceNow®, OpsGenie, |           | x            |
+| Analytics - Geoline aggregation                                                                                               |           | x            |
+| Analytics - Geoshape aggregations                                                                                             |           | x            |
+| Analytics - Geohexgrid aggregations                                                                                           |           | x            |
+| Analytics - Graph exploration                                                                                                 |           | x            |
+| Analytics - Text categorization aggregation                                                                                   |           | x            |
+| Data Exploration - Drilldown to URL                                                                                           |           | x            |
+| Data Exploration - Graph analytics                                                                                            |           | x            |
+| Collaboration - PDF and PNG reports                                                                                           |           | x            |
+| Content Management - Custom banners                                                                                           |           | x            |
+| Elastic APM - Service maps                                                                                                    |           | x            |
+| Elastic APM - Correlations                                                                                                    |           | x            |
+| Elastic Security - Detection alert external actions                                                                           |           | x            |
+| Elastic Security - Ransomware prevention                                                                                      |           | x            |
+| Elastic Security - Malicious behavior protection                                                                              |           | x            |
+| Elastic Security - Memory threat protection                                                                                   |           | x            |
+| Elastic Security - Self healing                                                                                               |           | x            |
+| Elastic Security - Host Isolation                                                                                             |           | x            |
+| Elastic Security - Customizable on-endpoint protection notifications                                                          |           | x            |
+| Elastic Security - CIS posture findings and dashboards                                                                        |           | x            |
+| Integrations - Atlassian Jira, Swimlane SOAR, IBM Resilient, ServiceNow ITOM, ITSM, SecOps                                    |           | x            |
+| Elastic Maps - Tracking alerts                                                                                                |           | x            |
+| Elastic Maps - Containment alerts                                                                                             |           | x            |
+| Elastic Maps - Geofencing                                                                                                     |           | x            |
+| Elastic Enterprise Search - Ingestion pipeline management                                                                     |           | x            |
+{: caption="Table 1. ICD Elasticsearch Platinum Features Comparison" caption-side="bottom"}
 
 
-
-## {{site.data.keyword.databases-for-elasticsearch_full}} Platinum Feature Comparison
-{: #es-platinum-features}
-
-{{site.data.keyword.databases-for-elasticsearch_full}} Platinum offers a number of features that enhance your experience. 
-
-| **Feature**                                                                                                                   | **Basic** | **Platinum** |
-|-------------------------------------------------------------------------------------------------------------------------------|:---------:|:------------:|
-| Storage Types -  Inverted index (for search)                                                                                  |     x     |       x      |
-| Storage Types -  Evaluating calculated fields at index time                                                                   |     x     |       x      |
-| Storage Types -  Lookup runtime field                                                                                         |     x     |       x      |
-| Storage Types - Document store (for unstructured)                                                                             |     x     |       x      |
-| Storage Types - Columnar store (for analytics)                                                                                |     x     |       x      |
-| Storage Types - BKD trees (for numeric, dates, & geo)                                                                         |     x     |       x      |
-| Storage Types - Flattened field type                                                                                          |     x     |       x      |
-| Storage Types - Histogram field type                                                                                          |     x     |       x      |
-| Storage Types - Match only text field type                                                                                    |     x     |       x      |
-| Storage Types - Shape field type                                                                                              |     x     |       x      |
-| Storage Types - Vector field type                                                                                             |     x     |       x      |
-| Storage Types - Version field type                                                                                            |     x     |       x      |
-| Storage Types - Wildcard field type                                                                                           |     x     |       x      |
-| Data Management - Snapshot/restore APIs                                                                                       |     x     |       x      |
-| Data Management - Snapshot as simple archives                                                                                 |           |       x      |
-| Data Management - Snapshot lifecycle management                                                                               |     x     |       x      |
-| Data Management - Snapshot-based peer recoveries                                                                              |           |       x      |
-| Data Management - Data rollups                                                                                                |     x     |       x      |
-| Data Management - Data streams                                                                                                |     x     |       x      |
-| Data Management - Index lifecycle management                                                                                  |     x     |       x      |
-| Stack Management - Upgrade Assistant                                                                                          |     x     |       x      |
-| Stack Management - License management                                                                                         |     x     |       x      |
-| Stack Management - Centralized Logstash pipeline management                                                                   |           |       x      |
-| Scalability & resiliency - Clustering & high availability                                                                     |     x     |       x      |
-| Scalability & resiliency - Cluster rebalancing                                                                                |     x     |       x      |
-| Elastic Stack Security - Secure settings                                                                                      |     x     |       x      |
-| Elastic Stack Security - Encrypted communications                                                                             |     x     |       x      |
-| Elastic Stack Security - Role-based access control                                                                            |     x     |       x      |
-| Elastic Stack Security - File and native authentication                                                                       |     x     |       x      |
-| Elastic Stack Security - Kibana Spaces, Kibana feature controls                                                               |     x     |       x      |
-| Elastic Stack Security - Kibana sub-feature privileges                                                                        |           |       x      |
-| Elastic Stack Security - API keys management                                                                                  |     x     |       x      |
-| Elastic Stack Security - Kibana audit logging                                                                                 |           |       x      |
-| Elastic Stack Security - IP filtering                                                                                         |           |       x      |
-| Elastic Stack Security - Attribute-based access control                                                                       |           |       x      |
-| Elastic Stack Security - Field- and document-level security                                                                   |           |       x      |
-| Stack Monitoring - Full stack monitoring                                                                                      |     x     |       x      |
-| Stack Monitoring - Multi-stack monitoring                                                                                     |           |       x      |
-| Stack Monitoring - Kibana alerting and actions                                                                                |     x     |       x      |
-| Alerting - Noise reduction capabilities                                                                                       |     x     |       x      |
-| Alerting - Geofencing / Tracking containment rule type                                                                        |           |       x      |
-| Alerting - Search threshold rule types for Discover                                                                           |     x     |       x      |
-| Alerting - Case Management                                                                                                    |     x     |       x      |
-| Alerting - Connectors (Actions) like: email, webhook, Jira, MS Teams, PagerDuty, Slack, IBM Resilient, ServiceNow®, OpsGenie, |     x     |       x      |
-| Analytics - Geoline aggregation                                                                                               |     x     |       x      |
-| Analytics - Geoshape aggregations                                                                                             |     x     |       x      |
-| Analytics - Geohexgrid aggregations                                                                                           |     x     |       x      |
-| Analytics - Graph exploration                                                                                                 |     x     |       x      |
-| Analytics - Text categorization aggregation                                                                                   |     x     |       x      |
-| Data Exploration - Drilldown to URL                                                                                           |     x     |       x      |
-| Data Exploration - Graph analytics                                                                                            |     x     |       x      |
-| Collaboration - PDF and PNG reports                                                                                           |     x     |       x      |
-| Content Management - Custom banners                                                                                           |     x     |       x      |
-| Elastic APM - Service maps                                                                                                    |     x     |       x      |
-| Elastic APM - Correlations                                                                                                    |     x     |       x      |
-| Elastic Security - Detection alert external actions                                                                           |           |       x      |
-| Elastic Security - Ransomware prevention                                                                                      |           |       x      |
-| Elastic Security - Malicious behavior protection                                                                              |           |       x      |
-| Elastic Security - Memory threat protection                                                                                   |           |       x      |
-| Elastic Security - Self healing                                                                                               |           |       x      |
-| Elastic Security - Host Isolation                                                                                             |           |       x      |
-| Elastic Security - Customizable on-endpoint protection notifications                                                          |           |       x      |
-| Elastic Security - CIS posture findings and dashboards                                                                        |           |       x      |
-| Elastic Maps - Tracking alerts                                                                                                |           |       x      |
-| Elastic Maps - Containment alerts                                                                                             |           |       x      |
-| Elastic Maps - Geofencing                                                                                                     |           |       x      |
-| Elastic Enterprise Search - Ingestion pipeline management                                                                     |           |       x      |
-{: caption="Table 1. Elasticsearch Platinum Feature Comparison" caption-side="top"}
+## {{site.data.keyword.databases-for-elasticsearch_full}} Enterprise Plan Considerations
+{: #elastic-enterprise-consider}
