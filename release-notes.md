@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-05-18"
+lastupdated: "2023-07-05"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 22 June 2023
+{: #databases-for-elasticsearch-22june2023}
+{: release-note}
+
+Elasticsearch 8.7.0 (preview)
+:  For more information, see [{{site.data.keyword.databases-for-elasticsearch_full}} Enterprise Plan](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-pricing#elastic-enterprise-pricing).
 
 ## 18 May 2023
 {: #databases-for-elasticsearch-18may2023}
