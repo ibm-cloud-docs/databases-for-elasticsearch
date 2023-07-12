@@ -28,7 +28,6 @@ toc:
   - navgroup: 
       id: howto
       topics:
-      - include: ../cloud-databases/howto-provisioning.md
       - howto-provisioning.md
       - include: ../cloud-databases/howto-deprovisioning.md
       - include: ../cloud-databases/closures.md
