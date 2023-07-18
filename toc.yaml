@@ -69,6 +69,7 @@ toc:
           - include: ../cloud-databases/reference-activity-tracker.md
           - include: ../cloud-databases/reference-logging.md
           - reference-monitoring.md
+          - include: ../cloud-databases/reference-sysdig.md
       - topicgroup: 
           label: Enhancing security
           topics: 
