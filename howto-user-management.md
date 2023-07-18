@@ -132,8 +132,3 @@ To retrieve a user's connection strings, use the base URL with the `/users/{user
 If the built-in users and roles do not suit your environment, [create users and roles](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/users-command.html){: external} directly in Elasticsearch. The admin user for your deployment has the power to create any role or set of privileges for use on your deployment.
 
 Users and roles that are created directly in Elasticsearch do not appear in _Service Credentials_ and are not integrated with your {{site.data.keyword.cloud_notm}} account or [IAM](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-iam).
-
-## The `ibm` User
-{: #user-management-ibm}
-
-If you use the mongo shell to list the users on your deployment, you might notice a user that is named `ibm`. The `ibm` user is the internal root account that manages replication, cluster operations, and other functions that ensure the stability of your deployment. Changing or deleting to the `ibm` user is not advised and disrupts the stability of your deployment.
