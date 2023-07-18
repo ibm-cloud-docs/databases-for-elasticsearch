@@ -29,11 +29,11 @@ toc:
       id: howto
       topics:
       - howto-provisioning.md
+      - howto-user-management.md
       - include: ../cloud-databases/howto-deprovisioning.md
       - include: ../cloud-databases/closures.md
       - howto-migration.md
       - howto-upgrading.md
-      - howto-admin-password.md
       - howto-getting-connection-strings.md
       - include: ../cloud-databases/ha-dr.md
       - topicgroup: 
