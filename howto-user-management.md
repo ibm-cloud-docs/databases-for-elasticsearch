@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2023
-lastupdated: "2023-07-18"
+lastupdated: "2023-07-19"
 
 keywords: elasticsearch, databases, admin user, service credentials, ops manager, elasticsearch managing users, roles, root account
 
@@ -132,3 +132,8 @@ To retrieve a user's connection strings, use the base URL with the `/users/{user
 If the built-in users and roles do not suit your environment, [create users and roles](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/users-command.html){: external} directly in Elasticsearch. The admin user for your deployment has the power to create any role or set of privileges for use on your deployment.
 
 Users and roles that are created directly in Elasticsearch do not appear in _Service Credentials_ and are not integrated with your {{site.data.keyword.cloud_notm}} account or [IAM](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-iam).
+
+## The `ibm_superuser` user
+{: #user-management-elasticsearch-ibm-superuser}
+
+`ibm_superuser` is a role with the same privileges as `superuser`, except the `ibm_superuser` role cannot access hidden, internal, or restricted indexes. Restricting access to hidden indexes prevents users from inadvertently limiting their own access by closing security indexes.
