@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud® Databases for Elasticsearch docs",
-    "lastupdated": "2023-03-03",
+    "lastupdated": "2023-08-01",
     "introduction": "Elasticsearch combines the power of a full text search engine with the indexing strengths of a JSON document database.",
     "section_devtools": {
       "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction", 
@@ -16,7 +16,7 @@
       {
         "title": "Setting the Admin Password",
         "description": "The Databases for Elasticsearch service is provisioned with an admin user. You must set the admin password before you use it to connect.",
-        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password&interface=cli"
+        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-user-management&interface=ui#user-management-set-admin-password-ui"
       },
       {
         "title": "Getting Connection Strings",
