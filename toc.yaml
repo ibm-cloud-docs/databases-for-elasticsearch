@@ -102,3 +102,4 @@ toc:
           topics:
           - include: ../cloud-databases/availability-zones-faq.md
           - include: ../cloud-databases/status-page-faq.md
+          - include: ../cloud-databases/resource-config-faq.md
