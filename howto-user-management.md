@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2023
-lastupdated: "2023-07-18"
+lastupdated: "2023-08-04"
 
 keywords: elasticsearch, databases, admin user, service credentials, ops manager, elasticsearch managing users, roles, root account
 
@@ -61,6 +61,14 @@ curl -X PATCH `https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{
 -d `{"password":"newrootpasswordsupersecure21"}` \
 ```
 {: pre}
+
+## The `ibm_superuser` role
+{: #user-management-elasticsearch-ibm-superuser}
+
+For Elasticsearch versions >= 7.17.7, every new user and any existing user, including the `admin` user, will be of `ibm_superuser` role. The `ibm_superuser` role has the same privileges as `superuser`, except the `ibm_superuser` role cannot access hidden, internal, or restricted indexes. Restricting access to hidden indexes prevents users from inadvertently limiting their own access by closing security indexes.
+
+While you have the permissions to change this role back to the original `superuser`, you should not do so. Changing `ibm_superuser` to `superuser` will disrupt your access to your Elasticsearch deployment.
+{: important}
 
 ## Managing Users and Roles through the UI
 {: #user-management-ui}
