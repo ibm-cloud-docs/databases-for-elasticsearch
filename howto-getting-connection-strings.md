@@ -25,7 +25,7 @@ To connect to {{site.data.keyword.databases-for-elasticsearch_full}}, you need s
 
 ![Endpoints panel](images/getting-started-endpoints-panel.png){: caption="Figure 1. Endpoints panel" caption-side="bottom"}
 
-A {{site.data.keyword.databases-for-elasticsearch}} deployment is provisioned with an admin user, and after you [set the admin password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password), you can use its credentials to connect to your deployment.
+A {{site.data.keyword.databases-for-elasticsearch}} deployment is provisioned with an admin user, and after you [set the admin password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-user-management&interface=ui#user-management-set-admin-password-ui), you can use its credentials to connect to your deployment.
 {: .tip}
 
 ## Getting Connection Strings in the CLI
