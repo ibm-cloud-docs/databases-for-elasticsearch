@@ -27,7 +27,7 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 
 - You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}.
 - You also need a {{site.data.keyword.databases-for-elasticsearch}} deployment. You can provision one from the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/databases-for-elasticsearch). Give your deployment a memorable name that appears in your account's Resource List.
-- [Set the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password) for your deployment.
+- [Set the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-user-management&interface=ui#user-management-set-admin-password-ui) for your deployment.
 - Install [Docker](https://www.docker.com/) so that you can pull the Kibana container image to connect to Databases for Elasticsearch.
 - Review [Getting to production](/docs/cloud-databases?topic=cloud-databases-best-practices) for general guidance on setting up a basic {{site.data.keyword.databases-for-elasticsearch_full}} deployment.
 

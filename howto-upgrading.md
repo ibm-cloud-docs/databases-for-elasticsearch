@@ -146,7 +146,7 @@ OPTIONS:
   --api-version, -v  --api-version value, -v value  API Version used for request.
 ```
 
-Before running the command to update user passwords, ensure that you have updated the admin password. For more information, see [Setting the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-admin-password&interface=cli). Then, run the following command: 
+Before running the command to update user passwords, ensure that you have updated the admin password. For more information, see [Setting the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-user-management&interface=ui#user-management-set-admin-password-ui&interface=cli). Then, run the following command: 
 
 ```sh
 ibmcloud cloud-databases es user-list <formation_name> <admin_password>
