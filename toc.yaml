@@ -58,6 +58,7 @@ toc:
       - topicgroup: 
           label: Tutorials
           topics: 
+          - enterprise-search-tutorial.md
           - howto-es-migrate-tutorial.md
           - include: ../cloud-databases/howto-tutorials.md
           - include: ../cloud-databases/hello-world-tutorial.md
