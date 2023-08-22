@@ -16,7 +16,7 @@ completion-time: 1h
 
 {{site.data.keyword.attribute-definition-list}}	
 
-# {{site.data.keyword.databases-for-elasticsearch_full}}
+# Configuring an Enterprise Search 7.17 server with an {{site.data.keyword.databases-for-elasticsearch}} instance
 {: #tutorial-elasticsearch-enterprise-search-tutorial}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="1h"}
