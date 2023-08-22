@@ -91,10 +91,26 @@ Configure Enterprise Search to integrate with your {{site.data.keyword.databases
 
 1. Start Enterprise Search: Open your terminal and navigate to the location where you extracted the package. Start Enterprise Search by running the following command:
 
-```sh
-./bin/enterprise-search
-```
-{: pre}
+   ```sh
+   ./bin/enterprise-search
+   ```
+   {: pre}
+   
+   1. To ensure that Enterprise Search keeps running, consider running it as a background process. Do this with `&`, using a command like:
+   
+   ```sh
+   `./bin/enterprise-search &`
+   ``` 
+   {: pre}
+   
+   or using `nohup`, with a command like:
+   
+   ```sh
+   nohup command &
+   ```
+   {: pre}
+   
+   where `command` is the command you want to run in the background.
 
 ## Start Enterprise Search through Docker Run
 {: #tutorial-elasticsearch-enterprise-search-tutorial-docker-run}
