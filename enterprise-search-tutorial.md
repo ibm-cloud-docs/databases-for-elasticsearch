@@ -2,7 +2,7 @@
 
 copyright:
    years: 2023
-lastupdated: "2023-08-22"
+lastupdated: "2023-08-24"
 
 keywords: IBM Cloud Databases, ICD, 
 
@@ -96,7 +96,7 @@ Configure Enterprise Search to integrate with your {{site.data.keyword.databases
    ```
    {: pre}
    
-   1. To ensure that Enterprise Search keeps running, consider running it as a background process. Do this with `&`, using a command like:
+1. To ensure that Enterprise Search keeps running, consider running it as a background process. Do this with `&`, using a command like:
    
    ```sh
    `./bin/enterprise-search &`
