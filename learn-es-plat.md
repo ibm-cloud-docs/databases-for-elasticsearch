@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-08-24"
+lastupdated: "2023-09-05"
 
-keywords: elasticsearch enterprise
+keywords: elasticsearch enterprise, elasticsearch platinum
 
 subcollection: databases-for-elasticsearch
 
@@ -11,34 +11,36 @@ subcollection: databases-for-elasticsearch
 
 {{site.data.keyword.attribute-definition-list}}
 
-# {{site.data.keyword.databases-for-elasticsearch_full}} Platinum Plan
+# {{site.data.keyword.databases-for-elasticsearch_full}} Plans
 {: #elastic-offerings}
 
 {{site.data.keyword.databases-for}} offers two Elasticsearch services: {{site.data.keyword.databases-for-elasticsearch}} Enterprise and {{site.data.keyword.databases-for-elasticsearch}} Platinum. Both plans provide you with a fully managed and scalable Elasticsearch service, allowing you to focus on your applications and data rather than the underlying infrastructure. {{site.data.keyword.databases-for-elasticsearch}} Enterprise Plan deploys the Basic version of Elasticsearch. {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan deploys the Platinum version of Elasticsearch.
 
+Our strategic partnership with [Elastic](https://www.elastic.co/about/){: external} since January 2023 means that we are able to offer more and richer functionality, as well as world-class levels of support.
+
 {{site.data.keyword.databases-for-elasticsearch}} Enterprise Plan does not deploy Elasticsearch Enterprise version. 
 {: note}
+
+All {{site.data.keyword.databases-for-elasticsearch}} clusters on any plan can make full use of other Elastic Stack components such as [Kibana](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started#kibana), [Logstash](https://www.elastic.co/logstash/){: external}, and [Beats](https://www.elastic.co/beats/){: external}.
 
 ## {{site.data.keyword.databases-for-elasticsearch}} Enterprise Plan
 {: #es-enter-plan}
 
-{{site.data.keyword.databases-for-elasticsearch}} versions 7.17 (preferred) and 8.7 (preview) are the current supported versions of {{site.data.keyword.databases-for-elasticsearch}} Enterprise Plan. This plan includes functionality that is not available in our Standard Plan. These features were previously offered by Elastic as paid-for add-ons under the X-Pack label, such as [Role Based Access Control (RBAC)](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/es-security-principles.html#security-create-appropriate-users){: external} and [Index Lifecycle Management (ILM)](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/index-lifecycle-management.html){: external}.
-Once deployed, {{site.data.keyword.databases-for-elasticsearch}} Enterprise Plan clusters make full use of other Elastic Stack components such as [Kibana](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started#kibana), [Logstash](https://www.elastic.co/logstash/){: external}, and [Beats](https://www.elastic.co/beats/){: external}.
+{{site.data.keyword.databases-for-elasticsearch}} versions 7.17 and 8.7 are the current supported and preferred versions of {{site.data.keyword.databases-for-elasticsearch}} Enterprise Plan. This plan includes functionality that is not available in our Standard Plan. These features were previously offered by Elastic as paid-for add-ons under the X-Pack label, such as [Role Based Access Control (RBAC)](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/es-security-principles.html#security-create-appropriate-users){: external} and [Index Lifecycle Management (ILM)](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/index-lifecycle-management.html){: external}.
+
 
 ## {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan
 {: #es-platinum-plan}
 
-Our strategic partnership with [Elastic](https://www.elastic.co/about/){: external} since January 2023 means that we are able to offer more and richer functionality, as well as world-class levels of support.
+{{site.data.keyword.databases-for-elasticsearch}} Platinum Plan offers all the features of the Enterprise Plan, plus a richer array of functionality around integrations (connectors and web crawlers), security features (logging and access control), and document-level security, among others.
 
-{{site.data.keyword.databases-for-elasticsearch}} Platinum Plan offers rich functionality primarily determined by the accessibility of a feature through the Elasticsearch API and the need for modifications to the configuration files.
+Access to Platinum features on a fully-managed IBM deployment is primarily determined by the accessibility of a feature through the Elasticsearch API and the need for modifications to configuration files.
 
-Once deployed, {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan clusters can make full use of other Elastic Stack components such as [Kibana](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started#kibana), [Logstash](https://www.elastic.co/logstash/){: external}, and [Beats](https://www.elastic.co/beats/){: external}.
+For questions regarding specific feature support, submit a [support ticket](https://cloud.ibm.com/unifiedsupport/cases/add){: external}.
+{: note}
 
 ### {{site.data.keyword.databases-for-elasticsearch}} Enterprise and Platinum Feature Comparison
 {: #es-plan-feature-comparison}
-
-For questions regarding specific feature support, please submit a [support ticket](https://cloud.ibm.com/unifiedsupport/cases/add){: external}.
-{: note}
 
 |                                                          **Feature**                                                          | **Enterprise** | **Platinum** |
 |:-----------------------------------------------------------------------------------------------------------------------------:|:---------:|:------------:|
