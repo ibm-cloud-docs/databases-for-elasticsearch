@@ -56,7 +56,8 @@ toc:
           - howto-file-uploads.md
       - topicgroup: 
           label: Tutorials
-          topics: 
+          topics:
+          - enterprise-search-tutorial.md
           - howto-es-migrate-tutorial.md
           - include: ../cloud-databases/howto-tutorials.md
           - include: ../cloud-databases/hello-world-tutorial.md
