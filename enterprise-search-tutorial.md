@@ -4,7 +4,7 @@ copyright:
    years: 2023
 lastupdated: "2023-08-24"
 
-keywords: IBM Cloud Databases, ICD, 
+keywords: IBM Cloud Databases, ICD, enterprise search, ca certificate
 
 subcollection: databases-for-elasticsearch
 
@@ -21,18 +21,18 @@ completion-time: 1h
 {: toc-content-type="tutorial"}
 {: toc-completion-time="1h"}
 
-Welcome to this guide on configuring a functional Enterprise Search 7.17 server integrated with an {{site.data.keyword.databases-for-elasticsearch_full}} instance. Elasticsearch is a powerful and versatile search and analytics engine that helps you store, search, and analyze large volumes of data quickly and in near-real-time. Elasticsearch is commonly used for log and event data analysis, full-text search, and various other use cases where data needs to be queried efficiently. 
+Welcome to a guide on configuring a functional Enterprise Search 7.17 server integrated with an {{site.data.keyword.databases-for-elasticsearch_full}} instance. Elasticsearch is a powerful and versatile search and analytics engine that helps you store, search, and analyze large volumes of data quickly and in near-real-time. Elasticsearch is commonly used for log and event data analysis, full-text search, and various other use cases where data needs to be queried efficiently. 
 
-{{site.data.keyword.databases-for-elasticsearch_full}} is an Elasticsearch service offered by {{site.data.keyword.cloud_notm}} that provides a managed and scalable solution for deploying and running Elasticsearch clusters. {{site.data.keyword.databases-for-elasticsearch}} simplifies the setup and maintenance of Elasticsearch, enabling you to focus on utilizing the power of Elasticsearch without the complexities of managing the infrastructure. Kibana complements Elasticsearch by offering a flexible visualization platform. It allows you to explore, visualize, and share insights from your data, enabling you to create custom dashboards and visualizations to better understand your information.
+{{site.data.keyword.databases-for-elasticsearch_full}} is an Elasticsearch service that is offered by {{site.data.keyword.cloud_notm}} that provides a managed and scalable solution for deploying and running Elasticsearch clusters. {{site.data.keyword.databases-for-elasticsearch}} simplifies the setup and maintenance of Elasticsearch, enabling you to focus on using the power of Elasticsearch without the complexities of managing the infrastructure. Kibana complements Elasticsearch by offering a flexible visualization platform. It allows you to explore, visualize, and share insights from your data, enabling you to create custom dashboards and visualizations to better understand your information.
 
-Enterprise Search extends the capabilities of {{site.data.keyword.databases-for-elasticsearch}} to provide a unified and user-friendly search experience across various data sources, including documents, emails, databases, and more. It offers a seamless interface for users to find relevant information across disparate data silos, enhancing productivity and collaboration. By integrating Enterprise Search with your {{site.data.keyword.databases-for-elasticsearch}} instance, you gain a comprehensive search solution that leverages the strengths of both platforms to efficiently discover insights from your data.
+Enterprise Search extends the capabilities of {{site.data.keyword.databases-for-elasticsearch}} to provide a unified search experience across various data sources, including documents, emails, databases, and more. It offers a seamless interface for users to find relevant information across disparate data silos, enhancing productivity and collaboration. By integrating Enterprise Search with your {{site.data.keyword.databases-for-elasticsearch}} instance, you gain a comprehensive search solution that uses the strengths of both platforms to efficiently discover insights from your data.
 {: shortdesc}
 
 ## Preqequisites
 {: #tutorial-elasticsearch-enterprise-search-tutorial-prereqs}
 {: step}
 
-Before you start the installation process, have the necessary prerequisites in place:
+Before you start the installation process, have the prerequisites in place:
 
 - Have a working instance of [{{site.data.keyword.databases-for-elasticsearch}}](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-provisioning-new) and [Kibana](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started&interface=ui#kibana).
 
@@ -87,7 +87,7 @@ Configure Enterprise Search to integrate with your {{site.data.keyword.databases
    
    Replace the placeholders with the details obtained in the previous step.
 
-1. CA Certificate Placement: Ensure that the CA certificate you downloaded is placed in the specified path mentioned in the configuration.
+1. CA Certificate Placement: Ensure that the CA certificate you downloaded is placed in the specified path that is mentioned in the configuration.
 
 1. Start Enterprise Search: Open your terminal and navigate to the location where you extracted the package. Start Enterprise Search by running the following command:
 
@@ -110,19 +110,19 @@ Configure Enterprise Search to integrate with your {{site.data.keyword.databases
    ```
    {: pre}
    
-   `<COMMAND>` is the command you want to run in the background.
+   `<COMMAND>` is the command that you want to run in the background.
 
 ## Start Enterprise Search through Docker Run
 {: #tutorial-elasticsearch-enterprise-search-tutorial-docker-run}
 {: step}
 
-In addition to the standard installation, you can start Enterprise Search using Docker by following these steps:
+In addition to the standard installation, start Enterprise Search by using Docker by following these steps:
 
 1. Place CA Certificate: Copy the CA certificate into ```certs/ca/ca.crt``` within your project folder.
 1. Add the following: 
 1. Run Docker Command:
 
-   Execute the following command in your project folder to start Enterprise Search with Docker:
+   Run the following command in your project folder to start Enterprise Search with Docker:
 
    ```sh
    docker run \                                                                                       
@@ -208,7 +208,7 @@ You can start Kibana and Enterprise Search together with docker-compose. Follow 
    ```
    {: pre}
 
-The placeholders in the `docker-compose.yml` file is automatically picked up from the `.env` file. Make sure the `.env` file is updated with actual details.
+The placeholders in the `docker-compose.yml` file are automatically picked up from the `.env` file. Make sure the `.env` file is updated with actual details.
 
 If you already have Kibana up and running, make sure to update the enterprise host url in the kibana.yml config.
 
@@ -216,6 +216,6 @@ If you already have Kibana up and running, make sure to update the enterprise ho
 {: #tutorial-elasticsearch-enterprise-search-tutorial-verify-integration}
 {: step}
 
-Once Enterprise Search is up and running, access it through your Kibana dashboard.
+After Enterprise Search is up and running, access it through your Kibana dashboard.
 
-Remember, this guide provides a high-level overview of the setup process. Be sure to consult official documentation for more detailed information and troubleshooting assistance. Happy searching!
+Remember, this guide provides a high-level overview of the setup process. For more information, see the official documentation for more detailed information and troubleshooting assistance. Happy searching!
