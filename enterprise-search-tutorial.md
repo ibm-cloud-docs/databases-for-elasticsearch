@@ -97,11 +97,15 @@ Configure Enterprise Search to integrate with your {{site.data.keyword.databases
    {: pre}
    
 1. To ensure that Enterprise Search keeps running, consider running it as a background process. Do this with `&` or the `nohup` command:
+
+Example with the `&` command:
    
    ```sh
    ./bin/enterprise-search &
    ``` 
    {: pre}
+
+Example with the `nohup` command:
    
    ```sh
    nohup <COMMAND> &
