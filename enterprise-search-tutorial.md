@@ -2,7 +2,7 @@
 
 copyright:
    years: 2023
-lastupdated: "2023-08-24"
+lastupdated: "2023-09-18"
 
 keywords: IBM Cloud Databases, ICD, enterprise search, ca certificate
 
