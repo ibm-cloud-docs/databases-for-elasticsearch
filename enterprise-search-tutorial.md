@@ -102,7 +102,7 @@ Example with the `&` command:
    
    ```sh
    ./bin/enterprise-search &
-   ``` 
+   ```
    {: pre}
 
 Example with the `nohup` command:
