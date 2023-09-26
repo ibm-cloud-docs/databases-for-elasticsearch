@@ -16,9 +16,9 @@ subcollection: databases-for-elasticsearch
 
 When a major version of a database is at its end of life (EOL), upgrade to the current major version. You can upgrade {{site.data.keyword.databases-for-elasticsearch_full}} deployments to use the newest version of Elasticsearch.
 
-Upgrade to the latest version of Elasticsearch available to {{site.data.keyword.databases-for-elasticsearch}}. You can find the latest version from the catalog page, from the cloud databases cli plug-in command [`ibmcloud cdb deployables-show`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployables-show), or from the cloud databases API [`/deployables`](https://cloud.ibm.com/apidocs/cloud-databases-api#get-all-deployable-databases) endpoint.
+Upgrade to the latest version of Elasticsearch available to {{site.data.keyword.databases-for-elasticsearch}}. Find the latest version through the [catalog](https://cloud.ibm.com/catalog/services/databases-for-mongodb){: external}, the [{{site.data.keyword.databases-for}} CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployables-show){: external}, or the [{{site.data.keyword.databases-for}} API](https://cloud.ibm.com/apidocs/cloud-databases-api#get-all-deployable-databases){: external}.
 
-Upgrading is handled through [restoring a backup](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups&interface=ui#restore-backup) of your data into a new deployment. Restoring from a backup has a number of advantages:
+Upgrading is handled by [restoring a backup](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups&interface=ui#restore-backup) of your data into a new deployment. Restoring from a backup has a number of advantages:
 
 - The original database stays running and production work can be uninterrupted.
 - You can test the new database out of production and act on any application incompatibilities.
@@ -28,14 +28,16 @@ Upgrading is handled through [restoring a backup](/docs/databases-for-elasticsea
 ## Before upgrading
 {: #before-upgrading}
 
-Before you start to upgrade your cluster to version 7.x, you must take the following actions.
+Before you upgrade your cluster to version 7.x, take the following actions:
 
-- Check the [deprecation logs](https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html#deprecation-logging){: .external} that are automatically enabled on Databases for Elasticsearch and sent to [{{site.data.keyword.la_full}}](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-logging) to see whether you are using any deprecated features and update your code.
+- Check the [deprecation logs](https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html#deprecation-logging){: .external} that are automatically enabled on {{site.data.keyword.databases-for-elasticsearch}} and sent to [{{site.data.keyword.la_full}}](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-logging) to see whether you are using any deprecated features and update your code.
 - Review the [breaking changes](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html){: .external} and make any necessary changes to your code and configuration for version 7.x.
-- If you use any plug-ins, make sure that there is a version of each plug-in that is compatible with Elasticsearch version 7.x.
+- If you use plug-ins, make sure that each plug-in version is compatible with Elasticsearch version 7.x.
 
-To upgrade from Elasticsearch 7.9/7.10 to version 7.17, you must change your plan from Standard to Enterprise. Change your plan by clicking *Restore* on the Provisioning page on the backup you want to restore, then select 7.17 from the dropdown menu. 
-{: important}
+### Index mappings 
+{: #index-mappings}
+
+Mapping types are removed in Elasticsearch 7.x and above. Indexes that are created in Elasticsearch 7.x or later no longer accept a *default* mapping. Types are also deprecated in APIs in 7.x. For more information, see [Elasticsearch removal of mapping types](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html){: .external}.
 
 ### Reindexing guidelines
 {: #upgrade-reindexing}
@@ -46,19 +48,24 @@ To upgrade from Elasticsearch 7.9/7.10 to version 7.17, you must change your pla
 {: #upgrading-ui}
 {: ui}
 
-You can upgrade to a new version when [restoring a backup](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups&interface=ui#restore-backup) from the _Backups_ tab of your _Deployment Overview_. Clicking **Restore** on a backup brings up a dialog box where you can change some options for the new deployment. One of them is the database version, which is auto-populated with the versions available for you to upgrade to. Select a version and click **Restore** to start the provision and restore process. 
-
-To upgrade from Elasticsearch 7.9/7.10 to version 7.17, you must change your plan from Standard to Enterprise. Change your plan by clicking *Restore* on the Provisioning page on the backup you want to restore, then select 7.17 from the dropdown menu. 
+To upgrade from Elasticsearch 7.9/7.10 to version 7.17, you must change your plan from Standard to Enterprise. Change your plan by clicking *Restore* on the Provisioning page on the backup that you want to restore, then select 7.17 from the dropdown.
 {: important}
+
+Upgrade to a new version when [restoring a backup](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups&interface=ui#restore-backup) from the **Backups** tab of your *Deployment Overview*. Click **Restore** on a backup. This brings up a dialog box where you can change some options for the new deployment. One of the options is the Database Version, which is auto-populated with the versions available to you. Select a version and click **Restore** to start the provision and restore process. 
 
 ## Upgrading through the CLI
 {: #upgrading-cli}
 {: cli}
 
+To upgrade from Elasticsearch 7.9/7.10 to version 7.17, you must change your plan from Standard to Enterprise. Change your plan by clicking **Restore** on the Provisioning page on the backup that you want to restore, then select 7.17 from the dropdown menu.
+{: important}
+
 When you upgrade and restore from backup through the {{site.data.keyword.cloud_notm}} CLI, use the provisioning command from the resource controller.
 ```sh
 ibmcloud resource service-instance-create <service-name> <service-id> <service-plan-id> <region>
 ```
+{: pre}
+
 The parameters `service-name`, `service-id`, `service-plan-id`, and `region` are all required. You also supply the `-p` with the version and backup ID parameters in a JSON object. The new deployment is automatically sized with the same disk and memory as the source deployment at the time of the backup.
 
 ```sh
@@ -68,10 +75,14 @@ ibmcloud resource service-instance-create example-es-upgrade databases-for-elast
   "version":7.9
 }'
 ```
+{: pre}
 
 ## Upgrading through the API
 {: #upgrading-api}
 {: api}
+
+To upgrade from Elasticsearch 7.9/7.10 to version 7.17, you must change your plan from Standard to Enterprise. Change your plan by clicking *Restore* on the Provisioning page on the backup that you want to restore, then select 7.17 from the dropdown menu.
+{: important}
 
 Similar to provisioning through the API, you need to complete [the necessary steps to use the resource controller API](/docs/databases-for-elasticsearch?topic=cloud-databases-provisioning#provisioning-through-the-resource-controller-api) before you can use it to upgrade from a backup. Then, send the API a POST request. The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required. You also supply the version and backup ID. The new deployment has the same memory and disk allocation as the source deployment at the time of the backup.
 
@@ -89,17 +100,12 @@ curl -X POST \
     "version":7.9
   }'
 ```
+{: pre}
 
 ## Migration Notes for New Elasticsearch 7.x Users
  {: #migration-notes}
 
 As in previous version upgrades, there are many changes. For more information, see [Elastic documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html){: .external}. 
- 
-
-### Index mappings 
-{: #index-mappings}
-
-Mapping types are removed in Elasticsearch 7.x and above. Indexes that are created in Elasticsearch 7.x or later no longer accept a _default_ mapping. Types are also deprecated in APIs in 7.x. Further details on these changes are in the Elastic documentation on the [removal of mapping types](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html){: .external}.
 
 ## Retrieve and update user passwords
 {: #esupgrade-retrieve-update-user-passwords}
@@ -194,7 +200,7 @@ OK
 ### Update Elasticsearch user passwords
 {: #esupgrade-update-user-passwords}
 
-To update user passwords, run the following command for _each_ user. You are then prompted to enter the new password for that user.
+To update user passwords, run the following command for *each* user. You are then prompted to enter the new password for that user.
 
 ```sh
 ibmcloud cdb deployment-user-password "example-deployment" <your-user-1>
