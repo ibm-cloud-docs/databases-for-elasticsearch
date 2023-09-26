@@ -3,7 +3,7 @@ copyright:
   years: 2019, 2023
 lastupdated: "2023-04-26"
 
-keyowrds: elasticsearch, databases, upgrading, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17
+keyowrds: elasticsearch, databases, upgrading, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17, indexes, reindexing, reindex
 
 subcollection: databases-for-elasticsearch
 
