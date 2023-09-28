@@ -104,3 +104,4 @@ toc:
           - include: ../cloud-databases/availability-zones-faq.md
           - include: ../cloud-databases/status-page-faq.md
           - include: ../cloud-databases/resource-config-faq.md
+          - include: ../cloud-databases/cert-faq.md
