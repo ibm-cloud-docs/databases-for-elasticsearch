@@ -1,28 +1,22 @@
 ---
 copyright:
-  years: 2018, 2022
-lastupdated: "2022-07-25"
+  years: 2018, 2023
+lastupdated: "2023-09-29"
 
-keywords: elasticsearch-py, java, elasticsearch driver, elasticsearch connection string
+keywords: elasticsearch-py, java, elasticsearch driver, elasticsearch connection string, connection string
 
 subcollection: databases-for-elasticsearch
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:java: .ph data-hd-programlang='java'}
-{:python: .ph data-hd-programlang='python'}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Connecting an external application
 {: #external-app}
 
 Your applications and drivers use connection strings to make a connection to {{site.data.keyword.databases-for-elasticsearch_full}}. Each deployment has connection strings specifically for drivers and applications. Connection strings are displayed in the_Endpoints_panel of your deployment's_Overview_, and can also be retrieved from the [cloud databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections), and the [API](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026).
 
-The connection strings can be used by any of the credentials you have created on your deployment. While you can use the admin user for all of your connections and applications, it might be better to create users specifically for your applications to connect with. Documentation on creating users is on the [Creating Users and Getting Connection Strings](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) page.
+The connection strings can be used by any of the credentials you create in your deployment. While you can use the admin user for all of your connections and applications, it might be better to create users specifically for your applications to connect with. Documentation on creating users is on the [Creating Users and Getting Connection Strings](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) page.
 
 ## Connecting with a language's driver
 {: #lang-driver}
@@ -35,12 +29,12 @@ All the information a driver needs to make a connection to your deployment is in
 | `Scheme` | | Scheme for a URI - for Elasticsearch, it is "https" |
 | `Path` | | Path for a uri |
 | `Authentication` | `Username` | The username that you use to connect. |
-| `Authentication` | `Password` | A password for the user - might be shown as `$PASSWORD` |
+| `Authentication` | `Password` | A password for the user - might be shown as `$PASSWORD`. |
 | `Authentication` | `Method` | How authentication takes place; "direct" authentication is handled by the driver. |
-| `Hosts` | `0...` | A hostname and port to connect to |
-| `Composed` | `0...` | A URI combining Scheme, Authentication, Host, and Path |
-| `Certificate` | `Name` | The allocated name for the self-signed certificate for database deployment |
-| `Certificate` | Base64 | A base64 encoded version of the certificate. |
+| `Hosts` | `0...` | A hostname and port to connect to. |
+| `Composed` | `0...` | A URI combining Scheme, Authentication, Host, and Path. |
+| `Certificate` | `Name` | The allocated name for the self-signed certificate for database deployment. |
+| `Certificate` | Base 64 | A base64 encoded version of the certificate. |
 {: caption="Table 1. https/URI connection information" caption-side="top"}
 
 * `0...` indicates that there might be one or more of these entries in an array.
@@ -145,6 +139,8 @@ print(health)
 {: #driver-tls-cert-support}
 
 All connections to {{site.data.keyword.databases-for-elasticsearch}} are TLS 1.2 enabled, so the driver you use to connect needs to be able to support encryption. Your deployment also comes with a self-signed certificate so the driver can verify the server upon connection.
+
+For more information, see [{{site.data.keyword.databases-for}} Certificates FAQ](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-faq-cert){: external}.
 
 ### Using the self-signed certificate
 {: #using-cert}
