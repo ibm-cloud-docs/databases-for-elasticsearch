@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-06-23"
+  years: 2019, 2023
+lastupdated: "2023-09-29"
 
 keywords: elasticsearch upload files, filter, index, indices, indexes
 
@@ -10,11 +10,7 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
 # Uploading Files to Elasticsearch 
 {: #uploading-files}
