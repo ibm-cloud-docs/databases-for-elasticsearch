@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2022
-lastupdated: "2022-10-24"
+  years: 2020, 2023
+lastupdated: "2023-09-29"
 
 keywords: elasticsearch autoscaling, databases, disk I/O, memory
 
@@ -9,14 +9,7 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
 {{site.data.keyword.attribute-definition-list}}
-
 
 # Autoscaling
 {: #autoscaling}
