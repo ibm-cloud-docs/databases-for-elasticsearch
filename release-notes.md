@@ -20,12 +20,12 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
 
-## 02 Octover 2023
+## 02 October 2023
 {: #databases-for-elasticsearch-02oct2023}
 {: release-note}
 
-Elasticsearch End of Life for versions 7.9 and 7.10
-:  There is action required before November 30, 2023, for your {{site.data.keyword.databases-for-elasticsearch_full}} version 7.9 and 7.10 deployments. On November 30, these versions will be End Of Life. Our recommended procedure for this is restoring from a backup. For more information, see [Managing {{site.data.keyword.databases-for}} backups](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups).
+Elasticsearch end of life for versions 7.9 and 7.10
+:  Action is required before 30 November 2023 for your {{site.data.keyword.databases-for-elasticsearch_full}} version 7.9 and 7.10 deployments. On November 30, these versions will be end of life. Our recommended procedure for this is restoring from a backup. For more information, see [Managing {{site.data.keyword.databases-for}} backups](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups).
 
 ## 22 June 2023
 {: #databases-for-elasticsearch-22june2023}
