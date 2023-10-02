@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-07-05"
+lastupdated: "2023-10-02"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 02 Octover 2023
+{: #databases-for-elasticsearch-02oct2023}
+{: release-note}
+
+Elasticsearch End of Life for versions 7.9 and 7.10
+:  There is action required before November 30, 2023, for your {{site.data.keyword.databases-for-elasticsearch_full}} version 7.9 and 7.10 deployments. On November 30, these versions will be End Of Life. Our recommended procedure for this is restoring from a backup. For more information, see [Managing {{site.data.keyword.databases-for}} backups](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups).
 
 ## 22 June 2023
 {: #databases-for-elasticsearch-22june2023}
@@ -45,7 +52,7 @@ Setting up disk alerts for disk utilization tutorial
 {: #databases-for-elasticsearch-19oct2022}
 {: release-note}
 
-Deploying and Connecting a Cloud Databases Instance Tutorial
+Deploying and Connecting a {{site.data.keyword.databases-for}} Instance Tutorial
 :  This tutorial guides you through the process of deploying a {{site.data.keyword.databases-for}} instance and connecting it to a web front end by creating a webpage that allows visitors to input a word and its definition. These values are then stored in a database running on {{site.data.keyword.databases-for}}. You install the database infrastructure by using Terraform and your web application uses the popular Express framework. The application can then be run locally, or by using Docker. For more information, see [Deploying and Connecting a {{site.data.keyword.databases-for}} Instance](/docs/databases-for-elasticsearch?topic=cloud-databases-create-instance-tutorial).
 
 ## 11 October 2022
@@ -53,7 +60,7 @@ Deploying and Connecting a Cloud Databases Instance Tutorial
 {: release-note}
 
 Protecting {{site.data.keyword.databases-for-elasticsearch_full}} resources with context-based restrictions
-:  Context-based restrictions (CBR) give account owners and administrators the ability to define and enforce access restrictions for {{site.data.keyword.cloud}} resources based on the context of access requests. Access to {{site.data.keyword.databases-for}} resources can be controlled with CBR and identity and access management (IAM) policies. For more information, see [Protecting Cloud Databases resources with context-based restrictions](/docs/databases-for-cassandra?topic=cloud-databases-cbr&interface=ui).
+:  Context-based restrictions (CBR) give account owners and administrators the ability to define and enforce access restrictions for {{site.data.keyword.cloud}} resources based on the context of access requests. Access to {{site.data.keyword.databases-for}} resources can be controlled with CBR and identity and access management (IAM) policies. For more information, see [Protecting {{site.data.keyword.databases-for}} resources with context-based restrictions](/docs/databases-for-cassandra?topic=cloud-databases-cbr&interface=ui).
 
 ## 25 March 2022
 {: #databases-for-elasticsearch-25mar2022}
@@ -102,4 +109,4 @@ New Regions Available for IBM Cloud Database Services
 {: release-note}
 
 General Availability of {{site.data.keyword.databases-for-elasticsearch_full}}
-:  {{site.data.keyword.databases-for-elasticsearch_full}} added to the [IBM Cloud Databases](https://www.ibm.com/cloud/databases) family. See blog post announcement [here](https://www.ibm.com/cloud/blog/ibm-cloud-databases-for-etcd-elasticsearch-and-messages-for-rabbitmq-are-now-generally-available).
+:  {{site.data.keyword.databases-for-elasticsearch_full}} added to the [{{site.data.keyword.databases-for}}](https://www.ibm.com/cloud/databases) family. See blog post announcement [here](https://www.ibm.com/cloud/blog/ibm-cloud-databases-for-etcd-elasticsearch-and-messages-for-rabbitmq-are-now-generally-available).
