@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-10-02"
+lastupdated: "2023-10-03"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -26,6 +26,13 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 
 Elasticsearch end of life for versions 7.9 and 7.10
 :  Action is required before 30 November 2023 for your {{site.data.keyword.databases-for-elasticsearch_full}} version 7.9 and 7.10 deployments. On November 30, these versions will be end of life. Our recommended procedure for this is restoring from a backup. For more information, see [Managing {{site.data.keyword.databases-for}} backups](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups).
+
+## 18 September 2023
+{: #databases-for-elasticsearch-18sept2023}
+{: release-note}
+
+Configuring an Enterprise Search 7.17 server with an {{site.data.keyword.databases-for-elasticsearch}} instance
+:  Enterprise Search extends the capabilities of {{site.data.keyword.databases-for-elasticsearch}} to provide a unified search experience across various data sources, including documents, emails, databases, and more. It offers a seamless interface for users to find relevant information across disparate data silos, enhancing productivity and collaboration. By integrating Enterprise Search with your {{site.data.keyword.databases-for-elasticsearch}} instance, you gain a comprehensive search solution that uses the strengths of both platforms to efficiently discover insights from your data. For more information, see [Configuring an Enterprise Search 7.17 server with an {{site.data.keyword.databases-for-elasticsearch}} instance](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-tutorial-elasticsearch-enterprise-search-tutorial).
 
 ## 22 June 2023
 {: #databases-for-elasticsearch-22june2023}
