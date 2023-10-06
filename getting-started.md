@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2023
-lastupdated: "2023-05-11"
+lastupdated: "2023-10-06"
 
 keywords: kibana, elasticsearch container, elasticsearch getting started
 
@@ -15,7 +15,7 @@ completion-time: 30m
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Getting Started
+# Getting Started with {{site.data.keyword.databases-for-elasticsearch}}
 {: #getting-started}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30m"}
