@@ -11,7 +11,7 @@
       {
         "title": "Getting Started",
         "description": "A brief tutorial to introduce using an IBM Cloud® Databases for Elasticsearch deployment.",
-        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started"
+        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started-es"
       },
       {
         "title": "Setting the Admin Password",
