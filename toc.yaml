@@ -80,11 +80,15 @@ toc:
   - navgroup: 
       id: reference
       topics:
-      - include: ../databases-cli-plugin/cloud-databases-cli.md
+      - link:
+          label: Versioning Policy
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-versioning-policy
+      - link:
+          label: Cloud Databases CLI plug-in
+          href: https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference
       - link:
           label: Cloud Databases API
           href: https://cloud.ibm.com/apidocs/cloud-databases-api
-      - include: ../cloud-databases/db-version-policy.md
       - topicgroup: 
           label: Connecting over Private Networks
           topics: 
