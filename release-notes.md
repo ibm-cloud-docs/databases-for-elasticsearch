@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-10-03"
+lastupdated: "2023-10-12"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -19,6 +19,15 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 12 October 2023
+{: #databases-for-elasticsearch-12oct2023}
+{: release-note}
+
+{{site.data.keyword.databases-for-elasticsearch}} v7.17 end of life
+:  End of life announcement: Version 7.17 reaches end of life 26 April 2024. All {{site.data.keyword.databases-for-elasticsearch}} instances on deprecated versions that are still active will be upgraded in-place to the next major version. We recommend that you upgrade following our [backup and restore process](/docs/cloud-databases?topic=cloud-databases-dashboard-backups){: external} before the EOL date of your version.
+
+For more information, see [Upgrading to a new Major Version](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-upgrading){: external}.
 
 ## 02 October 2023
 {: #databases-for-elasticsearch-02oct2023}
