@@ -2,7 +2,7 @@
 
 copyright:
    years: 2023
-lastupdated: "2023-08-24"
+lastupdated: "2023-10-13"
 
 keywords: IBM Cloud Databases, ICD, enterprise search, ca certificate
 
@@ -38,7 +38,6 @@ Before you start the installation process, have the prerequisites in place:
 
 - Java 11: If your preferred installation method is through a package, verify that [Java 11](https://www.oracle.com/java/technologies/downloads/){: external} is installed on your system.
 
-
 ## Setting Up Elasticsearch and Kibana Instances
 {: #tutorial-elasticsearch-enterprise-search-tutorial-instance-setup}
 {: step}
@@ -61,6 +60,21 @@ Before you start the installation process, have the prerequisites in place:
 - `ELASTICSEARCH_HOST URL`
 - `KIBANA_HOST URL`
 - `CA Certificate`
+
+### How to use your self-signed certificate
+{: #tutorial-elasticsearch-enterprise-search-tutorial-instance-cert-use}
+
+1. In your instance's **Overview**, find the **Endpoints** section.
+1. Copy the certificate information from the **Endpoints** panel, or use the *Download Certificate* option.
+1. Save the certificate to a file. You can use the that is provided or your own file name.
+1. If necessary, convert this file to PEM format by using the command:
+
+   ```sh
+   openssl x509 -in <sourcefile> -out <targetfile>.pem
+   ```
+   {: pre}
+
+1. Provide the path to the certificate to the driver or client.
 
 ## Configure Enterprise Search through Package
 {: #tutorial-elasticsearch-enterprise-search-tutorial-config-package}
