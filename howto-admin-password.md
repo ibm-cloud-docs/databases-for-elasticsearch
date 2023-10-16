@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2017, 2022
-lastupdated: "2022-10-21"
+  years: 2017, 2023
+lastupdated: "2023-10-16"
 
 keywords: elasticsearch admin, databases
 
@@ -9,12 +9,6 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
-{:tip: .tip}
 {{site.data.keyword.attribute-definition-list}}
 
 # Setting the Admin Password
