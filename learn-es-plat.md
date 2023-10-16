@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-09-05"
+lastupdated: "2023-10-16"
 
 keywords: elasticsearch enterprise, elasticsearch platinum
 
@@ -34,13 +34,14 @@ All {{site.data.keyword.databases-for-elasticsearch}} clusters on any plan can m
 
 {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan offers all the features of the Enterprise Plan, plus a richer array of functionality around integrations (connectors and web crawlers), security features (logging and access control), and document-level security, among others.
 
-Access to Platinum features on a fully-managed IBM deployment is primarily determined by the accessibility of a feature through the Elasticsearch API and the need for modifications to configuration files.
+Access to Platinum features on a fully managed IBM deployment is primarily determined by the accessibility of a feature through the Elasticsearch API and the need for modifications to configuration files.
 
 For questions regarding specific feature support, submit a [support ticket](https://cloud.ibm.com/unifiedsupport/cases/add){: external}.
 {: note}
 
 ### {{site.data.keyword.databases-for-elasticsearch}} Enterprise and Platinum Feature Comparison
 {: #es-plan-feature-comparison}
+
 
 |                                                          **Feature**                                                          | **Enterprise** | **Platinum** |
 |:-----------------------------------------------------------------------------------------------------------------------------:|:---------:|:------------:|
@@ -58,7 +59,6 @@ For questions regarding specific feature support, submit a [support ticket](http
 | Storage Types - Vector field type                                                                                             | x         | x            |
 | Storage Types - Version field type                                                                                            | x         | x            |
 | Storage Types - Wildcard field type                                                                                           | x         | x            |
-| Data Management - Searchable Snapshots                                                                                        |           | x            |
 | Data Management - Snapshot/restore APIs                                                                                       | x         | x            |
 | Data Management - Snapshot as simple archives                                                                                 |           | x            |
 | Data Management - Snapshot lifecycle management                                                                               | x         | x            |
@@ -89,12 +89,30 @@ For questions regarding specific feature support, submit a [support ticket](http
 | Alerting - Search threshold rule types for Discover                                                                           | x         | x            |
 | Alerting - Case Management                                                                                                    | x         | x            |
 | Alerting - Connectors (Actions) like: email, webhook, Jira, MS Teams, PagerDuty, Slack, IBM Resilient, ServiceNow®, OpsGenie, |           | x            |
+| Full-text search - Vector Search                                                                                              | x         | x            |
+| Full-text search - Semantic Search                                                                                            |           | x            |
 | Analytics - Geoline aggregation                                                                                               |           | x            |
 | Analytics - Geoshape aggregations                                                                                             |           | x            |
 | Analytics - Geohexgrid aggregations                                                                                           |           | x            |
 | Analytics - Graph exploration                                                                                                 |           | x            |
 | Analytics - Text categorization aggregation                                                                                   |           | x            |
 | Data Exploration - Drilldown to URL                                                                                           |           | x            |
+| Machine LEarning - Data Drift                                                                                                 |           | x            |
+| Anomaly Detection - Single Metric / Multi Metric                                                                              |           | x            |
+| Anomaly Detection - Population / Entity Analysis                                                                              |           | x            |
+| Anomaly Detection - Log message categorization                                                                                |           | x            |
+| Anomaly Detection - Rare analysis                                                                                             |           | x            |
+| Anomaly Detection - Root cause indication                                                                                     |           | x            |
+| Anomaly Detection - Forecasting on time series                                                                                |           | x            |
+| Anomaly Detection - Root cause indication                                                                                     |           | x            |
+| Data Frame Analysis - Outlier Detection                                                                                       |           | x            |
+| Data Frame Analysis - Regression                                                                                              |           | x            |
+| Data Frame Analysis - Classification                                                                                          |           | x            |
+| Data Frame Analysis - Feature Importance                                                                                      |           | x            |
+| Model Management - Inference                                                                                                  |           | x            |
+| Model Management - Third party models support                                                                                 |           | x            |
+| Model Management - Kibana space model separation                                                                              |           | x            |
+| Model Management - Elastic Learned Sparse Encoder for Semantic Search                                                         |           | x            |
 | Data Exploration - Graph analytics                                                                                            |           | x            |
 | Collaboration - PDF and PNG reports                                                                                           |           | x            |
 | Content Management - Custom banners                                                                                           |           | x            |
