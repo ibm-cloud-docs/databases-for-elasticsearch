@@ -15,7 +15,7 @@ subcollection: databases-for-elasticsearch
 # Provisioning
 {: #provisioning}
 
-Provision a {{site.data.keyword.databases-for-elasticsearch_full}} deployment through the [catalog](https://cloud.ibm.com/databases/databases-for-elasticsearch/create){: external}, the [{{site.data.keyword.databases-for}} CLI plug-in](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference){: external}, the [{{site.data.keyword.databases-for}} API](https://cloud.ibm.com/apidocs/cloud-databases-api){: external}, or through [Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database){: external}.
+Provision a {{site.data.keyword.databases-for-elasticsearch_full}} deployment through the [catalog](https://cloud.ibm.com/databases/databases-for-elasticsearch/create){: external}, the [{{site.data.keyword.databases-for}} CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference){: external}, the [{{site.data.keyword.databases-for}} API](https://cloud.ibm.com/apidocs/cloud-databases-api){: external}, or through [Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database){: external}.
 
 ## Provisioning through the catalog
 {: #catalog}
