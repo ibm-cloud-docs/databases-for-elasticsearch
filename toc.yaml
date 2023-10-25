@@ -52,7 +52,9 @@ toc:
           - howto-autoscaling.md
           - howto-horizontal-scaling.md
       - include: ../cloud-databases/howto-manage-backups.md
-      - include: ../cloud-databases/howto-allowlists.md
+      - link:
+          label: Allowlisting
+          href: /docs/cloud-databases?topic=cloud-databases-allowlisting
       - topicgroup: 
           label: Configuring Elasticsearch
           topics: 
