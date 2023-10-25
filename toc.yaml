@@ -62,16 +62,16 @@ toc:
           - howto-file-uploads.md
       - topicgroup: 
           label: Logging and monitoring
-          topics: 
-      - link:
-          label: Activity Tracker Integration
-          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-activity-tracker
-      - link:
-          label: Log Analysis Integration
-          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-logging
-      - link:
-          label: IBM Cloud® Monitoring
-          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-sysdig-monitor
+          topics:
+          - link:
+              label: Activity Tracker Integration
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-activity-tracker
+          - link:
+              label: Log Analysis Integration
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-logging
+          - link:
+              label: IBM Cloud® Monitoring
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-sysdig-monitor
       - reference-monitoring.md
       - topicgroup: 
           label: Enhancing security
