@@ -2,7 +2,7 @@
 
 copyright:
    years: 2023
-lastupdated: "2023-09-18"
+lastupdated: "2023-10-25"
 
 keywords: IBM Cloud Databases, ICD, enterprise search, ca certificate
 
@@ -38,12 +38,11 @@ Before you start the installation process, have the prerequisites in place:
 
 - Java 11: If your preferred installation method is through a package, verify that [Java 11](https://www.oracle.com/java/technologies/downloads/){: external} is installed on your system.
 
-
 ## Setting Up Elasticsearch and Kibana Instances
 {: #tutorial-elasticsearch-enterprise-search-tutorial-instance-setup}
 {: step}
 
-1. [Configure](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started&interface=ui) your {{site.data.keyword.databases-for-elasticsearch}} and Kibana instances.
+1. [Configure](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started) your {{site.data.keyword.databases-for-elasticsearch}} and Kibana instances.
 
 1. Add the following line in your Kibana.yml file:
 
@@ -61,6 +60,21 @@ Before you start the installation process, have the prerequisites in place:
 - `ELASTICSEARCH_HOST URL`
 - `KIBANA_HOST URL`
 - `CA Certificate`
+
+### How to use our self-signed root certificate
+{: #tutorial-elasticsearch-enterprise-search-tutorial-instance-cert-use}
+
+1. In your instance's **Overview**, find the **Endpoints** section.
+1. Copy the certificate information from the **Endpoints** panel, or use the *Download Certificate* option.
+1. Save the certificate to a file. You can use the that is provided or your own file name.
+1. If necessary, convert this file to PEM format by using the command:
+
+   ```sh
+   openssl x509 -in <sourcefile> -out <targetfile>.pem
+   ```
+   {: pre}
+
+1. Provide the path to the certificate to the driver or client.
 
 ## Configure Enterprise Search through Package
 {: #tutorial-elasticsearch-enterprise-search-tutorial-config-package}
@@ -96,16 +110,14 @@ Configure Enterprise Search to integrate with your {{site.data.keyword.databases
    ```
    {: pre}
    
-1. To ensure that Enterprise Search keeps running, consider running it as a background process. Do this with `&` or the `nohup` command:
-
-Example with the `&` command:
+1. To ensure that Enterprise Search keeps running, consider running it as a background process. Do this with `&`, using a command like:
    
    ```sh
    ./bin/enterprise-search &
-   ```
+   ``` 
    {: pre}
-
-Example with the `nohup` command:
+   
+   You can also use the `nohup` command:
    
    ```sh
    nohup <COMMAND> &
