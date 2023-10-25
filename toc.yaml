@@ -72,7 +72,7 @@ toc:
           - link:
               label: IBM Cloud® Monitoring
               href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-sysdig-monitor
-      - reference-monitoring.md
+          - reference-monitoring.md
       - topicgroup: 
           label: Enhancing security
           topics: 
