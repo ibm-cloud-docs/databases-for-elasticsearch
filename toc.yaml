@@ -59,16 +59,6 @@ toc:
           - howto-plugins.md
           - howto-file-uploads.md
       - topicgroup: 
-          label: Tutorials
-          topics: 
-          - enterprise-search-tutorial.md
-          - howto-deploy-kibana-tutorial.md
-          - howto-es-migrate-tutorial.md
-          - include: ../cloud-databases/howto-tutorials.md
-          - include: ../cloud-databases/hello-world-tutorial.md
-          - include: ../cloud-databases/k8-tutorial.md
-          - include: ../cloud-databases/disk-util-alerts-tutorial.md
-      - topicgroup: 
           label: Logging and monitoring
           topics: 
           - include: ../cloud-databases/reference-activity-tracker.md
@@ -81,6 +71,16 @@ toc:
           - learn-security-compliance.md 
           - include: ../cloud-databases/manage-scc.md
           - include: ../cloud-databases/howto-cbr.md
+  - navgroup: 
+      id: tutorial
+      topics: 
+      - enterprise-search-tutorial.md
+      - howto-deploy-kibana-tutorial.md
+      - howto-es-migrate-tutorial.md
+      - include: ../cloud-databases/howto-tutorials.md
+      - include: ../cloud-databases/hello-world-tutorial.md
+      - include: ../cloud-databases/k8-tutorial.md
+      - include: ../cloud-databases/disk-util-alerts-tutorial.md
   - navgroup: 
       id: reference
       topics:
