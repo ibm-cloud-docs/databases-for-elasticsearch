@@ -113,12 +113,24 @@ toc:
       - topicgroup: 
           label: Connecting over Private Networks
           topics: 
-          - include: ../cloud-databases/howto-vpes.md
-          - include: ../cloud-databases/reference-service-endpoints.md
-          - include: ../cloud-databases/reference-key-protect.md
-          - include: ../cloud-databases/reference-iam.md
-          - include: ../cloud-databases/reference-hpcs.md
-          - include: ../cloud-databases/reference-responsibilities.md
+          - link:
+              label: Virtual Private Endpoints
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-vpes
+          - link:
+              label: Service Endpoints Integration
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-service-endpoints
+          - link:
+              label: Key Protect Integration
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-key-protect
+          - link:
+              label: Identity and Access Management
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-iam
+          - link:
+              label: Hyper Protect Crypto Services Integration
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hpcs
+          - link:
+              label: Responsibilities for Cloud Databases
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-responsibilities-cloud-databases
   - navgroup:
       id: help
       topics:
@@ -126,7 +138,15 @@ toc:
       - topicgroup:
           label: FAQs
           topics:
-          - include: ../cloud-databases/availability-zones-faq.md
-          - include: ../cloud-databases/status-page-faq.md
-          - include: ../cloud-databases/resource-config-faq.md
-          - include: ../cloud-databases/cert-faq.md
+          - link:
+              label: Availability zones FAQ
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-faq-availability-zones
+          - link:
+              label: IBM Cloud platform and service FAQ
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-ibm-cloud-status
+          - link:
+              label: Resource Configuration FAQ
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-faq-resource-config
+          - link:
+              label: Certificates FAQ
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-faq-cert
