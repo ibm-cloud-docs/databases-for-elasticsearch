@@ -63,10 +63,16 @@ toc:
       - topicgroup: 
           label: Logging and monitoring
           topics: 
-          - include: ../cloud-databases/reference-activity-tracker.md
-          - include: ../cloud-databases/reference-logging.md
-          - reference-monitoring.md
-          - include: ../cloud-databases/reference-sysdig.md
+      - link:
+          label: Activity Tracker Integration
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-activity-tracker
+      - link:
+          label: Log Analysis Integration
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-logging
+      - link:
+          label: IBM Cloud® Monitoring
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-sysdig-monitor
+      - reference-monitoring.md
       - topicgroup: 
           label: Enhancing security
           topics: 
