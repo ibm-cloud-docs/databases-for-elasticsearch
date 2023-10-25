@@ -54,7 +54,7 @@ toc:
       - include: ../cloud-databases/howto-manage-backups.md
       - link:
           label: Allowlisting
-          href: /docs/cloud-databases?topic=cloud-databases-allowlisting
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-allowlisting
       - topicgroup: 
           label: Configuring Elasticsearch
           topics: 
