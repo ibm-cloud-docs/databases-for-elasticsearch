@@ -18,7 +18,6 @@ toc:
           label: IBM Cloud Databases
           href: https://cloud.ibm.com/docs/cloud-databases
       - getting-started.md
-      - include: ../cloud-databases/learn-getting-to-production.md
       - link: 
           label: What is Elasticsearch?
           href: https://www.ibm.com/cloud/learn/elasticsearch
@@ -33,12 +32,16 @@ toc:
       topics:
       - howto-provisioning.md
       - howto-user-management.md
-      - include: ../cloud-databases/howto-deprovisioning.md
+      - link:
+          label: Deleting your Deployment and Removing your Data
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-deprovisioning
       - include: ../cloud-databases/closures.md
       - howto-migration.md
       - howto-upgrading.md
       - howto-getting-connection-strings.md
-      - include: ../cloud-databases/ha-dr.md
+      - link:
+          label: Understanding high availability and disaster recovery for Cloud Databases
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-ha-dr
       - topicgroup: 
           label: Connecting to Databases for Elasticsearch
           topics: 
@@ -51,7 +54,9 @@ toc:
           - howto-resources-scaling.md
           - howto-autoscaling.md
           - howto-horizontal-scaling.md
-      - include: ../cloud-databases/howto-manage-backups.md
+      - link:
+          label: Managing Cloud Databases backups
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-dashboard-backups
       - link:
           label: Allowlisting
           href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-allowlisting
