@@ -2,7 +2,7 @@
 
 copyright:
    years: 2023
-lastupdated: "2023-10-13"
+lastupdated: "2023-10-25"
 
 keywords: IBM Cloud Databases, ICD, enterprise search, ca certificate
 
@@ -42,7 +42,7 @@ Before you start the installation process, have the prerequisites in place:
 {: #tutorial-elasticsearch-enterprise-search-tutorial-instance-setup}
 {: step}
 
-1. [Configure](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started&interface=ui) your {{site.data.keyword.databases-for-elasticsearch}} and Kibana instances.
+1. [Configure](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started) your {{site.data.keyword.databases-for-elasticsearch}} and Kibana instances.
 
 1. Add the following line in your Kibana.yml file:
 
@@ -61,7 +61,7 @@ Before you start the installation process, have the prerequisites in place:
 - `KIBANA_HOST URL`
 - `CA Certificate`
 
-### How to use your self-signed certificate
+### How to use our self-signed root certificate
 {: #tutorial-elasticsearch-enterprise-search-tutorial-instance-cert-use}
 
 1. In your instance's **Overview**, find the **Endpoints** section.
