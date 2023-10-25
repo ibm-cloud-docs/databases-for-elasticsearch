@@ -76,9 +76,13 @@ toc:
       - topicgroup: 
           label: Enhancing security
           topics: 
-          - learn-security-compliance.md 
-          - include: ../cloud-databases/manage-scc.md
-          - include: ../cloud-databases/howto-cbr.md
+          - learn-security-compliance.md
+          - link:
+              label: Managing security and compliance with Cloud Databases
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-manage-security-compliance
+          - link:
+              label: Protecting Cloud Databases resources with context-based restrictions
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-cbr
   - navgroup: 
       id: tutorial
       topics: 
