@@ -1,6 +1,6 @@
 {
     "title": "IBM Cloud® Databases for Elasticsearch docs",
-    "lastupdated": "2023-08-01",
+    "lastupdated": "2023-10-26",
     "introduction": "Elasticsearch combines the power of a full text search engine with the indexing strengths of a JSON document database.",
     "section_devtools": {
       "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction", 
@@ -34,9 +34,9 @@
       "view_more": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elasticsearch-relnotes",
       "tiles": [
         {
-          "date": "19 October 2022",
-          "title": "Deploying and Connecting an IBM Cloud® Databases Instance Tutorial",
-          "description": "This tutorial guides you through the process of deploying a Cloud Databases instance and connecting it to a web front end by creating a webpage that allows visitors to input a word and its definition. These values are then stored in a database running on Cloud Databases. You install the database infrastructure by using Terraform and your web application uses the popular Express framework. The application can then be run locally, or by using Docker."
+          "date": "26 October 2023",
+          "title": "Deploy Kibana using Code Engine and connect to your Databases for Elasticsearch instance",
+          "description": "With this tutorial, deploy Kibana using Code Engine and connect to your Databases for Elasticsearch instance. Kibana is a web interface that allows you to visualise the data in Elasticsearch instances. Code Engine is a a fully managed, serverless platform that allows you to run workloads without worrying about deploying infrastructure. Elasticsearch is a NoSQL database with powerful search capabilities."
         },
         {
           "date": "11 October 2022",
