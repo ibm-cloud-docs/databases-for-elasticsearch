@@ -18,7 +18,6 @@ toc:
           label: IBM Cloud Databases
           href: https://cloud.ibm.com/docs/cloud-databases
       - getting-started.md
-      - include: ../cloud-databases/learn-getting-to-production.md
       - link: 
           label: What is Elasticsearch?
           href: https://www.ibm.com/cloud/learn/elasticsearch
@@ -32,13 +31,17 @@ toc:
       topics:
       - howto-provisioning.md
       - howto-user-management.md
-      - include: ../cloud-databases/howto-deprovisioning.md
+      - link:
+          label: Deleting your Deployment and Removing your Data
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-deprovisioning
       - include: ../cloud-databases/closures.md
       - howto-migration.md
       - howto-upgrading.md
       - howto-getting-connection-strings.md
-      - include: ../cloud-databases/ha-dr.md
-      - topicgroup: 
+      - link:
+          label: Understanding high availability and disaster recovery for Cloud Databases
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-ha-dr
+      - topicgroup:
           label: Connecting to Databases for Elasticsearch
           topics: 
           - connecting-external.md
@@ -50,36 +53,50 @@ toc:
           - howto-resources-scaling.md
           - howto-autoscaling.md
           - howto-horizontal-scaling.md
-      - include: ../cloud-databases/howto-manage-backups.md
-      - include: ../cloud-databases/howto-allowlists.md
+      - link:
+          label: Managing Cloud Databases backups
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-dashboard-backups
+      - link:
+          label: Allowlisting
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-allowlisting
       - topicgroup: 
           label: Configuring Elasticsearch
           topics: 
           - howto-plugins.md
           - howto-file-uploads.md
       - topicgroup: 
-          label: Tutorials
-          topics:
-          - enterprise-search-tutorial.md
-          - howto-es-migrate-tutorial.md
-          - include: ../cloud-databases/howto-tutorials.md
-          - include: ../cloud-databases/hello-world-tutorial.md
-          - include: ../cloud-databases/k8-tutorial.md
-      - topicgroup: 
           label: Logging and monitoring
-          topics: 
-          - include: ../cloud-databases/reference-activity-tracker.md
-          - include: ../cloud-databases/reference-logging.md
+          topics:
+          - link:
+              label: Activity Tracker Integration
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-activity-tracker
+          - link:
+              label: Log Analysis Integration
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-logging
+          - link:
+              label: IBM Cloud® Monitoring
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-sysdig-monitor
           - reference-monitoring.md
-          - include: ../cloud-databases/reference-sysdig.md
       - topicgroup: 
           label: Enhancing security
           topics: 
-          - include: ../cloud-databases/manage-scc.md
-          - manage-scc.md
-          - include: ../cloud-databases/howto-cbr.md
-          - include: ../cloud-databases/cbr-tutorial.md
-          - include: ../cloud-databases/disk-util-alerts-tutorial.md
+          - link:
+              label: Managing security and compliance with Cloud Databases
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-manage-security-compliance
+          - link:
+              label: Protecting Cloud Databases resources with context-based restrictions
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-cbr
+  - navgroup: 
+      id: tutorial
+      topics:
+      - enterprise-search-tutorial.md
+      - howto-deploy-kibana-tutorial.md
+      - howto-es-migrate-tutorial.md
+      - include: ../cloud-databases/howto-tutorials.md
+      - include: ../cloud-databases/hello-world-tutorial.md
+      - include: ../cloud-databases/k8-tutorial.md
+      - include: ../cloud-databases/cbr-tutorial.md
+      - include: ../cloud-databases/disk-util-alerts-tutorial.md
   - navgroup: 
       id: reference
       topics:
@@ -95,12 +112,24 @@ toc:
       - topicgroup: 
           label: Connecting over Private Networks
           topics: 
-          - include: ../cloud-databases/howto-vpes.md
-          - include: ../cloud-databases/reference-service-endpoints.md
-      - include: ../cloud-databases/reference-key-protect.md
-      - include: ../cloud-databases/reference-iam.md
-      - include: ../cloud-databases/reference-hpcs.md
-      - include: ../cloud-databases/reference-responsibilities.md
+          - link:
+              label: Virtual Private Endpoints
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-vpes
+          - link:
+              label: Service Endpoints Integration
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-service-endpoints
+      - link:
+          label: Key Protect Integration
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-key-protect
+      - link:
+          label: Identity and Access Management
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-iam
+      - link:
+          label: Hyper Protect Crypto Services Integration
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hpcs
+      - link:
+          label: Responsibilities for Cloud Databases
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-responsibilities-cloud-databases
   - navgroup:
       id: help
       topics:
@@ -108,7 +137,15 @@ toc:
       - topicgroup:
           label: FAQs
           topics:
-          - include: ../cloud-databases/availability-zones-faq.md
-          - include: ../cloud-databases/status-page-faq.md
-          - include: ../cloud-databases/resource-config-faq.md
-          - include: ../cloud-databases/cert-faq.md
+          - link:
+              label: Availability zones FAQ
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-faq-availability-zones
+          - link:
+              label: IBM Cloud platform and service FAQ
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-ibm-cloud-status
+          - link:
+              label: Resource Configuration FAQ
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-faq-resource-config
+          - link:
+              label: Certificates FAQ
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-faq-cert
