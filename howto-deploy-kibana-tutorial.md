@@ -2,7 +2,7 @@
 
 copyright:
    years: 2023
-lastupdated: "2023-10-25"
+lastupdated: "2023-10-26"
 
 keywords: elasticsearch, kibana
 
@@ -21,7 +21,7 @@ completion-time: 30min
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30min"}
 
-With this tutorial, deploy Kibana using {{site.data.keyword.codeengineshort}} and connect to your {{site.data.keyword.databases-for-elasticsearch}} instance. Kibana is a web interface that allows you to visualise the data in Elasticsearch instances. {{site.data.keyword.codeengineshort}} is a a fully managed, serverless platform that allows you to run workloads without worrying about deploying infrastructure. Elasticsearch is a NoSQL database with powerful search capabilities.
+With this tutorial, deploy [Kibana](https://www.elastic.co/kibana){: external} using [{{site.data.keyword.codeengineshort}}](https://www.ibm.com/products/code-engine){: external} and connect to your [{{site.data.keyword.databases-for-elasticsearch}}](https://www.ibm.com/products/databases-for-elasticsearch){: external} instance. Kibana is a web interface that allows you to visualise the data in Elasticsearch instances. {{site.data.keyword.codeengineshort}} is a a fully managed, serverless platform that allows you to run workloads without worrying about deploying infrastructure. Elasticsearch is a NoSQL database with powerful search capabilities.
 {: shortdesc}
 
 {{site.data.keyword.databases-for-elasticsearch}} does not include a managed Kibana service, but with this tutorial you can provision a Kibana instance and connect to your {{site.data.keyword.databases-for-elasticsearch}} instance within a few minutes and still using the managed service model of {{site.data.keyword.cloud_notm}}.
