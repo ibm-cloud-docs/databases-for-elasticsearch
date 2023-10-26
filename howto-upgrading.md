@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2023
-lastupdated: "2023-09-26"
+lastupdated: "2023-10-26"
 
 keyowrds: elasticsearch, databases, upgrading, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17, indexes, reindexing, reindex
 
@@ -18,7 +18,7 @@ When a major version of a database is at its end of life (EOL), upgrade to the c
 
 Upgrade to the latest version of Elasticsearch available to {{site.data.keyword.databases-for-elasticsearch}}. Find the latest version through the [catalog](https://cloud.ibm.com/catalog/services/databases-for-mongodb){: external}, the [{{site.data.keyword.databases-for}} CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployables-show){: external}, or the [{{site.data.keyword.databases-for}} API](https://cloud.ibm.com/apidocs/cloud-databases-api#get-all-deployable-databases){: external}.
 
-Upgrading is handled by [restoring a backup](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups&interface=ui#restore-backup) of your data into a new deployment. Restoring from a backup has a number of advantages:
+Upgrading is handled by [restoring a backup](/docs/cloud-databases?topic=cloud-databases-dashboard-backups&interface=ui#restore-backup) of your data into a new deployment. Restoring from a backup has a number of advantages:
 
 - The original database stays running and production work can be uninterrupted.
 - You can test the new database out of production and act on any application incompatibilities.
@@ -51,7 +51,7 @@ Mapping types are removed in Elasticsearch 7.x and above. Indexes that are creat
 To upgrade from Elasticsearch 7.9/7.10 to version 7.17, you must change your plan from Standard to Enterprise. Change your plan by clicking *Restore* on the Provisioning page on the backup that you want to restore, then select 7.17 from the dropdown.
 {: important}
 
-Upgrade to a new version when [restoring a backup](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups&interface=ui#restore-backup) from the **Backups** tab of your *Deployment Overview*. Click **Restore** on a backup. This brings up a dialog box where you can change some options for the new deployment. One of the options is the Database Version, which is auto-populated with the versions available to you. Select a version and click **Restore** to start the provision and restore process. 
+Upgrade to a new version when [restoring a backup](/docs/cloud-databases?topic=cloud-databases-dashboard-backups&interface=ui#restore-backup) from the **Backups** tab of your *Deployment Overview*. Click **Restore** on a backup. This brings up a dialog box where you can change some options for the new deployment. One of the options is the Database Version, which is auto-populated with the versions available to you. Select a version and click **Restore** to start the provision and restore process. 
 
 ## Upgrading through the CLI
 {: #upgrading-cli}
