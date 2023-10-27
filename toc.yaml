@@ -91,6 +91,7 @@ toc:
   - navgroup: 
       id: tutorial
       topics: 
+      - nlp-ml-tutorial.md
       - enterprise-search-tutorial.md
       - howto-deploy-kibana-tutorial.md
       - howto-es-migrate-tutorial.md
