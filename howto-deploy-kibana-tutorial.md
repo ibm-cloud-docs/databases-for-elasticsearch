@@ -2,7 +2,7 @@
 
 copyright:
    years: 2023
-lastupdated: "2023-10-26"
+lastupdated: "2023-10-30"
 
 keywords: elasticsearch, kibana
 
@@ -30,7 +30,6 @@ NOTE: {{site.data.keyword.codeengineshort}} is a paid-for service, so following 
 
 ## Before you start
 {: #kibana-code-engine-icd-elasticsearch-before-start}
-{: step}
 
 Before you begin, ensure you have the following:
 
@@ -56,7 +55,7 @@ git clone https://github.com/IBM/elasticsearch-kibana-codeengine.git
 ```
 {: pre}
 
-## Install the infrastructure
+## Upload and Analyze your Data
 {: #kibana-code-engine-icd-elasticsearch-install-infra}
 {: step}
 
@@ -101,7 +100,7 @@ The previous step produces a URL, which is the public URL of your Kibana deploym
 
 Visit that URL in your web browser. You should see the Kibana login screen where you can log in with your credentials and have access to your Elasticsearch deployment!
 
-To tear down your Kibana application and project from {{site.data.keyword.codeengineshort}}, run:
+Your {{site.data.keyword.databases-for-elasticsearch}} incurs charges. After you finish this tutorial, you can remove all the infrastructure by going to the `terraform` directory of the project and using the command:
 
 ```sh
 terraform destroy
