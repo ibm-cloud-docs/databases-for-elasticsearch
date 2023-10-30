@@ -35,7 +35,9 @@ toc:
       - link:
           label: Deleting your Deployment and Removing your Data
           href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-deprovisioning
-      - include: ../cloud-databases/closures.md
+      - link:
+          label: Migrating resources to a different data center
+          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-migrate-data-center
       - howto-migration.md
       - howto-upgrading.md
       - howto-getting-connection-strings.md
