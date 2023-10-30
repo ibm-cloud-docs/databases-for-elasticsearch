@@ -99,7 +99,7 @@ toc:
           - enterprise-search-tutorial.md
           - howto-deploy-kibana-tutorial.md
           - howto-es-migrate-tutorial.md
-      -topicgroup:
+      - topicgroup:
           label: Cloud Databases tutorials
           topics:
           - link:
