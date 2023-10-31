@@ -18,9 +18,6 @@ toc:
           label: IBM Cloud Databases
           href: https://cloud.ibm.com/docs/cloud-databases
       - getting-started.md
-      - link: 
-          label: What is Elasticsearch?
-          href: https://www.ibm.com/cloud/learn/elasticsearch
       - learn-es-plat.md
       - learn-dashboard-overview.md 
       - learn-high-availability.md 
@@ -117,6 +114,9 @@ toc:
   - navgroup: 
       id: reference
       topics:
+      - link: 
+          label: What is Elasticsearch?
+          href: https://www.ibm.com/cloud/learn/elasticsearch
       - link:
           label: Versioning Policy
           href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-versioning-policy
