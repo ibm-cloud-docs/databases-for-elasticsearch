@@ -93,6 +93,7 @@ toc:
       - topicgroup:
           label: Databases for Elasticsearch tutorials
           topics:
+          - nlp-ml-tutorial.md
           - enterprise-search-tutorial.md
           - howto-deploy-kibana-tutorial.md
           - howto-es-migrate-tutorial.md
