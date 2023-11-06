@@ -2,9 +2,9 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-10-27"
+lastupdated: "2023-11-06"
 
-keywords: 
+keywords: machine learning, elasticsearch, artificial intelligence, ai, model
 
 subcollection: databases-for-elasticsearch
 
@@ -16,7 +16,7 @@ completion-time: 30m
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Using {{site.data.keyword.databases-for}} with machine learning models to tag content
+# Using {{site.data.keyword.databases-for-elasticsearch}} with machine learning models to tag content
 {: #nlp-ml-tutorial}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30m"}
@@ -24,37 +24,37 @@ completion-time: 30m
 ## Objectives
 {: #disk-util-alert-tutorial-objectives}
 
-{{site.data.keyword.databases-for}} supports machine learning workloads. In this tutorial, you learn how to deploy a machine learning model to a {{site.data.keyword.databases-for}} instance and then use it to extract meaningful additional information from a test dataset. Only some basic knowledge of terminal commands is required to deploy and understand this tutorial.
+{{site.data.keyword.databases-for}} supports machine learning workloads. In this tutorial, you learn how to provision a machine learning model to a {{site.data.keyword.databases-for-elasticsearch}} instance and then use it to extract meaningful additional information from a test data set. Only some basic knowledge of terminal commands is required to provision and understand this tutorial.
 
-[Machine learning]((https://www.ibm.com/topics/machine-learning)){: external} is a branch of artificial intelligence (AI) and computer science that focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy. Through the use of statistical methods, algorithms are trained to make classifications or predictions, and to uncover key insights in data mining projects.
+[Machine learning]((https://www.ibm.com/topics/machine-learning)){: external} is a branch of artificial intelligence (AI) and computer science that focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy. By using statistical methods, algorithms are trained to make classifications or predictions, and to uncover key insights in data mining projects.
 
 These learning algorithms are known as “models”. In this tutorial, we use a pre-built Natural Language Processing (NLP) model, which extracts meaning out of sentences in written (Natural) language. Specifically, we use the *distilbert-base-uncased-finetuned-conll03-english* model that tries to identify the names of people, locations, and organizations within text.
 
-There are [many other models](https://huggingface.co/models?sort=trending){: external} that specialize in analyzing other forms of data, like text extraction from images, speech conversion to text, or object identification in images. Models can be trained on domain-specific knowledge, but the training of new models is beyond the scope of this tutorial.
+[Many other models](https://huggingface.co/models?sort=trending){: external} specialize in analyzing other forms of data, like text extraction from images, speech conversion to text, or object identification in images. Models can be trained on domain-specific knowledge, but the training of new models is beyond the scope of this tutorial.
 
-This tutorial guides you through the process of
+This tutorial guides you through the process of:
 
-- Deploying a {{site.data.keyword.databases-for}} instance
+- Provisioning a {{site.data.keyword.databases-for-elasticsearch}} instance
 
 - Uploading a machine learning model
 
-- Uploading a dataset of headlines and summaries from news articles
+- Uploading a data set of headlines and summaries from news articles
 
-- Passing the dataset through the NLP model
+- Passing the data set through the NLP model
 
 - Querying the augmented data to see the results of the model on the data.
 
 ## Getting productive 
 {: #nlp-ml-tutorial-getting-started}
 
-To begin the deployment process, install some must-have productivity tools:
+To begin the provisioning process, install some must-have productivity tools:
 
 - You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}.
-- [Terraform](https://www.terraform.io/){: external} - to codify and deploy infrastructure
+- [Terraform](https://www.terraform.io/){: external} - To codify and provision infrastructure.
 - [Python](https://www.python.org/downloads/){: external}
-- [jq](https://jqlang.github.io/jq/download/){: external} - to process configuration files.
+- [jq](https://jqlang.github.io/jq/download/){: external} - To process configuration files.
 
-## Obtain an API key to deploy infrastructure to your account
+## Obtain an API key to provision infrastructure to your account
 {: #nlp-ml-tutorial-api-key}
 {: step}
 
@@ -79,7 +79,7 @@ cd elasticsearch-nlp-ml-tutorial/terraform
 {: #nlp-ml-tutorial-install-infra}
 {: step}
 
-Deploy the instance of Elasticsearch that you will need.
+Provision your {{site.data.keyword.databases-for-elasticsearch}} instance.
 
 1. On your machine, create a document that is named `terraform.tfvars`, with the following fields:
 
@@ -101,7 +101,7 @@ Deploy the instance of Elasticsearch that you will need.
    ```
    {: pre}
 
-   The Terraform script outputs configuration data that is needed to run the application, so copy it into the `scripts` folder:
+   The Terraform script outputs the configuration data that is needed to run the application, so copy it into the `scripts` folder:
 
    ```sh
    terraform output -json >../scripts/config.json
@@ -123,9 +123,9 @@ Deploy the instance of Elasticsearch that you will need.
 ## Upload and analyze data
 {: #nlp-ml-tutorial-data}
 
-This tutorial uses a small dataset of 132 articles obtained from the [BBC News](https://feeds.bbci.co.uk/news/uk/rss.xml){: external} and [Guardian](https://www.theguardian.com/politics/rss){: external} websites through their RSS feeds.
+This tutorial uses a small data set of 132 articles that are obtained from the [BBC News](https://feeds.bbci.co.uk/news/uk/rss.xml){: external} and [Guardian](https://www.theguardian.com/politics/rss){: external} websites through their RSS feeds.
 
-These have been transformed into a json file that is formated as required by the Elasticsearch [bulk upload method](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html){: external}.
+These have been transformed into a json file that is formatted as required by the Elasticsearch [bulk upload method](https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-bulk.html){: external}.
 
 Run the `upload.sh` script, which does the following:
 
@@ -135,7 +135,7 @@ Run the `upload.sh` script, which does the following:
 
 - Uploads the pre-formatted data to Elasticsearch and passes it through the pipeline for analysis.
 
-Since this is a demo, we connect non-securely to your database. For production deployments use [secure connections](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-best-practices).
+Since this is a demo, we connect nonsecurely to your database. For production, use [secure connections](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-best-practices).
 {: .important}
 
 To run the script, make sure you are in the `scripts` directory and use the command:
@@ -153,9 +153,9 @@ export ES="https://admin:${ES_PASSWORD}@${ES_HOST}:${ES_PORT}"
 {: #nlp-ml-tutorial-query-data}
 {: step}
 
-You now have an index named `test` that has 132 records. Each of these records contains the news data (article id, headline and summary) and an additional object called `tags`. This is where the machine learning model has inserted any people (PER), locations (LOC) or organizations (ORG) that it has found in the text.
+You now have an index that is named `test` that has 132 records. Each of these records contains the news data (article ID, headline and summary) and an additional object called `tags`. This is where the machine learning model has inserted any people (PER), locations (LOC) or organizations (ORG) that it has found in the text.
 
-The index also contains another object, called `ml`, which shows some of how the model works. For example, it tells you what accuracy probabilty it assigned to each of the terms it found.
+The index also contains another object, called `ml`, which shows some of how the model works. For example, it tells you what accuracy probability it assigned to each of the terms it found.
 
 For example, use this query to retrieve a single record to inspect:
 
@@ -164,7 +164,7 @@ curl -k "$ES/test/_search?size=1" | jq .
 ```
 {: pre}
 
-This machine learning model has generated valuable information. For example, if you run a news website, you could generate pages of tag-based content. If, for example, your users go to a page like www.mynewssite.com/tag/rishi-sunak, all your sytem would have to do is search by that tag in the index of news articles to retrieve a list of those that mention Rishi Sunak:
+This machine learning model has generated valuable information. For example, if you run a news website, you might generate pages of tag-based content. If, for example, your users go to a page like www.mynewssite.com/tag/rishi-sunak, all your system would have to do is search by that tag in the index of news articles to retrieve a list of those that mention Rishi Sunak:
 
 ```sh
 curl -kX POST -d@body.json -H "Content-Type: application/json" "$ES/test/_search" | jq .
