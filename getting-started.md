@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2023
-lastupdated: "2023-10-06"
+lastupdated: "2023-11-13"
 
 keywords: kibana, elasticsearch container, elasticsearch getting started
 
@@ -21,6 +21,9 @@ completion-time: 30m
 {: toc-completion-time="30m"}
 
 This tutorial is a short introduction to using an {{site.data.keyword.databases-for-elasticsearch_full}} deployment. Connect to your deployment using [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html){: external}, an open source tool that adds visualization capabilities to your Elasticsearch database. This tutorial runs Kibana in a Docker container by using the Kibana image from the Docker image repository. [Install Kibana with Docker](https://www.elastic.co/guide/en/kibana/7.17/docker.html){: external} to run a system you control.
+
+If you prefer to avoid running Kibana locally, you can also deploy Kibana using IBM Code Engine. For more information, see [Deploy Kibana using Code Engine and connect to your {{site.data.keyword.databases-for-elasticsearch}} instance](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-kibana-code-engine-icd-elasticsearch){: external}.
+{: tip}
 
 ## Before you begin
 {: #before-begin}
@@ -60,7 +63,7 @@ server.host: "0.0.0.0"
 
 The first setting, `elasticsearch.ssl.certificateAuthorities`, is the location where the deployment's certificate lives in the Docker container. It gets placed in this location when you first run Docker. You can change this to a location of your choice, but the example path is the Kibana’s config directory.
 
-Next, is `elasticsearch.username` and `elasticsearch.password`. Use the deployment's admin username and password. Be sure that you set the admin password before trying to connect. For `elasticsearch.url`, enter the deployment's hostname and port, which is separated by a `:`. 
+Next, is `elasticsearch.username` and `elasticsearch.password`. Use the deployment's admin username and password. Be sure that you set the admin password before trying to connect. For `elasticsearch.url`, enter the deployment's hostname and port, which is separated by a `:`.
 
 Lastly, `server.name` is a machine-readable name for the Kibana instance and `server.host` is the host of the backend server where you can connect to Kibana in your web browser.
 
@@ -72,7 +75,7 @@ If you are running Kibana locally, not in Docker, then the YAML file goes in `$K
 {: #running-kibana-container}
 {: step}
 
-Now that the `kibana.yml` file is set up, use Docker to attach the YAML file and your certificate file to the Docker container, while pulling the `<kibana_version>` image from the Docker image repository. 
+Now that the `kibana.yml` file is set up, use Docker to attach the YAML file and your certificate file to the Docker container, while pulling the `<kibana_version>` image from the Docker image repository.
 
 Use an image with a version of Kibana that is compatible with the version of Elasticsearch that your deployment is running. Retrieve the Elasticsearch version from the `https_endpoint` API endpoint by using your preferred http client. For more information, see the [Elasticsearch compatibility matrix](https://www.elastic.co/support/matrix#matrix_compatibility){: external}.
 {: .important}
@@ -92,7 +95,7 @@ docker container run -it --name kibana \
 ```
 {: pre}
 
-The Docker command has one volume that is attached with the `-v` flag. These are mounted to the Kibana container at the path `/usr/share/kibana/config/`, which is a configuration directory where Kibana looks for configuration files. 
+The Docker command has one volume that is attached with the `-v` flag. These are mounted to the Kibana container at the path `/usr/share/kibana/config/`, which is a configuration directory where Kibana looks for configuration files.
 - The `-p` specifies which port is exposed from the container, and the port you use to access Kibana.
 - The Kibana version should correspond to the version of Elasticsearch you are using.
 
@@ -116,7 +119,7 @@ Visit `http://0.0.0.0:5601` in your browser to see Kibana. `0.0.0.0` is the `ser
 ## Next Steps
 {: #elasticsearch-next-steps}
 
-For more information, see the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html){: external}. 
+For more information, see the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html){: external}.
 
 Looking for more tools on managing your databases and data? You can connect to your deployment with the [IBM Cloud CLI](/docs/cli?topic=cli-install-ibmcloud-cli), the [Cloud Databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference), or the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api).
 
