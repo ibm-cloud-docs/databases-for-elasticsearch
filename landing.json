@@ -1,17 +1,17 @@
 {
     "title": "IBM Cloud® Databases for Elasticsearch docs",
-    "lastupdated": "2023-10-26",
+    "lastupdated": "2023-11-14",
     "introduction": "Elasticsearch combines the power of a full text search engine with the indexing strengths of a JSON document database.",
     "section_devtools": {
-      "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction", 
-      "cli": "/docs/databases-cli-plugin", 
+      "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction",
+      "cli": "/docs/databases-cli-plugin",
       "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database"
     },
     "section_recommended": [
       {
         "title": "Getting Started",
         "description": "A brief tutorial to introduce using an IBM Cloud® Databases for Elasticsearch deployment.",
-        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started-es"
+        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started"
       },
       {
         "title": "Setting the Admin Password",
@@ -39,14 +39,14 @@
           "description": "With this tutorial, deploy Kibana using Code Engine and connect to your Databases for Elasticsearch instance. Kibana is a web interface that allows you to visualise the data in Elasticsearch instances. Code Engine is a a fully managed, serverless platform that allows you to run workloads without worrying about deploying infrastructure. Elasticsearch is a NoSQL database with powerful search capabilities."
         },
         {
-          "date": "11 October 2022",
-          "title": "Protecting IBM Cloud® Databases for Elasticsearch resources with context-based restrictions",
-          "description": "Context-based restrictions (CBR) give account owners and administrators the ability to define and enforce access restrictions for IBM Cloud® resources based on the context of access requests. Access to Cloud Databases resources can be controlled with CBR and identity and access management (IAM) policies."
+          "date": "12 October 2023",
+          "title": "Databases for Elasticsearch v7.17 end of life",
+          "description": "End of life announcement: Version 7.17 reaches end of life 26 April 2024. All Databases for Elasticsearch instances on deprecated versions that are still active will be upgraded in-place to the next major version. We recommend that you upgrade following our backup and restore process before the EOL date of your version."
         },
         {
-          "date": "25 March 2022",
-          "title": "IBM Cloud® Databases for Elasticsearch Security Goals Updated",
-          "description": "Available security and compliance goals updated."
+          "date": "02 October 2023",
+          "title": "Elasticsearch end of life for versions 7.9 and 7.10",
+          "description": "Action is required before 30 November 2023 for your IBM Cloud® Databases for Elasticsearch version 7.9 and 7.10 deployments. On November 30, these versions will be end of life. Our recommended procedure for this is restoring from a backup."
         }
       ]
     }
