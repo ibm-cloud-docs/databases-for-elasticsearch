@@ -1,6 +1,6 @@
 {
   "title": "IBM Cloud® Databases for Elasticsearch docs",
-  "lastupdated": "2023-11-14",
+  "lastupdated": "2023-11-15",
   "introduction": "Elasticsearch combines the power of a full text search engine with the indexing strengths of a JSON document database.",
   "section_devtools": {
     "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction",
@@ -34,19 +34,19 @@
     "view_more": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elasticsearch-relnotes",
     "tiles": [
       {
-        "date": "26 October 2023",
-        "title": "Deploy Kibana using Code Engine and connect to your Databases for Elasticsearch instance",
-        "description": "With this tutorial, deploy Kibana using Code Engine and connect to your Databases for Elasticsearch instance. Kibana is a web interface that allows you to visualise the data in Elasticsearch instances. Code Engine is a a fully managed, serverless platform that allows you to run workloads without worrying about deploying infrastructure. Elasticsearch is a NoSQL database with powerful search capabilities."
+        "date": "15 November 2023",
+        "title": "IBM Cloud® Databases for Elasticsearch Plans",
+        "description": "Cloud Databases offers two Elasticsearch services: Databases for Elasticsearch Enterprise and Databases for Elasticsearch Platinum. Both plans provide you with a fully managed and scalable Elasticsearch service, allowing you to focus on your applications and data rather than the underlying infrastructure. Databases for Elasticsearch Enterprise Plan deploys the Basic version of Elasticsearch. Databases for Elasticsearch Platinum Plan deploys the Platinum version of Elasticsearch."
       },
       {
-        "date": "12 October 2023",
-        "title": "Databases for Elasticsearch v7.17 end of life",
-        "description": "End of life announcement: Version 7.17 reaches end of life 26 April 2024. All Databases for Elasticsearch instances on deprecated versions that are still active will be upgraded in-place to the next major version. We recommend that you upgrade following our backup and restore process before the EOL date of your version."
+        "date": "15 November 2023",
+        "title": "Databases for Elasticsearch Pricing",
+        "description": "The Databases for Elasticsearch Platinum Plan provisions the Platinum version of Elasticsearch. This plan offers all the features of our Enterprise Plan, plus premium features like the ability to run machine learning workloads, including Elastic's own Elastic Learned Sparse Encoder for semantic search. Our Platinum Plan also includes enhanced security features, like document- and field-level security. See a full comparison of Enterprise and Platinum plans at Databases for Elasticsearch Plans."
       },
       {
-        "date": "02 October 2023",
-        "title": "Elasticsearch end of life for versions 7.9 and 7.10",
-        "description": "Action is required before 30 November 2023 for your IBM Cloud® Databases for Elasticsearch version 7.9 and 7.10 deployments. On November 30, these versions will be end of life. Our recommended procedure for this is restoring from a backup."
+        "date": "15 November 2023",
+        "title": "Using Databases for Elasticsearch with machine learning models to tag content",
+        "description": "Databases for Elasticsearch supports machine learning workloads. In this tutorial, you learn how to provision a machine learning model to a Databases for Elasticsearch instance and then use it to extract meaningful additional information from a test data set."
       }
     ]
   }
