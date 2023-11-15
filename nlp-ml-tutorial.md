@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-11-06"
+lastupdated: "2023-11-15"
 
 keywords: machine learning, elasticsearch, artificial intelligence, ai, model
 
@@ -24,7 +24,7 @@ completion-time: 30m
 ## Objectives
 {: #disk-util-alert-tutorial-objectives}
 
-{{site.data.keyword.databases-for}} supports machine learning workloads. In this tutorial, you learn how to provision a machine learning model to a {{site.data.keyword.databases-for-elasticsearch}} instance and then use it to extract meaningful additional information from a test data set. Only some basic knowledge of terminal commands is required to provision and understand this tutorial.
+{{site.data.keyword.databases-for-elasticsearch}} supports machine learning workloads. In this tutorial, you learn how to provision a machine learning model to a {{site.data.keyword.databases-for-elasticsearch}} instance and then use it to extract meaningful additional information from a test data set. Only some basic knowledge of terminal commands is required to provision and understand this tutorial.
 
 [Machine learning]((https://www.ibm.com/topics/machine-learning)){: external} is a branch of artificial intelligence (AI) and computer science that focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy. By using statistical methods, algorithms are trained to make classifications or predictions, and to uncover key insights in data mining projects.
 
@@ -176,4 +176,11 @@ There is a `body.json` file in the `scripts` directory that you can play around 
 ## Conclusion
 {: #nlp-ml-tutorial-conclusion}
 
-This tutorial shows how to use {{site.data.keyword.databases-for}} to harness the power of machine learning to generate valuable additional information from your data. We hope you can use it as a springboard to explore other ways to augment and create value from your data.
+This tutorial shows how to use {{site.data.keyword.databases-for-elasticsearch}} to harness the power of machine learning to generate valuable additional information from your data. We hope you can use it as a springboard to explore other ways to augment and create value from your data.
+
+To stop incurring charges, don't forget to remove all your deployed infrastructure. In your terraform directory, use the command:
+
+```sh
+terraform destroy
+```
+{: pre}
