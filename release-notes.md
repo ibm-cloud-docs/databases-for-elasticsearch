@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-10-26"
+lastupdated: "2023-11-15"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 15 November 2023
+{: #databases-for-elasticsearch-15nov2023}
+{: release-note}
+
+{{site.data.keyword.databases-for-elasticsearch}} Platinum Plan released
+:  {{site.data.keyword.databases-for-elasticsearch}} Platinum Platinum Plan offers all the features of the Enterprise Plan, plus a richer array of functionality around integrations (connectors and web crawlers), security features (logging and access control), and document-level security, among others. For more infomation, see [{{site.data.keyword.databases-for-elasticsearch}} Plans](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elastic-offerings){: external}.
 
 ## 26 October 2023
 {: #databases-for-elasticsearch-26oct2023}
@@ -117,7 +124,7 @@ Protecting {{site.data.keyword.databases-for-elasticsearch_full}} resources with
 {: #databases-for-elasticsearch-20feb2020}
 {: release-note}
 
-{{site.data.keyword.databases-for-elasticsearch_full}} customers are now able to scale their {{site.data.keyword.databases-for-elasticsearch_full}} instances up to 20 members. 
+{{site.data.keyword.databases-for-elasticsearch_full}} customers are now able to scale their {{site.data.keyword.databases-for-elasticsearch_full}} instances up to 20 members.
 :  This new feature allows Elasticsearch instances to now grow to 2.2TB RAM, 80 TB of Disk, and 560 vCPUs.  See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/databases-for-elasticsearch-introduces-horizontal-scaling).
 
 ## 6 August 2019
