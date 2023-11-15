@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2023
-lastupdated: "2023-04-17"
+lastupdated: "2023-11-15"
 
 keywords: elasticsearch disk i/o, monitoring elasticsearch, metrics, cluster status, JVM heap
 
@@ -15,7 +15,7 @@ subcollection: databases-for-elasticsearch
 # Monitoring Integration
 {: #monitoring}
 
-Monitoring for {{site.data.keyword.databases-for-elasticsearch_full}} deployments is provided through integration with the {{site.data.keyword.monitoringfull}} service. Your deployments forward select information so you can monitor deployment health and resource usage. To see your {{site.data.keyword.databases-for-elasticsearch}} dashboards in {{site.data.keyword.monitoringfull_notm}}, you must [Enable Platform Metrics](/docs/monitoring?topic=monitoring-platform_metrics_enabling) in the same region as your deployment. If you have deployments in more than one region, you must provision {{site.data.keyword.monitoringfull_notm}} and enable platform metrics in each region.
+Monitoring for {{site.data.keyword.databases-for-elasticsearch}} deployments is provided through integration with the {{site.data.keyword.monitoringfull}} service. Your deployments forward select information so you can monitor deployment health and resource usage. To see your {{site.data.keyword.databases-for-elasticsearch}} dashboards in {{site.data.keyword.monitoringfull_notm}}, you must [Enable Platform Metrics](/docs/monitoring?topic=monitoring-platform_metrics_enabling) in the same region as your deployment. If you have deployments in more than one region, you must provision {{site.data.keyword.monitoringfull_notm}} and enable platform metrics in each region.
 
 To access {{site.data.keyword.monitoringfull_notm}} from your deployment, use the _Monitoring_ link from the right menu. (If you do not already have a monitoring service in the same region as your deployment it says _Add monitoring_.)
 
@@ -30,7 +30,7 @@ To access your deployment's monitoring dashboard from {{site.data.keyword.monito
 
 {{site.data.keyword.monitoringfull_notm}} is available for deployments in every region. Deployments in Multi-zone Regions (MZRs) - `eu-gb`, `eu-de`, `us-east`, `us-south`, `jp-tok`, `au-syd` - have their metrics in the corresponding region.
 
-If you have deployments that are in Single-zone Region (SZR) `che01` then your logs are forwarded to an {{site.data.keyword.monitoringfull_notm}} instance in another region. You need to provision monitoring instances in the region where your metrics are forwarded to. Metrics for deployments in `che01` go to `jp-tok`. 
+If you have deployments that are in Single-zone Region (SZR) `che01` then your logs are forwarded to an {{site.data.keyword.monitoringfull_notm}} instance in another region. You need to provision monitoring instances in the region where your metrics are forwarded to. Metrics for deployments in `che01` go to `jp-tok`.
 
 ## Available Metrics
 {: #metrics-by-plan}
@@ -38,21 +38,21 @@ If you have deployments that are in Single-zone Region (SZR) `che01` then your l
 | Metric Name |
 |-----------|
 | [Cluster status](#ibm_databases_for_elasticsearch_cluster_status) |
-| [Disk read latency mean](#ibm_databases_for_elasticsearch_disk_read_latency_mean) | 
-| [Disk write latency mean](#ibm_databases_for_elasticsearch_disk_write_latency_mean) | 
+| [Disk read latency mean](#ibm_databases_for_elasticsearch_disk_read_latency_mean) |
+| [Disk write latency mean](#ibm_databases_for_elasticsearch_disk_write_latency_mean) |
 | [GC Percentage](#ibm_databases_for_elasticsearch_garbage_collection_percent_average_15m)|
 | [IO usage as a percent -  5-minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_5m) |
-| [IO usage as a percent - 15-minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_15m) | 
-| [IO usage as a percent - 30-minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_30m) | 
-| [IO usage as a percent - 60-minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_60m) | 
-| [IOPS read and write total count for an instance.](#ibm_databases_for_elasticsearch_disk_iops_read_write_total) | 
-| [Max allowed memory for an instance.](#ibm_databases_for_elasticsearch_memory_limit_bytes) | 
-| [The number of unassigned shards.](#ibm_databases_for_elasticsearch_unassigned_shards_total) | 
-| [Total disk space for an instance.](#ibm_databases_for_elasticsearch_disk_total_bytes) | 
-| [Used CPU for an instance.](#ibm_databases_for_elasticsearch_cpu_used_percent) | 
-| [Used JVM heap for a database member of the instance in percent.](#ibm_databases_for_elasticsearch_jvm_heap_percent) | 
-| [Used disk space for an instance.](#ibm_databases_for_elasticsearch_disk_used_bytes) | 
-| [Used memory for an instance.](#ibm_databases_for_elasticsearch_memory_used_bytes) | 
+| [IO usage as a percent - 15-minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_15m) |
+| [IO usage as a percent - 30-minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_30m) |
+| [IO usage as a percent - 60-minute average](#ibm_databases_for_elasticsearch_disk_io_utilization_percent_average_60m) |
+| [IOPS read and write total count for an instance.](#ibm_databases_for_elasticsearch_disk_iops_read_write_total) |
+| [Max allowed memory for an instance.](#ibm_databases_for_elasticsearch_memory_limit_bytes) |
+| [The number of unassigned shards.](#ibm_databases_for_elasticsearch_unassigned_shards_total) |
+| [Total disk space for an instance.](#ibm_databases_for_elasticsearch_disk_total_bytes) |
+| [Used CPU for an instance.](#ibm_databases_for_elasticsearch_cpu_used_percent) |
+| [Used JVM heap for a database member of the instance in percent.](#ibm_databases_for_elasticsearch_jvm_heap_percent) |
+| [Used disk space for an instance.](#ibm_databases_for_elasticsearch_disk_used_bytes) |
+| [Used memory for an instance.](#ibm_databases_for_elasticsearch_memory_used_bytes) |
 {: caption="Table 1. Available Metrics Reference Table" caption-side="top"}
 
 ### Cluster status
@@ -77,6 +77,7 @@ Disk read latency mean
 |----------|-------------|
 | `Metric Name` | `ibm_databases_for_elasticsearch_disk_read_latency_mean`|
 | `Metric Type` | `gauge` |
+| `Frequency` | `60ms` |
 | `Value Type`  | `count` |
 | `Segment By` | `Service instance` |
 {: caption="Table 3: Disk read latency mean metric metadata" caption-side="top"}
@@ -90,6 +91,7 @@ Disk write latency mean
 |----------|-------------|
 | `Metric Name` | `ibm_databases_for_elasticsearch_disk_write_latency_mean`|
 | `Metric Type` | `gauge` |
+| `Frequency` | `60ms` |
 | `Value Type`  | `count` |
 | `Segment By` | `Service instance` |
 {: caption="Table 4: Disk write latency mean metric metadata" caption-side="top"}
@@ -291,4 +293,3 @@ The following attributes are available for segmenting one or more attributes as 
 | `Service instance name` | `ibm_service_instance_name` | The service instance name provides the user-provided name of the service instance, which isn't necessarily a unique value depending on the name that is provided by the user. |
 | `Resource group` | `ibm_resource_group_name` | The resource group where the service instance was created. |
 {: caption="Table 18. Additional Attributes" caption-side="top"}
-
