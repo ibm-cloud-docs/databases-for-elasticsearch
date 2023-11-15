@@ -177,3 +177,10 @@ There is a `body.json` file in the `scripts` directory that you can play around 
 {: #nlp-ml-tutorial-conclusion}
 
 This tutorial shows how to use {{site.data.keyword.databases-for-elasticsearch}} to harness the power of machine learning to generate valuable additional information from your data. We hope you can use it as a springboard to explore other ways to augment and create value from your data.
+
+To stop incurring charges, don't forget to remove all your deployed infrastructure. In your terraform directory, use the command:
+
+```sh
+terraform destroy
+```
+{: pre}
