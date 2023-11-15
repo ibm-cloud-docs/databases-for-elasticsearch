@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023
-lastupdated: "2023-11-06"
+lastupdated: "2023-11-15"
 
 keywords: machine learning, elasticsearch, artificial intelligence, ai, model
 
@@ -24,7 +24,7 @@ completion-time: 30m
 ## Objectives
 {: #disk-util-alert-tutorial-objectives}
 
-{{site.data.keyword.databases-for}} supports machine learning workloads. In this tutorial, you learn how to provision a machine learning model to a {{site.data.keyword.databases-for-elasticsearch}} instance and then use it to extract meaningful additional information from a test data set. Only some basic knowledge of terminal commands is required to provision and understand this tutorial.
+{{site.data.keyword.databases-for-elasticsearch}} supports machine learning workloads. In this tutorial, you learn how to provision a machine learning model to a {{site.data.keyword.databases-for-elasticsearch}} instance and then use it to extract meaningful additional information from a test data set. Only some basic knowledge of terminal commands is required to provision and understand this tutorial.
 
 [Machine learning]((https://www.ibm.com/topics/machine-learning)){: external} is a branch of artificial intelligence (AI) and computer science that focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy. By using statistical methods, algorithms are trained to make classifications or predictions, and to uncover key insights in data mining projects.
 
@@ -44,7 +44,7 @@ This tutorial guides you through the process of:
 
 - Querying the augmented data to see the results of the model on the data.
 
-## Getting productive 
+## Getting productive
 {: #nlp-ml-tutorial-getting-started}
 
 To begin the provisioning process, install some must-have productivity tools:
@@ -96,7 +96,7 @@ Provision your {{site.data.keyword.databases-for-elasticsearch}} instance.
 1. Install the infrastructure with the following command:
 
    ```sh
-   terraform init 
+   terraform init
    terraform apply --auto-approve
    ```
    {: pre}
@@ -149,7 +149,7 @@ export ES="https://admin:${ES_PASSWORD}@${ES_HOST}:${ES_PORT}"
 ```
 {: pre}
 
-## Query your data 
+## Query your data
 {: #nlp-ml-tutorial-query-data}
 {: step}
 
@@ -176,4 +176,4 @@ There is a `body.json` file in the `scripts` directory that you can play around 
 ## Conclusion
 {: #nlp-ml-tutorial-conclusion}
 
-This tutorial shows how to use {{site.data.keyword.databases-for}} to harness the power of machine learning to generate valuable additional information from your data. We hope you can use it as a springboard to explore other ways to augment and create value from your data.
+This tutorial shows how to use {{site.data.keyword.databases-for-elasticsearch}} to harness the power of machine learning to generate valuable additional information from your data. We hope you can use it as a springboard to explore other ways to augment and create value from your data.
