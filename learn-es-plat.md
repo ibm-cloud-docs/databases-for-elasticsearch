@@ -3,7 +3,7 @@ copyright:
   years: 2023
 lastupdated: "2023-11-16"
 
-keywords: elasticsearch enterprise, elasticsearch platinum, elasticsearch plans
+keywords: elasticsearch enterprise, elasticsearch platinum, elasticsearch plans, features
 
 subcollection: databases-for-elasticsearch
 
