@@ -1,6 +1,6 @@
 {
   "title": "IBM Cloud® Databases for Elasticsearch docs",
-  "lastupdated": "2023-11-15",
+  "lastupdated": "2023-11-22",
   "introduction": "Elasticsearch combines the power of a full text search engine with the indexing strengths of a JSON document database.",
   "section_devtools": {
     "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction",
