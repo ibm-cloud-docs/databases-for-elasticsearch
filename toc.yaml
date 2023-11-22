@@ -68,6 +68,9 @@ toc:
           label: Logging and monitoring
           topics:
           - link:
+              label: Monitoring Integration
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-monitoring
+          - link:
               label: Activity Tracker Integration
               href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-activity-tracker
           - link:
