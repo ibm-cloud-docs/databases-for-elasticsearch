@@ -32,7 +32,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: release-note}
 
 Deploy Kibana using Code Engine and connect to your {{site.data.keyword.databases-for-elasticsearch}} instance
-:  With this tutorial, deploy Kibana using Code Engine and connect to your Databases for Elasticsearch instance. Kibana is a web interface that allows you to visualise the data in Elasticsearch instances. Code Engine is a a fully managed, serverless platform that allows you to run workloads without worrying about deploying infrastructure. Elasticsearch is a NoSQL database with powerful search capabilities. For more infomation, see [Deploy Kibana using Code Engine and connect to your {{site.data.keyword.databases-for-elasticsearch}} instance](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-kibana-code-engine-icd-elasticsearch){: external}.
+:  With this tutorial, deploy Kibana using Code Engine and connect to your Databases for Elasticsearch instance. Kibana is a web interface that allows you to visualize the data in Elasticsearch instances. Code Engine is a fully managed, serverless platform that allows you to run workloads without worrying about deploying infrastructure. Elasticsearch is a NoSQL database with powerful search capabilities. For more information, see [Deploy Kibana using Code Engine and connect to your {{site.data.keyword.databases-for-elasticsearch}} instance](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-kibana-code-engine-icd-elasticsearch){: external}.
 
 ## 12 October 2023
 {: #databases-for-elasticsearch-12oct2023}
@@ -48,7 +48,7 @@ For more information, see [Upgrading to a new Major Version](/docs/databases-for
 {: release-note}
 
 Elasticsearch end of life for versions 7.9 and 7.10
-:  Action is required before 30 November 2023 for your {{site.data.keyword.databases-for-elasticsearch_full}} version 7.9 and 7.10 deployments. On November 30, these versions will be end of life. Our recommended procedure for this is restoring from a backup. For more information, see [Managing {{site.data.keyword.databases-for}} backups](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups).
+:  Action is required before 30 November 2023 for your {{site.data.keyword.databases-for-elasticsearch_full}} version 7.9 and 7.10 deployments. On 30 November 2023, these versions will be end of life. Our recommended procedure for this is restoring from a backup. For more information, see [Managing {{site.data.keyword.databases-for}} backups](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-backups).
 
 ## 18 September 2023
 {: #databases-for-elasticsearch-18sept2023}
@@ -125,7 +125,7 @@ Protecting {{site.data.keyword.databases-for-elasticsearch_full}} resources with
 {: release-note}
 
 {{site.data.keyword.databases-for-elasticsearch_full}} customers are now able to scale their {{site.data.keyword.databases-for-elasticsearch_full}} instances up to 20 members.
-:  This new feature allows Elasticsearch instances to now grow to 2.2TB RAM, 80 TB of Disk, and 560 vCPUs.  See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/databases-for-elasticsearch-introduces-horizontal-scaling).
+:  This new feature allows Elasticsearch instances to now grow to 2.2 TB RAM, 80 TB of Disk, and 560 vCPUs. For more information, see [Databases for Elasticsearch Introduces Horizontal Scaling](https://www.ibm.com/cloud/blog/announcements/databases-for-elasticsearch-introduces-horizontal-scaling).
 
 ## 6 August 2019
 {: #databases-for-elasticsearch-06aug2019}
