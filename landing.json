@@ -34,6 +34,11 @@
     "view_more": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elasticsearch-relnotes",
     "tiles": [
       {
+        "date": "22 November 2023",
+        "title": "Monitoring Integreation documentation updated",
+        "description": "Monitoring Integration documentation now lists metrics for all Cloud Databases services."
+      },
+      {
         "date": "15 November 2023",
         "title": "IBM Cloud® Databases for Elasticsearch Plans",
         "description": "Cloud Databases offers two Elasticsearch services: Databases for Elasticsearch Enterprise and Databases for Elasticsearch Platinum. Both plans provide you with a fully managed and scalable Elasticsearch service, allowing you to focus on your applications and data rather than the underlying infrastructure. Databases for Elasticsearch Enterprise Plan deploys the Basic version of Elasticsearch. Databases for Elasticsearch Platinum Plan deploys the Platinum version of Elasticsearch."
@@ -42,11 +47,6 @@
         "date": "15 November 2023",
         "title": "Databases for Elasticsearch Pricing",
         "description": "The Databases for Elasticsearch Platinum Plan provisions the Platinum version of Elasticsearch. This plan offers all the features of our Enterprise Plan, plus premium features like the ability to run machine learning workloads, including Elastic's own Elastic Learned Sparse Encoder for semantic search. Our Platinum Plan also includes enhanced security features, like document- and field-level security. See a full comparison of Enterprise and Platinum plans at Databases for Elasticsearch Plans."
-      },
-      {
-        "date": "15 November 2023",
-        "title": "Using Databases for Elasticsearch with machine learning models to tag content",
-        "description": "Databases for Elasticsearch supports machine learning workloads. In this tutorial, you learn how to provision a machine learning model to a Databases for Elasticsearch instance and then use it to extract meaningful additional information from a test data set."
       }
     ]
   }
