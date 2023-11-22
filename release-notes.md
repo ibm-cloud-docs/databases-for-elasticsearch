@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-11-15"
+lastupdated: "2023-11-22"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -25,7 +25,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: release-note}
 
 {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan released
-:  {{site.data.keyword.databases-for-elasticsearch}} Platinum Platinum Plan offers all the features of the Enterprise Plan, plus a richer array of functionality around integrations (connectors and web crawlers), security features (logging and access control), and document-level security, among others. For more infomation, see [{{site.data.keyword.databases-for-elasticsearch}} Plans](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elastic-offerings){: external}.
+:  {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan offers all the features of the Enterprise Plan, plus a richer array of functionality around integrations (connectors and web crawlers), security features (logging and access control), and document-level security, among others. For more information, see [{{site.data.keyword.databases-for-elasticsearch}} Plans](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elastic-offerings){: external}.
 
 ## 26 October 2023
 {: #databases-for-elasticsearch-26oct2023}
