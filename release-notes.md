@@ -20,6 +20,13 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
 
+## 22 November 2023
+{: #databases-for-elasticsearch-22nov2023}
+{: release-note}
+
+Monitoring Integreation documentation updated
+:  Monitoring Integration documentation now lists metrics for all {{site.data.keyword.databases-for}} services. For more information, see [Monitoring Integration](/docs/cloud-databases?topic=cloud-databases-monitoring){: external}.
+
 ## 15 November 2023
 {: #databases-for-elasticsearch-15nov2023}
 {: release-note}
