@@ -10,8 +10,8 @@ toc:
     product-page: https://www.ibm.com/cloud/databases-for-elasticsearch
     path: databases-for-elasticsearch
     label: Databases For Elasticsearch
-  entries: 
-  - navgroup: 
+  entries:
+  - navgroup:
       id: learn
       topics:
       - link:
@@ -19,12 +19,12 @@ toc:
           href: https://cloud.ibm.com/docs/cloud-databases
       - getting-started.md
       - learn-es-plat.md
-      - learn-dashboard-overview.md 
-      - learn-high-availability.md 
-      - learn-performance.md 
+      - learn-dashboard-overview.md
+      - learn-high-availability.md
+      - learn-performance.md
       - learn-pricing.md
       - release-notes.md
-  - navgroup: 
+  - navgroup:
       id: howto
       topics:
       - howto-provisioning.md
@@ -41,15 +41,15 @@ toc:
       - link:
           label: Understanding high availability and disaster recovery for Cloud Databases
           href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-ha-dr
-      - topicgroup: 
+      - topicgroup:
           label: Connecting to Databases for Elasticsearch
-          topics: 
+          topics:
           - connecting-external.md
           - connecting-ibmcloud-app.md
           - connecting-curl.md
-      - topicgroup: 
+      - topicgroup:
           label: Managing Resources
-          topics: 
+          topics:
           - howto-resources-scaling.md
           - howto-autoscaling.md
           - howto-horizontal-scaling.md
@@ -59,14 +59,17 @@ toc:
       - link:
           label: Allowlisting
           href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-allowlisting
-      - topicgroup: 
+      - topicgroup:
           label: Configuring Elasticsearch
-          topics: 
+          topics:
           - howto-plugins.md
           - howto-file-uploads.md
-      - topicgroup: 
+      - topicgroup:
           label: Logging and monitoring
           topics:
+          - link:
+              label: Monitoring Integration
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-monitoring
           - link:
               label: Activity Tracker Integration
               href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-activity-tracker
@@ -77,9 +80,9 @@ toc:
               label: IBM Cloud® Monitoring
               href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-sysdig-monitor
           - reference-monitoring.md
-      - topicgroup: 
+      - topicgroup:
           label: Enhancing security
-          topics: 
+          topics:
           - learn-security-compliance.md
           - link:
               label: Managing security and compliance with Cloud Databases
@@ -87,7 +90,7 @@ toc:
           - link:
               label: Protecting Cloud Databases resources with context-based restrictions
               href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-cbr
-  - navgroup: 
+  - navgroup:
       id: tutorial
       topics:
       - topicgroup:
@@ -112,10 +115,10 @@ toc:
           - link:
               label: Setting up disk alerts for disk utilization
               href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-disk-util-alert-tutorial
-  - navgroup: 
+  - navgroup:
       id: reference
       topics:
-      - link: 
+      - link:
           label: What is Elasticsearch?
           href: https://www.ibm.com/cloud/learn/elasticsearch
       - link:
@@ -127,9 +130,9 @@ toc:
       - link:
           label: Cloud Databases API
           href: https://cloud.ibm.com/apidocs/cloud-databases-api
-      - topicgroup: 
+      - topicgroup:
           label: Connecting over Private Networks
-          topics: 
+          topics:
           - link:
               label: Virtual Private Endpoints
               href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-vpes
