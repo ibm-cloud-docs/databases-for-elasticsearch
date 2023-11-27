@@ -5,7 +5,7 @@ toc:
     version: 2
     category: database
     audience: service
-    href: /docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started
+    href: /docs/databases-for-elasticsearch
     console-page: /catalog/databases-for-elasticsearch
     product-page: https://www.ibm.com/cloud/databases-for-elasticsearch
     path: databases-for-elasticsearch
