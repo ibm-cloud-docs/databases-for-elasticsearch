@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2023
-lastupdated: "2023-11-22"
+lastupdated: "2023-11-229"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -24,7 +24,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 {: #databases-for-elasticsearch-22nov2023}
 {: release-note}
 
-Monitoring Integreation documentation updated
+Monitoring Integration documentation updated
 :  Monitoring Integration documentation now lists metrics for all {{site.data.keyword.databases-for}} services. For more information, see [Monitoring Integration](/docs/cloud-databases?topic=cloud-databases-monitoring){: external}.
 
 ## 15 November 2023
