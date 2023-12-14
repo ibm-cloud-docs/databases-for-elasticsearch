@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-11-16"
+lastupdated: "2023-12-14"
 
 keywords: elasticsearch enterprise, elasticsearch platinum, elasticsearch plans, features
 
@@ -62,7 +62,6 @@ For questions regarding specific feature support, submit a [support ticket](http
 | Data Management - Snapshot/restore APIs                                                                                       | x         | x            |
 | Data Management - Snapshot as simple archives                                                                                 |           | x            |
 | Data Management - Snapshot lifecycle management                                                                               | x         | x            |
-| Data Management - Snapshot-based peer recoveries                                                                              |           | x            |
 | Data Management - Data rollups                                                                                                | x         | x            |
 | Data Management - Data streams                                                                                                | x         | x            |
 | Data Management - Index lifecycle management                                                                                  | x         | x            |
@@ -131,4 +130,4 @@ For questions regarding specific feature support, submit a [support ticket](http
 | Elastic Maps - Containment alerts                                                                                             |           | x            |
 | Elastic Maps - Geofencing                                                                                                     |           | x            |
 | Elastic Enterprise Search - Ingestion pipeline management                                                                     |           | x            |
-{: caption="Table 1. Cloud Databases Elasticsearch Plan Features Comparison" caption-side="bottom"}
+{: caption="Table 1. Cloud Databases for Elasticsearch Plan Features Comparison" caption-side="bottom"}
