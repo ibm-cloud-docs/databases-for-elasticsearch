@@ -1,9 +1,9 @@
 ---
 copyright:
   years: 2023
-lastupdated: "2023-10-16"
+lastupdated: "2023-12-14"
 
-keywords: elasticsearch enterprise, elasticsearch platinum
+keywords: elasticsearch enterprise, elasticsearch platinum, elasticsearch plans, features
 
 subcollection: databases-for-elasticsearch
 
@@ -11,7 +11,7 @@ subcollection: databases-for-elasticsearch
 
 {{site.data.keyword.attribute-definition-list}}
 
-# {{site.data.keyword.databases-for-elasticsearch_full}} Plans
+# Plans
 {: #elastic-offerings}
 
 {{site.data.keyword.databases-for}} offers two Elasticsearch services: {{site.data.keyword.databases-for-elasticsearch}} Enterprise and {{site.data.keyword.databases-for-elasticsearch}} Platinum. Both plans provide you with a fully managed and scalable Elasticsearch service, allowing you to focus on your applications and data rather than the underlying infrastructure. {{site.data.keyword.databases-for-elasticsearch}} Enterprise Plan deploys the Basic version of Elasticsearch. {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan deploys the Platinum version of Elasticsearch.
@@ -62,7 +62,6 @@ For questions regarding specific feature support, submit a [support ticket](http
 | Data Management - Snapshot/restore APIs                                                                                       | x         | x            |
 | Data Management - Snapshot as simple archives                                                                                 |           | x            |
 | Data Management - Snapshot lifecycle management                                                                               | x         | x            |
-| Data Management - Snapshot-based peer recoveries                                                                              |           | x            |
 | Data Management - Data rollups                                                                                                | x         | x            |
 | Data Management - Data streams                                                                                                | x         | x            |
 | Data Management - Index lifecycle management                                                                                  | x         | x            |
@@ -131,4 +130,4 @@ For questions regarding specific feature support, submit a [support ticket](http
 | Elastic Maps - Containment alerts                                                                                             |           | x            |
 | Elastic Maps - Geofencing                                                                                                     |           | x            |
 | Elastic Enterprise Search - Ingestion pipeline management                                                                     |           | x            |
-{: caption="Table 1. Cloud Databases Elasticsearch Plan Features Comparison" caption-side="bottom"}
+{: caption="Table 1. Cloud Databases for Elasticsearch Plan Features Comparison" caption-side="bottom"}
