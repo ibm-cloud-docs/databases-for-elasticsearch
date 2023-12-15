@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2023
-lastupdated: "2023-10-26"
+lastupdated: "2023-12-15"
 
 keyowrds: elasticsearch, databases, upgrading, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17, indexes, reindexing, reindex
 
@@ -34,7 +34,7 @@ Before you upgrade your cluster to version 7.x, take the following actions:
 - Review the [breaking changes](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html){: .external} and make any necessary changes to your code and configuration for version 7.x.
 - If you use plug-ins, make sure that each plug-in version is compatible with Elasticsearch version 7.x.
 
-### Index mappings 
+### Index mappings
 {: #index-mappings}
 
 Mapping types are removed in Elasticsearch 7.x and above. Indexes that are created in Elasticsearch 7.x or later no longer accept a *default* mapping. Types are also deprecated in APIs in 7.x. For more information, see [Elasticsearch removal of mapping types](https://www.elastic.co/guide/en/elasticsearch/reference/current/removal-of-types.html){: .external}.
@@ -44,6 +44,11 @@ Mapping types are removed in Elasticsearch 7.x and above. Indexes that are creat
 
 {{site.data.keyword.databases-for-elasticsearch}} indexes are only compatible with the same version or plusOne version from the release on which they are created. Only an explicit reindex operation updates an index to the current database version.
 
+### Connection to Kibana
+{: #kibana-connection}
+
+If you are deploying [Kibana](https://www.elastic.co/kibana/){: external} to connect to your {{site.data.keyword.databases-for-elasticsearch}} instance, remember that the version of Kibana that you deploy must match the version of your Elasticsearch instance. Provision a new version of Kibana to maintain connectivity with your upgraded instance.
+
 ## Upgrading in the UI
 {: #upgrading-ui}
 {: ui}
@@ -51,7 +56,7 @@ Mapping types are removed in Elasticsearch 7.x and above. Indexes that are creat
 To upgrade from Elasticsearch 7.9/7.10 to version 7.17, you must change your plan from Standard to Enterprise. Change your plan by clicking *Restore* on the Provisioning page on the backup that you want to restore, then select 7.17 from the dropdown.
 {: important}
 
-Upgrade to a new version when [restoring a backup](/docs/cloud-databases?topic=cloud-databases-dashboard-backups&interface=ui#restore-backup) from the **Backups** tab of your *Deployment Overview*. Click **Restore** on a backup. This brings up a dialog box where you can change some options for the new deployment. One of the options is the Database Version, which is auto-populated with the versions available to you. Select a version and click **Restore** to start the provision and restore process. 
+Upgrade to a new version when [restoring a backup](/docs/cloud-databases?topic=cloud-databases-dashboard-backups&interface=ui#restore-backup) from the **Backups** tab of your *Deployment Overview*. Click **Restore** on a backup. This brings up a dialog box where you can change some options for the new deployment. One of the options is the Database Version, which is auto-populated with the versions available to you. Select a version and click **Restore** to start the provision and restore process.
 
 ## Upgrading through the CLI
 {: #upgrading-cli}
@@ -105,7 +110,7 @@ curl -X POST \
 ## Migration Notes for New Elasticsearch 7.x Users
  {: #migration-notes}
 
-As in previous version upgrades, there are many changes. For more information, see [Elastic documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html){: .external}. 
+As in previous version upgrades, there are many changes. For more information, see [Elastic documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html){: .external}.
 
 ## Retrieve and update user passwords
 {: #esupgrade-retrieve-update-user-passwords}
@@ -115,7 +120,7 @@ As in previous version upgrades, there are many changes. For more information, s
 
 A restore to Elasticsearch 7.17 invalidates existing user passwords. Existing user passwords must be reset after the restore. Follow this procedure to list all users and change user passwords.
 
-First, run the [ibmcloud plug-in update](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_update) command: 
+First, run the [ibmcloud plug-in update](https://cloud.ibm.com/docs/cli?topic=cli-ibmcloud_commands_settings#ibmcloud_plugin_update) command:
 
 ```sh
 ibmcloud plugin update cloud-databases
@@ -136,7 +141,7 @@ ibmcloud cloud-databases es user-list --help
 ```
 {: pre}
 
-The `user-list` command output looks like: 
+The `user-list` command output looks like:
 
 ```screen
 ibmcloud cloud-databases es user-list --help
@@ -145,14 +150,14 @@ NAME:
 
 USAGE:
   ibmcloud cdb elasticsearch user-list (NAME|ID) (ADMIN_PASSWORD) [--json] [-c DIRECTORY] [--api-version]
-  
+
 OPTIONS:
   --json, -j         --json, -j                     Results as JSON.
   --certroot, -c     --certroot value, -c value     Certificate Root. (default: "< >") [$CERTROOT]
   --api-version, -v  --api-version value, -v value  API Version used for request.
 ```
 
-Before running the command to update user passwords, ensure that you have updated the admin password. For more information, see [Setting the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-user-management&interface=ui#user-management-set-admin-password-ui&interface=cli). Then, run the following command: 
+Before running the command to update user passwords, ensure that you have updated the admin password. For more information, see [Setting the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-user-management&interface=ui#user-management-set-admin-password-ui&interface=cli). Then, run the following command:
 
 ```sh
 ibmcloud cloud-databases es user-list <formation_name> <admin_password>
@@ -161,10 +166,10 @@ ibmcloud cloud-databases es user-list <formation_name> <admin_password>
 
 If this command is run without the `--json` option, the plug-in `user-list` also prints the reset password commands for all users.
 
-The `user-list` command output looks like: 
+The `user-list` command output looks like:
 
 ```screen
-ibmcloud cloud-databases es user-list es-akshay-res-717-new 12345678987654321   
+ibmcloud cloud-databases es user-list es-akshay-res-717-new 12345678987654321
 Getting user list for es-akshay-res-717-new...
 8 user accounts are present in the Elasticsearch credential store:
 Username                                         Fullname         Email
@@ -177,7 +182,7 @@ ibm_cloud_7052ee45_d702_4073_aea2_a5435989568e
 ibm_cloud_29075661_76d0_405a_9619_480eb7a173d4
 ibm_cloud_eb148643_099a_4334_a88a_f2e5e1f8ccdd
 
-You can use these commands to set new passwords for them: 
+You can use these commands to set new passwords for them:
 ibmcloud cdb deployment-user-password "es-akshay-res-717-new" fred
 
 ibmcloud cdb deployment-user-password "es-akshay-res-717-new" admin
