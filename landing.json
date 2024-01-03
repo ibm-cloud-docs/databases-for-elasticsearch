@@ -1,6 +1,6 @@
 {
   "title": "IBM Cloud® Databases for Elasticsearch docs",
-  "lastupdated": "2023-11-22",
+  "lastupdated": "2024-01-03",
   "introduction": "Elasticsearch combines the power of a full text search engine with the indexing strengths of a JSON document database.",
   "section_devtools": {
     "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction",
@@ -34,19 +34,19 @@
     "view_more": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elasticsearch-relnotes",
     "tiles": [
       {
+        "date": "03 January 2024",
+        "title": "Elasticsearch, machine learning, and AI",
+        "description": "Elasticsearch, a robust search-capable database, is well-suited to seamlessly incorporate essential ML features sought by enterprises embracing new technologies."
+      },
+      {
         "date": "22 November 2023",
-        "title": "Monitoring Integreation documentation updated",
+        "title": "Monitoring Integration documentation updated",
         "description": "Monitoring Integration documentation now lists metrics for all Cloud Databases services."
       },
       {
         "date": "15 November 2023",
         "title": "IBM Cloud® Databases for Elasticsearch Plans",
         "description": "Cloud Databases offers two Elasticsearch services: Databases for Elasticsearch Enterprise and Databases for Elasticsearch Platinum. Both plans provide you with a fully managed and scalable Elasticsearch service, allowing you to focus on your applications and data rather than the underlying infrastructure. Databases for Elasticsearch Enterprise Plan deploys the Basic version of Elasticsearch. Databases for Elasticsearch Platinum Plan deploys the Platinum version of Elasticsearch."
-      },
-      {
-        "date": "15 November 2023",
-        "title": "Databases for Elasticsearch Pricing",
-        "description": "The Databases for Elasticsearch Platinum Plan provisions the Platinum version of Elasticsearch. This plan offers all the features of our Enterprise Plan, plus premium features like the ability to run machine learning workloads, including Elastic's own Elastic Learned Sparse Encoder for semantic search. Our Platinum Plan also includes enhanced security features, like document- and field-level security. See a full comparison of Enterprise and Platinum plans at Databases for Elasticsearch Plans."
       }
     ]
   }
