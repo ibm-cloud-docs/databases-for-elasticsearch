@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-11-229"
+  years: 2018, 2024
+lastupdated: "2024-01-03"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 03 January 2024
+{: #databases-for-elasticsearch-03jan2024}
+{: release-note}
+
+Elasticsearch, machine learning, and AI
+:  Elasticsearch, a robust search-capable database, is well-suited to seamlessly incorporate essential ML features sought by enterprises embracing new technologies. For more information, see [Elasticsearch, machine learning, and AI](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-es-ml-ai){: external}.
 
 ## 22 November 2023
 {: #databases-for-elasticsearch-22nov2023}
