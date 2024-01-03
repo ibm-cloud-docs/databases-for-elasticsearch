@@ -19,6 +19,7 @@ toc:
           href: https://cloud.ibm.com/docs/cloud-databases
       - getting-started.md
       - learn-es-plat.md
+      - learn-es-ml.md
       - learn-dashboard-overview.md
       - learn-high-availability.md
       - learn-performance.md
