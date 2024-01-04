@@ -155,7 +155,13 @@ toc:
   - navgroup:
       id: help
       topics:
-      - ts-connect.md
+      - topicgroup:
+          label: Troubleshooting
+          topics:
+          - ts-connect.md
+          - link:
+              label: Why did my Terraform script delete my instance?
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-troubleshoot-terraform
       - topicgroup:
           label: FAQs
           topics:
