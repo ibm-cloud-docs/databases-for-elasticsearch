@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-10-16"
+  years: 2019, 2024
+lastupdated: "2024-01-05"
 
 keywords: provision cloud databases, terraform, provisioning parameters, cli, resource controller api, provision elasticsearch
 
@@ -45,7 +45,7 @@ After you select the appropriate settings, click **Create** to start the provisi
 Before provisioning, follow the instructions provided in the documentation to install the [{{site.data.keyword.cloud_notm}} CLI tool](https://www.ibm.com/cloud/cli){: external}.
 
 1. Log in to {{site.data.keyword.cloud_notm}}. If you use a federated user ID, it's important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API ke(`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in by using the CLI, see [General CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login){: external} under `ibmcloud login`.
-   
+
       ```sh
       ibmcloud login
       ```
@@ -58,7 +58,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    ibmcloud resource service-instance-create <INSTANCE_NAME> <SERVICE_NAME> <SERVICE_PLAN_NAME> <LOCATION> <SERVICE_ENDPOINTS_TYPE> <RESOURCE_GROUP>
    ```
    {: pre}
-   
+
    The fields in the command are described in the table that follows.
    | Field | Description | Flag |
    |-------|------------|------------|
@@ -70,14 +70,14 @@ Before provisioning, follow the instructions provided in the documentation to in
    | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
    | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
    {: caption="Table 1. Basic command format fields" caption-side="top"}
-   
-   You will see a response like: 
-   
+
+   You will see a response like:
+
    ```text
    Creating service instance INSTANCE_NAME in resource group default of account    USER...
    OK
    Service instance INSTANCE_NAME was created.
-                        
+
    Name:                INSTANCE_NAME
    ID:                  crn:v1:bluemix:public:databases-for-elasticsearch:us-east:a/   40ddc34a846383BGB5b60e:dd13152c-fe15-4bb6-af94-fde0af5303f4::
    GUID:                dd13152c-fe15-4bb6-af94-fde0af56897
@@ -90,7 +90,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    Locked:              false
    Created at:          2023-06-26T19:42:07Z
    Updated at:          2023-06-26T19:42:07Z
-   Last Operation:                
+   Last Operation:
                         Status    create in progress
                         Message   Started create instance operation
    ```
@@ -103,12 +103,12 @@ Before provisioning, follow the instructions provided in the documentation to in
    ```
    {: pre}
 
-   When complete, you will see a response like: 
-   
+   When complete, you will see a response like:
+
    ```text
    Retrieving service instance INSTANCE_NAME in resource group default under account USER's Account as USER...
    OK
-                          
+
    Name:                  INSTANCE_NAME
    ID:                    crn:v1:bluemix:public:databases-for-elasticsearch:us-east:a/40ddc34a953a8c02f109835656860e:dd13152c-fe15-4bb6-af94-fde0af5303f4::
    GUID:                  dd13152c-fe15-4bb6-af94-fde5654765
@@ -124,7 +124,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    Created at:            2023-06-26T19:42:07Z
    Created by:            USER
    Updated at:            2023-06-26T19:53:25Z
-   Last Operation:                  
+   Last Operation:
                           Status    create succeeded
                           Message   Provisioning elasticsearch with version 7.17 (100%)
    ```
@@ -164,7 +164,7 @@ Follow these steps to provision using the [Resource Controller API](https://clou
 1. Obtain an [IAM token from your API token](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#authentication){: external}.
 1. You need to know the ID of the resource group that you would like to deploy to. This information is available through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-ibmcloud_commands_resource#ibmcloud_resource_groups).
 
-   Use a command like: 
+   Use a command like:
    ```sh
    ibmcloud resource groups
    ```
@@ -172,9 +172,9 @@ Follow these steps to provision using the [Resource Controller API](https://clou
 
 1. You need to know the region you would like to deploy to.
 
-   To list all of the regions that deployments can be provisioned into from the current region, use the [{{site.data.keyword.databases-for}} CLI plug-in](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference){: external}. 
-   
-   The command looks like: 
+   To list all of the regions that deployments can be provisioned into from the current region, use the [{{site.data.keyword.databases-for}} CLI plug-in](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference){: external}.
+
+   The command looks like:
 
    ```sh
    ibmcloud cdb regions --json
@@ -183,7 +183,7 @@ Follow these steps to provision using the [Resource Controller API](https://clou
 
 
    Once you have all the information, [provision a new resource instance](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#create-resource-instance){: external} with    the {{site.data.keyword.cloud_notm}} Resource Controller.
-   
+
    ```sh
    curl -X POST \
      https://resource-controller.cloud.ibm.com/v2/resource_instances \
@@ -208,8 +208,8 @@ Follow these steps to provision using the [Resource Controller API](https://clou
 * `backup_id`- A CRN of a backup resource to restore from. The backup must be created by a database deployment with the same service ID. The backup is loaded after provisioning and the new deployment starts up that uses that data. A backup CRN is in the format `crn:v1:<...>:backup:<uuid>`. If omitted, the database is provisioned empty.
 * `version` - The version of the database to be provisioned. If omitted, the database is created with the most recent major and minor version.
 * `disk_encryption_key_crn` - The CRN of a KMS key (for example, [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) or [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about)), which is then used for disk encryption. A KMS key CRN is in the format `crn:v1:<...>:key:<id>`.
-* `backup_encryption_key_crn` - The CRN of a KMS key (for example, [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) or [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about)), which is then used for backup encryption. A KMS key CRN is in the format `crn:v1:<...>:key:<id>`. 
-   
+* `backup_encryption_key_crn` - The CRN of a KMS key (for example, [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) or [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about)), which is then used for backup encryption. A KMS key CRN is in the format `crn:v1:<...>:key:<id>`.
+
    To use a key for your backups, you must first [enable the service-to-service delegation](/docs/cloud-databases?topic=cloud-databases-key-protect#byok-for-backups).
    {: note}
 
@@ -217,7 +217,7 @@ Follow these steps to provision using the [Resource Controller API](https://clou
 * `members_disk_allocation_mb` - Total amount of disk to be shared between the database members within the database. For example, if the value is "30720", and there are three members, then the deployment gets 30 GB of disk total, giving 10 GB of disk per member. If omitted, the default value for the database type is used.
 * `members_cpu_allocation_count` - Enables and allocates the number of specified dedicated cores to your deployment. For example, to use two dedicated cores per member, use `"members_cpu_allocation_count":"2"`. If omitted, the default value "Shared CPU" uses compute resources on shared hosts.
 * `service-endpoints` - The [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) supported on your deployment, `public` or `private`.
-   
+
    In the CLI, `service-endpoints` is a flag, not a parameter.
    {: note}
 
@@ -225,4 +225,7 @@ Follow these steps to provision using the [Resource Controller API](https://clou
 {: #provisioning-terraform}
 {: terraform}
 
-Use Terraform to manage your infrastructure through the [`ibm_database` Resource for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database) supports provisioning {{site.data.keyword.databases-for}} deployments. 
+Use Terraform to manage your infrastructure through the [`ibm_database` Resource for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database) supports provisioning {{site.data.keyword.databases-for}} deployments.
+
+Before executing a Terraform script on an existing instance, use the `terraform plan` command to compare the current infrastructure state with the desired state defined in your Terraform files. Any alteration to the `resource_group_id`, `service plan`, `version`, `key_protect_instance`, `key_protect_key`, `backup_encryption_key_crn` attributes recreates your instance. For a list of current argument references with the `Forces new resource` specification, see the [ibm_database Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database){: external}.
+{: important}
