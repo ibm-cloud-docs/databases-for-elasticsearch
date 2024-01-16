@@ -104,6 +104,7 @@ toc:
           label: Elasticsearch machine learning tutorials
           topics:
           - vector-search-tutorial.md
+          - elser-tutorial.md
           - nlp-ml-tutorial.md
       - topicgroup:
           label: Cloud Databases tutorials
