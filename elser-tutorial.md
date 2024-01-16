@@ -28,8 +28,8 @@ In this tutorial you provision an instance of {{site.data.keyword.databases-for-
 This is the second of three tutorials exploring the capabilities of Elasticsearch around [Machine learning]((https://www.ibm.com/topics/machine-learning)){: external}. Machine Learning is a branch of artificial intelligence (AI) and computer science that focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy. By using statistical methods, algorithms are trained to make classifications or predictions, and to uncover key insights in data mining projects.
 
 See the other tutorials in this Elasticsearch machine learning series:
-- [Learn how to use Elasticsearch vector search capabilities](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-vector-search-elasticsearch)
-- [Using Databases for Elasticsearch with machine learning models to tag content](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-nlp-ml-tutorial)
+- [Use Elasticsearch vector search capabilities](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-vector-search-elasticsearch)
+- [Use machine learning models with Elasticsearch to tag content](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-nlp-ml-tutorial)
 
 {{site.data.keyword.databases-for-elasticsearch}} is a paid-for service, so following this tutorial will incur charges.
 {: note}
@@ -64,7 +64,7 @@ git clone https://github.com/IBM/elasticsearch-ml-elser-tutorial.git
 ```
 {: pre}
 
-## Install the Elaticsearch cluster
+## Install the Elasticsearch cluster
 {: #elser-embeddings-elasticsearch-install-infra}
 {: step}
 
@@ -148,7 +148,7 @@ This creates an index called `test_data` in your ES instance. It will also creat
 {: #elser-embeddings-elasticsearch-create-pipeline}
 {: step}
 
-The ELSER model comes pre-installed in all Platinum deployments of {{site.data.keyword.databases-for-elasticsearch}}. All you have to do is create a [pipeline](https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html) that uses it to analyse your incoming data.
+The ELSER model comes pre-installed in all Platinum deployments of {{site.data.keyword.databases-for-elasticsearch}}. All you have to do is create a [pipeline](https://www.elastic.co/guide/en/elasticsearch/reference/current/ingest.html) that uses it to analyze your incoming data.
 
 ```sh
 curl -kX PUT -H"Content-Type: application/json" -d@pipeline.json $ES/_ingest/pipeline/elser-v1-test
@@ -165,7 +165,7 @@ This is a very simple pipeline. For example it does not deal with any ingest err
 
 The `import.json` document contains data from  the `msmarco-passagetest2019-top1000` data set, which is a subset of the [MS MARCO](https://microsoft.github.io/MSMARCO-Passage-Ranking/) Passage Ranking data set. It consists of 200 queries, each accompanied by a list of relevant text passages. All unique passages, along with their IDs, have been extracted from that data set and made ready for [bulk upload](https://www.elastic.co/guide/en/elasticsearch/reference/8.11/docs-bulk.html) to Elasticsearch.
 
-In this step, you upload the data to Elasticsearch and pass it through the ELSER analyser as it uploads.
+In this step, you upload the data to Elasticsearch and pass it through the ELSER analyzer as it uploads.
 
 Doing Natural Language Processing analysis is compute-intensive, so this process will take multiple hours (up to 12 hours). We will be doing the bulk upload in batches of 100 entries to ensure that the pipeline buffer is not overrun.
 
@@ -176,7 +176,7 @@ split -l 200 -a 4  import.json
 ```
 {: pre}
 
-This creates several hundrded small documents. Import them by running the `upload.sh` script:
+This creates several hundred small documents. Import them by running the `upload.sh` script:
 
 ```sh
 ./upload.sh
@@ -264,7 +264,7 @@ curl -k -H"Content-Type: application/json" -d@query.json $ES/test_data/_search |
 ```
 {: pre}
 
-You can try other queries by changing the text in the `query.json` and `elserquery.json` files. Try things like
+You can try other queries by changing the text in the `query.json` and `elserquery.json` files. Try things like:
 
 `what is the best exercise for stiff limbs?`
 
@@ -291,4 +291,4 @@ terraform destroy
 {: #elser-embeddings-elasticsearch-next-steps}
 {: step}
 
-ELSER is just one ML model. There are many others and with the {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan you can easily deploy others and analyse your data using them instead. We have put together a tutorial that [shows you how to do just that](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-nlp-ml-tutorial)
+ELSER is just one ML model. There are many others and with the {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan you can easily deploy others and analyze your data using them instead. We have put together a tutorial that [shows you how to do just that](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-nlp-ml-tutorial)
