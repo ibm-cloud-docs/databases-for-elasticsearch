@@ -16,7 +16,7 @@ completion-time: 2hrs
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Use Elser, Elastic's Natural Language Processing model
+# Use ELSER, Elastic's Natural Language Processing model
 {: #elser-embeddings-elasticsearch}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="2hrs"}
