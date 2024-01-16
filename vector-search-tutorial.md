@@ -55,7 +55,7 @@ In this tutorial you won't upload the images themselves to your database. The ve
 {: #nlp-ml-tutorial-api-key}
 {: step}
 
-Follow [these steps](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key){: external} to create an {{site.data.keyword.cloud_notm}} API key that enables Terraform to provision infrastructure into your account. You can create up to 20 API keys.
+[Create an {{site.data.keyword.cloud_notm}} API key](https://cloud.ibm.com/docs/account?topic=account-userapikey&interface=ui#create_user_key){: external} that enables Terraform to provision infrastructure into your account. You can create up to 20 API keys.
 
 For security reasons, the API key is only available to be copied or downloaded at the time of creation. If the API key is lost, you must create a new API key.
 {: .important}
@@ -64,12 +64,14 @@ For security reasons, the API key is only available to be copied or downloaded a
 {: #vector-search-elasticsearch-clone-project}
 {: step}
 
+Clone the project from the [GitHub repository](https://github.com/IBM/elasticsearch-ml-vector-search-tutorial){: external}.
+
 ```sh
 git clone https://github.com/IBM/elasticsearch-ml-vector-search-tutorial.git
 ```
 {: pre}
 
-## Install the Elaticsearch cluster
+## Install the Elasticsearch cluster
 {: #vector-search-elasticsearch-install-infra}
 {: step}
 
@@ -100,7 +102,7 @@ git clone https://github.com/IBM/elasticsearch-ml-vector-search-tutorial.git
    ```
    {: pre}
 
-Finally, export the database access URL to your terminal environment (it will be required by subsequent steps).
+1. Finally, export the database access URL to your terminal environment. It will be required by subsequent steps.
 
    ```sh
     terraform output --json
@@ -112,7 +114,7 @@ Finally, export the database access URL to your terminal environment (it will be
 {: #vector-search-elasticsearch-install-dependencies}
 {: step}
 
-You need to install some python dependencies:
+You need to install some Python dependencies:
 
 ```sh
     pip3 install elasticsearch
@@ -126,7 +128,7 @@ You need to install some python dependencies:
 {: #vector-search-elasticsearch-generate-embeddings}
 {: step}
 
-Create a folder called `images` at the root of the project folder structure. Inside it, create one or more folders with different images. For example, if you have a dataset of cars you might want to create folders for different types of car, e.g. `fordescort`, `fordcortina` etc. This is not strictly necessary (all images could go in a folder called `cars`), but might make it easier to identify search matches later on.
+Create a folder called `images` at the root of the project folder structure. Inside it, create one or more folders with different images. For example, if you have a dataset of cars then you may want to create folders for different types of car, for example `fordescort` and `fordcortina`. This is not strictly necessary (all images could go in a folder called `cars`), but organizing folders may make it easier to identify search matches later on.
 
 You are ready to run the `create.py` script. In the root of the project type:
 
@@ -135,9 +137,9 @@ python3 create.py
 ```
 {: pre}
 
-This script creates an elasticsearch index called `images` in your ICD {{site.data.keyword.databases-for-elasticsearch}} database.
+This script creates an Elasticsearch index called `images` in your {{site.data.keyword.databases-for-elasticsearch}} database.
 
-Then it cycles through the `images` folder and for each image it finds it will create a set of [embeddings](https://www.elastic.co/what-is/vector-embedding) using [this open source python package](https://github.com/minimaxir/imgbeddings), which uses the (also open source) [CLIP model from OpenAI](https://github.com/openai/CLIP). With those embeddings and a small amount of metadata (file path and file id) the script will create a document that is then uploaded to the Elasticsearch index.
+Then, it cycles through the `images` folder and for each image it finds it create a set of [embeddings](https://www.elastic.co/what-is/vector-embedding){: external} using [this open source Python package](https://github.com/minimaxir/imgbeddings){: external}, which uses the open source [CLIP model from OpenAI](https://github.com/openai/CLIP){: external}. With those embeddings and a small amount of metadata (file path and file id), the script creates a document that is then uploaded to the Elasticsearch index.
 
 Depending on the size of your dataset, this process could take multiple hours to complete.
 
@@ -145,25 +147,21 @@ Depending on the size of your dataset, this process could take multiple hours to
 {: #vector-search-elasticsearch-search-dataset}
 {: step}
 
-You are now ready to test your new dataset. To do this you need to find another image of a car (if you are using cars) that is not part of your original dataset. Save this image (e.g. `myimage.jpg`) to the root of the project.
+You are now ready to test your new dataset. To do this you need to find another image of a car (if you are using cars) that is not part of your original dataset. Save this image (for example, `myimage.jpg`) to the root of the project.
 
-Now run the `search.py` script, passing in the image name:
+Run the `search.py` script, passing in the image name:
 
 ```sh
 python3 search.py myimage.jpg
 ```
 {: pre}
 
-The script will generate a set of embeddings for the supplied image using the same algorithm as before. It will them attempt a [known nearest neighbour](https://www.elastic.co/guide/en/elasticsearch/reference/current/knn-search.html) search on the dataset to find the closest match in the dataset to the image that was supplied in the search. It will return the details of the closest match.
+The script generates a set of embeddings for the supplied image using the same algorithm as before. It attempts a [known nearest neighbor](https://www.elastic.co/guide/en/elasticsearch/reference/current/knn-search.html){: external} search on the dataset to find the closest match in the dataset to the image that was supplied in the search. It returns the details of the closest match.
 
-```sh
+```text
 {"took": 4947, "timed_out": false, "_shards": {"total": 1, "successful": 1, "skipped": 0, "failed": 0}, "hits": {"total": {"value": 1, "relation": "eq"}, "max_score": 0.97320974, "hits": [{"_index": "images", "_id": "5c910de5357cb9a3f1b43e6618b141afa6666bfca8676269d5e10a14e1688819", "_score": 0.97320974, "fields": {"file_path": ["./images/Bald_Eagle/26897.jpg"], "desc": ["Bald_Eagle"]}}]}}
 ```
 {: pre}
-
-For example, we used a set of birds and when we supplied this image to the search:
-
-it returned this image as the closest match:
 
 You can repeat this process with other images.
 
@@ -171,7 +169,7 @@ You can repeat this process with other images.
 {: #vector-search-elasticsearch-similarity}
 {: step}
 
-It's worth pointing out that what you have built is more of an image similarity search than a bird (or car) similarity search. In other words, the vector search algorithm is analysing the whole image and looking for matches. So an image of a warbler sitting on a tree branch might be more similar to an image of a tree sparrow sitting on a tree branch than to an image of a warbler in flight. Nevertheless, it is a powerful tool to make relationships between objects that (until recently) were difficult, if not impossible, to make.
+What you have built is more of an image similarity search than a bird (or car) similarity search. The vector search algorithm is analyzing the whole image and looking for matches. An image of a warbler sitting on a tree branch might be more similar to an image of a tree sparrow sitting on a tree branch than to an image of a warbler in flight. Nevertheless, it is a powerful tool to make relationships between objects that (until recently) were difficult, if not impossible.
 
 ## Tear down your infrastructure
 {: #vector-search-elasticsearch-tear-down}
