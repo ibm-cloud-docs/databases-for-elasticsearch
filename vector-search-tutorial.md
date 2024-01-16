@@ -32,7 +32,9 @@ These learning algorithms are known as “models”. In this tutorial we make us
 
 Traditionally, finding similarities between images, something that is relatively straightforward to the human eye, has been difficult for a computer to do. Machine Learning has transformed this field of search.
 
-This is the first in a series of three tutorials exploring the AI capabilities of Elasticsearch. The second one is [here]() and the third one is [here]().
+See the other tutorials in this Elasticsearch machine learning series:
+- [Use Elser, Elastic's Natural Language Processing model](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elser-embeddings-elasticsearch)
+- [Use machine learning models with Elasticsearch to tag content](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-nlp-ml-tutorial)
 
 {{site.data.keyword.databases-for-elasticsearch}} is a paid-for service, so following this tutorial will incur charges.
 {: important}
@@ -185,4 +187,4 @@ terraform destroy
 ##  Next Steps
 {: #vector-search-elasticsearch-next-steps}
 
-If you are ready to explore further, you can also use {{site.data.keyword.databases-for-elasticsearch}} to not only store vector embeddings but to generate them as well. That is the subject of our [second tutorial]() in this series.
+If you are ready to explore further, you can also use {{site.data.keyword.databases-for-elasticsearch}} to not only store vector embeddings but to generate them, as well. That is the subject of our [next tutorial](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elser-embeddings-elasticsearch){: external} in this series.

@@ -44,6 +44,10 @@ This tutorial guides you through the process of:
 
 - Querying the augmented data to see the results of the model on the data.
 
+See the other tutorials in this Elasticsearch machine learning series:
+- [Use Elser, Elastic's Natural Language Processing model](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elser-embeddings-elasticsearch)
+- [Use Elasticsearch vector search capabilities](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-vector-search-elasticsearch)
+
 ## Getting productive
 {: #nlp-ml-tutorial-getting-started}
 
