@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-11-15"
+  years: 2023, 2024
+lastupdated: "2024-01-16"
 
 keywords: machine learning, elasticsearch, artificial intelligence, ai, model
 
@@ -16,7 +16,7 @@ completion-time: 30m
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Using {{site.data.keyword.databases-for-elasticsearch}} with machine learning models to tag content
+# Use machine learning models with Elasticsearch to tag content
 {: #nlp-ml-tutorial}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30m"}

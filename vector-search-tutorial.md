@@ -16,7 +16,7 @@ completion-time: 2hrs
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Learn how to use Elasticsearch vector search capabilities
+# Use Elasticsearch vector search capabilities
 {: #vector-search-elasticsearch}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="2hrs"}
