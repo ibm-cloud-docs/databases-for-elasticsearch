@@ -51,9 +51,15 @@ For a richer set of functions, the Platinum Plan of {{site.data.keyword.database
 
 The Platinum Plan provides a one-stop shop for generating, storing, and searching for vector embeddings.
 
+### Machine learning tutorial series
+{: #es-ml-ai-help-ml-tutorials}
+
 If you need some inspiration to get you started, we've put together a tutorial series on how to use Elastic's ML abilities with third-party models:
 - [Use Elasticsearch vector search capabilities](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-vector-search-elasticsearch)
 - [Use ELSER, Elastic's Natural Language Processing model](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elser-embeddings-elasticsearch)
 - [Use machine learning models with Elasticsearch to tag content](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-nlp-ml-tutorial)
+
+## Plans and Pricing
+{: #es-ml-ai-plans-pricing}
 
 Visit our [plans](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elastic-offerings){: external} and [pricing](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-pricing){: external} pages for more details on features and costs.
