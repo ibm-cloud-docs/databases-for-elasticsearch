@@ -92,7 +92,7 @@ Provision your {{site.data.keyword.databases-for-elasticsearch}} instance.
    region = "<your_region>"
    es_password  = "<make_up_a_password>"
    ```
-   {: pre}
+   {: codeblock}
 
    The `terraform.tfvars` document contains variables that you might want to keep secret so it is ignored by the GitHub repository.
    {: .note}

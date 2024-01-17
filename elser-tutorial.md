@@ -82,7 +82,7 @@ git clone https://github.com/IBM/elasticsearch-ml-elser-tutorial.git
     region = "<your_region>"
     elastic_password = "<make-up-a-password>"
    ```
-   {: pre}
+   {: codeblock}
 
    The `terraform.tfvars` document contains variables that you might want to keep secret, so it is excluded from the public Github repository.
    {: important}
@@ -95,7 +95,7 @@ git clone https://github.com/IBM/elasticsearch-ml-elser-tutorial.git
    ```
    {: pre}
 
-Finally export the database access URL to your terminal environment (it will be required by subsequent steps)
+Finally, export the database access URL to your terminal environment (it will be required by subsequent steps)
 
    ```sh
     terraform output --json
@@ -108,7 +108,7 @@ Finally export the database access URL to your terminal environment (it will be 
 {: #elser-embeddings-elasticsearch-create-index}
 {: step}
 
-The ELSER model needs to be installed and started before you can use it. First install it by typing:
+The ELSER model needs to be installed and started before you can use it. Install it with a command like:
 
 ```sh
 curl -kX PUT "$ES/_ml/trained_models/.elser_model_1?pretty" -H 'Content-Type: application/json' -d'
@@ -135,7 +135,7 @@ You may have to wait a few minutes for the model to finish installing before the
 {: #elser-embeddings-elasticsearch-create-index}
 {: step}
 
-You should be in the root of your project folder. In the terminal type:
+You should be in the root of your project folder. In the terminal, use a command like:
 
 ```sh
 curl -kXPUT -H"Content-Type: application/json" -d@mapping.json $ES/test_data

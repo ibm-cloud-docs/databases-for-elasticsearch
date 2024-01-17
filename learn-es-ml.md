@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-01-02"
+lastupdated: "2024-01-17"
 
 keywords: elasticsearch enterprise, elasticsearch platinum, machine learning, artificial intelligence, vector embedding, ml
 
@@ -51,6 +51,9 @@ For a richer set of functions, the Platinum Plan of {{site.data.keyword.database
 
 The Platinum Plan provides a one-stop shop for generating, storing, and searching for vector embeddings.
 
-If you need some inspiration to get you started, {{site.data.keyword.databases-for}} have put together this [simple tutorial](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-nlp-ml-tutorial){: external} on how to use Elastic’s ML capabilities with a third-party ML model.
+If you need some inspiration to get you started, we've put together a tutorial series on how to use Elastic's ML abilities with third-party models:
+- [Use Elasticsearch vector search capabilities](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-vector-search-elasticsearch)
+- [Use ELSER, Elastic's Natural Language Processing model](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elser-embeddings-elasticsearch)
+- [Use machine learning models with Elasticsearch to tag content](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-nlp-ml-tutorial)
 
 Visit our [plans](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elastic-offerings){: external} and [pricing](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-pricing){: external} pages for more details on features and costs.

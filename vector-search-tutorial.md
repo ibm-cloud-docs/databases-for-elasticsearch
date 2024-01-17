@@ -91,7 +91,7 @@ git clone https://github.com/IBM/elasticsearch-ml-vector-search-tutorial.git
     region = "<your_region>"
     elastic_password = "<make-up-a-password>"
    ```
-   {: pre}
+   {: codeblock}
 
    The `terraform.tfvars` document contains variables that you might want to keep secret, so it is excluded from the public Github repository.
    {: important}
@@ -163,7 +163,7 @@ The script generates a set of embeddings for the supplied image using the same a
 ```text
 {"took": 4947, "timed_out": false, "_shards": {"total": 1, "successful": 1, "skipped": 0, "failed": 0}, "hits": {"total": {"value": 1, "relation": "eq"}, "max_score": 0.97320974, "hits": [{"_index": "images", "_id": "5c910de5357cb9a3f1b43e6618b141afa6666bfca8676269d5e10a14e1688819", "_score": 0.97320974, "fields": {"file_path": ["./images/Bald_Eagle/26897.jpg"], "desc": ["Bald_Eagle"]}}]}}
 ```
-{: pre}
+{: codeblock}
 
 You can repeat this process with other images.
 
