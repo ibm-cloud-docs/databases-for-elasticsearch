@@ -1,6 +1,6 @@
 {
   "title": "IBM Cloud® Databases for Elasticsearch docs",
-  "lastupdated": "2024-01-03",
+  "lastupdated": "2024-01-17",
   "introduction": "Elasticsearch combines the power of a full text search engine with the indexing strengths of a JSON document database.",
   "section_devtools": {
     "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction",
@@ -34,6 +34,11 @@
     "view_more": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elasticsearch-relnotes",
     "tiles": [
       {
+        "date": "17 January 2024",
+        "title": "Elasticsearch machine learning tutorials documentation published",
+        "description": "New tutorials created to highlight the ML features of Elasticsearch. For more information, see Use Elasticsearch vector search capabilities, Use ELSER, Elastic's Natural Language Processing model, and Use machine learning models with Elasticsearch to tag content."
+      },
+      {
         "date": "03 January 2024",
         "title": "Elasticsearch, machine learning, and AI",
         "description": "Elasticsearch, a robust search-capable database, is well-suited to seamlessly incorporate essential ML features sought by enterprises embracing new technologies."
@@ -42,11 +47,6 @@
         "date": "22 November 2023",
         "title": "Monitoring Integration documentation updated",
         "description": "Monitoring Integration documentation now lists metrics for all Cloud Databases services."
-      },
-      {
-        "date": "15 November 2023",
-        "title": "IBM Cloud® Databases for Elasticsearch Plans",
-        "description": "Cloud Databases offers two Elasticsearch services: Databases for Elasticsearch Enterprise and Databases for Elasticsearch Platinum. Both plans provide you with a fully managed and scalable Elasticsearch service, allowing you to focus on your applications and data rather than the underlying infrastructure. Databases for Elasticsearch Enterprise Plan deploys the Basic version of Elasticsearch. Databases for Elasticsearch Platinum Plan deploys the Platinum version of Elasticsearch."
       }
     ]
   }
