@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-01-03"
+lastupdated: "2024-01-17"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 17 January 2024
+{: #databases-for-elasticsearch-17jan2024}
+{: release-note}
+
+Elasticsearch machine learning tutorials documentation published
+:  New tutorials created to highlight the ML features of Elasticsearch. For more information, see [Use Elasticsearch vector search capabilities](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-vector-search-elasticsearch){: external}, [Use ELSER, Elastic's Natural Language Processing model](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elser-embeddings-elasticsearch){: external}, and [Use machine learning models with Elasticsearch to tag content](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-nlp-ml-tutorial).
 
 ## 03 January 2024
 {: #databases-for-elasticsearch-03jan2024}
