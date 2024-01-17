@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-11-15"
+  years: 2023, 2024
+lastupdated: "2024-01-16"
 
 keywords: machine learning, elasticsearch, artificial intelligence, ai, model
 
@@ -16,7 +16,7 @@ completion-time: 30m
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Using {{site.data.keyword.databases-for-elasticsearch}} with machine learning models to tag content
+# Use machine learning models with Elasticsearch to tag content
 {: #nlp-ml-tutorial}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30m"}
@@ -43,6 +43,10 @@ This tutorial guides you through the process of:
 - Passing the data set through the NLP model
 
 - Querying the augmented data to see the results of the model on the data.
+
+See the other tutorials in this Elasticsearch machine learning series:
+- [Use ELSER, Elastic's Natural Language Processing model](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elser-embeddings-elasticsearch)
+- [Use Elasticsearch vector search capabilities](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-vector-search-elasticsearch)
 
 ## Getting productive
 {: #nlp-ml-tutorial-getting-started}
@@ -88,7 +92,7 @@ Provision your {{site.data.keyword.databases-for-elasticsearch}} instance.
    region = "<your_region>"
    es_password  = "<make_up_a_password>"
    ```
-   {: pre}
+   {: codeblock}
 
    The `terraform.tfvars` document contains variables that you might want to keep secret so it is ignored by the GitHub repository.
    {: .note}
