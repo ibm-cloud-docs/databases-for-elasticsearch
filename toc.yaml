@@ -101,6 +101,12 @@ toc:
           - howto-deploy-kibana-tutorial.md
           - howto-es-migrate-tutorial.md
       - topicgroup:
+          label: Elasticsearch machine learning tutorials
+          topics:
+          - vector-search-tutorial.md
+          - elser-tutorial.md
+          - nlp-ml-tutorial.md
+      - topicgroup:
           label: Cloud Databases tutorials
           topics:
           - link:
