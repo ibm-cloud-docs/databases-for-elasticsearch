@@ -106,6 +106,7 @@ toc:
           - vector-search-tutorial.md
           - elser-tutorial.md
           - nlp-ml-tutorial.md
+          - es-bot-tutorial.md
       - topicgroup:
           label: Cloud Databases tutorials
           topics:
