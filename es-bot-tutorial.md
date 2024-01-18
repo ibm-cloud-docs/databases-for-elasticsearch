@@ -98,7 +98,7 @@ This streamlined process enables you to leverage the AI capabilities of IBM wats
 ## Troubleshooting
 {: #build-es-chatbot-ts}
 
-If you are unable to create crawl index, try deleting `ibm_default` template and deleting `.elastic-connectors` and `.elastic-connectors-v1` indices by following and create index again.
+If you are unable to create a crawl index, delete the `ibm_default` template, and the `.elastic-connectors` and `.elastic-connectors-v1` indices. Then, recreate the index.
 
 ```sh
 curl --cacert ca.crt -u ${ELASTIC_USER}:${ELASTIC_PASS} -XDELETE ${ELASTIC_HOST}/.elastic_connectors
