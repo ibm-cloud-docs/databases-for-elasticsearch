@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2024
-lastupdated: "2024-01-16"
+lastupdated: "2024-01-18"
 
 keywords: machine learning, elasticsearch, artificial intelligence, ai, model
 
@@ -30,7 +30,7 @@ completion-time: 30m
 
 These learning algorithms are known as “models”. In this tutorial, we use a pre-built Natural Language Processing (NLP) model, which extracts meaning out of sentences in written (Natural) language. Specifically, we use the *distilbert-base-uncased-finetuned-conll03-english* model that tries to identify the names of people, locations, and organizations within text.
 
-[Many other models](https://huggingface.co/models?sort=trending){: external} specialize in analyzing other forms of data, like text extraction from images, speech conversion to text, or object identification in images. Models can be trained on domain-specific knowledge, but the training of new models is beyond the scope of this tutorial.
+[Many other models](https://huggingface.co/models?sort=trending){: external} specialize in analyzing other forms of data, like text extraction from images, speech conversion to text, or object identification in images. For a full list of Elastic stack supported models, see [Compatible third party NLP models](https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-model-ref.html){: external}. Models can be trained on domain-specific knowledge, but the training of new models is beyond the scope of this tutorial.
 
 This tutorial guides you through the process of:
 
