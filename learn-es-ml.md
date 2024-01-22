@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2024
-lastupdated: "2024-01-02"
+lastupdated: "2024-01-22"
 
 keywords: elasticsearch enterprise, elasticsearch platinum, machine learning, artificial intelligence, vector embedding, ml
 
@@ -25,7 +25,7 @@ Luckily for most enterprises, much of this can be achieved with existing technol
 
 Machine learning algorithms try to make sense of unstructured data, like videos or images, by turning these assets into sets of numbers called [vector embeddings](https://www.elastic.co/what-is/vector-embedding){: external}. Once an asset like an image is transformed into a set of embeddings it can be stored in a database like any other data. Elasticsearch has a specific data type (dense vector type) for these embeddings.
 
-Different ML algorithms (known as models) will analyze and transform data in different ways. ML models specialize in different types of data and tasks. For a comprehensive list of open source ML models, see [Hugging Face](https://huggingface.co/models){: external}.
+Different ML algorithms (known as models) will analyze and transform data in different ways. ML models specialize in different types of data and tasks. For a full list of Elastic stack supported models, see [Compatible third party NLP models](https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-model-ref.html){: external}. For a comprehensive list of open source ML models, see [Hugging Face](https://huggingface.co/models){: external}.
 
 ## Querying Data
 {: #es-ml-ai-querying-data}
@@ -51,6 +51,15 @@ For a richer set of functions, the Platinum Plan of {{site.data.keyword.database
 
 The Platinum Plan provides a one-stop shop for generating, storing, and searching for vector embeddings.
 
-If you need some inspiration to get you started, {{site.data.keyword.databases-for}} have put together this [simple tutorial](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-nlp-ml-tutorial){: external} on how to use Elastic’s ML capabilities with a third-party ML model.
+### Machine learning tutorial series
+{: #es-ml-ai-help-ml-tutorials}
+
+If you need some inspiration to get you started, we've put together a tutorial series on how to use Elastic's ML abilities with third-party models:
+- [Use Elasticsearch vector search capabilities](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-vector-search-elasticsearch)
+- [Use ELSER, Elastic's Natural Language Processing model](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elser-embeddings-elasticsearch)
+- [Use machine learning models with Elasticsearch to tag content](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-nlp-ml-tutorial)
+
+## Plans and Pricing
+{: #es-ml-ai-plans-pricing}
 
 Visit our [plans](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elastic-offerings){: external} and [pricing](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-pricing){: external} pages for more details on features and costs.
