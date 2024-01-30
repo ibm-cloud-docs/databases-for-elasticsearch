@@ -83,7 +83,7 @@ Follow these steps to integrate powerful AI capabilities into your projects:
 1. Press **Start** under web-crawler section and create your index on next page, prefixed search-. Make sure the index name is same as written in your `.env` file.
 1. Navigate to the pipeline settings for your index by clicking on the *Pipelines* tab.
 1. Click *Copy and Customize* and select the ml label from the settings of index in *Ingest Pipelines* section.
-1. Click *Add Inference Pipeline* in the *Machine Learning Inference Pipeline* section and follow the steps. Select '.elser_model_1' for the trained ML Model and make sure the model is in running state. Select *title field* in **Select field mappings** step.
+1. Click *Add Inference Pipeline* in the *Machine Learning Inference Pipeline* section and follow the steps. Select `.elser_model_1` for the trained ML Model and make sure the model is in running state. Select *title field* in **Select field mappings** step.
 
 This streamlined process enables you to leverage the AI capabilities of IBM watsonx.ai and use your documentation effectively. Happy querying!
 
