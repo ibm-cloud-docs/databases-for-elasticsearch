@@ -78,7 +78,7 @@ Follow these steps to integrate powerful AI capabilities into your projects:
 ## Set up your crawler index
 {: #build-es-chatbot-crawler-index}
 
-1. Navigate to kibana, located at `localhost:5601` in your web browser.
+1. Navigate to Kibana, located at `localhost:5601` in your web browser.
 1. Go to the Search section from left sidebar.
 1. Press **Start** under web-crawler section and create your index on next page, prefixed search-. Make sure the index name is same as written in your `.env` file.
 1. Navigate to the pipeline settings for your index by clicking on the *Pipelines* tab.
