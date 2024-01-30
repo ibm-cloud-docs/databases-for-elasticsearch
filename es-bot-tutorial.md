@@ -10,7 +10,7 @@ subcollection: databases-for-elasticsearch
 
 content-type: tutorial
 account-plan: paid
-completion-time: 30mins
+completion-time: 45mins
 
 ---
 
@@ -19,7 +19,7 @@ completion-time: 30mins
 # Build an Elasticsearch chatbot
 {: #build-es-chatbot}
 {: toc-content-type="tutorial"}
-{: toc-completion-time="30mins"}
+{: toc-completion-time="45mins"}
 
 ## Objectives
 {: #build-es-chatbot-objectives}
