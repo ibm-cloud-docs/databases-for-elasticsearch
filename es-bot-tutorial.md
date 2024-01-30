@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-18"
+lastupdated: "2024-01-30"
 
 keywords: machine learning, elasticsearch, artificial intelligence, ai, model, vector search, bot
 
@@ -27,6 +27,12 @@ completion-time: 30mins
 This tutorial is designed to assist you in harnessing the full potential of your data by transforming it into an intelligent bot. This bot will be capable of answering queries related to your data. It effortlessly stores the knowledge base in an Elasticsearch index and taps into AI to intelligently handle your questions related to the knowledge base. Use this AI tool to create a chatbot that can learn from your documentation.
 
 Elastic Learned Sparse EncodeR (ELSER) is a Natural Language Processing (NLP) model trained by Elastic that enables you to perform semantic search by using sparse vector representation. Instead of literal matching on search terms, semantic search retrieves results based on the intent and the contextual meaning of a search query.
+
+This tutorial helps you to leverage the full potential of your data by transforming it into an assistant bot. The bot will be capable of answering queries related to your data.
+
+In this tutorial, you set up a {{site.data.keyword.databases-for-elasticsearch}} instance and then use its capabilities to crawl your website and store that knowledge base in an Elasticsearch index. You use Elastic's built-in Machine learning (ML) model ELSER to analyze and extract meaning from your data. [Elastic Learned Sparse EncodeR (ELSER)](https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-elser.html){: external} is a Natural Language Processing (NLP) model trained by Elastic that enables you to perform semantic search by using sparse vector representation. Instead of literal matching on search terms, semantic search retrieves results based on the intent and the contextual meaning of a search query.
+
+You then use IBM watsonx to create a chatbot interface that uses this data to intelligently handle questions related to your knowledge base.
 
 ## Getting productive
 {: #build-es-chatbot-prereqs}
