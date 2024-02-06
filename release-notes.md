@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-01-17"
+lastupdated: "2024-02-06"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 06 February 2024
+{: #databases-for-elasticsearch-06feb2024}
+{: release-note}
+
+Build an Elasticsearch chatbot tutorial published
+:  This tutorial is designed to assist you in harnessing the full potential of your data by transforming it into an intelligent bot capable of answering queries related to your data. The bot effortlessly stores the knowledge base in an Elasticsearch index and taps into AI to intelligently handle your questions related to the knowledge base. For more information, see [Build an Elasticsearch chatbot](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-build-es-chatbot){: external}.
 
 ## 17 January 2024
 {: #databases-for-elasticsearch-17jan2024}
