@@ -40,7 +40,7 @@ To get productive:
 
 - You need an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}.
 - Install [Docker](https://www.docker.com/get-started/){: external}
-- Provision a [{{site.data.keyword.databases-for-elasticsearch}} instance](https://cloud.ibm.com/databases/databases-for-elasticsearch/create){: external} with version 8.1x.x.
+- Provision a [{{site.data.keyword.databases-for-elasticsearch}} Enterprise instance](https://cloud.ibm.com/databases/databases-for-elasticsearch/create){: external} with version 8.1x.x.
 - Once your instance is provisioned, download the TLS certificate. Navigate to your instance's **Overview**, scroll down to the *Endpoints* section, and then select **Download Certificate**.
 - If required, change the Admin password. Navigate to your instance's **Overview** and scroll down to the *Change Database Admin Password* section. Select **Change Password**.
 
