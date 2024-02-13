@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-01-05"
+lastupdated: "2024-02-13"
 
 keywords: provision cloud databases, terraform, provisioning parameters, cli, resource controller api, provision elasticsearch
 
@@ -64,7 +64,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    |-------|------------|------------|
    | `NAME` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
    | `SERVICE_NAME` [Required]{: tag-red} | Name or ID of the service. For {{site.data.keyword.databases-for-elasticsearch}}, use `databases-for-elasticsearch`. |  |
-   | `SERVICE_PLAN_NAME` [Required]{: tag-red} | `standard` or `enterprise` |  |
+   | `SERVICE_PLAN_NAME` [Required]{: tag-red} | `enterprise` or `platinum` |  |
    | `LOCATION` [Required]{: tag-red} | The location where you want to deploy. To retrieve a list of regions, use the `ibmcloud regions` command. |  |
    | `SERVICE_ENDPOINTS_TYPE` | Configure the [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public` or `private`. The default value is `public`. |  |
    | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
@@ -79,7 +79,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    Service instance INSTANCE_NAME was created.
 
    Name:                INSTANCE_NAME
-   ID:                  crn:v1:bluemix:public:databases-for-elasticsearch:us-east:a/   40ddc34a846383BGB5b60e:dd13152c-fe15-4bb6-af94-fde0af5303f4::
+   ID:                  crn:v1:bluemix:public:databases-for-elasticsearch:us-south:a/   40ddc34a846383BGB5b60e:dd13152c-fe15-4bb6-af94-fde0af5303f4::
    GUID:                dd13152c-fe15-4bb6-af94-fde0af56897
    Location:            LOCATION
    State:               provisioning
@@ -110,7 +110,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    OK
 
    Name:                  INSTANCE_NAME
-   ID:                    crn:v1:bluemix:public:databases-for-elasticsearch:us-east:a/40ddc34a953a8c02f109835656860e:dd13152c-fe15-4bb6-af94-fde0af5303f4::
+   ID:                    crn:v1:bluemix:public:databases-for-elasticsearch:us-south:a/40ddc34a953a8c02f109835656860e:dd13152c-fe15-4bb6-af94-fde0af5303f4::
    GUID:                  dd13152c-fe15-4bb6-af94-fde5654765
    Location:              <LOCATION>
    Service Name:          databases-for-elasticsearch
