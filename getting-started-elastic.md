@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2024
-lastupdated: "2024-02-13"
+lastupdated: "2024-02-21"
 
 keywords: kibana, elasticsearch container, elasticsearch getting started
 
