@@ -20,7 +20,7 @@ completion-time: 30m
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30m"}
 
-This tutorial is a short introduction to using an {{site.data.keyword.databases-for-elasticsearch_full}} deployment. Connect to your deployment using [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html){: external}, an open source tool that adds visualization capabilities to your Elasticsearch database. This tutorial runs Kibana in a Docker container by using the Kibana image from the Docker image repository. [Install Kibana with Docker](https://www.elastic.co/guide/en/kibana/7.17/docker.html){: external} to run a system you control.
+This tutoriall is a short introduction to using an {{site.data.keyword.databases-for-elasticsearch_full}} deployment. Connect to your deployment using [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html){: external}, an open source tool that adds visualization capabilities to your Elasticsearch database. This tutorial runs Kibana in a Docker container by using the Kibana image from the Docker image repository. [Install Kibana with Docker](https://www.elastic.co/guide/en/kibana/7.17/docker.html){: external} to run a system you control.
 
 ## Before you begin
 {: #before-begin}
