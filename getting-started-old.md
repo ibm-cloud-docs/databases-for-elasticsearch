@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-11-16"
+  years: 2018, 2024
+lastupdated: "2024-03-18"
 
 keywords: kibana, elasticsearch container, elasticsearch getting started
 
@@ -28,8 +28,8 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 - You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}.
 - You also need a {{site.data.keyword.databases-for-elasticsearch}} deployment. You can provision one from the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/databases-for-elasticsearch). Give your deployment a memorable name that appears in your account's Resource List.
 - [Set the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-user-management&interface=ui#user-management-set-admin-password-ui) for your deployment.
-- Install [Docker](https://www.docker.com/) so that you can pull the Kibana container image to connect to Databases for Elasticsearch.
-- If you prefer to avoid running Kibana locally and install Docker, you can also deploy Kibana using IBM Code Engine. For more information, see [Deploy Kibana using Code Engine and connect to your {{site.data.keyword.databases-for-elasticsearch}} instance](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-kibana-code-engine-icd-elasticsearch){: external}.
+- Install [Docker](https://www.docker.com/) so that you can pull the Kibana container image to connect to {{site.data.keyword.databases-for-elasticsearch}}.
+- If you prefer to avoid running Kibana locally and install Docker, you can also deploy Kibana using {{site.data.keyword.codeenginefull}}. For more information, see [Deploy Kibana using {{site.data.keyword.codeengineshort}} and connect to your {{site.data.keyword.databases-for-elasticsearch}} instance](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-kibana-code-engine-icd-elasticsearch){: external}.
 
 ## Connect to your deployment
 {: #connection-info-deployment}
@@ -46,7 +46,7 @@ Remember where you save the certificate on your file system. If you are running 
 {: #kibana}
 {: step}
 
-Before running the Docker container that includes Kibana, create a configuration file in the same folder with the downloaded Elasticsearch certificate from Step1. The configuration file will contain some basic Kibana settings as bellow.
+Before running the Docker container that includes Kibana, create a configuration file in the same folder with the downloaded Elasticsearch certificate from Step 1. The configuration file will contain some basic Kibana settings as follows.
 
 Create a YAML file called `kibana.yml`. Inside the file, you need the following Kibana configuration settings:
 ```yaml
@@ -58,7 +58,7 @@ server.name: "kibana"
 server.host: "0.0.0.0"
 ```
 
-The first setting, `elasticsearch.ssl.certificateAuthorities`, is the location where the Docker will store the Elasticsearch certificate at. It gets placed in this location when you first run Docker. You can change this to a location of your choice, but the example path is the Kibana’s config directory. Make sure that the certificate name (in our example "cert") within the `kibana.yml` and the certificate name file stored in Step1 are having the same name.
+The first setting, `elasticsearch.ssl.certificateAuthorities`, is the location where Docker will store the Elasticsearch certificate. It gets placed in this location when you first run Docker. You can change it to a location of your choice, but the example path is the Kibana’s configuration directory. Ensure that the certificate name (in our example "cert") within the `kibana.yml` and the certificate name file stored in Step 1 have the same name.
 
 Next, is `elasticsearch.username` and `elasticsearch.password`. Use the deployment's admin username and password. Be sure that you set the admin password before trying to connect. For `elasticsearch.hosts`, enter the deployment's hostname and port, which is separated by a `:`.
 
