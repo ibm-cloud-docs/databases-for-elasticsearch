@@ -26,15 +26,15 @@ All {{site.data.keyword.databases-for-elasticsearch}} clusters on any plan can m
 ## {{site.data.keyword.databases-for-elasticsearch}} Enterprise Plan
 {: #es-enter-plan}
 
-{{site.data.keyword.databases-for-elasticsearch}} versions 7.17 and 8.7 are the current supported and preferred versions of {{site.data.keyword.databases-for-elasticsearch}} Enterprise Plan. This plan includes functionality that is not available in our Standard Plan. These features were previously offered by Elastic as paid-for add-ons under the X-Pack label, such as [Role Based Access Control (RBAC)](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/es-security-principles.html#security-create-appropriate-users){: external} and [Index Lifecycle Management (ILM)](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/index-lifecycle-management.html){: external}.
+{{site.data.keyword.databases-for-elasticsearch}} Enterprise Plan has all the key functionality of the Elasticsearch Service such as [Role Based Access Control (RBAC)](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/es-security-principles.html#security-create-appropriate-users){: external} and [Index Lifecycle Management (ILM)](https://www.elastic.co/guide/en/elasticsearch/reference/7.17/index-lifecycle-management.html){: external}, security, alerting, monitoring, reporting, and graph capabilities.
 
 
 ## {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan
 {: #es-platinum-plan}
 
-{{site.data.keyword.databases-for-elasticsearch}} Platinum Plan offers all the features of the Enterprise Plan, plus a richer array of functionality around integrations (connectors and web crawlers), security features (logging and access control), and document-level security, among others.
+{{site.data.keyword.databases-for-elasticsearch}} Platinum Plan offers all the features of the Enterprise Plan, plus a richer array of functionality around integrations (connectors and web crawlers), security features (logging and access control), document-level security, and machine learning capabilities (Inference APIs, anomaly detection, data frame analysis, Inference and model management) among others.
 
-Access to Platinum features on a fully managed IBM deployment is primarily determined by the accessibility of a feature through the Elasticsearch API and the need for modifications to configuration files.
+Access to Platinum features on a fully managed IBM deployment is primarily determined by the accessibility of a feature through the Elasticsearch API and the need for modifications to configuration files. Configuration files update is not currently supported for fully managed IBM deployments.
 
 For questions regarding specific feature support, submit a [support ticket](https://cloud.ibm.com/unifiedsupport/cases/add){: external}.
 {: note}

@@ -20,10 +20,7 @@ completion-time: 30m
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30m"}
 
-This tutorial is a short introduction to using an {{site.data.keyword.databases-for-elasticsearch_full}} deployment. Connect to your deployment using [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html){: external}, an open source tool that adds visualization capabilities to your Elasticsearch database. This tutorial runs Kibana in a Docker container by using the Kibana image from the Docker image repository. [Install Kibana with Docker](https://www.elastic.co/guide/en/kibana/7.17/docker.html){: external} to run a system you control.
-
-If you prefer to avoid running Kibana locally, you can also deploy Kibana using IBM Code Engine. For more information, see [Deploy Kibana using Code Engine and connect to your {{site.data.keyword.databases-for-elasticsearch}} instance](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-kibana-code-engine-icd-elasticsearch){: external}.
-{: tip}
+This tutorial is a short introduction to using an {{site.data.keyword.databases-for-elasticsearch_full}} deployment. Connect to your deployment using [Kibana](https://www.elastic.co/guide/en/kibana/current/index.html){: external}, an open source tool that adds visualization capabilities to your Elasticsearch database. This tutorial runs Kibana in a Docker container by using the Kibana image from the Docker image repository.
 
 ## Before you begin
 {: #before-begin}
@@ -32,7 +29,7 @@ If you prefer to avoid running Kibana locally, you can also deploy Kibana using 
 - You also need a {{site.data.keyword.databases-for-elasticsearch}} deployment. You can provision one from the [{{site.data.keyword.cloud_notm}} catalog](https://cloud.ibm.com/catalog/databases-for-elasticsearch). Give your deployment a memorable name that appears in your account's Resource List.
 - [Set the Admin Password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-user-management&interface=ui#user-management-set-admin-password-ui) for your deployment.
 - Install [Docker](https://www.docker.com/) so that you can pull the Kibana container image to connect to Databases for Elasticsearch.
-- Review [Getting to production](/docs/cloud-databases?topic=cloud-databases-best-practices) for general guidance on setting up a basic {{site.data.keyword.databases-for-elasticsearch_full}} deployment.
+- If you prefer to avoid running Kibana locally and install Docker, you can also deploy Kibana using IBM Code Engine. For more information, see [Deploy Kibana using Code Engine and connect to your {{site.data.keyword.databases-for-elasticsearch}} instance](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-kibana-code-engine-icd-elasticsearch){: external}.
 
 ## Connect to your deployment
 {: #connection-info-deployment}
@@ -40,7 +37,7 @@ If you prefer to avoid running Kibana locally, you can also deploy Kibana using 
 
 Your deployment's _Overview_ shows all the relevant connection information.
 
-To connect, Kibana needs the username, password, url, and port for your deployment. It also needs the CA certificate to access the database. To get this, copy the certificate information from _Endpoints_. Then, save the certificate to a file. You can use the name that is provided in the download, or your own file name.
+To connect, Kibana needs the username, password, url, and port for your Elasticsearch deployment. It also needs the Elasticsearch CA certificate to access the database. To get this, copy the certificate information from the _IBM Cloud Platform Endpoints_ section within the created Elasticsearch instance. Then, download the certificate to a local folder. You can use the name that is provided in the download, or your own file name.
 
 Remember where you save the certificate on your file system. If you are running Kibana locally, not in Docker, then the certificate goes in `$KIBANA_HOME/config/<filename>`.
 {: important}
@@ -49,7 +46,7 @@ Remember where you save the certificate on your file system. If you are running 
 {: #kibana}
 {: step}
 
-Before running the Docker container that includes Kibana, create a configuration file that contains some basic Kibana settings.
+Before running the Docker container that includes Kibana, create a configuration file in the same folder with the downloaded Elasticsearch certificate from Step1. The configuration file will contain some basic Kibana settings as bellow.
 
 Create a YAML file called `kibana.yml`. Inside the file, you need the following Kibana configuration settings:
 ```yaml
@@ -61,11 +58,11 @@ server.name: "kibana"
 server.host: "0.0.0.0"
 ```
 
-The first setting, `elasticsearch.ssl.certificateAuthorities`, is the location where the deployment's certificate lives in the Docker container. It gets placed in this location when you first run Docker. You can change this to a location of your choice, but the example path is the Kibana’s config directory.
+The first setting, `elasticsearch.ssl.certificateAuthorities`, is the location where the Docker will store the Elasticsearch certificate at. It gets placed in this location when you first run Docker. You can change this to a location of your choice, but the example path is the Kibana’s config directory. Make sure that the certificate name (in our example "cert") within the `kibana.yml` and the certificate name file stored in Step1 are having the same name.
 
-Next, is `elasticsearch.username` and `elasticsearch.password`. Use the deployment's admin username and password. Be sure that you set the admin password before trying to connect. For `elasticsearch.url`, enter the deployment's hostname and port, which is separated by a `:`.
+Next, is `elasticsearch.username` and `elasticsearch.password`. Use the deployment's admin username and password. Be sure that you set the admin password before trying to connect. For `elasticsearch.hosts`, enter the deployment's hostname and port, which is separated by a `:`.
 
-Lastly, `server.name` is a machine-readable name for the Kibana instance and `server.host` is the host of the backend server where you can connect to Kibana in your web browser.
+Lastly, `server.name` is a machine-readable name for the Kibana instance and `server.hosts` is the host of the backend server where you can connect to Kibana in your web browser.
 
 These settings are just a simplified example to get started. For more infortmation, see [Configure Kibana](https://www.elastic.co/guide/en/kibana/current/settings.html){: external}.
 
@@ -90,8 +87,8 @@ curl --cacert <path-to-cert> <https_endpoint>
 Next, run the Docker command in your terminal to start the Kibana container.
 ```sh
 docker container run -it --name kibana \
--v <path_to_config_folder>:/usr/share/kibana/config \
--p 5601:5601 https://www.docker.elastic.co/r/kibana/kibana:<kibana_version>
+-v <path_to_config_folder_created_in_step_1>:/usr/share/kibana/config \
+-p 5601:5601 docker.elastic.co/kibana/kibana:<kibana_version>
 ```
 {: pre}
 
