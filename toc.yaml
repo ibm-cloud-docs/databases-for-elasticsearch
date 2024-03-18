@@ -17,7 +17,7 @@ toc:
       - link:
           label: IBM Cloud Databases
           href: https://cloud.ibm.com/docs/cloud-databases
-      - getting-started.md
+      - getting-started-old.md
       - learn-es-plat.md
       - learn-es-ml.md
       - learn-dashboard-overview.md
