@@ -3,7 +3,7 @@
 ---
 copyright:
 years: 2024
-lastupdated: "2024-03-01"
+lastupdated: "2024-04-10"
 
 keywords: elasticsearch, index-lifecycle-management
 
@@ -21,30 +21,30 @@ completion-time: 2hrs
 {: toc-content-type="tutorial"}
 {: toc-completion-time="2hrs"}
 
-Index Lifecycle Management (ILM) is a great feature of Elasticsearch. It allows you to proactively manage your indices so that you are making efficient use of resources, both in terms of storage and search capabilities. For example if an application needs to store 30 days of events, ILM can be used to create an index called “events” which can be written to and queried easily but is actually thirty separate indexes in the background. Older indexes can be made “read only” and optionally optimised, and when they reach the the age of 30 days, deleted.
+Index Lifecycle Management (ILM) is a great feature of Elasticsearch. It allows you to proactively manage your indices to make efficient use of resources, both in terms of storage and search capabilities. For example, if an application needs to store 30 days of events, ILM can be used to create an index called “events”, which can be written to and queried easily, but in reality consists of thirty separate indexes in the background. Older indexes can be made “read only” and optionally optimized, and when they reach the age of 30 days, deleted.
 
 Lifecycle rules can be defined, including:
 
-- when a new index is to be created: by age, data volume or document count.
-- whether to make older indexes “read only”
-- whether to change the shard count of older indexes
-- setting the priority of each index, which defines the order in which indexes are restored on node reboots
-- if and when older data is deleted
+- When creating a new index: by age, data volume, or document count.
+- Whether to make older indexes “read only”.
+- Whether to change the shard count of older indexes.
+- Setting the priority of each index, which defines the order in which indexes are restored on node reboots.
+- If and when older data is deleted.
 
-And then you sit back and let Elasticsearch do the heavy lifting!
+ILM is very flexible and feature-rich. For a full description of its capabilities, see the [ILM overview](https://www.elastic.co/guide/en/elasticsearch/reference/current/overview-index-lifecycle-management.html).
 
-ILM is very flexible and feature-rich. You can see a full description of its capabilities [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/overview-index-lifecycle-management.html).
+In this tutorial, you will get familiar with ILM by creating a set of simple rules and then watching how they get implemented. Although the set up is relatively simple, you will need to let the rules take their course over a couple of days to see the full effect.
 
-In this tutorial you will get familiar with ILM by creating a set of simple rules and then watching how they get implemented. Although the set up is relatively simple, you will need to let the rules take their course over a couple of days to see the full effect.
-
-NOTE: {{site.data.keyword.databases-for-elasticsearch}} is a paid-for service, so following this tutorial will incur charges.
+{{site.data.keyword.databases-for-elasticsearch}} is a paid-for service, so following this tutorial will incur charges.
+{: note}
 
 ## Before you start
 {: #ilm-elasticsearch-before-start}
+{: step}
 
 Before you begin, ensure you have the following:
 
-- An [{{site.data.keyword.cloud_notm}} Account](https://cloud.ibm.com/registration){: external}.
+- An [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}.
 - [Terraform](https://www.terraform.io/){: external} - to deploy infrastructure.
 
 ## Obtain an API key to deploy infrastructure to your account
@@ -59,6 +59,8 @@ For security reasons, the API key is only available to be copied or downloaded a
 ## Clone the project
 {: #ilm-elasticsearch-clone-project}
 {: step}
+
+To clone the project, run the following command:
 
 ```sh
 git clone https://github.com/IBM/elasticsearch-index-lifecycle-management.git
@@ -96,7 +98,7 @@ terraform apply --auto-approve
 ```
 {: pre}
 
-Finally export the database access URL to your terminal environment (it will be required by subsequent steps)
+Finally, export the database access URL to your terminal environment (it will be required by subsequent steps).
 
 ```sh
 terraform output --json
