@@ -100,6 +100,7 @@ toc:
           - enterprise-search-tutorial.md
           - howto-deploy-kibana-tutorial.md
           - howto-es-migrate-tutorial.md
+          - ilm-tutorial.md
       - topicgroup:
           label: Elasticsearch machine learning tutorials
           topics:
