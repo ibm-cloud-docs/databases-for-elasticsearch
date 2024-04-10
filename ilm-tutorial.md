@@ -21,14 +21,14 @@ completion-time: 2hrs
 {: toc-content-type="tutorial"}
 {: toc-completion-time="2hrs"}
 
-Index Lifecycle Management (ILM) is a great feature of Elasticsearch. It allows you to proactively manage your indices to make efficient use of resources, both in terms of storage and search capabilities. For example, if an application needs to store 30 days of events, ILM can be used to create an index called “events”, which can be written to and queried easily, but in reality consists of thirty separate indexes in the background. Older indexes can be made “read only” and optionally optimized, and when they reach the age of 30 days, deleted.
+Index Lifecycle Management (ILM) is a great feature of Elasticsearch. It allows you to proactively manage your indices to make efficient use of resources, both in terms of storage and search capabilities. For example, if an application needs to store 30 days of events, ILM can be used to create an index called “events”, which can be written to and queried easily, but in reality consists of thirty separate indices in the background. Older indices can be made “read only” and optionally optimized, and when they reach the age of 30 days, deleted.
 
 Lifecycle rules can be defined, including:
 
 - When creating a new index: by age, data volume, or document count.
-- Whether to make older indexes “read only”.
-- Whether to change the shard count of older indexes.
-- Setting the priority of each index, which defines the order in which indexes are restored on node reboots.
+- Whether to make older indices “read only”.
+- Whether to change the shard count of older indices.
+- Setting the priority of each index, which defines the order in which indices are restored on node reboots.
 - If and when older data is deleted.
 
 ILM is very flexible and feature-rich. For a full description of its capabilities, see the [ILM overview](https://www.elastic.co/guide/en/elasticsearch/reference/current/overview-index-lifecycle-management.html).
@@ -42,7 +42,7 @@ In this tutorial, you will get familiar with ILM by creating a set of simple rul
 {: #ilm-elasticsearch-before-start}
 {: step}
 
-Before you begin, ensure you have the following:
+Before you begin, ensure that you have the following:
 
 - An [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}.
 - [Terraform](https://www.terraform.io/){: external} - to deploy infrastructure.
@@ -67,18 +67,18 @@ git clone https://github.com/IBM/elasticsearch-index-lifecycle-management.git
 ```
 {: pre}
 
-## Install the Elaticsearch cluster
+## Install the Elasticsearch cluster
 {: #ilm-elasticsearch-install-infra}
 {: step}
 
-1. Navigate into the terraform folder of the cloned project.
+1. Navigate into the Terraform folder of the cloned project.
 
 ```sh
 cd elasticsearch-index-lifecycle-management/terraform
 ```
 {: pre}
 
-1. On your machine, create a document that is named `terraform.tfvars`, with the following fields:
+1. Create a document that is named `terraform.tfvars`, with the following fields:
 
 ```sh
 ibmcloud_api_key = "<your_api_key_from_step_1>"
@@ -87,7 +87,7 @@ elastic_password = "<make-up-a-password>"
 ```
 {: pre}
 
-The `terraform.tfvars` document contains variables that you might want to keep secret, so it is excluded from the public Github repository.
+The `terraform.tfvars` document contains variables that you may want to keep secret, so it is excluded from the public Github repository.
 {: important}
 
 1. Install the infrastructure with the following command:
@@ -111,10 +111,10 @@ export ES="<the url value obtained from the output>"
 {: #ilm-elasticsearch-ilm-setup}
 {: step}
 
-Let’s assume that you have logs coming from your applications into an Elasticsearch instance. The logs are very important on day 1 because you are checking for anomalies. After day 2, the logs become less useful but you still need them around for things like trying to spot trends. After 3 days, these logs are stale and you have no further use for them. So you want to create a three day lifecycle for your index:
+Let’s assume that you have logs coming from your applications into an Elasticsearch instance. The logs are very important on day one because you are checking for anomalies. After day two, the logs become less useful but you still need them around for things like trying to spot trends. After three days, these logs are stale and you have no further use for them. So, create a three day lifecycle for your index:
 
 - Day 1: Your data is in the Hot Tier, meaning it is readily available for search. It is your most recent, most searched data.
-- Day 2: Your data is in the Warm Tier. After day 1, your data is rolled over to a “warm” state. In this tier, it is optimised for search rather than indexing. In this tier, you will force a merge to reduce the number of segments in the index’s shards, for more efficient searching.
+- Day 2: Your data is in the Warm Tier. After day 1, your data is rolled over to a “warm” state. In this tier, it is optimized for search rather than indexing. In this tier, you will force a merge to reduce the number of segments in the index’s shards, for more efficient searching.
 - Day 3: Delete. After day 3 your data is no longer needed, so it gets deleted.
 
 
@@ -122,29 +122,29 @@ Let’s assume that you have logs coming from your applications into an Elastics
 {: #ilm-elasticsearch-ilm-lifecycle}
 {: step}
 
-First you need to create an ILM policy that defines the appropriate phases and actions as described above. In your terminal type:
+First, create an ILM policy that defines the appropriate phases and actions as described above. In your terminal type:
 
 ```sh
 curl -kX PUT -H 'Content-Type: application/json' -d'{"policy":{"phases":{"hot":{"actions":{"rollover":{"max_age":"1d"},"set_priority":{"priority":100},"forcemerge":{"max_num_segments":1},"shrink":{"number_of_shards":1},"readonly":{}},"min_age":"0ms"},"warm":{"min_age":"1d","actions":{"set_priority":{"priority":50}}},"delete":{"min_age":"3d","actions":{"delete":{}}}}}}' $ES/_ilm/policy/ilm-test-1
 ```
 {: pre}
 
-### The Index Template
+### The index template
 {: #ilm-elasticsearch-ilm-template}
 {: step}
 
-An index template defines how indices are going to be created. Because our lifecycle policy above moves data from hot to warm every day, a new index will be created each day. This template tells Elasticsearch what patterns to use to create these new indices: in this case all related indices will be called “logs-”, followed by an incrementing number. The template also has other settings, such as what lifecycle policy to use for the index. We will use the one we created in the previous step.
+An index template defines how indices are going to be created. Because our lifecycle policy above moves data from hot to warm every day, a new index will be created each day. This template tells Elasticsearch what patterns to use to create these new indices: in this case all related indices will be called “logs-”, followed by an incrementing number. The template also has other settings, such as what lifecycle policy to use for the index. Let's use the one we created in the previous step.
 
-Index templates are created in two steps. First you create one or more “component” templates. These are reusable blocks that can be combined later to create multiple templates. In our very simple example we will create only one component template. In your terminal type:
+Index templates are created in two steps. First, you create one or more “component” templates. These are reusable blocks that can be combined later to create multiple templates. In this very simple example you create only one component template. In your terminal type:
 
 ```sh
 curl -kX PUT -H 'Content-Type: application/json' -d'{"template":{"mappings":{"properties":{"@timestamp":{"type":"date"}}}}}' $ES/_component_template/component_template1
 ```
 {: pre}
 
-(This component template is basically empty except for a mapping to a timestamp field --all logs have a timestamp!-- but in a real-world use case can contain complex mappings and other instructions).
+(This component template is basically empty except for a mapping to a timestamp field (all logs have a timestamp) but a real-world use case can contain complex mappings and other instructions).
 
-After that, you create the Index Template itself, making use of your component template(s). This one tells elasticsearch about the index pattern and other data, like for example that every new index should have two shards and two replicas.
+Second, you create the index template itself, making use of your component template(s). This one tells Elasticsearch about the index pattern and other data, such as  for example that every new index must have two shards and two replicas.
 
 In your terminal type:
 
@@ -153,11 +153,11 @@ curl -kX PUT -H 'Content-Type: application/json' -d'{"index_patterns":["logs-*"]
 ```
 {: pre}
 
-### The Index
+### The index
 {: #ilm-elasticsearch-ilm-index}
 {: step}
 
-The last step is to create an Elasticsearch index that will use our template (and therefore our lifecycle policy). By calling it “logs-000001” and aliasing it to the alias defined in the template you ensure that the right template is used and that it is incremented numerically.
+The last step is to create an Elasticsearch index that will use your template (and therefore your lifecycle policy). By calling it “logs-000001” and aliasing it to the alias defined in the template, you ensure that the right template is used and that it is incremented numerically.
 
 In your terminal type:
 
@@ -176,9 +176,9 @@ curl -kX PUT -d’{document goes here}’ $ES/logs/_doc/mydocid
 ```
 {: pre}
 
-## Querying The Index
+## Querying the index
 
-Although Elasticsearch is storing data in multiple indexes, it can still be queried as if it were one:
+Although Elasticsearch is storing data in multiple indices, it can still be queried as if it were one:
 
 ```sh
 curl -X POST -d’{query goes here}’ $ES/logs/_search
@@ -190,7 +190,7 @@ curl -X POST -d’{query goes here}’ $ES/logs/_search
 {: #ilm-elasticsearch-ilm-observe}
 {: step}
 
-Now you have to wait a bit. On day one you will be able to see an index called `logs-000001`
+Now you have to wait a bit. On day one you will be able to see an index called `logs-000001`.
 
 ```sh
 curl -kX GET $ES/_cat/indices | grep logs-
@@ -198,13 +198,7 @@ curl -kX GET $ES/_cat/indices | grep logs-
 {: pre}
 
 
-But on day two you will see another index called `logs-000002` appear if you run the above command again.
-
-And on day three, `logs-000001` should disappear (because it has been deleted) but you should see `logs-000003` appear.
-
-You can always search the entire contents of your logs at any point by using the alias `logs`.
-
-Your indexes are managing themselves!
+But on day two you will see another index called `logs-000002` appear, if you run the above command again. And on day three, `logs-000001` should disappear (because it was deleted) but you should see `logs-000003` appear. You can always search the entire contents of your logs at any point by using the alias `logs`. Your indices are managing themselves!
 
 
 ## Tear down your infrastructure
@@ -220,5 +214,5 @@ terraform destroy
 
 ## Next Steps
 
-ILM is very feature-rich and in this tutorial we have only explored the basics of it. We encourage you to read more about ILM on the Elastic website and think about how it can help you manage your data in an efficient way.
+ILM is very feature-rich and in this tutorial you have only explored the basics of it. Learn more about ILM on the Elastic website and think about how it can help you manage your data in an efficient way.
 
