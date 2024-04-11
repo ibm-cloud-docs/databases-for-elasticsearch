@@ -45,7 +45,7 @@ In this tutorial, you will get familiar with ILM by creating a set of simple rul
 Before you begin, ensure that you have the following:
 
 - An [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}.
-- [Terraform](https://www.terraform.io/){: external} - to deploy infrastructure.
+- [Terraform](https://www.terraform.io/){: external} to deploy infrastructure.
 
 ## Obtain an API key to deploy infrastructure to your account
 {: #ilm-elasticsearch-obtain-key}
@@ -76,7 +76,7 @@ git clone https://github.com/IBM/elasticsearch-index-lifecycle-management.git
 ```sh
 cd elasticsearch-index-lifecycle-management/terraform
 ```
-{: pre}
+
 2. Create a document that is named `terraform.tfvars`, with the following fields:
 
 ```sh
@@ -84,24 +84,23 @@ ibmcloud_api_key = "<your_api_key_from_step_1>"
 region = "<your_region>"
 elastic_password = "<make-up-a-password>"
 ```
-{: pre}
+
 The `terraform.tfvars` document contains variables that you may want to keep secret, so it is excluded from the public Github repository.
 {: important}
+
 3. Install the infrastructure with the following command:
 
 ```sh
 terraform init
 terraform apply --auto-approve
 ```
-{: pre}
+
 4. Export the database access URL to your terminal environment (it will be required by subsequent steps).
 
 ```sh
 terraform output --json
 export ES="<the url value obtained from the output>"
 ```
-{: pre}
-
 
 ## Create an ILM process
 {: #ilm-elasticsearch-ilm-setup}
