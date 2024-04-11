@@ -1,8 +1,7 @@
-
-
 ---
+
 copyright:
-years: 2024
+  years: 2024
 lastupdated: "2024-04-10"
 
 keywords: elasticsearch, index-lifecycle-management
@@ -12,11 +11,12 @@ subcollection: databases-for-elasticsearch
 content-type: tutorial
 account-plan: paid
 completion-time: 2hrs
+
 ---
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Learn how to configure the Index Lifecycle Management capabilities of {{site.data.keyword.databases-for-elasticsearch}}
+# Configuring the Index Lifecycle Management capabilities of {{site.data.keyword.databases-for-elasticsearch}}
 {: #ilm-elasticsearch}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="2hrs"}
