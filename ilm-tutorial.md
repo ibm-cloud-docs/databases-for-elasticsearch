@@ -77,7 +77,6 @@ git clone https://github.com/IBM/elasticsearch-index-lifecycle-management.git
 cd elasticsearch-index-lifecycle-management/terraform
 ```
 {: pre}
-
 2. Create a document that is named `terraform.tfvars`, with the following fields:
 
 ```sh
@@ -86,10 +85,8 @@ region = "<your_region>"
 elastic_password = "<make-up-a-password>"
 ```
 {: pre}
-
 The `terraform.tfvars` document contains variables that you may want to keep secret, so it is excluded from the public Github repository.
 {: important}
-
 3. Install the infrastructure with the following command:
 
 ```sh
@@ -97,8 +94,7 @@ terraform init
 terraform apply --auto-approve
 ```
 {: pre}
-
-Finally, export the database access URL to your terminal environment (it will be required by subsequent steps).
+4. Export the database access URL to your terminal environment (it will be required by subsequent steps).
 
 ```sh
 terraform output --json
