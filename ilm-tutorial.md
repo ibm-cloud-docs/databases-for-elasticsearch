@@ -44,8 +44,8 @@ In this tutorial, you will get familiar with ILM by creating a set of simple rul
 
 Before you begin, ensure that you have the following:
 
-- An [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}.
-- [Terraform](https://www.terraform.io/){: external} to deploy infrastructure.
+- [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}
+- [Terraform](https://www.terraform.io/){: external} - To deploy infrastructure.
 
 ## Obtain an API key to deploy infrastructure to your account
 {: #ilm-elasticsearch-obtain-key}
