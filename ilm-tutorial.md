@@ -104,7 +104,7 @@ Finally, export the database access URL to your terminal environment (it will be
     terraform output --json
     export ES="<the url value obtained from the output>"
     ```
-    {: codeblock}
+    {: pre}
 
 ## Create an ILM process
 {: #ilm-elasticsearch-ilm-setup}
