@@ -78,7 +78,7 @@ cd elasticsearch-index-lifecycle-management/terraform
 ```
 {: pre}
 
-1. Create a document that is named `terraform.tfvars`, with the following fields:
+2. Create a document that is named `terraform.tfvars`, with the following fields:
 
 ```sh
 ibmcloud_api_key = "<your_api_key_from_step_1>"
@@ -90,7 +90,7 @@ elastic_password = "<make-up-a-password>"
 The `terraform.tfvars` document contains variables that you may want to keep secret, so it is excluded from the public Github repository.
 {: important}
 
-1. Install the infrastructure with the following command:
+3. Install the infrastructure with the following command:
 
 ```sh
 terraform init
@@ -122,7 +122,7 @@ Let’s assume that you have logs coming from your applications into an Elastics
 {: #ilm-elasticsearch-ilm-lifecycle}
 {: step}
 
-First, create an ILM policy that defines the appropriate phases and actions as described above. In your terminal type:
+First, create an ILM policy that defines the appropriate phases and actions as described above.
 
 ```sh
 curl -kX PUT -H 'Content-Type: application/json' -d'{"policy":{"phases":{"hot":{"actions":{"rollover":{"max_age":"1d"},"set_priority":{"priority":100},"forcemerge":{"max_num_segments":1},"shrink":{"number_of_shards":1},"readonly":{}},"min_age":"0ms"},"warm":{"min_age":"1d","actions":{"set_priority":{"priority":50}}},"delete":{"min_age":"3d","actions":{"delete":{}}}}}}' $ES/_ilm/policy/ilm-test-1
@@ -135,7 +135,7 @@ curl -kX PUT -H 'Content-Type: application/json' -d'{"policy":{"phases":{"hot":{
 
 An index template defines how indices are going to be created. Because our lifecycle policy above moves data from hot to warm every day, a new index will be created each day. This template tells Elasticsearch what patterns to use to create these new indices: in this case all related indices will be called “logs-”, followed by an incrementing number. The template also has other settings, such as what lifecycle policy to use for the index. Let's use the one we created in the previous step.
 
-Index templates are created in two steps. First, you create one or more “component” templates. These are reusable blocks that can be combined later to create multiple templates. In this very simple example you create only one component template. In your terminal type:
+Index templates are created in two steps. First, you create one or more “component” templates. These are reusable blocks that can be combined later to create multiple templates. In this very simple example you create only one component template.
 
 ```sh
 curl -kX PUT -H 'Content-Type: application/json' -d'{"template":{"mappings":{"properties":{"@timestamp":{"type":"date"}}}}}' $ES/_component_template/component_template1
@@ -145,8 +145,6 @@ curl -kX PUT -H 'Content-Type: application/json' -d'{"template":{"mappings":{"pr
 (This component template is basically empty except for a mapping to a timestamp field (all logs have a timestamp) but a real-world use case can contain complex mappings and other instructions).
 
 Second, you create the index template itself, making use of your component template(s). This one tells Elasticsearch about the index pattern and other data, such as  for example that every new index must have two shards and two replicas.
-
-In your terminal type:
 
 ```sh
 curl -kX PUT -H 'Content-Type: application/json' -d'{"index_patterns":["logs-*"],"template":{"settings":{"number_of_shards":2,"number_of_replicas":2,"index.lifecycle.name":"ilm-test-1","index.lifecycle.rollover_alias":"logs"}},"priority":500,"composed_of":["component_template1"],"version":3,"_meta":{"description":"my custom template"}}' $ES/_index_template/my_index_template
@@ -159,8 +157,6 @@ curl -kX PUT -H 'Content-Type: application/json' -d'{"index_patterns":["logs-*"]
 
 The last step is to create an Elasticsearch index that will use your template (and therefore your lifecycle policy). By calling it “logs-000001” and aliasing it to the alias defined in the template, you ensure that the right template is used and that it is incremented numerically.
 
-In your terminal type:
-
 ```sh
 curl -kX PUT -H 'Content-Type: application/json' -d'{"aliases": {"logs": { "is_write_index": true } } }' $ES/logs-000001
 ```
@@ -169,7 +165,7 @@ curl -kX PUT -H 'Content-Type: application/json' -d'{"aliases": {"logs": { "is_w
 
 ## Adding documents to the index
 
-Documents can be added without knowing the name of the current `logs` index, we simply write to `logs`:
+Documents can be added without knowing the name of the current `logs` index, we simply write to `logs`.
 
 ```sh
 curl -kX PUT -d’{document goes here}’ $ES/logs/_doc/mydocid
@@ -178,7 +174,7 @@ curl -kX PUT -d’{document goes here}’ $ES/logs/_doc/mydocid
 
 ## Querying the index
 
-Although Elasticsearch is storing data in multiple indices, it can still be queried as if it were one:
+Although Elasticsearch is storing data in multiple indices, it can still be queried as if it were one.
 
 ```sh
 curl -X POST -d’{query goes here}’ $ES/logs/_search
