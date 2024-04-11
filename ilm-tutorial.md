@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-04-10"
+lastupdated: "2024-04-11"
 
 keywords: elasticsearch, index-lifecycle-management
 
@@ -107,7 +107,7 @@ export ES="<the url value obtained from the output>"
 {: pre}
 
 
-## The ILM process
+## Create an ILM process
 {: #ilm-elasticsearch-ilm-setup}
 {: step}
 
@@ -118,7 +118,7 @@ Let’s assume that you have logs coming from your applications into an Elastics
 - Day 3: Delete. After day 3 your data is no longer needed, so it gets deleted.
 
 
-### The Index Lifecycle Policy
+### Create an Index Lifecycle policy
 {: #ilm-elasticsearch-ilm-lifecycle}
 {: step}
 
@@ -129,7 +129,7 @@ curl -kX PUT -H 'Content-Type: application/json' -d'{"policy":{"phases":{"hot":{
 ```
 {: pre}
 
-### The index template
+### Create an index template
 {: #ilm-elasticsearch-ilm-template}
 {: step}
 
@@ -151,7 +151,7 @@ curl -kX PUT -H 'Content-Type: application/json' -d'{"index_patterns":["logs-*"]
 ```
 {: pre}
 
-### The index
+### Create an index
 {: #ilm-elasticsearch-ilm-index}
 {: step}
 
@@ -163,7 +163,9 @@ curl -kX PUT -H 'Content-Type: application/json' -d'{"aliases": {"logs": { "is_w
 {: pre}
 
 
-## Adding documents to the index
+## Add documents to the index
+{: #ilm-elasticsearch-add-documents}
+{: step}
 
 Documents can be added without knowing the name of the current `logs` index, we simply write to `logs`.
 
@@ -172,7 +174,9 @@ curl -kX PUT -d’{document goes here}’ $ES/logs/_doc/mydocid
 ```
 {: pre}
 
-## Querying the index
+## Query the index
+{: #ilm-elasticsearch-query-index}
+{: step}
 
 Although Elasticsearch is storing data in multiple indices, it can still be queried as if it were one.
 
@@ -193,7 +197,6 @@ curl -kX GET $ES/_cat/indices | grep logs-
 ```
 {: pre}
 
-
 But on day two you will see another index called `logs-000002` appear, if you run the above command again. And on day three, `logs-000001` should disappear (because it was deleted) but you should see `logs-000003` appear. You can always search the entire contents of your logs at any point by using the alias `logs`. Your indices are managing themselves!
 
 
@@ -209,6 +212,6 @@ terraform destroy
 {: pre}
 
 ## Next Steps
+{: #ilm-elasticsearch-next-steps}
 
-ILM is very feature-rich and in this tutorial you have only explored the basics of it. Learn more about ILM on the Elastic website and think about how it can help you manage your data in an efficient way.
-
+ILM is very feature-rich and in this tutorial you have only explored the basics of it. ILM can help you manage your data in an efficient way. For more information, see [ILM: Manage the index lifecycle](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-lifecycle-management.html).
