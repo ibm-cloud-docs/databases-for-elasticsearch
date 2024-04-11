@@ -34,12 +34,13 @@ See the other tutorials in this Elasticsearch machine learning series:
 {{site.data.keyword.databases-for-elasticsearch}} is a paid-for service, so following this tutorial will incur charges.
 {: note}
 
-## Getting Productive
+## Before you start
 {: #elser-embeddings-elasticsearch-before-start}
+{: step}
 
-To begin the provisioning process, install some must-have productivity tools:
+To begin the provisioning process, install some must-have tools:
 
-- You need to have an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}.
+- [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}
 - [Terraform](https://www.terraform.io/){: external} - To codify and provision infrastructure.
 - [Python](https://www.python.org/downloads/){: external}
 - [jq](https://jqlang.github.io/jq/download/){: external} - To process configuration files.
