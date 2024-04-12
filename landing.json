@@ -1,6 +1,6 @@
 {
   "title": "IBM Cloud® Databases for Elasticsearch docs",
-  "lastupdated": "2024-02-06",
+  "lastupdated": "2024-04-12",
   "introduction": "Elasticsearch combines the power of a full text search engine with the indexing strengths of a JSON document database.",
   "section_devtools": {
     "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction",
@@ -33,6 +33,11 @@
   "section_updates": {
     "view_more": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elasticsearch-relnotes",
     "tiles": [
+            {
+        "date": "12 April 2024",
+        "title": "Configuring the Index Lifecycle Management capabilities of Databases for Elasticsearch tutorial published",
+        "description": "This tutorial is designed to assist you to proactively manage your indices to make efficient use of resources, both in terms of storage and search capabilities."
+      },
       {
         "date": "06 February 2024",
         "title": "Build an Elasticsearch chatbot tutorial published",
@@ -42,11 +47,6 @@
         "date": "17 January 2024",
         "title": "Elasticsearch machine learning tutorials documentation published",
         "description": "New tutorials created to highlight the ML features of Elasticsearch. For more information, see Use Elasticsearch vector search capabilities, Use ELSER, Elastic's Natural Language Processing model, and Use machine learning models with Elasticsearch to tag content."
-      },
-      {
-        "date": "03 January 2024",
-        "title": "Elasticsearch, machine learning, and AI",
-        "description": "Elasticsearch, a robust search-capable database, is well-suited to seamlessly incorporate essential ML features sought by enterprises embracing new technologies."
       }
     ]
   }
