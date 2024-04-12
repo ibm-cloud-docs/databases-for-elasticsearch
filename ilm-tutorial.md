@@ -69,7 +69,6 @@ To clone the project, run the following command:
 ```sh
 git clone https://github.com/IBM/elasticsearch-index-lifecycle-management.git
 ```
-
 {: pre}
 
 ## Install the Elasticsearch cluster
@@ -82,7 +81,6 @@ git clone https://github.com/IBM/elasticsearch-index-lifecycle-management.git
     ```sh
     cd elasticsearch-index-lifecycle-management/terraform
     ```
-
     {: codeblock}
 
 2. Create a document that is named `terraform.tfvars`, with the following fields:
@@ -92,7 +90,6 @@ git clone https://github.com/IBM/elasticsearch-index-lifecycle-management.git
     region = "<your_region>"
     elastic_password = "<make-up-a-password>"
     ```
-
     {: codeblock}
 
     The `terraform.tfvars` document contains variables that you may want to keep secret, so it is excluded from the public Github repository.
@@ -104,7 +101,6 @@ git clone https://github.com/IBM/elasticsearch-index-lifecycle-management.git
     terraform init
     terraform apply --auto-approve
     ```
-
     {: codeblock}
 
 Finally, export the database access URL to your terminal environment (it will be required by subsequent steps).
@@ -113,7 +109,6 @@ Finally, export the database access URL to your terminal environment (it will be
     terraform output --json
     export ES="<the url value obtained from the output>"
     ```
-
     {: codeblock}
 
 ## Create an ILM process
@@ -137,7 +132,6 @@ First, create an ILM policy that defines the appropriate phases and actions as d
 ```sh
 curl -kX PUT -H 'Content-Type: application/json' -d'{"policy":{"phases":{"hot":{"actions":{"rollover":{"max_age":"1d"},"set_priority":{"priority":100},"forcemerge":{"max_num_segments":1},"shrink":{"number_of_shards":1},"readonly":{}},"min_age":"0ms"},"warm":{"min_age":"1d","actions":{"set_priority":{"priority":50}}},"delete":{"min_age":"3d","actions":{"delete":{}}}}}}' $ES/_ilm/policy/ilm-test-1
 ```
-
 {: pre}
 
 ### Create an index template
@@ -152,7 +146,6 @@ Index templates are created in two steps. First, you create one or more “compo
 ```sh
 curl -kX PUT -H 'Content-Type: application/json' -d'{"template":{"mappings":{"properties":{"@timestamp":{"type":"date"}}}}}' $ES/_component_template/component_template1
 ```
-
 {: pre}
 
 (This component template is basically empty except for a mapping to a timestamp field (all logs have a timestamp) but a real-world use case can contain complex mappings and other instructions).
@@ -162,7 +155,6 @@ Second, you create the index template itself, making use of your component templ
 ```sh
 curl -kX PUT -H 'Content-Type: application/json' -d'{"index_patterns":["logs-*"],"template":{"settings":{"number_of_shards":2,"number_of_replicas":2,"index.lifecycle.name":"ilm-test-1","index.lifecycle.rollover_alias":"logs"}},"priority":500,"composed_of":["component_template1"],"version":3,"_meta":{"description":"my custom template"}}' $ES/_index_template/my_index_template
 ```
-
 {: pre}
 
 ### Create an index
@@ -175,7 +167,6 @@ The last step is to create an Elasticsearch index that will use your template (a
 ```sh
 curl -kX PUT -H 'Content-Type: application/json' -d'{"aliases": {"logs": { "is_write_index": true } } }' $ES/logs-000001
 ```
-
 {: pre}
 
 ## Add documents to the index
@@ -188,7 +179,6 @@ Documents can be added without knowing the name of the current `logs` index, we 
 ```sh
 curl -kX PUT -d’{document goes here}’ $ES/logs/_doc/mydocid
 ```
-
 {: pre}
 
 ## Query the index
@@ -201,7 +191,6 @@ Although Elasticsearch is storing data in multiple indices, it can still be quer
 ```sh
 curl -X POST -d’{query goes here}’ $ES/logs/_search
 ```
-
 {: pre}
 
 ### Watch your index manage itself
@@ -214,7 +203,6 @@ Now you have to wait a bit. On day one you will be able to see an index called `
 ```sh
 curl -kX GET $ES/_cat/indices | grep logs-
 ```
-
 {: pre}
 
 But on day two you will see another index called `logs-000002` appear, if you run the above command again. And on day three, `logs-000001` should disappear (because it was deleted) but you should see `logs-000003` appear. You can always search the entire contents of your logs at any point by using the alias `logs`. Your indices are managing themselves!
@@ -229,7 +217,6 @@ Your {{site.data.keyword.databases-for-elasticsearch}} incurs charges. After you
 ```sh
 terraform destroy
 ```
-
 {: pre}
 
 ## Next Steps
