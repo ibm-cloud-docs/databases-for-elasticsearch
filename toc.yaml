@@ -84,6 +84,7 @@ toc:
       - topicgroup:
           label: Enhancing security
           topics:
+          - learn-security-compliance.md
           - link:
               label: Managing security and compliance with Cloud Databases
               href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-manage-security-compliance
@@ -99,6 +100,7 @@ toc:
           - enterprise-search-tutorial.md
           - howto-deploy-kibana-tutorial.md
           - howto-es-migrate-tutorial.md
+          - ilm-tutorial.md
       - topicgroup:
           label: Elasticsearch machine learning tutorials
           topics:
@@ -145,18 +147,18 @@ toc:
           - link:
               label: Service Endpoints Integration
               href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-service-endpoints
-      - link:
-          label: Key Protect Integration
-          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-key-protect
-      - link:
-          label: Identity and Access Management
-          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-iam
-      - link:
-          label: Hyper Protect Crypto Services Integration
-          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hpcs
-      - link:
-          label: Responsibilities for Cloud Databases
-          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-responsibilities-cloud-databases
+          - link:
+              label: Key Protect Integration
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-key-protect
+          - link:
+              label: Identity and Access Management
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-iam
+          - link:
+              label: Hyper Protect Crypto Services Integration
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hpcs
+          - link:
+              label: Responsibilities for Cloud Databases
+              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-responsibilities-cloud-databases
   - navgroup:
       id: help
       topics:
