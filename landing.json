@@ -36,7 +36,7 @@
             {
         "date": "12 April 2024",
         "title": "Configuring the Index Lifecycle Management capabilities of Databases for Elasticsearch tutorial published",
-        "description": "This tutorial is designed to assist you to proactively manage your indices to make efficient use of resources, both in terms of storage and search capabilities. For more information, see [Configuring the Index Lifecycle Management capabilities of Databases for Elasticsearch](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-configuring-the-index-lifecycle-management-capabilities-of-databases-for-elasticsearch)."
+        "description": "This tutorial is designed to assist you to proactively manage your indices to make efficient use of resources, both in terms of storage and search capabilities."
       },
       {
         "date": "06 February 2024",
