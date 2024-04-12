@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-12-15"
+  years: 2019, 2024
+lastupdated: "2024-04-12"
 
 keyowrds: elasticsearch, databases, upgrading, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17, indexes, reindexing, reindex
 
@@ -108,7 +108,7 @@ curl -X POST \
 {: pre}
 
 ## Migration Notes for New Elasticsearch 7.x Users
- {: #migration-notes}
+{: #migration-notes}
 
 As in previous version upgrades, there are many changes. For more information, see [Elastic documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html){: .external}.
 
@@ -214,3 +214,8 @@ ibmcloud cdb deployment-user-password "example-deployment" <your-user-1>
 
 The `deployment-user-password` command needs to be run for each user.
 {: important}
+
+### Check your endpoints
+{: #upgrading-check-endpoints}
+
+If your deployment of version 7.9 or 7.10 had private endpoints, the private endpoints need to be re-enabled after the upgrade to version 7.17, as these were converted to public endpoints. For more information, see [Service endpoint integration](/docs/cloud-databases?topic=cloud-databases-service-endpoints&interface=ui) on how to set service endpoints.
