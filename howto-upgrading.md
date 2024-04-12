@@ -214,3 +214,6 @@ ibmcloud cdb deployment-user-password "example-deployment" <your-user-1>
 
 The `deployment-user-password` command needs to be run for each user.
 {: important}
+
+### Check your Endpoints
+If your deployment of version 7.9 or 7.10 had private endpoints, then the private endpoint needs to be re-enabled after the upgrade to version 7.17, as these will have been converted to public endpoints. Please refer to [this document](/docs/cloud-databases?topic=cloud-databases-service-endpoints&interface=ui) on how to set service endpoints.
