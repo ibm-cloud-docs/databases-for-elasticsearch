@@ -37,7 +37,7 @@
         "date": "12 April 2024",
         "title": "Configuring the Index Lifecycle Management capabilities of Databases for Elasticsearch tutorial published",
         "description": "This tutorial is designed to assist you to proactively manage your indices to make efficient use of resources, both in terms of storage and search capabilities. For more information, see [Configuring the Index Lifecycle Management capabilities of Databases for Elasticsearch](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-configuring-the-index-lifecycle-management-capabilities-of-databases-for-elasticsearch)."
-      }
+      },
       {
         "date": "06 February 2024",
         "title": "Build an Elasticsearch chatbot tutorial published",
@@ -47,7 +47,7 @@
         "date": "17 January 2024",
         "title": "Elasticsearch machine learning tutorials documentation published",
         "description": "New tutorials created to highlight the ML features of Elasticsearch. For more information, see Use Elasticsearch vector search capabilities, Use ELSER, Elastic's Natural Language Processing model, and Use machine learning models with Elasticsearch to tag content."
-      },
+      }
     ]
   }
 }
