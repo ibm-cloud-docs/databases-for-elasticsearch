@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-02-06"
+lastupdated: "2024-04-12"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 12 April 2024
+{: #databases-for-elasticsearch-12apr2024}
+{: release-note}
+
+Configuring the Index Lifecycle Management capabilities of Databases for Elasticsearch tutorial published
+:  This tutorial is designed to assist you to proactively manage your indices to make efficient use of resources, both in terms of storage and search capabilities. For more information, see [Configuring the Index Lifecycle Management capabilities of Databases for Elasticsearch](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-configuring-the-index-lifecycle-management-capabilities-of-databases-for-elasticsearch){: external}.
 
 ## 06 February 2024
 {: #databases-for-elasticsearch-06feb2024}
