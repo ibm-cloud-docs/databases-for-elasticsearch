@@ -103,7 +103,7 @@ git clone https://github.com/IBM/elasticsearch-index-lifecycle-management.git
     ```
     {: codeblock}
 
-Finally, export the database access URL to your terminal environment (it will be required by subsequent steps).
+4. Finally, export the database access URL to your terminal environment (it will be required by subsequent steps).
 
     ```sh
     terraform output --json
