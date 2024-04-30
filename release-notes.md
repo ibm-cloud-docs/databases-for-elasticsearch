@@ -14,7 +14,7 @@ content-type: release-note
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Release notes for {{site.data.keyword.databases-for-elasticsearch_full}}
+# Release notes
 {: #elasticsearch-relnotes}
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
