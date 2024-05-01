@@ -72,7 +72,7 @@ After you select the appropriate settings, click **Create** to start the provisi
 
 Before provisioning, follow the instructions provided in the documentation to install the [{{site.data.keyword.cloud_notm}} CLI tool](https://www.ibm.com/cloud/cli){: external}.
 
-1. Log in to {{site.data.keyword.cloud_notm}}. If you use a federated user ID, it's important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API ke(`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in by using the CLI, see [General CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login){: external} under `ibmcloud login`.
+1. Log in to {{site.data.keyword.cloud_notm}}. If you use a federated user ID, it's important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API key(`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in by using the CLI, see [General CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login){: external} under `ibmcloud login`.
 
       ```sh
       ibmcloud login
@@ -80,14 +80,7 @@ Before provisioning, follow the instructions provided in the documentation to in
       {: pre}
 
 
-1. Provision a {{site.data.keyword.databases-for-elasticsearch}} Shared service instance within {{site.data.keyword.cloud_notm}} by running a command like:
-
-   ```sh
-   ibmcloud resource service-instance-create <INSTANCE_NAME> <SERVICE_NAME> <SERVICE_PLAN_NAME> <LOCATION> <SERVICE_ENDPOINTS_TYPE> <RESOURCE_GROUP> -p `{"members_host_flavor": "multitenant"}`
-   ```
-   {: pre}
-
-   Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"members_host_flavor"` -p flag, and then specify the `host_flavor value` parameter. For example: `{"members_host_flavor": "b3c.4x16.encrypted"}`
+1. Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"members_host_flavor"` -p flag, and then specify the `host_flavor value` parameter. For example: `{"members_host_flavor": "b3c.4x16.encrypted"}`
 
    ```sh
    ibmcloud resource service-instance-create <INSTANCE_NAME> <SERVICE_NAME> <SERVICE_PLAN_NAME> <LOCATION> <SERVICE_ENDPOINTS_TYPE> <RESOURCE_GROUP> -p `{"members_host_flavor": "<host_flavor value>"}`
@@ -105,7 +98,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    | `SERVICE_ENDPOINTS_TYPE` | Configure the [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public` or `private`. The default value is `public`. |  |
    | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
    | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
-   | `host_flavor` | For Shared Compute, specify `multitenant`. To provision an Isolated Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. The `host_flavor value` parameter defines your Isolated Compute sizing. For more information, see [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-types).| |
+   | `host_flavor` | To provision an Isolated Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. The `host_flavor value` parameter defines your Isolated Compute sizing. For Shared Compute, specify `multitenant`. For more information, see [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-types).| |
    {: caption="Table 1. Basic command format fields" caption-side="top"}
    
  The `host_flavor` parameter defines your Compute sizing. Input the appropriate value for your desired size. To provision a Shared Compute instance, specify `multitenant`.
@@ -284,7 +277,7 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 
 * `members_memory_allocation_mb` -  Total amount of memory to be shared between the database members within the database. For example, if the value is "6144", and there are three database members, then the deployment gets 6 GB of RAM total, giving 2 GB of RAM per member. If omitted, the default value is used for the database type is used. This parameter only applies to `multitenant'.
 * `members_disk_allocation_mb` - Total amount of disk to be shared between the database members within the database. For example, if the value is "30720", and there are three members, then the deployment gets 30 GB of disk total, giving 10 GB of disk per member. If omitted, the default value for the database type is used. This parameter only applies to `multitenant'.
-* `members_cpu_allocation_count` - Enables and allocates the number of specified dedicated cores to your deployment. For example, to use two dedicated cores per member, use `"members_cpu_allocation_count":"2"`. If omitted, the default value "Shared CPU" uses compute resources on shared hosts. This parameter only applies to `multitenant'.
+* `members_cpu_allocation_count` - Enables and allocates the number of specified cores to your deployment. For example, to use two dedicated cores per member, use `"members_cpu_allocation_count":"2"`. If omitted, the default Shared Compute CPU:RAM ratios will be applied. This parameter only applies to `multitenant'.
 * `service-endpoints` - The [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) supported on your deployment, `public` or `private`.
 
    In the CLI, `service-endpoints` is a flag, not a parameter.
@@ -357,10 +350,10 @@ resource "ibm_database" "<your_database>" {
       id = "multitenant"
     },
     cpu {
-      allocation_count = 3
+      allocation_count = 2
     }
     memory {
-      allocation_mb = 2048
+      allocation_mb = 4096
     }
     disk {
       allocation_mb = 256000
