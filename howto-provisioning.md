@@ -168,7 +168,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    {: pre}
    
 ### The `host flavor` parameter
-{: #host-flavor-parameter}
+{: #host-flavor-parameter-cli}
 {: cli}   
    
  The `host_flavor` parameter defines your Compute sizing. Input the appropriate value for your desired size. To provision a Shared Compute instance, specify `multitenant`.
@@ -265,7 +265,7 @@ Follow these steps to provision using the [Resource Controller API](https://clou
    {: caption="Table 1. Basic command format fields" caption-side="top"}
    
 ### The `host flavor` parameter
-{: #host-flavor-parameter}
+{: #host-flavor-parameter-api}
 {: api}   
    
  The `host_flavor` parameter defines your Compute sizing. Input the appropriate value for your desired size. To provision a Shared Compute instance, specify `multitenant`.
@@ -395,9 +395,13 @@ output "ICD Etcd database connection string" {
 ```
 {: codeblock}
 
-The `host_flavor` parameter defines your Isolated Compute sizing. Input the appropriate value for your desired size. To provision a Shared Compute instance, specify `multitenant`.
+### The `host flavor` parameter
+{: #host-flavor-parameter-terraform}
+{: terraform}   
+   
+ The `host_flavor` parameter defines your Compute sizing. Input the appropriate value for your desired size. To provision a Shared Compute instance, specify `multitenant`.
 
-| **Host Flavor** | **host_flavor value** |
+| **Host flavor** | **host_flavor value** |
 |:-------------------------:|:---------------------:|
 | Shared Compute            | `multitenant`    |
 | 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
@@ -406,7 +410,7 @@ The `host_flavor` parameter defines your Isolated Compute sizing. Input the appr
 | 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
 | 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
 | 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
-{: caption="Table 1. Host Flavor sizing parameter" caption-side="bottom"}
+{: caption="Table 1. Host flavor sizing parameter" caption-side="bottom"}
 
 CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} Isolated Compute. Disk autoscaling is available. If you have provisioned an Isolated instance or switched over from a deployment with autoscaling, keep an eye on your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/cloud-databases?topic=cloud-databases-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
 {: note}
