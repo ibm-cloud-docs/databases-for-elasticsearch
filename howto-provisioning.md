@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-05-01"
+lastupdated: "2024-05-02"
 
 keywords: provision cloud databases, terraform, provisioning parameters, cli, resource controller api, provision elasticsearch
 
@@ -79,7 +79,6 @@ Before provisioning, follow the instructions provided in the documentation to in
       ```
       {: pre}
 
-
 1. Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"members_host_flavor"` -p flag, and then specify the `host_flavor value` parameter. For example: `{"members_host_flavor": "b3c.4x16.encrypted"}`
 
    ```sh
@@ -100,22 +99,6 @@ Before provisioning, follow the instructions provided in the documentation to in
    | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
    | `host_flavor` | To provision an Isolated Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. The `host_flavor value` parameter defines your Isolated Compute sizing. For Shared Compute, specify `multitenant`. For more information, see [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-types).| |
    {: caption="Table 1. Basic command format fields" caption-side="top"}
-   
- The `host_flavor` parameter defines your Compute sizing. Input the appropriate value for your desired size. To provision a Shared Compute instance, specify `multitenant`.
-
-| **Host flavor** | **host_flavor value** |
-|:-------------------------:|:---------------------:|
-| Shared Compute            | `multitenant`    |
-| 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
-| 8 CPU x 32 RAM            | `b3c.8x32.encrypted`    |
-| 8 CPU x 64 RAM            | `m3c.8x64.encrypted`    |
-| 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
-| 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
-| 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
-{: caption="Table 1. Host flavor sizing parameter" caption-side="bottom"}
-
-CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} Isolated Compute. Disk autoscaling is available. If you have provisioned an Isolated instance or switched over from a deployment with autoscaling, keep an eye on your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/cloud-databases?topic=cloud-databases-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
-{: note}
 
    You will see a response like:
 
@@ -183,6 +166,26 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
    ibmcloud resource service-instance-delete <INSTANCE_NAME>
    ```
    {: pre}
+   
+### The `host flavor` parameter
+{: #host-flavor-parameter}
+{: cli}   
+   
+ The `host_flavor` parameter defines your Compute sizing. Input the appropriate value for your desired size. To provision a Shared Compute instance, specify `multitenant`.
+
+| **Host flavor** | **host_flavor value** |
+|:-------------------------:|:---------------------:|
+| Shared Compute            | `multitenant`    |
+| 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
+| 8 CPU x 32 RAM            | `b3c.8x32.encrypted`    |
+| 8 CPU x 64 RAM            | `m3c.8x64.encrypted`    |
+| 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
+| 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
+| 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
+{: caption="Table 1. Host flavor sizing parameter" caption-side="bottom"}
+
+CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} Isolated Compute. Disk autoscaling is available. If you have provisioned an Isolated instance or switched over from a deployment with autoscaling, keep an eye on your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/cloud-databases?topic=cloud-databases-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
+{: note}   
 
 ### The `--parameters` parameter
 {: #flags-params-service-endpoints}
@@ -228,7 +231,7 @@ Follow these steps to provision using the [Resource Controller API](https://clou
    {: pre}
 
 
-   Once you have all the information, [provision a new resource instance](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#create-resource-instance){: external} with    the {{site.data.keyword.cloud_notm}} Resource Controller.
+   Once you have all the information, [provision a new resource instance](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#create-resource-instance){: external} with the {{site.data.keyword.cloud_notm}} Resource Controller.
 
    ```sh
    curl -X POST \
@@ -247,9 +250,27 @@ Follow these steps to provision using the [Resource Controller API](https://clou
    The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required.
    {: required}
    
+   The fields in the command are described in the table that follows.
+   
+   | Field | Description | Flag |
+   |-------|------------|------------|
+   | `NAME` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
+   | `SERVICE_NAME` [Required]{: tag-red} | Name or ID of the service. For {{site.data.keyword.databases-for-elasticsearch}}, use `databases-for-elasticsearch`. |  |
+   | `SERVICE_PLAN_NAME` [Required]{: tag-red} | `enterprise` or `platinum` |  |
+   | `LOCATION` [Required]{: tag-red} | The location where you want to deploy. To retrieve a list of regions, use the `ibmcloud regions` command. |  |
+   | `SERVICE_ENDPOINTS_TYPE` | Configure the [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public` or `private`. The default value is `public`. |  |
+   | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
+   | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
+   | `host_flavor` | To provision an Isolated Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. The `host_flavor value` parameter defines your Isolated Compute sizing. For Shared Compute, specify `multitenant`. For more information, see [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-types).| |
+   {: caption="Table 1. Basic command format fields" caption-side="top"}
+   
+### The `host flavor` parameter
+{: #host-flavor-parameter}
+{: api}   
+   
  The `host_flavor` parameter defines your Compute sizing. Input the appropriate value for your desired size. To provision a Shared Compute instance, specify `multitenant`.
 
-| **Host Flavor** | **host_flavor value** |
+| **Host flavor** | **host_flavor value** |
 |:-------------------------:|:---------------------:|
 | Shared Compute            | `multitenant`    |
 | 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
@@ -258,7 +279,7 @@ Follow these steps to provision using the [Resource Controller API](https://clou
 | 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
 | 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
 | 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
-{: caption="Table 1. Host Flavor sizing parameter" caption-side="bottom"}
+{: caption="Table 1. Host flavor sizing parameter" caption-side="bottom"}
 
 CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} Isolated Compute. Disk autoscaling is available. If you have provisioned an Isolated instance or switched over from a deployment with autoscaling, keep an eye on your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/cloud-databases?topic=cloud-databases-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
 {: note}
