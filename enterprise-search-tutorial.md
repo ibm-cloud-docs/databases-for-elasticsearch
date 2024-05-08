@@ -16,220 +16,114 @@ completion-time: 1h
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Configuring an Enterprise Search 7.17 server with an {{site.data.keyword.databases-for-elasticsearch}} instance
+# Configuring Kibana and Enterprise Search server with an {{site.data.keyword.databases-for-elasticsearch}} instance
 {: #tutorial-elasticsearch-enterprise-search-tutorial}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="1h"}
 
-Welcome to a guide on configuring a functional Enterprise Search 7.17 server integrated with an {{site.data.keyword.databases-for-elasticsearch_full}} instance. Elasticsearch is a powerful and versatile search and analytics engine that helps you store, search, and analyze large volumes of data quickly and in near-real-time. Elasticsearch is commonly used for log and event data analysis, full-text search, and various other use cases where data needs to be queried efficiently.
+This tutorial will guide you through the steps to configure a functional Enterprise Search server integrated with an {{site.data.keyword.databases-for-elasticsearch_full}} instance. Elasticsearch is a powerful and versatile search and analytics engine that helps you store, search, and analyze large volumes of data quickly and in near-real-time. 
 
-{{site.data.keyword.databases-for-elasticsearch_full}} is an Elasticsearch service that is offered by {{site.data.keyword.cloud_notm}} that provides a managed and scalable solution for deploying and running Elasticsearch clusters. {{site.data.keyword.databases-for-elasticsearch}} simplifies the setup and maintenance of Elasticsearch, enabling you to focus on using the power of Elasticsearch without the complexities of managing the infrastructure. Kibana complements Elasticsearch by offering a flexible visualization platform. It allows you to explore, visualize, and share insights from your data, enabling you to create custom dashboards and visualizations to better understand your information.
+{{site.data.keyword.databases-for-elasticsearch_full}} is an Elasticsearch service that is offered by {{site.data.keyword.cloud_notm}} that provides a managed and scalable solution for deploying and running Elasticsearch clusters. 
 
-Enterprise Search extends the capabilities of {{site.data.keyword.databases-for-elasticsearch}} to provide a unified search experience across various data sources, including documents, emails, databases, and more. It offers a seamless interface for users to find relevant information across disparate data silos, enhancing productivity and collaboration. By integrating Enterprise Search with your {{site.data.keyword.databases-for-elasticsearch}} instance, you gain a comprehensive search solution that uses the strengths of both platforms to efficiently discover insights from your data.
+Kibana complements Elasticsearch by offering a flexible visualization platform. It allows you to explore, visualize, and share insights from your data, enabling you to create custom dashboards and visualizations to better understand your information.
+
+Enterprise Search extends the capabilities of {{site.data.keyword.databases-for-elasticsearch}} to provide a unified search experience across various data sources, including documents, emails, databases, and more.
+
+By integrating Enterprise Search with your {{site.data.keyword.databases-for-elasticsearch}} instance, you gain a comprehensive search solution that uses the strengths of both platforms to efficiently discover insights from your data.
 {: shortdesc}
 
-## Prerequisites
-{: #tutorial-elasticsearch-enterprise-search-tutorial-prereqs}
+Kibana and Enterprise Search will be deployed on [IBM Code Engine](https://www.ibm.com/products/code-engine), a fully-managed serverless platform that can be used to host cloud native applications such as web apps.
+
+## Before you start
+{: #kibana-ent-search-before-start}
+
+Before you begin, ensure you have the following:
+
+- An [{{site.data.keyword.cloud_notm}} Account](https://cloud.ibm.com/registration){: external}
+- The [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cli-getting-started)
+- [Terraform](https://www.terraform.io/){: external} - to deploy infrastructure
+
+## Obtain an API key to deploy infrastructure to your account
+{: #kibana-ent-search-obtain-key}
 {: step}
 
-Before you start the installation process, have the prerequisites in place:
+Follow [these steps](/docs/account?topic=account-userapikey&interface=ui#create_user_key){: external} to create an {{site.data.keyword.cloud_notm}} API key that enables Terraform to provision infrastructure into your account. You can create up to 20 API keys.
 
-- Have a working instance of [{{site.data.keyword.databases-for-elasticsearch}}](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-provisioning-new) and [Kibana](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started&interface=ui#kibana).
+For security reasons, the API key is only available to be copied or downloaded at the time of creation. If the API key is lost, you must create a new API key.
+{: note}
 
-- Java 11: If your preferred installation method is through a package, verify that [Java 11](https://www.oracle.com/java/technologies/downloads/){: external} is installed on your system.
-
-## Setting Up Elasticsearch and Kibana Instances
-{: #tutorial-elasticsearch-enterprise-search-tutorial-instance-setup}
+## Clone the project
+{: #kibana-ent-search-clone-project}
 {: step}
 
-1. [Configure](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started) your {{site.data.keyword.databases-for-elasticsearch}} and Kibana instances.
+```sh
+git clone https://github.com/IBM/elasticsearch-kibana-enterprise-search.git
+```
+{: pre}
 
-1. Add the following line in your Kibana.yml file:
-
-   ```sh
-   enterpriseSearch.host: ${ENTERPRISE_HOST_URL}
-   ```
-   {: pre}
-
-   `ENTERPRISE_HOST_URL` depends upon your installation.
-
-1. After successfully setting up the instances, obtain the following details:
-
-- `ELASTICSEARCH_USERNAME`
-- `ELASTICSEARCH_PASSWORD`
-- `ELASTICSEARCH_HOST URL`
-- `KIBANA_HOST URL`
-- `CA Certificate`
-
-### How to use our self-signed root certificate
-{: #tutorial-elasticsearch-enterprise-search-tutorial-instance-cert-use}
-
-1. In your instance's **Overview**, find the **Endpoints** section.
-1. Copy the certificate information from the **Endpoints** panel, or use the *Download Certificate* option.
-1. Save the certificate to a file. You can use the that is provided or your own file name.
-1. If necessary, convert this file to PEM format by using the command:
-
-   ```sh
-   openssl x509 -in <sourcefile> -out <targetfile>.pem
-   ```
-   {: pre}
-
-1. Provide the path to the certificate to the driver or client.
-
-## Configure Enterprise Search through Package
-{: #tutorial-elasticsearch-enterprise-search-tutorial-config-package}
+## Install your infrastructure
+{: #kibana-ent-search-install-infra}
 {: step}
 
-Configure Enterprise Search to integrate with your {{site.data.keyword.databases-for-elasticsearch}} instance.
-
-1. [Download](https://www.elastic.co/downloads/past-releases/enterprise-search-7-17-7){: external} Enterprise Search.
-1. Extract the downloaded package to a suitable location.
-1. Edit the Configuration File: Locate the `enterprise-search.yml` file within the config directory of the extracted package. Edit this file to incorporate the necessary settings.
-1. Add configuration settings: Inside the `enterprise-search.yml` file, add the following lines:
+1. Navigate into the terraform folder of the cloned project.
 
    ```sh
-   allow_es_settings_modification: true
-   secret_management.encryption_keys:['AWESOME_SECRET']
-   elasticsearch.username: ELASTICSEARCH_USERNAME
-   elasticsearch.password: ELASTICSEARCH_PASSWORD
-   elasticsearch.host: ELASTICSEARCH_HOST
-   elasticsearch.ssl.enabled: true
-   elasticsearch.ssl.certificate_authority: path/to/ca-cert
-   kibana.external_url: KIBANA_HOST
+   cd elasticsearch-kibana-codeengine/terraform
    ```
    {: pre}
 
-   Replace the placeholders with the details obtained in the previous step.
-
-1. CA Certificate Placement: Ensure that the CA certificate you downloaded is placed in the specified path that is mentioned in the configuration.
-
-1. Start Enterprise Search: Open your terminal and navigate to the location where you extracted the package. Start Enterprise Search by running the following command:
+1. On your machine, create a document that is named `terraform.tfvars`, with the following fields:
 
    ```sh
-   ./bin/enterprise-search
+   ibmcloud_api_key = "<your api key>"
+   region = "<an ibm cloud region>" #e.g. eu-gb
+   es_username = "admin"
+   es_password = "<make up a password>" #Passwords have a 15 character minimum and must contain a number. Other acceptable characters are A-Z, a-z, 0-9, -, _
+   es_version="<a supported major version>" # eg 8.12
    ```
    {: pre}
 
-1. To ensure that Enterprise Search keeps running, consider running it as a background process. Do this with `&`, using a command like:
+   The `terraform.tfvars` document contains variables that you might want to keep secret.
+   {: important}
+
+1. Install the infrastructure with the following command:
 
    ```sh
-   ./bin/enterprise-search &
+   terraform init 
+   terraform apply --auto-approve
    ```
    {: pre}
 
-   You can also use the `nohup` command:
-
-   ```sh
-   nohup <COMMAND> &
-   ```
-   {: pre}
-
-   `<COMMAND>` is the command that you want to run in the background.
-
-## Start Enterprise Search through Docker Run
-{: #tutorial-elasticsearch-enterprise-search-tutorial-docker-run}
+## Visit your Kibana deployment
+{: #kkibana-ent-search-visit-deployment}
 {: step}
 
-In addition to the standard installation, start Enterprise Search by using Docker by following these steps:
+The previous step will output the URL of the Kibana deployment, e.g. something like:
 
-1. Place CA Certificate: Copy the CA certificate into ```certs/ca/ca.crt``` within your project folder.
-1. Add the following:
-1. Run Docker Command:
+```sh
+kibana_endpoint = "https://kibana-app.1dqmr45rt678g05.eu-gb.codeengine.appdomain.cloud"
+```
+{: pre}
 
-   Run the following command in your project folder to start Enterprise Search with Docker:
+Log in at this URL with the username and password you supplied above.
 
-   ```sh
-   docker run \
-   --name "enterprise-search" \
-   --network "elastic" \
-   --publish "3002:3002" \
-   --volume "./certs:/usr/share/enterprise-search/es-config/certs:ro" \
-   --interactive \
-   --tty \
-   --rm \
-   --env "allow_es_settings_modification=true" \
-   --env "elasticsearch.ssl.enabled=true" \
-   --env "elasticsearch.ssl.certificate_authority=/usr/share/enterprise-search/es-config/certs/ca/ca.crt" \
-   --env "elasticsearch.host=${ELASTICSEARCH_HOST} \
-   --env "elasticsearch.username=${ELASTICSEARCH_USERNAME}" \
-   --env "elasticsearch.password=${ELASTICSEARCH_PASSWORD}" \
-   --env "kibana.external_url=${KIBANA_HOST}" \
-   --env "secret_management.encryption_keys=[${AWESOME_SECRET}]" \
-   "docker.elastic.co/enterprise-search/enterprise-search:7.17.7"
-   ```
-   {: pre}
+Once logged in, you can configure Enterprise Search by visiting 
 
-   Replace placeholders with your actual values.
+```sh
+https://kibana-app.1dqmr45rt678g05.eu-gb.codeengine.appdomain.cloud/app/enterprise_search/app_search/engines
+```
+You can find more information on the many features of Enterprise search on the [Elastic website](https://www.elastic.co/guide/en/enterprise-search/current/start.html).
 
-## Starting Enterprise Search AND Kibana through Docker Compose
-{: #tutorial-elasticsearch-enterprise-search-tutorial-docker-compose}
+The output of the previous step also contains the URL of the Elasticsearch deployment itself, which can be used to connect it to [WatsonX Assistant](https://www.ibm.com/products/watsonx-assistant) or other applications.
+
+
+## Wrapping up
+{: #kkibana-ent-search-wrapping-up}
 {: step}
 
-You can start Kibana and Enterprise Search together with docker-compose. Follow these steps:
+Your {{site.data.keyword.databases-for-elasticsearch}} incurs charges, as does the Code Engine resources that host Kibana and Enterprise Search. After you finish this tutorial, you can remove all the infrastructure by going to the `terraform` directory of the project and using the command:
 
-1. Place CA Certificate: Copy the CA certificate into `certs/ca/ca.crt` within your project folder.
-1. Add the following to the `.env` file in your project directory:
-
-   ```sh
-   ELASTIC_VERSION=7.17.7
-   ELASTICSEARCH_HOSTS=${ELASTICSEARCH_HOST}
-   ELASTICSEARCH_PASSWORD=${ELASTICSEARCH_PASSWORD}
-   ELASTICSEARCH_USERNAME=${ELASTICSEARCH_USERNAME}
-   ENCRYPTION_KEYS=${AWESOME_SECRET}
-   KIBANA_HOST=http://kibana:5601
-   ENTERPRISE_SEARCH_HOST=http://enterprisesearch:3002
-   ```
-   {: pre}
-
-1. Create a `docker-compose` file and add the following code to it:
-
-   ```sh
-   version: "2.2"
-   services:
-     kibana:
-       image: docker.elastic.co/kibana/kibana:${ELASTIC_VERSION}
-       volumes:
-         - ./certs:/usr/share/kibana/config/certs
-       ports:
-         - 5601:5601
-       environment:
-         - SERVERNAME=kibana
-         - ELASTICSEARCH_HOSTS=${ELASTICSEARCH_HOSTS}
-         - ELASTICSEARCH_USERNAME=${ELASTICSEARCH_USERNAME}
-         - ELASTICSEARCH_PASSWORD=${ELASTICSEARCH_PASSWORD}
-         - ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES=config/certs/ca/ca.crt
-         - ENTERPRISE_SEARCH_HOST=${ENTERPRISE_SEARCH_HOST}
-
-     enterprisesearch:
-       depends_on:
-         kibana:
-           condition: service_healthy
-       image: docker.elastic.co/enterprise-search/enterprise-search:${ELASTIC_VERSION}
-       volumes:
-         - ./certs:/usr/share/enterprise-search/config/certs
-       ports:
-         - 3002:3002
-       environment:
-         - SERVERNAME=enterprisesearch
-         - secret_management.encryption_keys=[${AWESOME_SECRET}]
-         - allow_es_settings_modification=true
-         - elasticsearch.host=${ELASTICSEARCH_HOSTS}
-         - elasticsearch.username=${ELASTICSEARCH_USERNAME}
-         - elasticsearch.password=${ELASTICSEARCH_PASSWORD}
-         - elasticsearch.ssl.enabled=true
-         - elasticsearch.ssl.certificate_authority=/usr/share/enterprise-search/config/certs/ca/ca.crt
-         - kibana.external_url=${KIBANA_HOST}
-   ```
-   {: pre}
-
-The placeholders in the `docker-compose.yml` file are automatically picked up from the `.env` file. Make sure the `.env` file is updated with actual details.
-
-If you already have Kibana up and running, make sure to update the enterprise host url in the kibana.yml config.
-
-## Verify Integration:
-{: #tutorial-elasticsearch-enterprise-search-tutorial-verify-integration}
-{: step}
-
-After Enterprise Search is up and running, access it through your Kibana dashboard.
-
-Remember, this guide provides a high-level overview of the setup process. For more information, see the official documentation for more detailed information and troubleshooting assistance. Happy searching!
+```sh
+terraform destroy
+```
+{: pre}
