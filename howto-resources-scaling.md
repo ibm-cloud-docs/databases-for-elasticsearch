@@ -38,15 +38,26 @@ Disk allocation also affects the performance of the disk, with larger disks havi
 You cannot scale down storage. If your data set size has decreased, you can recover space by backing up and restoring to a new deployment.
 {: .tip} 
 
+
 ### RAM
 {: #resources-scaling-ram}
 
-If you find that your queries and database activity suffer from performance issues due to a lack of memory, you can scale the amount of RAM allocated to your service. Adding memory to the total allocation adds memory to the members equally. {{site.data.keyword.databases-for-elasticsearch}} deployments have their memory allocation policy set at 50% heap and 50% system memory, so increasing the amount of RAM increases both heap and system memory.
+If you find that your queries and database activity suffer from performance issues due to a lack of memory, you can scale the amount of RAM allocated to your service. If your database instance is on an Isolated Compute hosting model, select the CPU x RAM configuration that matches your resource needs. If your database instance is on a Shared Compute or Dedicated Core hosting model, simply select the RAM allocation you would like for your database. Please note that Dedicated Core is deprecated, and will be removed in May 2025. 
 
-### Dedicated cores
-{: #resources-scaling-ded-cores}
+Adding memory to the total allocation adds memory to the members equally. {{site.data.keyword.databases-for-elasticsearch}} deployments have their memory allocation policy set at 50% heap and 50% system memory, so increasing the amount of RAM increases both heap and system memory. 
 
-You can enable or increase the CPU allocation to the deployment. With dedicated cores, your resource group is given a single-tenant host with a reserve of CPU shares. Your deployment is then guaranteed the minimum number of CPUs you specify. The default of 0 dedicated cores uses compute resources on shared hosts. Going from a 0 to a >0 CPU count provisions and moves your deployment to new hosts and your databases are restarted as part of that move. Going from >0 to a 0 CPU count, moves your deployment to a shared host and also restarts your databases as part of the move.
+RAM can be scaled up or down. 
+
+### vCPU
+{: #resources-scaling-cores}
+
+If you find that your database workloads need more CPU resources, you can scale the amount of CPU allocated to your service. If your database instance is on an Isolated Compute hosting model, select the CPU x RAM configuration that matches your resource needs. If your database instance is on a Shared Compute or Dedicated Core hosting model, simply select the CPU allocation you would like for your database. Please note that Dedicated Core is deprecated, and will be removed in May 2025. 
+
+The default of 0 cores uses compute resources on multi-tenanted hosts. This style of multi-tenant is deprecated, and will be removed September 2025 in favor of Shared Compute. 
+
+CPU can be scaled up or down. 
+
+
 
 ## Scaling considerations
 {: #resources-scaling-consider}
@@ -56,8 +67,9 @@ You can enable or increase the CPU allocation to the deployment. With dedicated 
 - Scaling down RAM or CPU does not trigger restarts.
 
 - Disk cannot be scaled down.
+- Scaling between hosting models (Shared Compute, Isolated Compute, and Dedicated Cores) moves your deployment to new hosts. Your databases are restarted as part of that move. As your deployment is moved to a new host, this can also take longer than just adding more resources. Learn more about Shared Compute and Isolated Compute [here](/docs/cloud-databases?topic=cloud-databases-hosting-models).
 
-- A few scaling operations can be more long running than others. Enabling dedicated cores moves your deployment to its own host and can take longer than just adding more cores. Similarly, drastically increasing CPU, RAM, or Disk can take longer than smaller increases to account for provisioning more underlying hardware resources.
+- Similarly, drastically scaling up CPU, RAM, or Disk can take longer to run than small resource increases to account for provisioning more underlying hardware resources.
 
 - Scaling operations are logged in [{{site.data.keyword.at_full}}](/docs/databases-for-elasticsearch?topic=cloud-databases-activity-tracker).
 
@@ -68,6 +80,9 @@ You can enable or increase the CPU allocation to the deployment. With dedicated 
 ## Scaling in the UI
 {: #resources-scaling-ui}
 {: ui}
+
+For new [hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models), scaling is currently available through the CLI, API, and Terraform.
+{: note}
 
 A visual representation of your data members and their resource allocation is available on the _Resources_ tab of your deployment's _Manage_ page. 
 
@@ -121,17 +136,20 @@ ______________________________________
 
 <br>
 
-To scale a {{site.data.keyword.databases-for}} Isolated Compute instance, modify the `deployment-groups-set` parameter. Use a command like:
 
-```sh
-ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--disk <val>] [--hostflavor <val>]
-```
-{: pre}
-
-To scale a {{site.data.keyword.databases-for}} Shared Compute instance. Use a command like:
+To scale a {{site.data.keyword.databases-for}} Shared Compute instance, use a command like:
 
 ```sh
 ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--memory <val>] [--cpu <val>] [--disk <val>] [--hostflavor multitenant]
+```
+{: pre}
+
+
+
+To scale a {{site.data.keyword.databases-for}} Isolated Compute instance, use a command like the following used to scale to a 4 CPU by 16 RAM instance:
+
+```sh
+ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--memory <val>] [--cpu <val>] [--disk <val>] [--hostflavor b3c.4x16.encrypted]
 ```
 {: pre}
 
@@ -211,4 +229,4 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 {: terraform}
 
 To scale a {{site.data.keyword.databases-for}} Isolated Compute instance, use Terraform.
-Update `host_flavor` with your desired amount. To implement your change, run `terraform apply`.
+Update `host_flavor` with your desired allocation; choose from either an Isolated Compute CPU x RAM configuration, or `multitenant` to land on Shared Compute. To implement your change, run `terraform apply`.
