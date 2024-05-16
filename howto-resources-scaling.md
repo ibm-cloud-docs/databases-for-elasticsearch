@@ -116,7 +116,10 @@ The deployment has three members, with 3072 MB of RAM and 15360 MB of disk alloc
 The `cdb deployment-groups-set` command allows either the total RAM or total disk allocation to be set, in MB. For example, to scale the memory of the "example-deployment" to 2048 MB of RAM for each memory member (for a total memory of 6144 MB), you use the command:  
 `ibmcloud cdb deployment-groups-set example-deployment member --memory 6144`
 
+<br>
 ______________________________________
+
+<br>
 
 To scale a {{site.data.keyword.databases-for}} Isolated Compute instance, modify the `deployment-groups-set` parameter. Use a command like:
 
@@ -157,7 +160,10 @@ curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{
     }'
 ```
 
-________________________________
+<br>
+______________________________________
+
+<br>
 
 To scale a {{site.data.keyword.databases-for}} Isolated Compute instance, use the {{site.data.keyword.databases-for}} API [Scaling endpoint](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#setdeploymentscalinggroup){: external}.
 Use a command like:
