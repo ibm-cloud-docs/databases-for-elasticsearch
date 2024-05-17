@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-05-16"
+lastupdated: "2024-05-17"
 
 keywords: elasticsearch dedicated cores, databases, manual scaling, disk I/O, memory, CPU, elasticsearch resources, elasticsearch scaling
 
@@ -15,7 +15,7 @@ subcollection: databases-for-elasticsearch
 # Adding disk, memory, and CPU 
 {: #resources-scaling}
 
-For new [hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models), scaling is currently available through the CLI, API, and Terraform.
+For new [hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models), scaling is available through the CLI, API, and Terraform.
 {: note}
 
 You can manually adjust the resources available to your {{site.data.keyword.databases-for-elasticsearch_full}} deployment to suit your workload and the size of your data.
@@ -41,33 +41,36 @@ You cannot scale down storage. If your data set size has decreased, you can reco
 ### RAM
 {: #resources-scaling-ram}
 
-If you find that your queries and database activity suffer from performance issues due to a lack of memory, you can scale the amount of RAM allocated to your service. Adding memory to the total allocation adds memory to the members equally. {{site.data.keyword.databases-for-elasticsearch}} deployments have their memory allocation policy set at 50% heap and 50% system memory, so increasing the amount of RAM increases both heap and system memory.
+If you find that your queries and database activity suffer from performance issues due to a lack of memory, you can scale the amount of RAM allocated to your service. If your database instance is on an Isolated Compute hosting model, select the CPU x RAM configuration that matches your resource needs. If your database instance is on a Shared Compute or Dedicated Core hosting model, select the RAM allocation that you want for your database. Note that Dedicated Core is deprecated, and will be removed in May 2025. 
 
-### Dedicated cores
-{: #resources-scaling-ded-cores}
+Adding memory to the total allocation adds memory to the members equally. {{site.data.keyword.databases-for-elasticsearch}} deployments have their memory allocation policy set at 50% heap and 50% system memory, so increasing the amount of RAM increases both heap and system memory. RAM can be scaled up or down. 
 
-You can enable or increase the CPU allocation to the deployment. With dedicated cores, your resource group is given a single-tenant host with a reserve of CPU shares. Your deployment is then guaranteed the minimum number of CPUs you specify. The default of 0 dedicated cores uses compute resources on shared hosts. Going from a 0 to a >0 CPU count provisions and moves your deployment to new hosts and your databases are restarted as part of that move. Going from >0 to a 0 CPU count, moves your deployment to a shared host and also restarts your databases as part of the move.
+### vCPU
+{: #resources-scaling-cpu}
+
+If you find that your database workloads need more CPU resources, you can scale the amount of CPU allocated to your service. If your database instance is on an Isolated Compute hosting model, select the CPU x RAM configuration that matches your resource needs. If your database instance is on a Shared Compute or Dedicated Core hosting model, select the CPU allocation that you want for your database. Note that Dedicated Core is deprecated, and will be removed in May 2025. 
+
+The default of 0 cores uses compute resources on multi-tenanted hosts. This style of multi-tenant is deprecated, and will be removed in September 2025 in favor of Shared Compute. CPU can be scaled up or down. 
 
 ## Scaling considerations
 {: #resources-scaling-consider}
 
-- Scaling up might cause your deployment to restart. If your deployment needs to be moved to a host with more capacity, then the deployment is restarted as part of the move.
+- Scaling up might cause your deployment to restart. If your deployment needs to be moved to a host with more capacity, the deployment is restarted as part of the move.
 
 - Scaling down RAM or CPU does not trigger restarts.
-
 - Disk cannot be scaled down.
-
-- A few scaling operations can be more long running than others. Enabling dedicated cores moves your deployment to its own host and can take longer than just adding more cores. Similarly, drastically increasing CPU, RAM, or Disk can take longer than smaller increases to account for provisioning more underlying hardware resources.
-
+- Scaling between hosting models (Shared Compute, Isolated Compute, and Dedicated Cores) moves your deployment to new hosts. Your databases are restarted as part of that move. As your deployment is moved to a new host, this can also take longer than just adding more resources. For more information, see [Shared Compute and Isolated Compute](/docs/cloud-databases?topic=cloud-databases-hosting-models).
+- Similarly, drastically scaling up CPU, RAM, or disk can take longer to run than small resource increases to account for provisioning more underlying hardware resources.
 - Scaling operations are logged in [{{site.data.keyword.at_full}}](/docs/databases-for-elasticsearch?topic=cloud-databases-activity-tracker).
-
-- If you find consistent trends in resource usage or would like to scale when certain resource thresholds are reached, enable [autoscaling](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-autoscaling) on your deployment.
-
-- Elasticsearch is designed to balance work load across a cluster and can benefit from being horizontally scaled. If you are concerned about performance, check out [Adding Elasticsearch Nodes](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling).
+- If you find consistent trends in resource usage or want to scale when certain resource thresholds are reached, enable [autoscaling](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-autoscaling) on your deployment.
+- {{site.data.keyword.databases-for-elasticsearch}} is designed to balance work load across a cluster and can benefit from being horizontally scaled. If you are concerned about performance, check out [Adding Elasticsearch nodes](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling).
 
 ## Scaling in the UI
 {: #resources-scaling-ui}
 {: ui}
+
+For new [hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models), scaling is currently available through the CLI, API, and Terraform.
+{: note}
 
 A visual representation of your data members and their resource allocation is available on the _Resources_ tab of your deployment's _Manage_ page. 
 
@@ -85,6 +88,7 @@ For example, the command to view the resource groups for a deployment named "exa
 `ibmcloud cdb deployment-groups example-deployment`
 
 This produces the output:
+
 ```sh
 Group   member
 Count   3
@@ -116,22 +120,19 @@ The deployment has three members, with 3072 MB of RAM and 15360 MB of disk alloc
 The `cdb deployment-groups-set` command allows either the total RAM or total disk allocation to be set, in MB. For example, to scale the memory of the "example-deployment" to 2048 MB of RAM for each memory member (for a total memory of 6144 MB), you use the command:  
 `ibmcloud cdb deployment-groups-set example-deployment member --memory 6144`
 
-<br>
-______________________________________
 
-<br>
-
-To scale a {{site.data.keyword.databases-for}} Isolated Compute instance, modify the `deployment-groups-set` parameter. Use a command like:
-
-```sh
-ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--disk <val>] [--hostflavor <val>]
-```
-{: pre}
-
-To scale a {{site.data.keyword.databases-for}} Shared Compute instance. Use a command like:
+To scale a {{site.data.keyword.databases-for}} Shared Compute instance, use a command like:
 
 ```sh
 ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--memory <val>] [--cpu <val>] [--disk <val>] [--hostflavor multitenant]
+```
+{: pre}
+
+
+To scale a {{site.data.keyword.databases-for}} Isolated Compute instance, use a command like the following used to scale to a 4 CPU by 16 RAM instance:
+
+```sh
+ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--memory <val>] [--cpu <val>] [--disk <val>] [--hostflavor b3c.4x16.encrypted]
 ```
 {: pre}
 
@@ -150,6 +151,7 @@ curl -X GET -H "Authorization: Bearer $APIKEY" `https://api.{region}.databases.c
 ```
 
 To scale the memory of a deployment to 2048 MB of RAM for each member (there are 3 so a total memory of 6144 MB), use the [/deployments/{id}/groups/{group_id}](https://cloud.ibm.com/apidocs/cloud-databases-api#set-scaling-values-on-a-specified-group) API endpoint.
+
 ```sh
 curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member' \
 -H "Authorization: Bearer $APIKEY" \
@@ -159,11 +161,7 @@ curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{
       }
     }'
 ```
-
-<br>
-______________________________________
-
-<br>
+{: pre}
 
 To scale a {{site.data.keyword.databases-for}} Isolated Compute instance, use the {{site.data.keyword.databases-for}} API [Scaling endpoint](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#setdeploymentscalinggroup){: external}.
 Use a command like:
@@ -211,4 +209,4 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 {: terraform}
 
 To scale a {{site.data.keyword.databases-for}} Isolated Compute instance, use Terraform.
-Update `host_flavor` with your desired amount. To implement your change, run `terraform apply`.
+Update `host_flavor` with your desired allocation; choose from either an Isolated Compute CPU x RAM configuration, or `multitenant` to land on Shared Compute. To implement your change, run `terraform apply`.
