@@ -2,7 +2,7 @@
 
 copyright:
    years: 2023, 2024
-lastupdated: "2024-01-16"
+lastupdated: "2024-05-17"
 
 keywords: IBM Cloud Databases, ICD, enterprise search, ca certificate
 
@@ -16,14 +16,14 @@ completion-time: 1h
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Configuring Kibana and Enterprise Search server with an {{site.data.keyword.databases-for-elasticsearch}} instance
+# Configuring Kibana and Enterprise Search server with a {{site.data.keyword.databases-for-elasticsearch}} instance
 {: #tutorial-elasticsearch-enterprise-search-tutorial}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="1h"}
 
 This tutorial will guide you through the steps to configure a functional Enterprise Search server integrated with an {{site.data.keyword.databases-for-elasticsearch_full}} instance. Elasticsearch is a powerful and versatile search and analytics engine that helps you store, search, and analyze large volumes of data quickly and in near-real-time. 
 
-{{site.data.keyword.databases-for-elasticsearch_full}} is an Elasticsearch service that is offered by {{site.data.keyword.cloud_notm}} that provides a managed and scalable solution for deploying and running Elasticsearch clusters. 
+{{site.data.keyword.databases-for-elasticsearch}} is an Elasticsearch service that is offered by {{site.data.keyword.cloud_notm}} that provides a managed and scalable solution for deploying and running Elasticsearch clusters. 
 
 Kibana complements Elasticsearch by offering a flexible visualization platform. It allows you to explore, visualize, and share insights from your data, enabling you to create custom dashboards and visualizations to better understand your information.
 
@@ -39,7 +39,7 @@ Kibana and Enterprise Search will be deployed on [IBM Code Engine](https://www.i
 
 Before you begin, ensure you have the following:
 
-- An [{{site.data.keyword.cloud_notm}} Account](https://cloud.ibm.com/registration){: external}
+- An [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}
 - The [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cli-getting-started)
 - [Terraform](https://www.terraform.io/){: external} - to deploy infrastructure
 
@@ -98,7 +98,7 @@ git clone https://github.com/IBM/elasticsearch-kibana-enterprise-search.git
 {: #kkibana-ent-search-visit-deployment}
 {: step}
 
-The previous step will output the URL of the Kibana deployment, e.g. something like:
+The previous step will output the URL of the Kibana deployment, for example something like:
 
 ```sh
 kibana_endpoint = "https://kibana-app.1dqmr45rt678g05.eu-gb.codeengine.appdomain.cloud"
@@ -107,11 +107,12 @@ kibana_endpoint = "https://kibana-app.1dqmr45rt678g05.eu-gb.codeengine.appdomain
 
 Log in at this URL with the username and password you supplied above.
 
-Once logged in, you can configure Enterprise Search by visiting 
+Once logged in, you can configure Enterprise Search by visiting the following URL.
 
 ```sh
 https://kibana-app.1dqmr45rt678g05.eu-gb.codeengine.appdomain.cloud/app/enterprise_search/app_search/engines
 ```
+
 You can find more information on the many features of Enterprise search on the [Elastic website](https://www.elastic.co/guide/en/enterprise-search/current/start.html).
 
 The output of the previous step also contains the URL of the Elasticsearch deployment itself, which can be used to connect it to [WatsonX Assistant](https://www.ibm.com/products/watsonx-assistant) or other applications.
