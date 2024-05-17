@@ -18,6 +18,11 @@ toc:
           label: IBM Cloud Databases
           href: https://cloud.ibm.com/docs/cloud-databases
       - getting-started.md
+      - topicgroup:
+          label: Hosting models
+          topics: 
+          - include: ../cloud-databases/hosting-models.md
+          - include: ../cloud-databases/hosting-pricing.md
       - learn-es-plat.md
       - learn-es-ml.md
       - learn-dashboard-overview.md
@@ -57,9 +62,6 @@ toc:
       - link:
           label: Managing Cloud Databases backups
           href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-dashboard-backups
-      - link:
-          label: Allowlisting
-          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-allowlisting
       - topicgroup:
           label: Configuring Elasticsearch
           topics:
@@ -83,13 +85,17 @@ toc:
       - topicgroup:
           label: Enhancing security
           topics:
+          - include: ../cloud-databases/manage-scc.md
           - learn-security-compliance.md
-          - link:
-              label: Managing security and compliance with Cloud Databases
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-manage-security-compliance
-          - link:
-              label: Protecting Cloud Databases resources with context-based restrictions
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-cbr
+          - include: ../cloud-databases/howto-cbr.md
+          - include: ../cloud-databases/howto-allowlists.md
+          - include: ../cloud-databases/reference-service-endpoints.md
+          - include: ../cloud-databases/howto-vpes.md
+          - include: ../cloud-databases/reference-iam.md
+          - include: ../cloud-databases/reference-key-protect.md
+          - include: ../cloud-databases/reference-hpcs.md
+          - include: ../cloud-databases/cbr-tutorial.md
+          - include: ../cloud-databases/howto-deprovisioning.md
   - navgroup:
       id: tutorial
       topics:
@@ -137,27 +143,6 @@ toc:
       - link:
           label: Cloud Databases API
           href: https://cloud.ibm.com/apidocs/cloud-databases-api
-      - topicgroup:
-          label: Connecting over Private Networks
-          topics:
-          - link:
-              label: Virtual Private Endpoints
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-vpes
-          - link:
-              label: Service Endpoints Integration
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-service-endpoints
-          - link:
-              label: Key Protect Integration
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-key-protect
-          - link:
-              label: Identity and Access Management
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-iam
-          - link:
-              label: Hyper Protect Crypto Services Integration
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hpcs
-          - link:
-              label: Responsibilities for Cloud Databases
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-responsibilities-cloud-databases
   - navgroup:
       id: help
       topics:
