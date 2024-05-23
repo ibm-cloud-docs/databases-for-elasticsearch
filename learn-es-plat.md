@@ -35,7 +35,7 @@ All {{site.data.keyword.databases-for-elasticsearch}} clusters on any plan can m
 ## {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan
 {: #es-platinum-plan}
 
-{{site.data.keyword.databases-for-elasticsearch}} Platinum Plan offers all the features of the Enterprise Plan, plus a richer array of functionalities around integrations (connectors and web crawlers), security features (logging and access control), document-level security, and machine learning capabilities (inference APIs, anomaly detection, data frame analysis, and inference and model management), among others.
+{{site.data.keyword.databases-for-elasticsearch}} Platinum Plan offers all the features of the Enterprise Plan, plus a richer array of functionality around integrations (connectors and web crawlers), security features (logging and access control), document-level security, and machine learning capabilities (inference APIs, anomaly detection, data frame analysis, and inference and model management), among others.
 
 Access to Platinum features on a fully managed IBM deployment is primarily determined by the accessibility of a feature through the Elasticsearch API and the need for modifications to configuration files. Configuration files update is not currently supported for fully managed IBM deployments.
 
