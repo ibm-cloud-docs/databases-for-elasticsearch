@@ -17,10 +17,10 @@ toc:
       - link:
           label: IBM Cloud Databases
           href: https://cloud.ibm.com/docs/cloud-databases
-      - getting-started.md
       - link:
           label: What is Elasticsearch?
           href: https://www.ibm.com/cloud/learn/elasticsearch
+      - getting-started.md
       - learn-es-plat.md
       - topicgroup:
           label: Hosting models
