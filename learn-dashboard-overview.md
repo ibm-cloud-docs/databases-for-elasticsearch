@@ -12,7 +12,7 @@ subcollection: databases-for-elasticsearch
 
 {{site.data.keyword.attribute-definition-list}}
 
-# The Dashboard Overview
+# The Dashboard overview
 {: #dashboard-overview}
 
 The _Overview_ page shows you information about your {{site.data.keyword.databases-for-elasticsearch_full}} deployment. The overview includes essential identifying information.
