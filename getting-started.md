@@ -15,7 +15,7 @@ completion-time: 30m
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Getting Started
+# Getting started with {{site.data.keyword.databases-for-elasticsearch}} 
 {: #getting-started}
 {: toc-content-type="tutorial"}
 {: toc-completion-time="30m"}
