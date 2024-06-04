@@ -87,12 +87,29 @@ Before provisioning, follow the instructions provided in the documentation to in
       ```
       {: pre}
 
-1. Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"members_host_flavor"` -p flag, and then specify the `host_flavor value` parameter. For example: `{"members_host_flavor": "b3c.4x16.encrypted"}`
+1. Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models) you want your database to be provisioned on. You  can change this later.
+2. Provision your database with the following command:
 
    ```sh
-   ibmcloud resource service-instance-create <INSTANCE_NAME> <SERVICE_NAME> <SERVICE_PLAN_NAME> <LOCATION> <SERVICE_ENDPOINTS_TYPE> <RESOURCE_GROUP> -p `{"members_host_flavor": "<host_flavor value>"}`
+   ibmcloud resource service-instance-create <INSTANCE_NAME> <SERVICE_NAME> <SERVICE_PLAN_NAME> <LOCATION> <SERVICE_ENDPOINTS_TYPE> <RESOURCE_GROUP> -p '{"members_host_flavor": "<host_flavor value>"}'
    ```
    {: pre}
+   
+For example, to provision a {{site.data.keyword.databases-for-mongodb}} Shared Compute hosting model instance, use a command like:
+
+
+   ```sh
+   ibmcloud resource service-instance-create test-database databases-for-elasticsearch enterprise us-south -p '{"members_host_flavor": "multitenant", "members_memory_allocation_mb": "8192"}'
+   ```
+   {: pre}
+
+Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"members_host_flavor"` -p parameter, setting it to the desired Isolated size. Available hosting sizes are listed in [Table 2](#host-flavor-parameter-cli), as the  `host_flavor value` parameter. For example: `{"members_host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both a Isolated size selection and separate CPU and RAM allocation selections. 
+
+   ```sh
+ibmcloud resource service-instance-create test-database databases-for-elasticsearch enterprise us-south -p '{"members_host_flavor": "b3c.4x16.encrypted"}'
+   ```
+   {: pre}
+
 
    The fields in the command are described in the table that follows.
    
@@ -123,7 +140,7 @@ Before provisioning, follow the instructions provided in the documentation to in
 | 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
 | 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
 | 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
-{: caption="Table 1. Host flavor sizing parameter" caption-side="bottom"}
+{: caption="Table 2. Host flavor sizing parameter" caption-side="bottom"}
 
 
    You will see a response like:
@@ -202,7 +219,7 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 {: #flags-params-service-endpoints}
 {: cli}
 
-The `service-instance-create` command supports a `-p` flag, which allows JSON-formatted parameters to be passed to the provisioning process. Some parameter values are Cloud Resource Names (CRNs), which uniquely identify a resource in the cloud. All parameter names and values are passed as strings.
+The `service-instance-create` command supports a `-p` flag, which allows JSON-formatted parameters to be passed to the provisioning process. For example, you can pass Cloud Resource Names (CRNs) as parameter values, which uniquely identify a resource in the cloud. All parameter names and values are passed as strings.
 
 For example, if a database is being provisioned from a particular backup and the new database deployment needs a total of 9 GB of memory across three members, then the command to provision 3 GBs per member looks like:
 
@@ -242,21 +259,78 @@ Follow these steps to provision using the [Resource Controller API](https://clou
    {: pre}
 
 
+2. Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models) you want your database to be provisioned on. You  can change this later. 
+
    Once you have all the information, [provision a new resource instance](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#create-resource-instance){: external} with the {{site.data.keyword.cloud_notm}} Resource Controller.
 
    ```sh
    curl -X POST \
      https://resource-controller.cloud.ibm.com/v2/resource_instances \
-     -H 'Authorization: Bearer <>' \
+     -H "Authorization: Bearer <>" \
      -H 'Content-Type: application/json' \
        -d '{
-       "name": "my-instance",
-       "target": "blue-us-south",
-       "resource_group": "5g9f447903254bb58972a2f3f5a4c711",
-       "resource_plan_id": "databases-for-elasticsearch-standard"
+       "name": "<INSTANCE_NAME",
+       "location": "<LOCATION>",
+       "resource_group": "RESOURCE_GROUP_ID",
+       "resource_plan_id": "<SERVICE_PLAN_NAME>"
+       "parameters": {
+           "host_flavor": {"id": "<host_flavor_value>"}
+      }
      }'
    ```
    {: .pre}
+
+
+To make a Shared Compute instance, follow this example: 
+   
+   ```sh
+   curl -X POST \
+     https://resource-controller.cloud.ibm.com/v2/resource_instances \
+     -H "Authorization: Bearer <>" \
+     -H 'Content-Type: application/json' \
+       -d '{
+       "name": "my-instance",
+       "location": "us-south",
+       "resource_group": "5g9f447903254bb58972a2f3f5a4c711",
+       "resource_plan_id": "databases-for-elasticsearch-enterprise"
+       "parameters": {
+        "host_flavor": {
+          "id": "multitenant"
+        },
+        "memory": {
+          "allocation_mb": 16384
+        },
+        "cpu": {
+          "allocation_count": 4
+        }
+      }
+     }'
+   ```
+   {: .pre}
+
+
+Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"members_host_flavor"` -p parameter, setting it to the desired Isolated size. Available hosting sizes are listed in [Table 2](#host-flavor-parameter-api), as the  `host_flavor value` parameter. For example: `{"members_host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both a Isolated size selection and separate CPU and RAM allocation selections.  
+
+
+   ```sh
+   curl -X POST \
+     https://resource-controller.cloud.ibm.com/v2/resource_instances \
+     -H "Authorization: Bearer <>" \
+     -H 'Content-Type: application/json' \
+       -d '{
+       "name": "my-instance",
+       "location": "us-south",
+       "resource_group": "5g9f447903254bb58972a2f3f5a4c711",
+       "resource_plan_id": "databases-for-elasticsearch-enterprise"
+       "parameters": {
+        "host_flavor": {
+          "id": "b3c.4x16.encrypted"
+        }
+      }
+     }'
+   ```
+   {: .pre}
+
 
    The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required.
    {: required}
@@ -290,7 +364,7 @@ Follow these steps to provision using the [Resource Controller API](https://clou
 | 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
 | 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
 | 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
-{: caption="Table 1. Host flavor sizing parameter" caption-side="bottom"}
+{: caption="Table 2. Host flavor sizing parameter" caption-side="bottom"}
 
 CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} Isolated Compute. Disk autoscaling is available. If you have provisioned an Isolated instance or switched over from a deployment with autoscaling, keep an eye on your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/cloud-databases?topic=cloud-databases-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
 {: note}
@@ -324,7 +398,10 @@ Use Terraform to manage your infrastructure through the [`ibm_database` Resource
 Before executing a Terraform script on an existing instance, use the `terraform plan` command to compare the current infrastructure state with the desired state defined in your Terraform files. Any alteration to the `resource_group_id`, `service plan`, `version`, `key_protect_instance`, `key_protect_key`, `backup_encryption_key_crn` attributes recreates your instance. For a list of current argument references with the `Forces new resource` specification, see the [ibm_database Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database){: external}.
 {: important}
 
-To provision an instance through Isolated Compute:
+Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models) you want your database to be provisioned on. You  can change this later. 
+
+
+Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated Compute hosting model instance with the `"members_host_flavor"` -p parameter, setting it to the desired Isolated size. Available hosting sizes are listed in [Table 1](#host-flavor-parameter-terraform), as the  `host_flavor value` parameter. For example: `{"members_host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both a Isolated size selection and separate CPU and RAM allocation selections.  
 
 ```terraform
 data "ibm_resource_group" "group" {
@@ -356,13 +433,13 @@ resource "ibm_database" "<your_database>" {
     description = "desc"
   }
 }
-output "ICD Etcd database connection string" {
+output "ICD Elasticsearch database connection string" {
   value = "http://${ibm_database.test_acc.ibm_database_connection.icd_conn}"
 }
 ```
 {: codeblock}
 
-To provision an instance through Shared Compute:
+Provision a {{site.data.keyword.databases-for-elasticsearch}} Shared hosting model instance with the `"members_host_flavor"` -p parameter set to `multitenant`; for example:  
 
 ```terraform
 data "ibm_resource_group" "group" {
@@ -382,10 +459,10 @@ resource "ibm_database" "<your_database>" {
       id = "multitenant"
     },
     cpu {
-      allocation_count = 2
+      allocation_count = 6
     }
     memory {
-      allocation_mb = 4096
+      allocation_mb = 24576
     }
     disk {
       allocation_mb = 256000
@@ -400,7 +477,7 @@ resource "ibm_database" "<your_database>" {
     description = "desc"
   }
 }
-output "ICD Etcd database connection string" {
+output "ICD Elasticsearch database connection string" {
   value = "http://${ibm_database.test_acc.ibm_database_connection.icd_conn}"
 }
 ```
