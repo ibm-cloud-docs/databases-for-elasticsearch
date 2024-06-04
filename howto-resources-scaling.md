@@ -118,26 +118,59 @@ Count   3
 The deployment has three members, with 3072 MB of RAM and 15360 MB of disk allocated in total. The "per member" allocation is 1024 MB of RAM and 5120 MB of disk. The minimum value is the lowest the total allocation can be set. The step size is the smallest amount by which the total allocation can be adjusted.
 
 The `cdb deployment-groups-set` command allows either the total RAM or total disk allocation to be set, in MB. For example, to scale the memory of the "example-deployment" to 2048 MB of RAM for each memory member (for a total memory of 6144 MB), you use the command:  
-`ibmcloud cdb deployment-groups-set example-deployment member --memory 6144`
+`ibmcloud cdb deployment-groups-set example-deployment member --memory 6144`.
 
 
-To scale a {{site.data.keyword.databases-for}} Shared Compute instance, use a command like:
+If your database is a [Shared Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-shared-compute-ui) instance, you can adjust the memory, CPU, and disk options with the following command. This can also be used to move a database from a different hosting model to the Shared Compute hosting model.
 
 ```sh
 ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--memory <val>] [--cpu <val>] [--disk <val>] [--hostflavor multitenant]
 ```
 {: pre}
 
+For example, use: 
+```sh
+ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --memory 8192  --hostflavor multitenant
+```
+{: pre}
 
-To scale a {{site.data.keyword.databases-for}} Isolated Compute instance, use a command like the following used to scale to a 4 CPU by 16 RAM instance:
+If your database is an [Isolated Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-iso-compute-ui) instance, memory and CPU are adjusted together by selecting the Isolated Compute size (See all sizes in Table 1 below). Disk is scaled separately. To scale a {{site.data.keyword.databases-for}} Isolated Compute instance, use a command like the following used to scale to a 4 CPU by 16 RAM instance. This can also be used to move a database from a different hosting model to the Isolated Compute hosting model. 
 
 ```sh
-ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--memory <val>] [--cpu <val>] [--disk <val>] [--hostflavor b3c.4x16.encrypted]
+ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--disk <val>] [--hostflavor b3c.4x16.encrypted]
+```
+{: pre}
+
+For example, use: 
+```sh
+ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --hostflavor b3c.4x16.encrypted
 ```
 {: pre}
 
 CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} Isolated Compute. Disk autoscaling is available. If you provisioned an isolated instance or switched over from a deployment with autoscaling, monitor your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/databases-for-mongodb?topic=databases-for-mongodb-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
 {: note}
+
+| **Host flavor** | **host_flavor value** |
+|:-------------------------:|:---------------------:|
+| Shared Compute            | `multitenant`    |
+| 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
+| 8 CPU x 32 RAM            | `b3c.8x32.encrypted`    |
+| 8 CPU x 64 RAM            | `m3c.8x64.encrypted`    |
+| 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
+| 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
+| 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
+{: caption="Table 1. Host flavor sizing parameter" caption-side="bottom"}
+
+
+## Determine the hosting model of your database
+{: #resources-hosting-determine}
+
+Use the following command to review the value of the host_flavor attribute. This will be null if the database is on a deprecated hosting model (not Shared or Isolated Compute). 
+
+```sh
+ibmcloud cdb groups <deployment_id> --json
+```
+{: pre}
 
 ## Scaling with the API
 {: #resources-scaling-api}
