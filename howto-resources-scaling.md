@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-05-17"
+lastupdated: "2024-06-05"
 
 keywords: elasticsearch dedicated cores, databases, manual scaling, disk I/O, memory, CPU, elasticsearch resources, elasticsearch scaling
 
@@ -129,12 +129,13 @@ ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--memory <val>] [--
 {: pre}
 
 For example, use: 
+
 ```sh
 ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --memory 8192  --hostflavor multitenant
 ```
 {: pre}
 
-If your database is an [Isolated Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-iso-compute-ui) instance, memory and CPU are adjusted together by selecting the Isolated Compute size (See all sizes in Table 1 below). Disk is scaled separately. To scale a {{site.data.keyword.databases-for}} Isolated Compute instance, use a command like the following used to scale to a 4 CPU by 16 RAM instance. This can also be used to move a database from a different hosting model to the Isolated Compute hosting model. 
+If your database is an [Isolated Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-iso-compute-ui) instance, memory and CPU are adjusted together by selecting the Isolated Compute size (see all sizes in Table 1). Disk is scaled separately. To scale a {{site.data.keyword.databases-for}} Isolated Compute instance, use a command, such as the following that is used to scale to a 4 CPU by 16 RAM instance. This command  can also be used to move a database from a different hosting model to the Isolated Compute hosting model. 
 
 ```sh
 ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--disk <val>] [--hostflavor b3c.4x16.encrypted]
@@ -142,6 +143,7 @@ ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--disk <val>] [--ho
 {: pre}
 
 For example, use: 
+
 ```sh
 ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --hostflavor b3c.4x16.encrypted
 ```
@@ -165,7 +167,7 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 ## Determine the hosting model of your database
 {: #resources-hosting-determine}
 
-Use the following command to review the value of the host_flavor attribute. This will be null if the database is on a deprecated hosting model (not Shared or Isolated Compute). 
+Use the following command to review the value of the `host_flavor` attribute. This will be null if the database is on a deprecated hosting model (not Shared or Isolated Compute). 
 
 ```sh
 ibmcloud cdb groups <deployment_id> --json
@@ -179,6 +181,7 @@ ibmcloud cdb groups <deployment_id> --json
 The _Foundation Endpoint_ that is shown on the _Overview_ panel of your service provides the base URL to access this deployment through the API. Use it with the `/groups` endpoint if you need to manage or automate scaling programmatically.
 
 To view the current and scalable resources on a deployment, use the [/deployments/{id}/groups](https://cloud.ibm.com/apidocs/cloud-databases-api#get-currently-available-scaling-groups-from-a-depl) endpoint.
+
 ```sh
 curl -X GET -H "Authorization: Bearer $APIKEY" `https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups'
 ```
