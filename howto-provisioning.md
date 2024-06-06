@@ -125,6 +125,10 @@ ibmcloud resource service-instance-create test-database databases-for-elasticsea
    | `host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. For Shared Compute, specify `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the table below or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-types).| |
    {: caption="Table 1. Basic command format fields" caption-side="top"}
 
+
+   In the CLI, `service-endpoints` is a flag, not a parameter.
+   {: note}
+
 ### The `host flavor` parameter
 {: #host-flavor-parameter-cli}
 {: cli}   
@@ -259,7 +263,148 @@ Follow these steps to provision using the [Resource Controller API](https://clou
 
 2. Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models) you want your database to be provisioned on. You can change this later. 
 
-   Once you have all the information, [provision a new resource instance](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#create-resource-instance){: external} with the {{site.data.keyword.cloud_notm}} Resource Controller.
+A host flavor represents fixed sizes of guaranteed resource allocations. You can see which host flavors are available in your region by calling the [host flavors capability endpoint](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#capability) like this:
+
+```sh
+curl -X POST  https://api.{region}.databases.cloud.ibm.com/v5/ibm/capability/flavors  \
+  -H 'Authorization: Bearer <>' \
+  -H 'ContentType: application/json' \
+  -d '{
+    "deployment": {
+      "type": "postgresql",
+      "location": "us-south"
+    },
+  }'
+```
+{: pre}
+
+This returns: 
+```sh
+{
+  "deployment": {
+    "type": "postgresql",
+    "location": "us-south",
+    "platform": "classic"
+  },
+  "capability": {
+    "flavors": [
+      {
+        "id": "b3c.4x16.encrypted",
+        "name": "4x16",
+        "cpu": {
+          "allocation_count": 4
+        },
+        "memory": {
+          "allocation_mb": 16384
+        },
+        "hosting_size": "xs"
+      },
+      {
+        "id": "b3c.8x32.encrypted",
+        "name": "8x32",
+        "cpu": {
+          "allocation_count": 8
+        },
+        "memory": {
+          "allocation_mb": 32768
+        },
+        "hosting_size": "s"
+      },
+      {
+        "id": "m3c.8x64.encrypted",
+        "name": "8x64",
+        "cpu": {
+          "allocation_count": 8
+        },
+        "memory": {
+          "allocation_mb": 65536
+        },
+        "hosting_size": "s+"
+      },
+      {
+        "id": "b3c.16x64.encrypted",
+        "name": "16x64",
+        "cpu": {
+          "allocation_count": 16
+        },
+        "memory": {
+          "allocation_mb": 65536
+        },
+        "hosting_size": "m"
+      },
+      {
+        "id": "b3c.32x128.encrypted",
+        "name": "32x128",
+        "cpu": {
+          "allocation_count": 32
+        },
+        "memory": {
+          "allocation_mb": 131072
+        },
+        "hosting_size": "l"
+      },
+      {
+        "id": "m3c.30x240.encrypted",
+        "name": "30x240",
+        "cpu": {
+          "allocation_count": 30
+        },
+        "memory": {
+          "allocation_mb": 245760
+        },
+        "hosting_size": "xl"
+      },
+      {
+        "id": "multitenant",
+        "name": "multitenant",
+        "cpu": {
+          "allocation_count": 0
+        },
+        "memory": {
+          "allocation_mb": 0
+        },
+        "hosting_size": ""
+      }
+    ]
+  }
+}
+
+```
+{: pre}
+
+As shown, the isolated compute host flavors available to a PostgreSQL instance in the `us-south` region are:
+
+- `b3c.4x16.encrypted`
+- `b3c.8x32.encrypted`
+- `m3c.8x64.encrypted`
+- `b3c.16x64.encrypted`
+- `b3c.32x128.encrypted`
+- `m3c.30x240.encrypted`
+
+To provision or scale your instance to 4 CPUs and `16384` megabytes or RAM, you would submit:
+
+```sh
+{
+  "host_flavor": {
+    "id": "`b3c.4x16.encrypted`"
+  }
+}
+```
+{: pre}
+
+To scale your instance up to 8 CPUs and `32768` megabytes of RAM, you would submit:
+
+```sh
+{
+  "host_flavor": {
+    "id": "b3c.8x32.encrypted"
+  }
+}
+```
+{: pre}
+
+
+  3. Once you have all the information, [provision a new resource instance](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#create-resource-instance){: external} with the {{site.data.keyword.cloud_notm}} Resource Controller.
 
    ```sh
    curl -X POST \
@@ -305,7 +450,7 @@ To make a Shared Compute instance, follow this example:
    ```
    {: .pre}
 
-Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"members_host_flavor"` -p parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 2](#host-flavor-parameter-cli). For example, `{"members_host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.  
+Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"host_flavor"` parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 2](#host-flavor-parameter-api). For example, `{"host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.  
 
    ```sh
    curl -X POST \
@@ -325,6 +470,8 @@ Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance 
      }'
    ```
    {: .pre}
+
+
 
 
    The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required.
@@ -381,8 +528,6 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 * `members_cpu_allocation_count` - Enables and allocates the number of specified cores to your deployment. For example, to use two dedicated cores per member, use `"members_cpu_allocation_count":"2"`. If omitted, the default Shared Compute CPU:RAM ratios will be applied. This parameter only applies to `multitenant'.
 * `service-endpoints` - The [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) supported on your deployment, `public` or `private`.
 
-   In the CLI, `service-endpoints` is a flag, not a parameter.
-   {: note}
 
 ## Provisioning with Terraform
 {: #provisioning-terraform}
@@ -390,50 +535,10 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 
 Use Terraform to manage your infrastructure through the [`ibm_database` Resource for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database) supports provisioning {{site.data.keyword.databases-for}} deployments.
 
-Before executing a Terraform script on an existing instance, use the `terraform plan` command to compare the current infrastructure state with the desired state defined in your Terraform files. Any alteration to the `resource_group_id`, `service plan`, `version`, `key_protect_instance`, `key_protect_key`, `backup_encryption_key_crn` attributes recreates your instance. For a list of current argument references with the `Forces new resource` specification, see the [ibm_database Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database){: external}.
-{: important}
 
 Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models) you want your database to be provisioned on. You can change this later. 
 
-Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"members_host_flavor"` -p parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 2](#host-flavor-parameter-cli). For example, `{"members_host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections. 
-
-```terraform
-data "ibm_resource_group" "group" {
-  name = "<your_group>"
-}
-resource "ibm_database" "<your_database>" {
-  name              = "<your_database_name>"
-  plan              = "standard"
-  location          = "eu-gb"
-  service           = "databases-for-elasticsearch"
-  resource_group_id = data.ibm_resource_group.group.id
-  tags              = ["tag1", "tag2"]
-  adminpassword                = "password12"
-  group {
-    group_id = "member"
-    host_flavor {
-      id = "b3c.8x32.encrypted"
-    }
-    disk {
-      allocation_mb = 256000
-    }
-  }
-  users {
-    name     = "user123"
-    password = "password12"
-  }
-  allowlist {
-    address     = "172.168.1.1/32"
-    description = "desc"
-  }
-}
-output "ICD Elasticsearch database connection string" {
-  value = "http://${ibm_database.test_acc.ibm_database_connection.icd_conn}"
-}
-```
-{: codeblock}
-
-Provision a {{site.data.keyword.databases-for-elasticsearch}} Shared hosting model instance with the `"members_host_flavor"` -p parameter set to `multitenant`. See the following example:  
+Provision a {{site.data.keyword.databases-for-elasticsearch}} Shared hosting model instance with the `"host_flavor"` parameter set to `multitenant`. See the following example:  
 
 ```terraform
 data "ibm_resource_group" "group" {
@@ -476,6 +581,46 @@ output "ICD Elasticsearch database connection string" {
 }
 ```
 {: codeblock}
+
+
+Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"host_flavor"` parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 1](#host-flavor-parameter-terraform). For example, `{"host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections. 
+
+```terraform
+data "ibm_resource_group" "group" {
+  name = "<your_group>"
+}
+resource "ibm_database" "<your_database>" {
+  name              = "<your_database_name>"
+  plan              = "standard"
+  location          = "eu-gb"
+  service           = "databases-for-elasticsearch"
+  resource_group_id = data.ibm_resource_group.group.id
+  tags              = ["tag1", "tag2"]
+  adminpassword                = "password12"
+  group {
+    group_id = "member"
+    host_flavor {
+      id = "b3c.8x32.encrypted"
+    }
+    disk {
+      allocation_mb = 256000
+    }
+  }
+  users {
+    name     = "user123"
+    password = "password12"
+  }
+  allowlist {
+    address     = "172.168.1.1/32"
+    description = "desc"
+  }
+}
+output "ICD Elasticsearch database connection string" {
+  value = "http://${ibm_database.test_acc.ibm_database_connection.icd_conn}"
+}
+```
+{: codeblock}
+
 
 ### The `host flavor` parameter
 {: #host-flavor-parameter-terraform}
