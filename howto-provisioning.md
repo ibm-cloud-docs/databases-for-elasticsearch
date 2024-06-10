@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-05"
+lastupdated: "2024-06-10"
 
 keywords: provision cloud databases, terraform, provisioning parameters, cli, resource controller api, provision elasticsearch
 
@@ -263,7 +263,7 @@ Follow these steps to provision using the [Resource Controller API](https://clou
 
 2. Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models) you want your database to be provisioned on. You can change this later. 
 
-A host flavor represents fixed sizes of guaranteed resource allocations. You can see which host flavors are available in your region by calling the [host flavors capability endpoint](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#capability) like this:
+A host flavor represents fixed sizes of guaranteed resource allocations. To see which host flavors are available in your region, call the [host flavors capability endpoint](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#capability) like this:
 
 ```sh
 curl -X POST  https://api.{region}.databases.cloud.ibm.com/v5/ibm/capability/flavors  \
@@ -372,7 +372,7 @@ This returns:
 ```
 {: pre}
 
-As shown, the isolated compute host flavors available to a PostgreSQL instance in the `us-south` region are:
+As shown, the Isolated Compute host flavors available to a {{site.data.keyword.databases-for-postgresql}} instance in the `us-south` region are:
 
 - `b3c.4x16.encrypted`
 - `b3c.8x32.encrypted`
@@ -381,7 +381,7 @@ As shown, the isolated compute host flavors available to a PostgreSQL instance i
 - `b3c.32x128.encrypted`
 - `m3c.30x240.encrypted`
 
-To provision or scale your instance to 4 CPUs and `16384` megabytes or RAM, you would submit:
+To provision or scale your instance to 4 CPUs and `16384` megabytes or RAM, submit the following command:
 
 ```sh
 {
@@ -392,7 +392,7 @@ To provision or scale your instance to 4 CPUs and `16384` megabytes or RAM, you 
 ```
 {: pre}
 
-To scale your instance up to 8 CPUs and `32768` megabytes of RAM, you would submit:
+To scale your instance up to 8 CPUs and `32768` megabytes of RAM, submit the following command:
 
 ```sh
 {
@@ -471,9 +471,6 @@ Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance 
    ```
    {: .pre}
 
-
-
-
    The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required.
    {: required}
    
@@ -528,13 +525,11 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 * `members_cpu_allocation_count` - Enables and allocates the number of specified cores to your deployment. For example, to use two dedicated cores per member, use `"members_cpu_allocation_count":"2"`. If omitted, the default Shared Compute CPU:RAM ratios will be applied. This parameter only applies to `multitenant'.
 * `service-endpoints` - The [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) supported on your deployment, `public` or `private`.
 
-
 ## Provisioning with Terraform
 {: #provisioning-terraform}
 {: terraform}
 
 Use Terraform to manage your infrastructure through the [`ibm_database` Resource for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database) supports provisioning {{site.data.keyword.databases-for}} deployments.
-
 
 Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models) you want your database to be provisioned on. You can change this later. 
 
@@ -581,7 +576,6 @@ output "ICD Elasticsearch database connection string" {
 }
 ```
 {: codeblock}
-
 
 Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"host_flavor"` parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 1](#host-flavor-parameter-terraform). For example, `{"host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections. 
 
