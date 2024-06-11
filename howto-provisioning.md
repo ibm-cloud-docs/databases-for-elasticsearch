@@ -172,7 +172,7 @@ The `host_flavor` parameter defines your Compute sizing. To provision a Shared C
    ```
    {: codeblock}
 
-1. To check provisioning status, use the following command:
+4. To check provisioning status, use the following command:
 
    ```sh
    ibmcloud resource service-instance <INSTANCE_NAME>
@@ -206,7 +206,7 @@ The `host_flavor` parameter defines your Compute sizing. To provision a Shared C
    ```
    {: codeblck}
 
-1. (Optional) Deleting a service instance
+5. (Optional) Deleting a service instance
    Delete an instance by running a command like this one:
 
    ```sh
@@ -404,7 +404,8 @@ To scale your instance up to 8 CPUs and `32768` megabytes of RAM, submit the fol
 {: pre}
 
 
-  3. Once you have all the information, [provision a new resource instance](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#create-resource-instance){: external} with the {{site.data.keyword.cloud_notm}} Resource Controller.
+3. Once you have all the information, [provision a new resource instance](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#create-resource-instance){: external} with the {{site.data.keyword.cloud_notm}} Resource Controller.
+
 
    ```sh
    curl -X POST \
@@ -420,8 +421,8 @@ To scale your instance up to 8 CPUs and `32768` megabytes of RAM, submit the fol
            "host_flavor": {"id": "<host_flavor_value>"}
       }
      }'
-   ```
-   {: .pre}
+```
+{: .pre}
 
 To make a Shared Compute instance, follow this example: 
    
