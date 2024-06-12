@@ -99,7 +99,7 @@ For example, to provision a {{site.data.keyword.databases-for-mongodb}} Shared C
 
 
    ```sh
-   ibmcloud resource service-instance-create test-database databases-for-elasticsearch enterprise us-south -p '{"members_host_flavor": "multitenant", "members_memory_allocation_mb": "8192"}'
+   ibmcloud resource service-instance-create test-database databases-for-elasticsearch enterprise us-south -p '{"members_host_flavor": "multitenant", "members_memory_allocation_mb": "8192", "members_cpu_allocation_count":"1"}'
    ```
    {: pre}
 
@@ -440,10 +440,10 @@ To make a Shared Compute instance, follow this example:
           "id": "multitenant"
         },
         "memory": {
-          "allocation_mb": 16384
+          "allocation_mb": 24576
         },
         "cpu": {
-          "allocation_count": 4
+          "allocation_count": 6
         }
       }
      }'
