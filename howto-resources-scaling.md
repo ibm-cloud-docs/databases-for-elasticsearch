@@ -131,7 +131,7 @@ ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--memory <val>] [--
 For example, use: 
 
 ```sh
-ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --memory 8192  --hostflavor multitenant
+ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --memory 8192 --cpu 1 --hostflavor multitenant
 ```
 {: pre}
 
@@ -192,7 +192,7 @@ curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{
 -H "Authorization: Bearer $APIKEY" \
 -H "Content-Type: application/json" \
 -d '{"memory": {
-        "allocation_mb": 6144
+        "allocation_mb": 24576
       }
     }'
 ```
@@ -209,10 +209,10 @@ curl -X PATCH https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{i
         {"id": "multitenant"}
       },
       {"cpu":
-        {"allocation_count": 3}
+        {"allocation_count": 6}
       },
       {"memory":
-        {"allocation_mb": 2048}
+        {"allocation_mb": 24576}
       }
     }' \
 ```
