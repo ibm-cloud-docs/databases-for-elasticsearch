@@ -87,8 +87,8 @@ Before provisioning, follow the instructions provided in the documentation to in
       ```
       {: pre}
 
-1. Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models) you want your database to be provisioned on. You can change this later.
-2. Provision your database with the following command:
+2. Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models) you want your database to be provisioned on. You can change this later.
+3. Provision your database with the following command:
 
    ```sh
    ibmcloud resource service-instance-create <INSTANCE_NAME> <SERVICE_NAME> <SERVICE_PLAN_NAME> <LOCATION> <SERVICE_ENDPOINTS_TYPE> <RESOURCE_GROUP> -p '{"members_host_flavor": "<host_flavor value>"}'
@@ -110,7 +110,6 @@ ibmcloud resource service-instance-create test-database databases-for-elasticsea
    ```
    {: pre}
 
-
    The fields in the command are described in the table that follows.
    
    | Field | Description | Flag |
@@ -124,8 +123,7 @@ ibmcloud resource service-instance-create test-database databases-for-elasticsea
    | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
    | `host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. For Shared Compute, specify `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the table below or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-types).| |
    {: caption="Table 1. Basic command format fields" caption-side="top"}
-
-
+   
    In the CLI, `service-endpoints` is a flag, not a parameter.
    {: note}
 
