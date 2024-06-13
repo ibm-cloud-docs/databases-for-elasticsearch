@@ -87,8 +87,8 @@ Before provisioning, follow the instructions provided in the documentation to in
       ```
       {: pre}
 
-1. Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models) you want your database to be provisioned on. You can change this later.
-2. Provision your database with the following command:
+2. Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models) you want your database to be provisioned on. You can change this later.
+3. Provision your database with the following command:
 
    ```sh
    ibmcloud resource service-instance-create <INSTANCE_NAME> <SERVICE_NAME> <SERVICE_PLAN_NAME> <LOCATION> <SERVICE_ENDPOINTS_TYPE> <RESOURCE_GROUP> -p '{"members_host_flavor": "<host_flavor value>"}'
@@ -110,7 +110,6 @@ ibmcloud resource service-instance-create test-database databases-for-elasticsea
    ```
    {: pre}
 
-
    The fields in the command are described in the table that follows.
    
    | Field | Description | Flag |
@@ -124,8 +123,7 @@ ibmcloud resource service-instance-create test-database databases-for-elasticsea
    | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
    | `host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. For Shared Compute, specify `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the table below or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-types).| |
    {: caption="Table 1. Basic command format fields" caption-side="top"}
-
-
+   
    In the CLI, `service-endpoints` is a flag, not a parameter.
    {: note}
 
@@ -172,7 +170,7 @@ The `host_flavor` parameter defines your Compute sizing. To provision a Shared C
    ```
    {: codeblock}
 
-1. To check provisioning status, use the following command:
+4. To check provisioning status, use the following command:
 
    ```sh
    ibmcloud resource service-instance <INSTANCE_NAME>
@@ -206,7 +204,7 @@ The `host_flavor` parameter defines your Compute sizing. To provision a Shared C
    ```
    {: codeblck}
 
-1. (Optional) Deleting a service instance
+5. (Optional) Deleting a service instance
    Delete an instance by running a command like this one:
 
    ```sh
@@ -404,7 +402,8 @@ To scale your instance up to 8 CPUs and `32768` megabytes of RAM, submit the fol
 {: pre}
 
 
-  3. Once you have all the information, [provision a new resource instance](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#create-resource-instance){: external} with the {{site.data.keyword.cloud_notm}} Resource Controller.
+3. Once you have all the information, [provision a new resource instance](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#create-resource-instance){: external} with the {{site.data.keyword.cloud_notm}} Resource Controller.
+
 
    ```sh
    curl -X POST \
@@ -420,8 +419,8 @@ To scale your instance up to 8 CPUs and `32768` megabytes of RAM, submit the fol
            "host_flavor": {"id": "<host_flavor_value>"}
       }
      }'
-   ```
-   {: .pre}
+```
+{: .pre}
 
 To make a Shared Compute instance, follow this example: 
    
