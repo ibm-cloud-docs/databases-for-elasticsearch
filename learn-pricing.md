@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-11-06"
+  years: 2019, 2024
+lastupdated: "2024-06-18"
 
 keywords: elasticsearch pricing, backup pricing, elasticsearch enterprise, elasticsearch standard
 
@@ -30,7 +30,6 @@ Once provisioned, {{site.data.keyword.databases-for-elasticsearch}} Enterprise P
 
 The {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan provisions the Platinum version of Elasticsearch. This plan offers all the features of our Enterprise Plan, plus premium features like the ability to run [machine learning](https://www.elastic.co/elasticsearch/machine-learning){: external} workloads, including Elastic's own [Elastic Learned Sparse Encoder](https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-elser.html){: external} for semantic search.
 Our Platinum Plan also includes enhanced security features, like document- and [field-level security](https://www.elastic.co/guide/en/elasticsearch/reference/current/field-level-security.html){: external}. See a full comparison of Enterprise and Platinum plans at [{{site.data.keyword.databases-for-elasticsearch}} Plans](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elastic-offerings).
-
 
 ## Using the Pricing Calculator
 {: #pricing-calc}
