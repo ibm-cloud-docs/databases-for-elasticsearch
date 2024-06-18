@@ -31,10 +31,6 @@ Once provisioned, {{site.data.keyword.databases-for-elasticsearch}} Enterprise P
 The {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan provisions the Platinum version of Elasticsearch. This plan offers all the features of our Enterprise Plan, plus premium features like the ability to run [machine learning](https://www.elastic.co/elasticsearch/machine-learning){: external} workloads, including Elastic's own [Elastic Learned Sparse Encoder](https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-elser.html){: external} for semantic search.
 Our Platinum Plan also includes enhanced security features, like document- and [field-level security](https://www.elastic.co/guide/en/elasticsearch/reference/current/field-level-security.html){: external}. See a full comparison of Enterprise and Platinum plans at [{{site.data.keyword.databases-for-elasticsearch}} Plans](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elastic-offerings).
 
-## {{site.data.keyword.databases-for-elasticsearch_full}} Standard Plan
-{: #elastic-standard-pricing}
-
-Versions 7.9 and 7.10 are available on {{site.data.keyword.databases-for}} under the Standard Plan, but will be End of Life (EOL) by 30 November 2023. To ensure access to the latest features and a longer timescale of version support, provision new {{site.data.keyword.databases-for-elasticsearch}} instances under the Enterprise or Platinum Plans.
 
 ## Using the Pricing Calculator
 {: #pricing-calc}
