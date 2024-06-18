@@ -204,16 +204,12 @@ To scale any {{site.data.keyword.databases-for}} instance to a Shared Compute in
 curl -X PATCH https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{id}/groups/{group_id}
 -H 'Authorization: Bearer <>'
 -H 'Content-Type: application/json'
--d '{"group":
-      {"host_flavor":
-        {"id": "multitenant"}
-      },
-      {"cpu":
-        {"allocation_count": 3}
-      },
-      {"memory":
+-d '{"host_flavor":
+        {"id": "multitenant"},
+      "cpu":
+        {"allocation_count": 3},
+      "memory":
         {"allocation_mb": 2048}
-      }
     }' \
 ```
 {: pre}
@@ -224,11 +220,7 @@ To scale any instance into a {{site.data.keyword.databases-for}} Isolated Comput
 curl -X PATCH https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{id}/groups/{group_id}
 -H 'Authorization: Bearer <>'
 -H 'Content-Type: application/json'
--d '{"group":
-      {"host_flavor":
-        {"id": "b3c.4x16.encrypted"}
-      }
-    }' \
+-d '{"host_flavor": {"id": "b3c.4x16.encrypted"}}' \
 ```
 {: pre}
 
