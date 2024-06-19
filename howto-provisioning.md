@@ -53,7 +53,7 @@ Fine tune your resource allocation. The available options differ based on your s
 - **Isolated:** Use the table to choose the machine size for each member of your deployment, and specify the disk size.
 - **Shared:** By default, the smallest possible resource allocation is selected. This is ideal for small applications or testing. For larger allocations, select the *Custom* tile, which allows flexible resource configuration with 2+ cores. 
 
-The Shared Compute hosting model supports more fine-grained resource allocations not shown in the UI to maintain clarity. For more information, see [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).
+The Shared Compute hosting model supports more fine-grained resource allocations that are not shown in the UI to maintain clarity. For more information, see [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).
 {: note}
 
 Specify the disk size depending on your requirements. It can be increased after provisioning but cannot be decreased to prevent data loss.
