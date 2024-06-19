@@ -131,7 +131,7 @@ ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--memory <val>] [--
 For example, use: 
 
 ```sh
-ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --memory 8192  --hostflavor multitenant
+ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --memory 24576 --cpu 6  --hostflavor multitenant
 ```
 {: pre}
 
