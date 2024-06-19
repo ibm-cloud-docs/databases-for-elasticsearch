@@ -131,7 +131,7 @@ ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--memory <val>] [--
 For example, use: 
 
 ```sh
-ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --memory 8192 --cpu 1 --hostflavor multitenant
+ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --memory 8192  --hostflavor multitenant
 ```
 {: pre}
 
@@ -192,7 +192,7 @@ curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{
 -H "Authorization: Bearer $APIKEY" \
 -H "Content-Type: application/json" \
 -d '{"memory": {
-        "allocation_mb": 24576
+        "allocation_mb": 6144
       }
     }'
 ```
@@ -204,16 +204,12 @@ To scale any {{site.data.keyword.databases-for}} instance to a Shared Compute in
 curl -X PATCH https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{id}/groups/{group_id}
 -H 'Authorization: Bearer <>'
 -H 'Content-Type: application/json'
--d '{"group":
-      {"host_flavor":
-        {"id": "multitenant"}
-      },
-      {"cpu":
-        {"allocation_count": 6}
-      },
-      {"memory":
-        {"allocation_mb": 24576}
-      }
+-d '{"host_flavor":
+        {"id": "multitenant"},
+      "cpu":
+        {"allocation_count": 3},
+      "memory":
+        {"allocation_mb": 2048}
     }' \
 ```
 {: pre}
@@ -224,11 +220,7 @@ To scale any instance into a {{site.data.keyword.databases-for}} Isolated Comput
 curl -X PATCH https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{id}/groups/{group_id}
 -H 'Authorization: Bearer <>'
 -H 'Content-Type: application/json'
--d '{"group":
-      {"host_flavor":
-        {"id": "b3c.4x16.encrypted"}
-      }
-    }' \
+-d '{"host_flavor": {"id": "b3c.4x16.encrypted"}}' \
 ```
 {: pre}
 
