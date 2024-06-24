@@ -113,7 +113,7 @@ If you don't want to see the output of Kibana in your terminal, use the `-d` fla
 
 Visit `http://0.0.0.0:5601` in your browser to see Kibana. `0.0.0.0` is the `server.host` in `kibana.yml` and `5601` is the port that is exposed from the container. Once you go to the URL, a pop-up window prompts you for your username and password. Use the admin credentials, or any other credentials that you made, to access to your deployment. The credentials don't have to be the same username and password you provided in the `kibana.yml` file.
 
-## Next Steps
+## Next steps
 {: #elasticsearch-next-steps}
 
 For more information, see the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html){: external}.
