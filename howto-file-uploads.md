@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-09-29"
+  years: 2019, 2024
+lastupdated: "2024-05-23"
 
 keywords: elasticsearch upload files, filter, index, indices, indexes
 
@@ -12,7 +12,7 @@ subcollection: databases-for-elasticsearch
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Uploading Files to Elasticsearch 
+# Uploading files to Elasticsearch 
 {: #uploading-files}
 
 A few Elasticsearch features allow indexes to read from files on the file system, so {{site.data.keyword.databases-for-elasticsearch_full}} allows you to upload files to your deployment. The files are stored at a known location, and Elasticsearch is configured so that it is allowed to read files from the location.
