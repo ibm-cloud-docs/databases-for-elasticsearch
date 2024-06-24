@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-11-06"
+  years: 2019, 2024
+lastupdated: "2024-06-18"
 
 keywords: elasticsearch pricing, backup pricing, elasticsearch enterprise, elasticsearch standard
 
@@ -31,11 +31,6 @@ Once provisioned, {{site.data.keyword.databases-for-elasticsearch}} Enterprise P
 The {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan provisions the Platinum version of Elasticsearch. This plan offers all the features of our Enterprise Plan, plus premium features like the ability to run [machine learning](https://www.elastic.co/elasticsearch/machine-learning){: external} workloads, including Elastic's own [Elastic Learned Sparse Encoder](https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-elser.html){: external} for semantic search.
 Our Platinum Plan also includes enhanced security features, like document- and [field-level security](https://www.elastic.co/guide/en/elasticsearch/reference/current/field-level-security.html){: external}. See a full comparison of Enterprise and Platinum plans at [{{site.data.keyword.databases-for-elasticsearch}} Plans](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elastic-offerings).
 
-## {{site.data.keyword.databases-for-elasticsearch_full}} Standard Plan
-{: #elastic-standard-pricing}
-
-Versions 7.9 and 7.10 are available on {{site.data.keyword.databases-for}} under the Standard Plan, but will be End of Life (EOL) by 30 November 2023. To ensure access to the latest features and a longer timescale of version support, provision new {{site.data.keyword.databases-for-elasticsearch}} instances under the Enterprise or Platinum Plans.
-
 ## Using the Pricing Calculator
 {: #pricing-calc}
 
@@ -45,7 +40,7 @@ For pricing estimation, use the **Add to Estimate** button on the [{{site.data.k
 ## Dedicated Cores Pricing
 {: #pricing-cores}
 
-You have the option of selecting the CPU allocation for your instance. With dedicated cores, your resource group is given a single-tenant host with a guaranteed minimum reserve of cpu shares. Your instances are then allocated the number of CPUs you specify. The cost of dedicated cores is $30 per core per month, and each member gets the selected number of cores. For example, if you provision an instance with 3 dedicated cores per member, that is a total of 9 cores and is billed at $270 per month.
+You have the option of selecting the CPU allocation for your instance. With dedicated cores, your resource group is given a single-tenant host with a guaranteed minimum reserve of cpu shares. Your instances are then allocated the number of CPUs you specify. The cost of dedicated cores is $30 per core per month, and each member gets the selected number of cores. For example, if you provision an instance with 3 dedicated cores per member, that is a total of 9 cores and is billed at $270 per month. 
 
 Dedicated cores are an optional feature. The default `Shared CPU` setting provisions your instance on hosts with shared compute resources and incurs no additional charge.
 
