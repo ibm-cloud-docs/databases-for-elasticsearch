@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-06-28"
+  years: 2019, 2024
+lastupdated: "2024-05-23"
 
 keywords: elasticsearch ha, elasticsearch high availability, databases, ha
 
@@ -10,13 +10,9 @@ subcollection: databases-for-elasticsearch
 
 ---
 
-{:external: .external target="_blank"}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
-{:codeblock: .codeblock}
-{:pre: .pre}
+{{site.data.keyword.attribute-definition-list}}
 
-# High-Availability
+# High availability
 {: #high-availability}
 
 {{site.data.keyword.databases-for-elasticsearch_full}} is a managed cloud database service that is fully integrated into the {{site.data.keyword.cloud_notm}} environment. The database, storage, and supporting infrastructure all run in {{site.data.keyword.cloud_notm}}.
