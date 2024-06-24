@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2023
-lastupdated: "2023-09-29"
+  years: 2019, 2024
+lastupdated: "2024-05-23"
 
 keywords: elasticsearch upload files, filter, index, indices, indexes
 
