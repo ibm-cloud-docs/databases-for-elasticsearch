@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2024
-lastupdated: "2024-05-17"
+lastupdated: "2024-05-23"
 
 keywords: elasticsearch enterprise, elasticsearch platinum, elasticsearch plans, features
 
