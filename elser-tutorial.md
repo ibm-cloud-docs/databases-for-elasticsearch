@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-16"
+lastupdated: "2024-04-11"
 
 keywords: machine learning, elasticsearch, artificial intelligence, ai, model, vector search
 
