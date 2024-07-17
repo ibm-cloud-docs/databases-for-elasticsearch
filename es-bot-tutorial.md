@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-03-18"
+lastupdated: "2024-05-20"
 
 keywords: machine learning, elasticsearch, artificial intelligence, ai, model, vector search, bot
 
@@ -24,91 +24,108 @@ completion-time: 45mins
 ## Objectives
 {: #build-es-chatbot-objectives}
 
-This tutorial is designed to assist you in harnessing the full potential of your data by transforming it into an intelligent bot capable of answering queries related to your data. The bot effortlessly stores the knowledge base in an Elasticsearch index and taps into AI to intelligently handle your questions related to the knowledge base.
+This tutorial shows how an IBM watsonx.ai model can be enhanced with knowledge gleaned by spidering content from your website to produce a chatbot capable of answering questions related to your knowledge base. This technique is known as Retrieval-Augmented Generation (RAG). Pre-trained large language models have good _general knowledge_, having being trained with a large corpus of public content, but they lack _domain-specifc knowledge_ about your business e.g.
 
-In this tutorial, you set up a {{site.data.keyword.databases-for-elasticsearch}} instance and then use its capabilities to crawl your website and store that knowledge base in an Elasticsearch index. You use Elastic's built-in Machine learning (ML) model ELSER to analyze and extract meaning from your data. [Elastic Learned Sparse EncodeR (ELSER)](https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-elser.html){: external} is a Natural Language Processing (NLP) model trained by Elastic that enables you to perform semantic search by using sparse vector representation. Instead of literal matching on search terms, semantic search retrieves results based on the intent and the contextual meaning of a search query.
+- "Can I get a refund if the box is opened?"
+- "What is the waiting list for treatment?"
+- "Do you deliver on Saturdays?" 
 
-You then use IBM watsonx to create a chatbot interface that uses this data to intelligently handle questions related to your knowledge base.
+We can build a chatbot using the following IBM Cloud services:
 
-{{site.data.keyword.databases-for-elasticsearch}} and IBM watsonx are paid products so this tutorial incurs charges.
+- {{site.data.keyword.databases-for-elasticsearch}} which runs the [ELSER](https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-elser.html){: external} Natural Languge Processing (NLP) model to enhance the incoming data before being stored in an Elasticsearch index. An _ingest pipeline_ is used to allow data to fed into ELSER before the enhanced data is stored.
+- Elastic Enterprise Search is deployed on IBM Code Engine and is used to spider your website to collect domain-specific data and feed it into Elasticsearch's ingest pipeline.
+- Kibana is deployed on IBM Code Engine and becomes the web UI for Elasticsearch and Elastic Enterprise Search. We will use it specify and set off the web crawler.
+- IBM wastonx.ai runs a pre-trained machine learning model to answer chatbot requests. The model's API is used to produce chatbot responses given the user prompt and the contextual data collected by running the prompt against the spidered and enhanced data in Elasticsearch.
+- A simple Python app is deployed on IBM Code Engine to provide a chatbot web interface. It collects prompts from users, queries the Elasticsearch data and then uses IBM watsonx.ai to produce the response.
+
+{{site.data.keyword.databases-for-elasticsearch}}, IBM Code Engine and IBM watsonx are paid products so this tutorial incurs charges.
 {: important}
 
-## Getting productive
+## Pre-requisites
 {: #build-es-chatbot-prereqs}
 
-To get productive:
+You will need:
 
-- You need an [{{site.data.keyword.cloud_notm}} account](https://cloud.ibm.com/registration){: external}.
-- Install [Docker](https://www.docker.com/get-started/){: external}
-- Provision a [{{site.data.keyword.databases-for-elasticsearch}} Platinum instance](https://cloud.ibm.com/databases/databases-for-elasticsearch/create){: external} with version 8.1x.x.
-- Once your instance is provisioned, download the TLS certificate. Navigate to your instance's **Overview**, scroll down to the *Endpoints* section, and then select **Download Certificate**.
-- If required, change the Admin password. Navigate to your instance's **Overview** and scroll down to the *Change Database Admin Password* section. Select **Change Password**.
+- An [{{site.data.keyword.cloud_notm}} Account](https://cloud.ibm.com/registration){: external}.
+- [Terraform](https://www.terraform.io/){: external} - to deploy infrastructure
+- A website containing public-facing text content which we will "spider" to bolster the chatbot's expertise.
+- Docker running on your local machine. See [Docker Desktop](https://www.docker.com/products/docker-desktop/).
 
-Make sure you have a running server of your data presented in HTML format. We can also use bulk API to upload data to index that may be covered in future tutorials.
-{: important}
+Follow [these steps](/docs/account?topic=account-userapikey&interface=ui#create_user_key){: external} to create an {{site.data.keyword.cloud_notm}} API key that enables Terraform to provision infrastructure into your account. You can create up to 20 API keys.
+
+For security reasons, the API key is only available to be copied or downloaded at the time of creation. If the API key is lost, you must create a new API key.
+{: note}
 
 ## Set up an IBM watsonx.ai Project
 {: #build-es-chatbot-watsonxai-project}
 
-[IBM watsonx.ai](https://www.ibm.com/products/watsonx-ai){: external} is a studio of integrated tools for working with generative AI capabilities that is powered by foundation models for building machine learning models. The IBM watsonx.ai component provides a secure and collaborative environment where you access your organization's trusted data, automate AI processes, and deliver AI in your applications.
+Most of our infrastructure wil be deployed through Terraform, but we need to setup IBM watsonx.ai manually.
 
-Follow these steps to integrate powerful AI capabilities into your projects:
+[IBM watsonx.ai](https://www.ibm.com/products/watsonx-ai){: external} is a studio of integrated tools for working with generative AI capabilities that is powered by foundation models for building machine learning applications. The IBM watsonx.ai component provides a secure and collaborative environment where you access your organization's trusted data, automate AI processes, and deliver AI in your applications.
 
-1. Sign Up for [IBM watsonx.ai as a Service](https://www.ibm.com/docs/en/watsonx-as-a-service?topic=started-signing-up-watsonx){: external}.
-1. To access a range of foundation and Machine learning (ML) models, [set up a new project](https://www.ibm.com/docs/en/watsonx-as-a-service?topic=projects-creating-project#create-a-project){: external}.
-1. Once your project is established, navigate to the **Projects** section, select your project, and go to *Manage* > *General* to find and copy your Project ID.
-1. Insert the copied Project ID into your `.env` file, under the variable `PROJECT_ID`.
+Follow these steps to setup IBM watsonx.ai:
 
-## Set up your server and connect to your {{site.data.keyword.databases-for-elasticsearch}} instance
-{: #build-es-chatbot-watsonxai-server-connect}
+1. Sign Up for [IBM watsonx.ai as a Service](https://cloud.ibm.com/watsonx/overview){: external} and click on the "Get Started" link for watsonx.ai. Select a region and log in.
+2. [Create a project](https://dataplatform.cloud.ibm.com/projects/new-project?context=wx){: external} within watsonx.ai. In the "Projects" box, click the "+" icon and the "Create Project" button. Name you project and supply the Cloud Object Storage instance which will be used to store the project's state. (If you don't have a Cloud Object Storage instance, [create one here](https://cloud.ibm.com/objectstorage/create)) 
+3. In the project's "Manage" tab, in the General page, make a note of the "Project ID".
+4. In the project's "Manage" tab, in the Services and Integrations page, click the "Associate Service" button. Click "New Service" button and choose the "Watson Machine Learning" option. You'll be using the Lite plan, so just click "Create". 
 
-1. First, [clone the repo](https://github.com/IBM/icd-elastic-bot){: external}.
-1. See the [README file](https://github.ibm.com/Dhananjay-Meena/icd-elastic-bot/blob/main/README.md){: external} of the repo and add the `.env` file in the root of your project.
-1. To start your server, run a command like:
-   ```sh
-   docker-compose up --build
-   ```
-   {: pre}
+## Provision the infrastructure with Terraform
+{: #provision-infrastructure-terraform}
 
-## Set up your crawler index
-{: #build-es-chatbot-crawler-index}
+Clone the repo:
 
-1. Navigate to [Kibana](https://www.elastic.co/kibana){: external}, located at `localhost:5601` in your web browser.
-1. Go to the **Search** section in the left sidebar.
-1. Press **Start** under the [web crawler](https://www.elastic.co/web-crawler){: external} section and create your index on the next page, prefixed `search-`. Make sure the index name is same as written in your `.env` file.
-1. Navigate to the pipeline settings for your index by clicking on the *Pipelines* tab.
-1. Click *Copy and Customize* and select the `ml` label from the settings in the *Ingest Pipelines* section.
-1. Click *Add Inference Pipeline* in the *Machine Learning Inference Pipeline* section and follow the steps. Select `.elser_model_1` for the trained ML Model and make sure the model is in a running state. Select *title field* in **Select field mappings** step.
+```sh
+git clone https://github.com/IBM/icd-elastic-bot.git
+cd icd-elastic-bot
+cd terraform
+```
 
-This streamlined process enables you to leverage the AI capabilities of IBM watsonx.ai and use your documentation effectively. Happy querying!
+In this directory, create a file called `terraform.tfvars` containing the following data, but replacing the placeholder (`MY_*` values) with your own:
+
+```
+ibmcloud_api_key="MY_IBM_CLOUD_API_KEY"
+region="eu-gb"
+es_username="admin"
+es_password="MY_ELASTICSEARCH_PASSWORD"
+es_version="8.12"
+wx_project_id="MY_WATSONX_PROJECT_ID"
+```
+
+> Note: pick a secure Elasticsearch password which, together with the Elasticsearch username will become the credentials required to access Elasticsearch and the Kibana web user interface.
+
+Now deploy the infrastructure with:
+
+```sh
+terraform init
+terraform apply --auto-approve
+```
+
+Terraform will output 
+
+- the URL of your Kibana instance.
+- the URL of the Python app.
+
+Make a note of these values for the next steps
 
 ## Feed the data
 {: #build-es-chatbot-feed-data}
 
-This step feeds your data to your {{site.data.keyword.databases-for-elasticsearch}} instance. We will be using the [Elastic web crawler](https://www.elastic.co/guide/en/enterprise-search/current/crawler-private-network-cloud.html){: external}. This feature can be used to extract data from any web server.
+This step feeds your website's data to your {{site.data.keyword.databases-for-elasticsearch}} instance. We will be using the [Elastic web crawler](https://www.elastic.co/guide/en/enterprise-search/current/crawler-private-network-cloud.html){: external}. This feature, accessed through Kibana, is used to extract data from any website.
 
 Follow the steps to add your data:
 
-1. Add your domain in the *Manage domain* section of the index. Ensure that your domain includes HTML data so that crawlers can comprehend its content. You can include relevant entry points of your domain to fetch data from.
-1. After adding all of the entry points, click on **Crawl All Domains** or choose **Custom Settings** from the dropdown menu next to **Crawl** at the top right. All that's left to do now is wait until all the data is collected.
+1. Navigate to your Kibana URL - Terraform will have outputed this URL from the previous section. Log in with the Elasticsearch username and password you chose.
+2. In the Kibana UI, in the Search section, choose the Overview option. Click on the "Crawl URL" button.
+3. Name your index "search-bot" (the `search-` prefix is already present). Click "Create Index".
+4. Add your website's URL in the *Manage domain* section of the index. Click "Validate Domain" and then "Add Domain".
+5. Click Add Inference Pipeline in the Machine Learning Inference Pipeline section and follow the steps. Select .elser_model_1 for the trained ML Model and make sure the model is in a "Started" state. Select title field in Select field mappings step and click "Add", then "Continue" and "Create Pipeline".
+5. Click on **Crawl All Domains** and then "Crawl all domains on this index". All that's left to do now is wait until the data is collected.
 
 ## Query the data
 {: #build-es-chatbot-query-data}
 
-Access the Streamlit user interface at `localhost:8501` in your web browser. Start interacting with the model by asking questions, and you receive answers generated by IBM watsonx.ai.
+Navigate to the Python app's URL in your web browser - this can be found in the output from Terraform as `python_endpoint` from previous steps.
 
-Ensure compatibility by testing your bot setup on a development instance first.
-{: note}
+Start interacting with the model by asking questions, and you will receive answers generated by IBM watsonx.ai. The Python app takes your prompt and searches the Elasticsearch index populated with spidered and enhanced data from the web crawl. It then uses the IBM watsonx.ai API to produce a response from the context provided by the Elasticsearch result.
 
-
-## Troubleshooting
-{: #build-es-chatbot-ts}
-
-If you are unable to create a crawl index, delete the `ibm_default` template, and the `.elastic-connectors` and `.elastic-connectors-v1` indices. Then, recreate the index.
-
-```sh
-curl --cacert ca.crt -u ${ELASTIC_USER}:${ELASTIC_PASS} -XDELETE ${ELASTIC_HOST}/.elastic_connectors
-curl --cacert ca.crt -u ${ELASTIC_USER}:${ELASTIC_PASS} -XDELETE ${ELASTIC_HOST}/.elastic-connectors-v1
-curl --cacert ca.crt -u ${ELASTIC_USER}:${ELASTIC_PASS} -XDELETE ${ELASTIC_HOST}/_template/ibm_defaults
-```
-{: pre}
