@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2024
-lastupdated: "2024-05-28"
+lastupdated: "2024-07-22"
 
 keywords: kibana, elasticsearch container, elasticsearch getting started
 
@@ -37,7 +37,7 @@ This tutorial is a short introduction to using an {{site.data.keyword.databases-
 
 Your deployment's _Overview_ shows all the relevant connection information.
 
-To connect, Kibana needs the username, password, url, and port for your Elasticsearch deployment. It also needs the Elasticsearch CA certificate to access the database. To get this, copy the certificate information from the _IBM Cloud Platform Endpoints_ section within the created Elasticsearch instance. Then, download the certificate to a local folder. You can use the name that is provided in the download, or your own file name.
+To connect, Kibana needs the username, password, URL, and port for your Elasticsearch deployment. It also needs the Elasticsearch TLS certificate to access the database. To get this, copy the certificate information from the _Endpoints_ section on the _Overview_ page of your created Elasticsearch instance. Then, download the certificate to a local folder. You can use the name that is provided in the download, or your own file name.
 
 Remember where you save the certificate on your file system. If you are running Kibana locally, not in Docker, then the certificate goes in `$KIBANA_HOME/config/<filename>`.
 {: important}
