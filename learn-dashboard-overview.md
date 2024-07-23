@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-22"
+lastupdated: "2024-07-23"
 
 keywords: deployment, crn, task, gui, api endpoint, elasticsearch dashboard, elasticsearch connection strings
 
@@ -29,7 +29,7 @@ The _Overview_ page shows you information about your {{site.data.keyword.databas
 ### Resources
 {: #dashboard-overview-resources}
 
-The resources tile contains information and configuration options on the size and resource usage of your deployment. You can [ccale disk, memory, and CPU](/docs/databases-for-mongodb?topic=databases-for-mongodb-resources-scaling) and [configure Autoscaling](/docs/databases-for-mongodb?topic=databases-for-mongodb-autoscaling).
+The resources tile contains information and configuration options on the size and resource usage of your deployment. You can [ccale disk, memory, and CPU](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-resources-scaling) and [configure Autoscaling](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-autoscaling).
 
 ### Recent tasks
 {: #dashboard-overview-tasks}
