@@ -23,6 +23,14 @@ Provision a {{site.data.keyword.databases-for-elasticsearch_full}} deployment th
 
 Deploy from the console by specifying the following parameters:
 
+### Platform
+{: #platform}
+{: ui}
+
+The platform that your database will be deployed on. Choose your required network and compute environment.
+
+- **{{site.data.keyword.cloud}}** Deploy a database on the {{site.data.keyword.cloud_notm}} platform, in a region of your choosing.
+
 ### Service details
 {: #service_details}
 {: ui}
@@ -64,9 +72,9 @@ Specify the disk size depending on your requirements. It can be increased after 
 {: ui}
 
 - **Database Version** [Set only at deployment]{: tag-red} - The deployment version of your database. To ensure optimal performance, run the preferred version. The latest minor version is used automatically. For more information, see [Versioning Policy](/docs/cloud-databases?topic=cloud-databases-versioning-policy){: external}.
-- **Database Edition** - Select the edition that you want to deploy. Choose from Enterprise or Standard.
+- **Database Edition** - Select the edition that you want to deploy. Choose from Enterprise or Platinum. Note that Platinum is only available on the Isolated hosting model.
 - **Encryption** - If you use [Key Protect](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui), an instance and key can be selected to encrypt the deployment's disk. If you do not use your own key, the deployment automatically creates and manages its own disk encryption key.
-- **Endpoints** [Set only at deployment]{: tag-red} - Configure the [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) on your deployment.
+- **Endpoints** - Configure the [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) on your deployment.
 
 After you select the appropriate settings, click **Create** to start the provisioning process.
 
@@ -78,7 +86,7 @@ After you select the appropriate settings, click **Create** to start the provisi
 {: #create-service-instance-cli}
 {: cli}
 
-Before provisioning, follow the instructions provided in the documentation to install the [{{site.data.keyword.cloud_notm}} CLI tool](https://www.ibm.com/cloud/cli){: external}.
+Before provisioning, follow the instructions provided in the documentation to install the [{{site.data.keyword.cloud_notm}} CLI tool](/docs/cli?topic=cli-install-ibmcloud-cli){: external}.
 
 1. Log in to {{site.data.keyword.cloud_notm}}. If you use a federated user ID, it's important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API key(`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in by using the CLI, see [General CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login){: external} under `ibmcloud login`.
 
@@ -87,7 +95,7 @@ Before provisioning, follow the instructions provided in the documentation to in
       ```
       {: pre}
 
-2. Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=cli) you want your database to be provisioned on. You can change this later.
+2. Select the [hosting model](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=cli) you want your database to be provisioned on. You can change this later.
 3. Provision your database with the following command:
 
    ```sh
@@ -95,17 +103,17 @@ Before provisioning, follow the instructions provided in the documentation to in
    ```
    {: pre}
 
-For example, to provision a {{site.data.keyword.databases-for-mongodb}} Shared Compute hosting model instance, use a command like:
+  For example, to provision a {{site.data.keyword.databases-for-mongodb}} Shared Compute hosting model instance, use a command like:
 
    ```sh
    ibmcloud resource service-instance-create test-database databases-for-elasticsearch enterprise us-south -p '{"members_host_flavor": "multitenant", "members_memory_allocation_mb": "8192"}'
    ```
    {: pre}
 
-Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"members_host_flavor"` -p parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 2](#host-flavor-parameter-cli). For example, `{"members_host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.
+  Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"members_host_flavor"` -p parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 2](#host-flavor-parameter-cli). For example, `{"members_host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.
 
    ```sh
-ibmcloud resource service-instance-create test-database databases-for-elasticsearch enterprise us-south -p '{"members_host_flavor": "b3c.4x16.encrypted"}'
+  ibmcloud resource service-instance-create test-database databases-for-elasticsearch enterprise us-south -p '{"members_host_flavor": "b3c.4x16.encrypted"}'
    ```
    {: pre}
 
@@ -113,9 +121,9 @@ ibmcloud resource service-instance-create test-database databases-for-elasticsea
    
    | Field | Description | Flag |
    |-------|------------|------------|
-   | `NAME` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
+   | `INSTANCE_NAME` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
    | `SERVICE_NAME` [Required]{: tag-red} | Name or ID of the service. For {{site.data.keyword.databases-for-elasticsearch}}, use `databases-for-elasticsearch`. |  |
-   | `SERVICE_PLAN_NAME` [Required]{: tag-red} | `enterprise` or `platinum` |  |
+   | `SERVICE_PLAN_NAME` [Required]{: tag-red} | `enterprise` or `platinum`. Note that `platinum` requires an `isolated` host flavor. |  |
    | `LOCATION` [Required]{: tag-red} | The location where you want to deploy. To retrieve a list of regions, use the `ibmcloud regions` command. |  |
    | `SERVICE_ENDPOINTS_TYPE` | Configure the [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public` or `private`. The default value is `public`. |  |
    | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
@@ -220,13 +228,13 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 
 The `service-instance-create` command supports a `-p` flag, which allows JSON-formatted parameters to be passed to the provisioning process. For example, you can pass Cloud Resource Names (CRNs) as parameter values, which uniquely identify a resource in the cloud. All parameter names and values are passed as strings.
 
-For example, if a database is being provisioned from a particular backup and the new database deployment needs a total of 9 GB of memory across three members, then the command to provision 3 GBs per member looks like:
+For example, if a database is being provisioned from a particular backup and the new database deployment needs a total of 12 GB of memory across three members, then the command to provision 4 GBs per member looks like:
 
 ```sh
-ibmcloud resource service-instance-create databases-for-elasticsearch <SERVICE_NAME> standard us-south \
+ibmcloud resource service-instance-create databases-for-elasticsearch <INSTANCE_NAME> enterprise us-south \
 -p \ '{
   "backup_id": "crn:v1:blue:public:databases-for-elasticsearch:us-south:a/54e8ffe85dcedf470db5b5ee6ac4a8d8:1b8f53db-fc2d-4e24-8470-f82b15c71717:backup:06392e97-df90-46d8-98e8-cb67e9e0a8e6",
-  "members_memory_allocation_mb": "3072"
+  "members_memory_allocation_mb": "4096"
 }'
 ```
 {: .pre}
@@ -257,7 +265,7 @@ Follow these steps to provision using the [Resource Controller API](https://clou
    ```
    {: pre}
 
-4. Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=api) you want your database to be provisioned on. You can change this later. 
+4. Select the [hosting model](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=api) you want your database to be provisioned on. You can change this later. 
 
 A host flavor represents fixed sizes of guaranteed resource allocations. To see which host flavors are available in your region, call the [host flavors capability endpoint](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#capability) like this:
 
@@ -474,14 +482,12 @@ Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance 
    
    | Field | Description | Flag |
    |-------|------------|------------|
-   | `NAME` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
-   | `SERVICE_NAME` [Required]{: tag-red} | Name or ID of the service. For {{site.data.keyword.databases-for-elasticsearch}}, use `databases-for-elasticsearch`. |  |
-   | `SERVICE_PLAN_NAME` [Required]{: tag-red} | `enterprise` or `platinum` |  |
-   | `LOCATION` [Required]{: tag-red} | The location where you want to deploy. To retrieve a list of regions, use the `ibmcloud regions` command. |  |
-   | `SERVICE_ENDPOINTS_TYPE` | Configure the [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public` or `private`. The default value is `public`. |  |
-   | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
+   | `name` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
+   | `location` [Required]{: tag-red} | The location where you want to deploy. To retrieve a list of regions, use the `ibmcloud regions` command. |  |
+   | `resource_group` | The Resource group name. The default value is `default`. | -g |
+   | `resource_plan_id` [Required]{: tag-red} | Name or ID of the service. For {{site.data.keyword.databases-for-elasticsearch}}, use `databases-for-elasticsearch.enterprise` or `databases-for-elasticsearch.platinum`. |  |
    | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
-   | `host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. For Shared Compute, specify `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the table below, or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).| |
+   | `host_flavor` | To provision an Isolated or Shared Compute instance, use a parameter like `{"members_host_flavor": "<host_flavor value>"}`. For Shared Compute, specify `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the table below, or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).| |
    {: caption="Table 1. Basic command format fields" caption-side="top"}
 
 ### The `host flavor` parameter
@@ -508,7 +514,7 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 {: #provisioning-parameters-api}
 {: api}
 
-* `backup_id`- A CRN of a backup resource to restore from. The backup must be created by a database deployment with the same service ID. The backup is loaded after provisioning and the new deployment starts up that uses that data. A backup CRN is in the format `crn:v1:<...>:backup:<uuid>`. If omitted, the database is provisioned empty.
+* `backup_id` - A CRN of a backup resource to restore from. The backup must be created by a database deployment with the same service ID. The backup is loaded after provisioning and the new deployment starts up that uses that data. A backup CRN is in the format `crn:v1:<...>:backup:<uuid>` - If omitted, the database is provisioned empty.
 * `version` - The version of the database to be provisioned. If omitted, the database is created with the most recent major and minor version.
 * `disk_encryption_key_crn` - The CRN of a KMS key (for example, [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) or [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about)), which is then used for disk encryption. A KMS key CRN is in the format `crn:v1:<...>:key:<id>`.
 * `backup_encryption_key_crn` - The CRN of a KMS key (for example, [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) or [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about)), which is then used for backup encryption. A KMS key CRN is in the format `crn:v1:<...>:key:<id>`.
@@ -527,7 +533,9 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 
 Use Terraform to manage your infrastructure through the [`ibm_database` Resource for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database) supports provisioning {{site.data.keyword.databases-for}} deployments.
 
-Select the [hosting model]([/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=terraform) you want your database to be provisioned on. You can change this later. 
+Select the [hosting model](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=terraform) you want your database to be provisioned on. You can change this later. 
+
+### Provisioning shared compute with Terraform
 
 Provision a {{site.data.keyword.databases-for-elasticsearch}} Shared hosting model instance with the `"host_flavor"` parameter set to `multitenant`. See the following example:  
 
@@ -573,6 +581,8 @@ output "ICD Elasticsearch database connection string" {
 ```
 {: codeblock}
 
+### Provisioning isolated compute with Terraform
+
 Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"host_flavor"` parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 1](#host-flavor-parameter-terraform). For example, `{"host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections. 
 
 ```terraform
@@ -615,7 +625,9 @@ output "ICD Elasticsearch database connection string" {
 {: #host-flavor-parameter-terraform}
 {: terraform}
 
-The `host_flavor` parameter defines your Compute sizing. To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration. 
+The `host_flavor` parameter defines your Compute sizing. 
+- **Shared compute** - To provision a Shared Compute instance, specify `multitenant`. 
+- **Isolated compute** - To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration. Values can be seen in the table below. 
 
 | **Host flavor** | **host_flavor value** |
 |:-------------------------:|:---------------------:|
