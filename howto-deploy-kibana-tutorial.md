@@ -70,11 +70,11 @@ git clone https://github.com/IBM/elasticsearch-kibana-codeengine.git
 
    ```sh
     ibmcloud_api_key = "<your_api_key_from_step_1>"
-    region = "<your_region>"
-    es_url = "<the url of your elasticsearch deployment>"
+    region = "<the IBM region where you will deploy the Code Engine application>"
+    es_host = "<the hostname of your elasticsearch deployment>"
+    es_port = "<the port number of your elasticsearch deployment>"
     es_username = "<the username of your elasticsearch deployment>"
     es_password = "<the password of your elasticsearch user>"
-    es_version="<the version of your elasticsearch deployment>"
    ```
    {: pre}
 
