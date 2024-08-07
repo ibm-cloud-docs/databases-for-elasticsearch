@@ -29,7 +29,7 @@ Deploy from the console by specifying the following parameters:
 
 The platform that your database will be deployed on. Choose your required network and compute environment.
 
-- **{{site.data.keyword.cloud}}** Deploy a database on the {{site.data.keyword.cloud_notm}} platform, in a region of your choosing.
+- **{{site.data.keyword.cloud}}** - Deploy a database on the {{site.data.keyword.cloud_notm}} platform, in a region of your choosing.
 
 ### Service details
 {: #service_details}
@@ -535,6 +535,8 @@ Use Terraform to manage your infrastructure through the [`ibm_database` Resource
 Select the [hosting model](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=terraform) you want your database to be provisioned on. You can change this later. 
 
 ### Provisioning shared compute with Terraform
+{: #provisioning-shared-compute-terraform}
+{: terraform}
 
 Provision a {{site.data.keyword.databases-for-elasticsearch}} Shared hosting model instance with the `"host_flavor"` parameter set to `multitenant`. See the following example:  
 
@@ -581,6 +583,8 @@ output "ICD Elasticsearch database connection string" {
 {: codeblock}
 
 ### Provisioning isolated compute with Terraform
+{: #provisioning-isolated-computer-terraform}
+{: terraform}
 
 Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"host_flavor"` parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 1](#host-flavor-parameter-terraform). For example, `{"host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections. 
 
