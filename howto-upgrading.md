@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2024
-lastupdated: "2024-04-12"
+lastupdated: "2024-08-07"
 
 keyowrds: elasticsearch, databases, upgrading, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17, indexes, reindexing, reindex
 
@@ -11,7 +11,7 @@ subcollection: databases-for-elasticsearch
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Upgrading to a new Major Version
+# Upgrading to a new major version
 {: #upgrading}
 
 When a major version of a database is at its end of life (EOL), upgrade to the current major version. You can upgrade {{site.data.keyword.databases-for-elasticsearch_full}} deployments to use the newest version of Elasticsearch.
@@ -59,7 +59,8 @@ Upgrade to a new version when [restoring a backup](/docs/cloud-databases?topic=c
 {: #upgrading-cli}
 {: cli}
 
-When you upgrade and restore from backup through the {{site.data.keyword.cloud_notm}} CLI, use the provisioning command from the resource controller.
+When you upgrade and restore from backup through the {{site.data.keyword.cloud_notm}} CLI, use the following provisioning command from the resource controller.
+
 ```sh
 ibmcloud resource service-instance-create <service-name> <service-id> <service-plan-id> <region>
 ```
@@ -99,7 +100,7 @@ curl -X GET  https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{id
 ```
 {: pre}
 
-Use the ID of your chosen backup in the resource controller API request as shown below.
+Use the ID of your chosen backup in the resource controller API request as in the following example.
 
 ```sh
 curl -X POST \
@@ -116,5 +117,3 @@ curl -X POST \
   }'
 ```
 {: pre}
-
-
