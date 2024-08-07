@@ -14,13 +14,13 @@ subcollection: databases-for-elasticsearch
 # Connecting with `cURL`
 {: #connecting-curl}
 
-You can access your Elasticsearch database directly from a command-line terminal through cURL. Elasticsearch has a wide variety of REST APIs that allow for [cluster monitoring](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster.html), [index management](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices.html){: .external} and [searching](https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html){: .external} within the database. 
+You can access your Elasticsearch database directly from a command-line terminal through cURL. Elasticsearch has a wide variety of REST APIs that allow for [cluster monitoring](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster.html){: external}, [index management](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices.html){: .external} and [searching](https://www.elastic.co/guide/en/elasticsearch/reference/current/search.html){: .external} within the database. 
 
-Connection strings are displayed in the _Endpoints_ panel of your deployment's _Overview_, and can also be retrieved from the [cloud databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections), and the [API](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026).
+Connection strings are displayed in the _Endpoints_ panel of your deployment's _Overview_ page, and can also be retrieved from the [cloud databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections), and the [API](https://{DomainName}/apidocs/cloud-databases-api/cloud-databases-api-v5#getconnection).
 
-![CLI Endpoints panel](images/cli-endpoints-pane.png){: caption="Figure 1. CLI Endpoints panel" caption-side="bottom"}
+![CLI Endpoints panel](images/cli-endpoints-pane.png){: caption="Figure 1. Endpoints section, CLI tab" caption-side="bottom"}
 
-The information that you need to make a connection with cURL to your deployment is in the "cli" section of your connection strings. The table contains a breakdown for reference.
+The information that you need to make a connection with cURL to your deployment is also in the "CLI" section of a credential created on the *Service credentials* page. The table contains a breakdown for reference.
 
 | Field Name | Index | Description |
 | ---------- | ----- | ----------- |
@@ -51,7 +51,7 @@ CURL_CA_BUNDLE="/path-to/your_cert_file" curl -u admin:<password> 'https://d5eee
 ## Using the self-signed certificate
 {: #using-cert}
 
-1. Copy the certificate information from the _Endpoints_ panel or the Base64 field of the connection information. 
+1. Copy the certificate information from the _Endpoints_ panel or the Base64 field of the service credential connection information. 
 2. If needed, decode the Base64 string into text. 
 3. Save the certificate to a file. (You can use the Name that is provided or your own file name).
 4. Provide the path to the `CURL_CA_BUNDLE` variable.
