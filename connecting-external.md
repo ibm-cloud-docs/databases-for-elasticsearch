@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-09-29"
+  years: 2018, 2024
+lastupdated: "2024-08-07"
 
 keywords: elasticsearch-py, java, elasticsearch driver, elasticsearch connection string, connection string
 
@@ -14,20 +14,20 @@ subcollection: databases-for-elasticsearch
 # Connecting an external application
 {: #external-app}
 
-Your applications and drivers use connection strings to make a connection to {{site.data.keyword.databases-for-elasticsearch_full}}. Each deployment has connection strings specifically for drivers and applications. Connection strings are displayed in the_Endpoints_panel of your deployment's_Overview_, and can also be retrieved from the [cloud databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections), and the [API](https://{DomainName}/apidocs/cloud-databases-api#discover-connection-information-for-a-deployment-f-e81026).
+Your applications and drivers use connection strings to make a connection to {{site.data.keyword.databases-for-elasticsearch_full}}. Each deployment has connection strings specifically for drivers and applications. Connection strings are displayed in the *Endpoints* panel of your deployment's *Overview* page, and can also be retrieved from the [cloud databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections), and the [API](https://{DomainName}/apidocs/cloud-databases-api/cloud-databases-api-v5#getconnection).
 
-The connection strings can be used by any of the credentials you create in your deployment. While you can use the admin user for all of your connections and applications, it might be better to create users specifically for your applications to connect with. Documentation on creating users is on the [Creating Users and Getting Connection Strings](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) page.
+The connection strings can be used by any of the credentials you create in your deployment. While you can use the admin user for all of your connections and applications, it might be better to create users specifically for your applications to connect with. For more information, see [Getting Connection Strings](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings).
 
 ## Connecting with a language's driver
 {: #lang-driver}
 
-All the information a driver needs to make a connection to your deployment is in the "https" section of your connection strings. The table contains a breakdown for reference.
+All the information a driver needs to make a connection to your deployment is in the "https" section of a credential created on the *Service credentials* page. The table contains a breakdown for reference.
 
 | Field Name | Index | Description |
 | ---------- | ----- | ----------- |
-| `Type` | | Type of connection - for Elasticsearch, it is "uri" |
-| `Scheme` | | Scheme for a URI - for Elasticsearch, it is "https" |
-| `Path` | | Path for a uri |
+| `Type` | | Type of connection - for Elasticsearch, it is "uri". |
+| `Scheme` | | Scheme for a URI - for Elasticsearch, it is "https". |
+| `Path` | | Path for a uri. |
 | `Authentication` | `Username` | The username that you use to connect. |
 | `Authentication` | `Password` | A password for the user - might be shown as `$PASSWORD`. |
 | `Authentication` | `Method` | How authentication takes place; "direct" authentication is handled by the driver. |
@@ -39,7 +39,7 @@ All the information a driver needs to make a connection to your deployment is in
 
 * `0...` indicates that there might be one or more of these entries in an array.
 
-Many Elasticsearch drivers are able to make a connection to your deployment when given the URI-formatted connection string found in the "composed" field of the connection information. For example,
+Many Elasticsearch drivers are able to make a connection to your deployment when given the URI-formatted connection string found in the "composed" field of the connection information. See the following example:
 
 ```sh
 https://admin:$PASSWORD@d5eeee66-5bc4-498a-b73b-1307848f1eac.8f7bfd8f3faa4218aec56e069eb46187.databases.appdomain.cloud:31821
@@ -140,12 +140,12 @@ print(health)
 
 All connections to {{site.data.keyword.databases-for-elasticsearch}} are TLS 1.2 enabled, so the driver you use to connect needs to be able to support encryption. Your deployment also comes with a self-signed certificate so the driver can verify the server upon connection.
 
-For more information, see [{{site.data.keyword.databases-for}} Certificates FAQ](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-faq-cert){: external}.
+For more information, see [{{site.data.keyword.databases-for}} Certificates FAQ](/docs/cloud-databases?topic=cloud-databases-faq-cert){: external}.
 
 ### Using the self-signed certificate
 {: #using-cert}
 
-1. Copy the certificate information from the _Endpoints_ panel or the Base64 field of the connection information.
+1. Copy the certificate information from the _Endpoints_ panel or the Base64 field of the service credential connection information.
 2. If needed, decode the Base64 string into text.
 3. Save the certificate to a file. (You can use the Name that is provided or your own file name).
 4. Provide the path to the certificate to the driver or client.
@@ -155,7 +155,7 @@ For more information, see [{{site.data.keyword.databases-for}} Certificates FAQ]
 
 You can display the decoded certificate for your deployment with the CLI plug-in with the command `ibmcloud cdb deployment-cacert "your-service-name"`. It decodes the base64 into text. Copy and save the command's output to a file and provide the file's path to the driver.
 
-## Other Drivers
+## Other drivers
 {: #other-drivers}
 
 Elasticsearch has a vast array of language drivers. The table covers a few of the most common.
