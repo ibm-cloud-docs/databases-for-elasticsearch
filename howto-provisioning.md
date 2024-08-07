@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-19"
+lastupdated: "2024-08-07"
 
 keywords: provision cloud databases, terraform, provisioning parameters, cli, resource controller api, provision elasticsearch
 
@@ -44,8 +44,7 @@ The platform that your database will be deployed on. Choose your required networ
 {: ui}
 
 - **Isolated:** Secure single-tenant offering for complex, highly-performant enterprise workloads.
-- **Shared:** Flexible multi-tenant offering for dynamic, fine-tuned, and decoupled capacity selections.<br>
-For more information, see [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).
+- **Shared:** Flexible multi-tenant offering for dynamic, fine-tuned, and decoupled capacity selections.
 
 {{site.data.keyword.databases-for-elasticsearch}} Platinum features are only available on Isolated Compute.
 {: note}
@@ -71,10 +70,10 @@ Specify the disk size depending on your requirements. It can be increased after 
 {: #service_configuration}
 {: ui}
 
-- **Database Version** [Set only at deployment]{: tag-red} - The deployment version of your database. To ensure optimal performance, run the preferred version. The latest minor version is used automatically. For more information, see [Versioning Policy](/docs/cloud-databases?topic=cloud-databases-versioning-policy){: external}.
-- **Database Edition** - Select the edition that you want to deploy. Choose from Enterprise or Platinum. Note that Platinum is only available on the Isolated hosting model.
+- **Database version** [Set only at deployment]{: tag-red} - The deployment version of your database. To ensure optimal performance, run the preferred version. The latest minor version is used automatically. For more information, see [Versioning policy](/docs/cloud-databases?topic=cloud-databases-versioning-policy){: external}.
+- **Database edition** - Select the edition that you want to deploy. Choose from Enterprise or Platinum. Note that Platinum is only available on the Isolated hosting model.
 - **Encryption** - If you use [Key Protect](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui), an instance and key can be selected to encrypt the deployment's disk. If you do not use your own key, the deployment automatically creates and manages its own disk encryption key.
-- **Endpoints** - Configure the [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) on your deployment.
+- **Endpoints** - Configure the [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) on your deployment.
 
 After you select the appropriate settings, click **Create** to start the provisioning process.
 
@@ -209,7 +208,7 @@ The `host_flavor` parameter defines your Compute sizing. To provision a Shared C
                           Status    create succeeded
                           Message   Provisioning elasticsearch with version 7.17 (100%)
    ```
-   {: codeblck}
+   {: codeblock}
 
 5. (Optional) Deleting a service instance
    Delete an instance by running a command like this one:
