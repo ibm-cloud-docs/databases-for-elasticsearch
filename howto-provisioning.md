@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-07"
+lastupdated: "2024-08-08"
 
 keywords: provision cloud databases, terraform, provisioning parameters, cli, resource controller api, provision elasticsearch
 
@@ -29,7 +29,7 @@ Deploy from the console by specifying the following parameters:
 
 The platform that your database will be deployed on. Choose your required network and compute environment.
 
-- **{{site.data.keyword.cloud}}** - Deploy a database on the {{site.data.keyword.cloud_notm}} platform, in a region of your choosing.
+- **{{site.data.keyword.cloud}}** - Deploy a database on the {{site.data.keyword.cloud_notm}} platform, in a region of your choice.
 
 ### Service details
 {: #service_details}
@@ -629,6 +629,7 @@ output "ICD Elasticsearch database connection string" {
 {: terraform}
 
 The `host_flavor` parameter defines your Compute sizing.
+
 - **Shared compute** - To provision a Shared Compute instance, specify `multitenant`.
 - **Isolated compute** - To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration. Values can be seen in the table below.
 
