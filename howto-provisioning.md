@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-07"
+lastupdated: "2024-08-08"
 
 keywords: provision cloud databases, terraform, provisioning parameters, cli, resource controller api, provision elasticsearch
 
@@ -36,7 +36,7 @@ The platform that your database will be deployed on. Choose your required networ
 {: ui}
 
 - **Service name** - The name can be any string and is the name that is used on the web and in the CLI to identify the new deployment.
-- **The resource group** - If you are organizing your services into [resource groups](/docs/account?topic=account-account_setup), specify the resource group in this field. Otherwise, you can leave it at default. For more information, see [Managing resource groups](/docs/account?topic=account-rgs).
+- **Resource group** - If you are organizing your services into [resource groups](/docs/account?topic=account-account_setup), specify the resource group in this field. Otherwise, you can leave it at default. For more information, see [Managing resource groups](/docs/account?topic=account-rgs).
 - **Location** - The deployment's public cloud region or Satellite location.
 
 ### Hosting model
@@ -58,7 +58,7 @@ For more information, see [Hosting models](/docs/cloud-databases?topic=cloud-dat
 Fine tune your resource allocation. The available options differ based on your selected hosting model.
 
 - **Isolated:** Use the table to choose the machine size for each member of your deployment, and specify the disk size.
-- **Shared:** By default, the smallest possible resource allocation is selected. This is ideal for small applications or testing. For larger allocations, select the *Custom* tile, which allows flexible resource configuration with 2+ cores. 
+- **Shared:** By default, the smallest possible resource allocation is selected. This is ideal for small applications or testing. For larger allocations, select the *Custom* tile, which allows flexible resource configuration with 2+ cores.
 
 The Shared Compute hosting model supports more fine-grained resource allocations that are not shown in the UI to maintain clarity. For more information, see [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).
 {: note}
@@ -87,7 +87,7 @@ After you select the appropriate settings, click **Create** to start the provisi
 
 Before provisioning, follow the instructions provided in the documentation to install the [{{site.data.keyword.cloud_notm}} CLI tool](/docs/cli?topic=cli-install-ibmcloud-cli){: external}.
 
-1. Log in to {{site.data.keyword.cloud_notm}}. If you use a federated user ID, it's important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API key(`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in by using the CLI, see [General CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login){: external} under `ibmcloud login`.
+1. Log in to {{site.data.keyword.cloud_notm}}. If you use a federated user ID, it's important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API key (`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in by using the CLI, see [General CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login){: external} under `ibmcloud login`.
 
       ```sh
       ibmcloud login
@@ -102,7 +102,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    ```
    {: pre}
 
-  For example, to provision a {{site.data.keyword.databases-for-mongodb}} Shared Compute hosting model instance, use a command like:
+  For example, to provision a {{site.data.keyword.databases-for-elasticsearch}} Shared Compute hosting model instance, use a command like:
 
    ```sh
    ibmcloud resource service-instance-create test-database databases-for-elasticsearch enterprise us-south -p '{"members_host_flavor": "multitenant", "members_memory_allocation_mb": "8192"}'
@@ -117,7 +117,7 @@ Before provisioning, follow the instructions provided in the documentation to in
    {: pre}
 
    The fields in the command are described in the table that follows.
-   
+
    | Field | Description | Flag |
    |-------|------------|------------|
    | `INSTANCE_NAME` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
@@ -127,9 +127,9 @@ Before provisioning, follow the instructions provided in the documentation to in
    | `SERVICE_ENDPOINTS_TYPE` | Configure the [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public` or `private`. The default value is `public`. |  |
    | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
    | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
-   | `host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. For Shared Compute, specify `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the table below or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).| |
+   | `host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. For Shared Compute, specify `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the following table or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).| |
    {: caption="Table 1. Basic command format fields" caption-side="top"}
-   
+
    In the CLI, `service-endpoints` is a flag, not a parameter.
    {: note}
 
@@ -137,7 +137,7 @@ Before provisioning, follow the instructions provided in the documentation to in
 {: #host-flavor-parameter-cli}
 {: cli}
 
-The `host_flavor` parameter defines your Compute sizing. To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration. 
+The `host_flavor` parameter defines your Compute sizing. To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
 
 | **Host flavor** | **host_flavor value** |
 |:-------------------------:|:---------------------:|
@@ -219,7 +219,7 @@ The `host_flavor` parameter defines your Compute sizing. To provision a Shared C
    {: pre}
 
 CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} Isolated Compute. Disk autoscaling is available. If you have provisioned an Isolated instance or switched over from a deployment with autoscaling, keep an eye on your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/cloud-databases?topic=cloud-databases-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
-{: note}   
+{: note}
 
 ### The `--parameters` parameter
 {: #flags-params-service-endpoints}
@@ -248,14 +248,15 @@ Follow these steps to provision using the [Resource Controller API](https://clou
 2. You need to know the ID of the resource group that you would like to deploy to. This information is available through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-ibmcloud_commands_resource#ibmcloud_resource_groups).
 
    Use a command like:
+
    ```sh
    ibmcloud resource groups
    ```
    {: pre}
 
-3. You need to know the region you would like to deploy to.
+3. You need to know the region you want to deploy to.
 
-   To list all of the regions that deployments can be provisioned into from the current region, use the [{{site.data.keyword.databases-for}} CLI plug-in](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference){: external}.
+   To list all of the regions that deployments can be provisioned into from the current region, use the [{{site.data.keyword.databases-for}} CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference){: external}.
 
    The command looks like:
 
@@ -264,7 +265,7 @@ Follow these steps to provision using the [Resource Controller API](https://clou
    ```
    {: pre}
 
-4. Select the [hosting model](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=api) you want your database to be provisioned on. You can change this later. 
+4. Select the [hosting model](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=api) you want your database to be provisioned on. You can change this later.
 
 A host flavor represents fixed sizes of guaranteed resource allocations. To see which host flavors are available in your region, call the [host flavors capability endpoint](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#capability) like this:
 
@@ -274,7 +275,7 @@ curl -X POST  https://api.{region}.databases.cloud.ibm.com/v5/ibm/capability/fla
   -H 'ContentType: application/json' \
   -d '{
     "deployment": {
-      "type": "postgresql",
+      "type": "elasticsearch",
       "location": "us-south"
     },
   }'
@@ -286,7 +287,7 @@ This returns:
 ```sh
 {
   "deployment": {
-    "type": "postgresql",
+    "type": "elasticsearch",
     "location": "us-south",
     "platform": "classic"
   },
@@ -376,7 +377,7 @@ This returns:
 ```
 {: pre}
 
-As shown, the Isolated Compute host flavors available to a {{site.data.keyword.databases-for-postgresql}} instance in the `us-south` region are:
+As shown, the Isolated Compute host flavors available to a {{site.data.keyword.databases-for-elasticsearch}} instance in the `us-south` region are:
 
 - `b3c.4x16.encrypted`
 - `b3c.8x32.encrypted`
@@ -426,8 +427,8 @@ To scale your instance up to 8 CPUs and `32768` megabytes of RAM, submit the fol
 ```
 {: .pre}
 
-To make a Shared Compute instance, follow this example: 
-   
+To make a Shared Compute instance, follow this example:
+
    ```sh
    curl -X POST \
      https://resource-controller.cloud.ibm.com/v2/resource_instances \
@@ -453,7 +454,7 @@ To make a Shared Compute instance, follow this example:
    ```
    {: .pre}
 
-Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"host_flavor"` parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 2](#host-flavor-parameter-api). For example, `{"host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.  
+Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"host_flavor"` parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 2](#host-flavor-parameter-api). For example, `{"host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.
 
    ```sh
    curl -X POST \
@@ -476,9 +477,9 @@ Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance 
 
    The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required.
    {: required}
-   
+
    The fields in the command are described in the table that follows.
-   
+
    | Field | Description | Flag |
    |-------|------------|------------|
    | `name` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
@@ -493,7 +494,7 @@ Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance 
 {: #host-flavor-parameter-api}
 {: api}
 
-The `host_flavor` parameter defines your Compute sizing. To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration. 
+The `host_flavor` parameter defines your Compute sizing. To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
 
 | **Host flavor** | **host_flavor value** |
 |:-------------------------:|:---------------------:|
@@ -532,13 +533,13 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 
 Use Terraform to manage your infrastructure through the [`ibm_database` Resource for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database) supports provisioning {{site.data.keyword.databases-for}} deployments.
 
-Select the [hosting model](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=terraform) you want your database to be provisioned on. You can change this later. 
+Select the [hosting model](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=terraform) you want your database to be provisioned on. You can change this later.
 
 ### Provisioning shared compute with Terraform
 {: #provisioning-shared-compute-terraform}
 {: terraform}
 
-Provision a {{site.data.keyword.databases-for-elasticsearch}} Shared hosting model instance with the `"host_flavor"` parameter set to `multitenant`. See the following example:  
+Provision a {{site.data.keyword.databases-for-elasticsearch}} Shared hosting model instance with the `"host_flavor"` parameter set to `multitenant`. See the following example:
 
 ```terraform
 data "ibm_resource_group" "group" {
@@ -586,7 +587,7 @@ output "ICD Elasticsearch database connection string" {
 {: #provisioning-isolated-computer-terraform}
 {: terraform}
 
-Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"host_flavor"` parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 1](#host-flavor-parameter-terraform). For example, `{"host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections. 
+Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"host_flavor"` parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 1](#host-flavor-parameter-terraform). For example, `{"host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.
 
 ```terraform
 data "ibm_resource_group" "group" {
@@ -628,9 +629,9 @@ output "ICD Elasticsearch database connection string" {
 {: #host-flavor-parameter-terraform}
 {: terraform}
 
-The `host_flavor` parameter defines your Compute sizing. 
-- **Shared compute** - To provision a Shared Compute instance, specify `multitenant`. 
-- **Isolated compute** - To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration. Values can be seen in the table below. 
+The `host_flavor` parameter defines your Compute sizing.
+- **Shared compute** - To provision a Shared Compute instance, specify `multitenant`.
+- **Isolated compute** - To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration. Values can be seen in the table below.
 
 | **Host flavor** | **host_flavor value** |
 |:-------------------------:|:---------------------:|
