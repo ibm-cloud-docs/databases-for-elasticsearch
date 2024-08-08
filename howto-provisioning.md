@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-08"
+lastupdated: "2024-08-07"
 
 keywords: provision cloud databases, terraform, provisioning parameters, cli, resource controller api, provision elasticsearch
 
@@ -70,10 +70,10 @@ Specify the disk size depending on your requirements. It can be increased after 
 {: #service_configuration}
 {: ui}
 
-- **Database version** [Set only at deployment]{: tag-red} - The deployment version of your database. To ensure optimal performance, run the preferred version. The latest minor version is used automatically. For more information, see [Versioning policy](/docs/cloud-databases?topic=cloud-databases-versioning-policy){: external}.
-- **Database edition** - Select the edition that you want to deploy. Choose from Enterprise or Platinum. Note that Platinum is only available on the Isolated hosting model.
-- **Encryption** - If you use [Key Protect](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui), an instance and key can be selected to encrypt the deployment's disk. If you do not use your own key, the deployment automatically creates and manages its own disk encryption key.
-- **Endpoints** - Configure the [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) on your deployment.
+- **Database version:** [Set only at deployment]{: tag-red} The deployment version of your database. To ensure optimal performance, run the preferred version. The latest minor version is used automatically. For more information, see [Versioning policy](/docs/cloud-databases?topic=cloud-databases-versioning-policy){: external}.
+- **Database edition:** [Set only at deployment]{: tag-red} Select the edition that you want to deploy. Choose from Enterprise or Platinum. Note that Platinum is only available on the Isolated hosting model.
+- **Encryption:** [Set only at deployment]{: tag-red} If you use [Key Protect](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui), an instance and key can be selected to encrypt the deployment's disk. If you do not use your own key, the deployment automatically creates and manages its own disk encryption key.
+- **Endpoints:** [Set only at deployment]{: tag-red} Configure the [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) on your deployment.
 
 After you select the appropriate settings, click **Create** to start the provisioning process.
 
@@ -148,7 +148,7 @@ The `host_flavor` parameter defines your Compute sizing. To provision a Shared C
 | 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
 | 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
 | 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
-{: caption="Table 2. Host flavor sizing parameter" caption-side="bottom"}
+{: caption="Table 1. Host flavor sizing parameter" caption-side="bottom"}
 
 
    You will see a response like:
@@ -210,8 +210,7 @@ The `host_flavor` parameter defines your Compute sizing. To provision a Shared C
    ```
    {: codeblock}
 
-5. (Optional) Deleting a service instance
-   Delete an instance by running a command like this one:
+5. (Optional) Delete an instance by running a command like this one:
 
    ```sh
    ibmcloud resource service-instance-delete <INSTANCE_NAME>
@@ -514,7 +513,7 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 {: #provisioning-parameters-api}
 {: api}
 
-* `backup_id` - A CRN of a backup resource to restore from. The backup must be created by a database deployment with the same service ID. The backup is loaded after provisioning and the new deployment starts up that uses that data. A backup CRN is in the format `crn:v1:<...>:backup:<uuid>` - If omitted, the database is provisioned empty.
+* `backup_id` - A CRN of a backup resource to restore from. The backup must be created by a database deployment with the same service ID. The backup is loaded after provisioning and the new deployment starts up that uses that data. A backup CRN is in the format `crn:v1:<...>:backup:<uuid>`. If omitted, the database is provisioned empty.
 * `version` - The version of the database to be provisioned. If omitted, the database is created with the most recent major and minor version.
 * `disk_encryption_key_crn` - The CRN of a KMS key (for example, [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) or [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about)), which is then used for disk encryption. A KMS key CRN is in the format `crn:v1:<...>:key:<id>`.
 * `backup_encryption_key_crn` - The CRN of a KMS key (for example, [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) or [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about)), which is then used for backup encryption. A KMS key CRN is in the format `crn:v1:<...>:key:<id>`.
@@ -525,7 +524,7 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 * `members_memory_allocation_mb` -  Total amount of memory to be shared between the database members within the database. For example, if the value is "6144", and there are three database members, then the deployment gets 6 GB of RAM total, giving 2 GB of RAM per member. If omitted, the default value is used for the database type is used. This parameter only applies to `multitenant'.
 * `members_disk_allocation_mb` - Total amount of disk to be shared between the database members within the database. For example, if the value is "30720", and there are three members, then the deployment gets 30 GB of disk total, giving 10 GB of disk per member. If omitted, the default value for the database type is used. This parameter only applies to `multitenant'.
 * `members_cpu_allocation_count` - Enables and allocates the number of specified cores to your deployment. For example, to use two dedicated cores per member, use `"members_cpu_allocation_count":"2"`. If omitted, the default Shared Compute CPU:RAM ratios will be applied. This parameter only applies to `multitenant'.
-* `service-endpoints` - The [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) supported on your deployment, `public` or `private`.
+* `service-endpoints` - The [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) supported on your deployment, `public` or `private`.
 
 ## Provisioning with Terraform
 {: #provisioning-terraform}
