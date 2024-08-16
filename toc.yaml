@@ -38,18 +38,11 @@ toc:
       topics:
       - howto-provisioning.md
       - howto-user-management.md
-      - link:
-          label: Deleting your Deployment and Removing your Data
-          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-deprovisioning
-      - link:
-          label: Migrating resources to a different data center
-          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-migrate-data-center
-      - howto-migration.md
       - howto-upgrading.md
       - howto-getting-connection-strings.md
-      - link:
-          label: Understanding high availability and disaster recovery for Cloud Databases
-          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-ha-dr
+      - howto-migration.md
+      - include: ../cloud-databases/closures.md
+      - include: ../cloud-databases/ha-dr.md
       - topicgroup:
           label: Connecting to Databases for Elasticsearch
           topics:
@@ -62,9 +55,7 @@ toc:
           - howto-resources-scaling.md
           - howto-autoscaling.md
           - howto-horizontal-scaling.md
-      - link:
-          label: Managing Cloud Databases backups
-          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-dashboard-backups
+          - include: ../cloud-databases/howto-manage-backups.md
       - topicgroup:
           label: Configuring Elasticsearch
           topics:
@@ -73,15 +64,9 @@ toc:
       - topicgroup:
           label: Logging and monitoring
           topics:
-          - link:
-              label: Monitoring Integration
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-monitoring
-          - link:
-              label: Activity Tracker Integration
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-activity-tracker
-          - link:
-              label: Log Analysis Integration
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-logging
+          - include: ../cloud-databases/reference-monitoring.md
+          - include: ../cloud-databases/reference-activity-tracker.md
+          - include: ../cloud-databases/reference-logging.md
       - topicgroup:
           label: Enhancing security
           topics:
@@ -131,15 +116,13 @@ toc:
   - navgroup:
       id: reference
       topics:
-      - link:
-          label: Versioning Policy
-          href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-versioning-policy
-      - link:
-          label: Cloud Databases CLI plug-in
-          href: https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference
+      - include: ../cloud-databases/icd-cli.md
       - link:
           label: Cloud Databases API
           href: https://cloud.ibm.com/apidocs/cloud-databases-api
+      - include: ../cloud-databases/db-version-policy.md
+      - include: ../cloud-databases/learn-getting-to-production.md
+      - include: ../cloud-databases/reference-responsibilities.md
   - navgroup:
       id: help
       topics:
@@ -147,21 +130,11 @@ toc:
           label: Troubleshooting
           topics:
           - ts-connect.md
-          - link:
-              label: Why did my Terraform script delete my instance?
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-troubleshoot-terraform
+          - include: ../cloud-databases/ts-terraform.md
       - topicgroup:
           label: FAQs
           topics:
-          - link:
-              label: Availability zones FAQ
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-faq-availability-zones
-          - link:
-              label: IBM Cloud platform and service FAQ
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-ibm-cloud-status
-          - link:
-              label: Resource Configuration FAQ
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-faq-resource-config
-          - link:
-              label: Certificates FAQ
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-faq-cert
+          - include: ../cloud-databases/status-page-faq.md
+          - include: ../cloud-databases/resource-config-faq.md
+          - include: ../cloud-databases/availability-zones-faq.md
+          - include: ../cloud-databases/cert-faq.md
