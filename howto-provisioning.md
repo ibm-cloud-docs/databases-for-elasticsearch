@@ -130,30 +130,12 @@ Before provisioning, follow the instructions provided in the documentation to in
    | `SERVICE_ENDPOINTS_TYPE` [Required]{: tag-red} | Configure the [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public` or `private`. The default value is `public`. |  |
    | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
    | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
-   | `host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. For Shared Compute, specify `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the following table or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).| |
+   | `members_host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<members_host_flavor value>"}`. For Shared Compute, specify a value of `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the following table or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).| |
    {: caption="Table 1. Basic command format fields" caption-side="top"}
 
    In the CLI, `service-endpoints` is a flag, not a parameter.
    {: note}
 
-### The `host flavor` parameter
-{: #host-flavor-parameter-cli}
-{: cli}
-
-The `host_flavor` parameter defines your Compute sizing.
-
-- To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
-
-    | **Host flavor** | **host_flavor value** |
-    |:-------------------------:|:---------------------:|
-    | Shared Compute            | `multitenant`    |
-    | 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
-    | 8 CPU x 32 RAM            | `b3c.8x32.encrypted`    |
-    | 8 CPU x 64 RAM            | `m3c.8x64.encrypted`    |
-    | 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
-    | 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
-    | 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
-    {: caption="Table 2. Host flavor sizing parameter" caption-side="bottom"}
 
    You will see a response like:
 
@@ -178,6 +160,7 @@ The `host_flavor` parameter defines your Compute sizing.
                           Message   Started create instance operation
     ```
     {: codeblock}
+
 
 - To check provisioning status, use the following command:
 
@@ -219,6 +202,26 @@ The `host_flavor` parameter defines your Compute sizing.
    ibmcloud resource service-instance-delete <INSTANCE_NAME>
    ```
    {: pre}
+
+### The `members host flavor` parameter
+{: #members-host-flavor-parameter-cli}
+{: cli}
+
+The `members_host_flavor` parameter defines your Compute sizing.
+
+- To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
+
+    | **Members Host flavor** | **members_host_flavor value** |
+    |:-------------------------:|:---------------------:|
+    | Shared Compute            | `multitenant`    |
+    | 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
+    | 8 CPU x 32 RAM            | `b3c.8x32.encrypted`    |
+    | 8 CPU x 64 RAM            | `m3c.8x64.encrypted`    |
+    | 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
+    | 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
+    | 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
+    {: caption="Table 2. Host flavor sizing parameter" caption-side="bottom"}
+
 
 CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} Isolated Compute. Disk autoscaling is available. If you have provisioned an Isolated instance or switched over from a deployment with autoscaling, keep an eye on your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/cloud-databases?topic=cloud-databases-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
 {: note}
@@ -392,8 +395,8 @@ Follow these steps to provision by using the [Resource Controller API](https://c
 
     ```sh
     {
-      "host_flavor": {
-        "id": "`b3c.4x16.encrypted`"
+      "parameters": {
+        "members_host_flavor": "`b3c.4x16.encrypted`"
       }
     }
     ```
@@ -403,8 +406,8 @@ Follow these steps to provision by using the [Resource Controller API](https://c
 
     ```sh
     {
-      "host_flavor": {
-        "id": "b3c.8x32.encrypted"
+      "parameters": {
+        "members_host_flavor": "b3c.8x32.encrypted"
       }
     }
     ```
@@ -423,7 +426,7 @@ Follow these steps to provision by using the [Resource Controller API](https://c
        "resource_group": "RESOURCE_GROUP_ID",
        "resource_plan_id": "<SERVICE_PLAN_NAME>"
        "parameters": {
-           "host_flavor": {"id": "<host_flavor_value>"}
+           "members_host_flavor": "<host_flavor_value>"
       }
      }'
    ```
@@ -443,9 +446,9 @@ Follow these steps to provision by using the [Resource Controller API](https://c
            "resource_group": "5g9f447903254bb58972a2f3f5a4c711", \
            "resource_plan_id": "databases-for-elasticsearch-enterprise" \
            "parameters": { \
-            "host_flavor": { \
-              "id": "multitenant" \
-            }, \
+            "members_host_flavor":  \
+              "multitenant" \
+            , \
             "memory": {  \
               "allocation_mb": 16384 \
             }, \
@@ -470,9 +473,9 @@ Follow these steps to provision by using the [Resource Controller API](https://c
            "resource_group": "5g9f447903254bb58972a2f3f5a4c711",  \
            "resource_plan_id": "databases-for-elasticsearch-enterprise" \
            "parameters": {  \
-            "host_flavor": {  \
-              "id": "b3c.4x16.encrypted"  \
-            }  \
+            "members_host_flavor":   \
+              "b3c.4x16.encrypted"  \
+              \
           }  \
          }'  \
          "https://resource-controller.cloud.ibm.com/v2/resource_instances"
@@ -493,16 +496,16 @@ Follow these steps to provision by using the [Resource Controller API](https://c
        | `SERVICE_ENDPOINTS_TYPE` | Configure the [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public` or `private`. The default value is `public`. |  |
        | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
        | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
-       | `host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. For Shared Compute, specify `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the table below, or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).| |
+       | `members_host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. For Shared Compute, specify a value of `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the table below, or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).| |
        {: caption="Table 1. Basic command format fields" caption-side="top"}
 
-### The `host flavor` parameter
-{: #host-flavor-parameter-api}
+### The `members host flavor` parameter
+{: #members_host-flavor-parameter-api}
 {: api}
 
-The `host_flavor` parameter defines your Compute sizing. To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
+The `members_host_flavor` parameter defines your Compute sizing. To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
 
-| **Host flavor** | **host_flavor value** |
+| **Members host flavor** | **members_host_flavor value** |
 |:-------------------------:|:---------------------:|
 | Shared Compute            | `multitenant`    |
 | 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
@@ -541,7 +544,7 @@ Use Terraform to manage your infrastructure through the [`ibm_database` Resource
 
 Select the [hosting model](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=terraform) you want your database to be provisioned on. You can change this later.
 
-### Provisioning shared compute with Terraform
+### Provisioning Shared Compute with Terraform
 {: #provisioning-shared-compute-terraform}
 {: terraform}
 
@@ -589,7 +592,7 @@ output "ICD Elasticsearch database connection string" {
 ```
 {: codeblock}
 
-### Provisioning isolated compute with Terraform
+### Provisioning Isolated Compute with Terraform
 {: #provisioning-isolated-computer-terraform}
 {: terraform}
 
