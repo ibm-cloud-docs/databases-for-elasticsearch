@@ -418,7 +418,7 @@ Follow these steps to provision by using the [Resource Controller API](https://c
       -H 'Content-Type: application/json' \
         -d '{
         "name": "<INSTANCE_NAME",
-        "location": "<LOCATION>",
+        "target": "<targeted-region>",
         "resource_group": "RESOURCE_GROUP_ID",
         "resource_plan_id": "<SERVICE_PLAN_NAME>"
         "parameters": {
@@ -432,11 +432,12 @@ Follow these steps to provision by using the [Resource Controller API](https://c
 
     ```sh
     curl -X POST \
+      https://resource-controller.cloud.ibm.com/v2/resource_instances \
       -H "Authorization: Bearer <TOKEN>" \
       -H 'Content-Type: application/json' \
         -d '{ \
         "name": "my-instance", \
-        "location": "us-south", \
+        "target": "us-south", \
         "resource_group": "5g9f447903254bb58972a2f3f5a4c711", \
         "resource_plan_id": "databases-for-elasticsearch-enterprise", \
         "parameters": { \
@@ -445,7 +446,6 @@ Follow these steps to provision by using the [Resource Controller API](https://c
           "cpu": { "allocation_count": 4 } \
         } \
       }' \
-      "https://resource-controller.cloud.ibm.com/v2/resource_instances"
     ```
     {: pre}
 
@@ -453,18 +453,18 @@ Follow these steps to provision by using the [Resource Controller API](https://c
 
     ```sh
     curl -X POST \
+      https://resource-controller.cloud.ibm.com/v2/resource_instances \
       -H "Authorization: Bearer <TOKEN>" \
       -H 'Content-Type: application/json' \
         -d '{ \
         "name": "my-instance", \
-        "location": "us-south", \
+        "target": "us-south", \
         "resource_group": "5g9f447903254bb58972a2f3f5a4c711", \
         "resource_plan_id": "databases-for-elasticsearch-enterprise", \
         "parameters": { \
         "members_host_flavor": "b3c.4x16.encrypted" \
         } \
       }' \
-      "https://resource-controller.cloud.ibm.com/v2/resource_instances"
     ```
     {: pre}
 
