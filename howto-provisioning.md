@@ -440,13 +440,9 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         "resource_group": "5g9f447903254bb58972a2f3f5a4c711", \
         "resource_plan_id": "databases-for-elasticsearch-enterprise", \
         "parameters": { \
-          "members_host_flavor": "multitenant" \
-        }, \
-        "memory": { \
-          "allocation_mb": 16384 \
-        }, \
-        "cpu": { \
-          "allocation_count": 4 \
+          "members_host_flavor": "multitenant", \
+          "memory": { "allocation_mb": 16384 }, \
+          "cpu": { "allocation_count": 4 } \
         } \
       }' \
       "https://resource-controller.cloud.ibm.com/v2/resource_instances"
@@ -465,9 +461,7 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         "resource_group": "5g9f447903254bb58972a2f3f5a4c711", \
         "resource_plan_id": "databases-for-elasticsearch-enterprise", \
         "parameters": { \
-        "members_host_flavor": \
-          "b3c.4x16.encrypted" \
-          \
+        "members_host_flavor": "b3c.4x16.encrypted" \
         } \
       }' \
       "https://resource-controller.cloud.ibm.com/v2/resource_instances"
