@@ -160,43 +160,43 @@ Before provisioning, follow the instructions provided in the documentation to in
     - To check provisioning status, use the following command:
 
       ```sh
-      ibmcloud resource service-instance <INSTANCE_NAME>
-      ```
-      {: pre}
+        ibmcloud resource service-instance <INSTANCE_NAME>
+        ```
+        {: pre}
 
-      When complete, you will see a response like:
+        When complete, you will see a response like:
 
-      ```text
-      Retrieving service instance INSTANCE_NAME in resource group default under account USER's Account as USER...
-      OK
+        ```text
+        Retrieving service instance INSTANCE_NAME in resource group default under account USER's Account as USER...
+        OK
 
-      Name:                  INSTANCE_NAME
-      ID:                    crn:v1:bluemix:public:databases-for-elasticsearch:us-south:a/40ddc34a953a8c02f109835656860e:dd13152c-fe15-4bb6-af94-fde0af5303f4::
-      GUID:                  dd13152c-fe15-4bb6-af94-fde5654765
-      Location:              <LOCATION>
-      Service Name:          databases-for-elasticsearch
-      Service Plan Name:     standard
-      Resource Group Name:   default
-      State:                 active
-      Type:                  service_instance
-      Sub Type:              Public
-      Locked:                false
-      Service Endpoints:     public
-      Created at:            2023-06-26T19:42:07Z
-      Created by:            USER
-      Updated at:            2023-06-26T19:53:25Z
-      Last Operation:
-                              Status    create succeeded
-                              Message   Provisioning elasticsearch with version 7.17 (100%)
-      ```
-      {: codeblock}
+        Name:                  INSTANCE_NAME
+        ID:                    crn:v1:bluemix:public:databases-for-elasticsearch:us-south:a/40ddc34a953a8c02f109835656860e:dd13152c-fe15-4bb6-af94-fde0af5303f4::
+        GUID:                  dd13152c-fe15-4bb6-af94-fde5654765
+        Location:              <LOCATION>
+        Service Name:          databases-for-elasticsearch
+        Service Plan Name:     standard
+        Resource Group Name:   default
+        State:                 active
+        Type:                  service_instance
+        Sub Type:              Public
+        Locked:                false
+        Service Endpoints:     public
+        Created at:            2023-06-26T19:42:07Z
+        Created by:            USER
+        Updated at:            2023-06-26T19:53:25Z
+        Last Operation:
+                                Status    create succeeded
+                                Message   Provisioning elasticsearch with version 7.17 (100%)
+        ```
+        {: codeblock}
 
     - Optional: To delete a service instance, run the following command:
 
-      ```sh
-      ibmcloud resource service-instance-delete <INSTANCE_NAME>
-      ```
-      {: pre}
+        ```sh
+        ibmcloud resource service-instance-delete <INSTANCE_NAME>
+        ```
+        {: pre}
 
 ### The `members host flavor` parameter
 {: #members-host-flavor-parameter-cli}
@@ -204,21 +204,21 @@ Before provisioning, follow the instructions provided in the documentation to in
 
 The `members_host_flavor` parameter defines your Compute sizing.
 
-- To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
+To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
 
-    | **Members Host flavor** | **members_host_flavor value** |
-    |:-------------------------:|:---------------------:|
-    | Shared Compute            | `multitenant`    |
-    | 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
-    | 8 CPU x 32 RAM            | `b3c.8x32.encrypted`    |
-    | 8 CPU x 64 RAM            | `m3c.8x64.encrypted`    |
-    | 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
-    | 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
-    | 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
-    {: caption="Table 2. Host flavor sizing parameter" caption-side="bottom"}
+| **Members Host flavor** | **members_host_flavor value** |
+|:-------------------------:|:---------------------:|
+| Shared Compute            | `multitenant`    |
+| 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
+| 8 CPU x 32 RAM            | `b3c.8x32.encrypted`    |
+| 8 CPU x 64 RAM            | `m3c.8x64.encrypted`    |
+| 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
+| 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
+| 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
+{: caption="Table 2. Host flavor sizing parameter" caption-side="bottom"}
 
-    CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} Isolated Compute. Disk autoscaling is available. If you have provisioned an Isolated instance or switched over from a deployment with autoscaling, keep an eye on your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/cloud-databases?topic=cloud-databases-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
-    {: note}
+CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} Isolated Compute. Disk autoscaling is available. If you have provisioned an Isolated instance or switched over from a deployment with autoscaling, keep an eye on your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/cloud-databases?topic=cloud-databases-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
+{: note}
 
 ### The `--parameters` parameter
 {: #flags-params-service-endpoints}
@@ -429,27 +429,22 @@ Follow these steps to provision by using the [Resource Controller API](https://c
 
     ```sh
     curl -X POST \
-    ```sh
-    curl -X POST \
       -H "Authorization: Bearer <TOKEN>" \
       -H 'Content-Type: application/json' \
-        -d '{  \
+        -d '{ \
         "name": "my-instance", \
         "location": "us-south", \
         "resource_group": "5g9f447903254bb58972a2f3f5a4c711", \
-        "resource_plan_id": "databases-for-elasticsearch-enterprise" \
+        "resource_plan_id": "databases-for-elasticsearch-enterprise", \
         "parameters": { \
-        "members_host_flavor":  \
-          "multitenant" \
-        , \
-        "memory": {  \
+          "members_host_flavor": "multitenant" \
+        }, \
+        "memory": { \
           "allocation_mb": 16384 \
         }, \
         "cpu": { \
           "allocation_count": 4 \
-        } \
-      } \
-      }' \
+        }' \
       "https://resource-controller.cloud.ibm.com/v2/resource_instances"
     ```
     {: pre}
