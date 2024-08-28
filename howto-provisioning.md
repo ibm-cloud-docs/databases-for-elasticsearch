@@ -453,7 +453,7 @@ Follow these steps to provision by using the [Resource Controller API](https://c
     ```
     {: pre}
 
-    Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"host_flavor"` parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 2](/docs/databases-for-melasticsearch?topic=databases-for-mongodb-provisioning&interface=api#host-flavor-parameter-api). For example, `{"host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.
+    Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"host_flavor"` parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 2](#members_host-flavor-parameter-api). For example, `{"host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.
 
     ```sh
     curl -X POST \
