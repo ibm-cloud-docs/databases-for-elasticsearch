@@ -85,7 +85,11 @@ Adjust the slider to increase or decrease the resources that are allocated to yo
 [{{site.data.keyword.cloud_notm}} CLI cloud databases plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference) supports viewing and scaling the resources on your deployment. Use the command `cdb deployment-groups` to see current resource information for your service, including which resource groups are adjustable. To scale any of the available resource groups, use `cdb deployment-groups-set` command.
 
 For example, the command to view the resource groups for a deployment named "example-deployment":
-`ibmcloud cdb deployment-groups example-deployment`
+
+```sh
+ibmcloud cdb deployment-groups example-deployment
+```
+{: pre}
 
 This produces the output:
 
@@ -118,14 +122,18 @@ Count   3
 The deployment has three members, with 3072 MB of RAM and 15360 MB of disk allocated in total. The "per member" allocation is 1024 MB of RAM and 5120 MB of disk. The minimum value is the lowest the total allocation can be set. The step size is the smallest amount by which the total allocation can be adjusted.
 
 The `cdb deployment-groups-set` command allows either the total RAM or total disk allocation to be set, in MB. For example, to scale the memory of the "example-deployment" to 2048 MB of RAM for each memory member (for a total memory of 6144 MB), you use the command:
-`ibmcloud cdb deployment-groups-set example-deployment member --memory 6144`.
+
+```sh
+ibmcloud cdb deployment-groups-set example-deployment member --memory 6144
+```
+{: pre}
 
 
 
 
 ## Determine the hosting model of your database
 {: #resources-hosting-determine-cli}
-{ :cli}
+{: cli}
 
 Use the following command to review the value of the `hostflavor` attribute. This will be null if the database is on a deprecated hosting model (not Shared or Isolated Compute).
 
@@ -212,12 +220,26 @@ curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{
 {: pre}
 
 
+
+## Determine the hosting model of your database
+{: #resources-hosting-determine-api}
+{: api}
+
+Use the following command to review the value of the `hostflavor` attribute. This will be null if the database is on a deprecated hosting model (not Shared or Isolated Compute).
+
+```sh
+curl -X GET https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{id}/groups -H 'Authorization: Bearer <>' \
+```
+{: pre}
+
+
+
 ## Switching to and between Hosting Models in the API
 {: #resources-switching-api}
 {: api}
 
 
-To scale any {{site.data.keyword.databases-for}} instance to a Shared Compute instance, use the `host_flavor` parameter. This can also be used to move a database from a different hosting model to the Shared Compute hosting model.
+To scale any {{site.data.keyword.databases-for}} Shared Compute instance, use the the following command, setting `host_flavor` to `multitenant`. If your database is not on Shared Compute, this command will also move a database from a different hosting model to the Shared Compute hosting model.
 
 
 ```sh
@@ -274,6 +296,8 @@ Before executing a Terraform script on an existing instance, use the `terraform 
 
 
 Scale your instance by adjusting your Terraform script for the resource you're interested in. In the following example, `cpu`, `memory`, and `disk` allocations are specified. Note that if you have a host flavor selected (Isolated Compute or Shared Compute Multitenant), keep the host flavor selection in your script. 
+
+To implement your change, run `terraform apply`.
 
 ```terraform
 data "ibm_resource_group" "group" {
