@@ -124,7 +124,8 @@ The `cdb deployment-groups-set` command allows either the total RAM or total dis
 
 
 ## Determine the hosting model of your database
-{: #resources-hosting-determine}
+{: #resources-hosting-determine-cli}
+{ :cli}
 
 Use the following command to review the value of the `hostflavor` attribute. This will be null if the database is on a deprecated hosting model (not Shared or Isolated Compute).
 
