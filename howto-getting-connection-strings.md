@@ -22,7 +22,7 @@ To connect to {{site.data.keyword.databases-for-elasticsearch_full}}, you need s
 A {{site.data.keyword.databases-for-elasticsearch}} deployment is provisioned with an admin user, and after you [set the admin password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-user-management&interface=ui#user-management-set-admin-password-ui), you can use its credentials to connect to your deployment.
 {: .tip}
 
-## Getting donnection wtrings in the CLI
+## Getting connection strings in the CLI
 {: #connection-strings-cli}
 {: cli}
 
