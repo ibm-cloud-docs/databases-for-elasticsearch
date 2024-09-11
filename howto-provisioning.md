@@ -92,70 +92,51 @@ Before provisioning, follow the instructions provided in the documentation to in
 
 1. Log in to {{site.data.keyword.cloud_notm}}. If you use a federated user ID, it's important that you switch to a one-time passcode (`ibmcloud login --sso`), or use an API key (`ibmcloud --apikey key or @key_file`) to authenticate. For more information about how to log in by using the CLI, see [General CLI (ibmcloud) commands](/docs/cli?topic=cli-ibmcloud_cli#ibmcloud_login){: external} under `ibmcloud login`.
 
-      ```sh
-      ibmcloud login
-      ```
-      {: pre}
+    ```sh
+    ibmcloud login
+    ```
+    {: pre}
 
 2. Select the [hosting model](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=cli) you want your database to be provisioned on. You can change this later.
 3. Provision your database with the following command:
 
-   ```sh
-   ibmcloud resource service-instance-create <INSTANCE_NAME> <SERVICE_NAME> <SERVICE_PLAN_NAME> <LOCATION> <SERVICE_ENDPOINTS_TYPE> <RESOURCE_GROUP> -p '{"members_host_flavor": "<host_flavor value>"}'
-   ```
-   {: pre}
+    ```sh
+    ibmcloud resource service-instance-create <INSTANCE_NAME> <SERVICE_NAME> <SERVICE_PLAN_NAME> <LOCATION> <SERVICE_ENDPOINTS_TYPE> <RESOURCE_GROUP> -p '{"members_host_flavor": "<members_host_flavor value>"}'
+    ```
+    {: pre}
 
-  For example, to provision a {{site.data.keyword.databases-for-elasticsearch}} Shared Compute hosting model instance, use a command like:
+    For example, to provision a {{site.data.keyword.databases-for-elasticsearch}} Shared Compute hosting model instance, use a command like:
 
-   ```sh
-   ibmcloud resource service-instance-create test-database databases-for-elasticsearch enterprise us-south -p '{"members_host_flavor": "multitenant", "members_memory_allocation_mb": "8192"}'
-   ```
-   {: pre}
+    ```sh
+    ibmcloud resource service-instance-create test-database databases-for-elasticsearch enterprise us-south -p '{"members_host_flavor": "multitenant", "members_memory_allocation_mb": "8192"}'
+    ```
+    {: pre}
 
-  Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"members_host_flavor"` -p parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 2](#host-flavor-parameter-cli). For example, `{"members_host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.
+    Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"members_host_flavor"` -p parameter, setting it to the desired Isolated size. Available hosting sizes and their `members_host_flavor value` parameters are listed in [Table 2](#members-host-flavor-parameter-cli). For example, `{"members_host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.
 
-   ```sh
-  ibmcloud resource service-instance-create test-database databases-for-elasticsearch enterprise us-south -p '{"members_host_flavor": "b3c.4x16.encrypted"}'
-   ```
-   {: pre}
+    ```sh
+    ibmcloud resource service-instance-create test-database databases-for-elasticsearch enterprise us-south -p '{"members_host_flavor": "b3c.4x16.encrypted"}'
+    ```
+    {: pre}
 
-   The fields in the command are described in the table that follows.
+    The fields in the command are described in the table that follows.
 
-   | Field | Description | Flag |
-   |-------|------------|------------|
-   | `INSTANCE_NAME` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
-   | `SERVICE_NAME` [Required]{: tag-red} | Name or ID of the service. For {{site.data.keyword.databases-for-elasticsearch}}, use `databases-for-elasticsearch`. |  |
-   | `SERVICE_PLAN_NAME` [Required]{: tag-red} | `enterprise` or `platinum`. Note that `platinum` requires an `isolated` host flavor. |  |
-   | `LOCATION` [Required]{: tag-red} | The location where you want to deploy. To retrieve a list of regions, use the `ibmcloud regions` command. |  |
-   | `SERVICE_ENDPOINTS_TYPE` [Required]{: tag-red} | Configure the [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public` or `private`. The default value is `public`. |  |
-   | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
-   | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
-   | `host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. For Shared Compute, specify `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the following table or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).| |
-   {: caption="Table 1. Basic command format fields" caption-side="top"}
+    | Field | Description | Flag |
+    |-------|------------|------------|
+    | `INSTANCE_NAME` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
+    | `SERVICE_NAME` [Required]{: tag-red} | Name or ID of the service. For {{site.data.keyword.databases-for-elasticsearch}}, use `databases-for-elasticsearch`. |  |
+    | `SERVICE_PLAN_NAME` [Required]{: tag-red} | `enterprise` or `platinum`. Note that `platinum` requires an `isolated` host flavor. |  |
+    | `LOCATION` [Required]{: tag-red} | The location where you want to deploy. To retrieve a list of regions, use the `ibmcloud regions` command. |  |
+    | `SERVICE_ENDPOINTS_TYPE` [Required]{: tag-red} | Configure the [Service Endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public` or `private`. The default value is `public`. |  |
+    | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
+    | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
+    | `members_host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<members_host_flavor value>"}`. For Shared Compute, specify a value of `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the following table or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).| |
+    {: caption="Table 1. Basic command format fields" caption-side="top"}
 
-   In the CLI, `service-endpoints` is a flag, not a parameter.
-   {: note}
+    In the CLI, `service-endpoints` is a flag, not a parameter.
+    {: note}
 
-### The `host flavor` parameter
-{: #host-flavor-parameter-cli}
-{: cli}
-
-The `host_flavor` parameter defines your Compute sizing.
-
-- To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
-
-    | **Host flavor** | **host_flavor value** |
-    |:-------------------------:|:---------------------:|
-    | Shared Compute            | `multitenant`    |
-    | 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
-    | 8 CPU x 32 RAM            | `b3c.8x32.encrypted`    |
-    | 8 CPU x 64 RAM            | `m3c.8x64.encrypted`    |
-    | 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
-    | 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
-    | 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
-    {: caption="Table 2. Host flavor sizing parameter" caption-side="bottom"}
-
-   You will see a response like:
+    You will see a response like:
 
     ```text
     Creating service instance INSTANCE_NAME in resource group default of account    USER...
@@ -179,46 +160,65 @@ The `host_flavor` parameter defines your Compute sizing.
     ```
     {: codeblock}
 
-- To check provisioning status, use the following command:
+    - To check provisioning status, use the following command:
 
-   ```sh
-   ibmcloud resource service-instance <INSTANCE_NAME>
-   ```
-   {: pre}
+      ```sh
+        ibmcloud resource service-instance <INSTANCE_NAME>
+        ```
+        {: pre}
 
-   When complete, you will see a response like:
+        When complete, you will see a response like:
 
-   ```text
-   Retrieving service instance INSTANCE_NAME in resource group default under account USER's Account as USER...
-   OK
+        ```text
+        Retrieving service instance INSTANCE_NAME in resource group default under account USER's Account as USER...
+        OK
 
-   Name:                  INSTANCE_NAME
-   ID:                    crn:v1:bluemix:public:databases-for-elasticsearch:us-south:a/40ddc34a953a8c02f109835656860e:dd13152c-fe15-4bb6-af94-fde0af5303f4::
-   GUID:                  dd13152c-fe15-4bb6-af94-fde5654765
-   Location:              <LOCATION>
-   Service Name:          databases-for-elasticsearch
-   Service Plan Name:     standard
-   Resource Group Name:   default
-   State:                 active
-   Type:                  service_instance
-   Sub Type:              Public
-   Locked:                false
-   Service Endpoints:     public
-   Created at:            2023-06-26T19:42:07Z
-   Created by:            USER
-   Updated at:            2023-06-26T19:53:25Z
-   Last Operation:
-                          Status    create succeeded
-                          Message   Provisioning elasticsearch with version 7.17 (100%)
-   ```
-   {: codeblock}
+        Name:                  INSTANCE_NAME
+        ID:                    crn:v1:bluemix:public:databases-for-elasticsearch:us-south:a/40ddc34a953a8c02f109835656860e:dd13152c-fe15-4bb6-af94-fde0af5303f4::
+        GUID:                  dd13152c-fe15-4bb6-af94-fde5654765
+        Location:              <LOCATION>
+        Service Name:          databases-for-elasticsearch
+        Service Plan Name:     standard
+        Resource Group Name:   default
+        State:                 active
+        Type:                  service_instance
+        Sub Type:              Public
+        Locked:                false
+        Service Endpoints:     public
+        Created at:            2023-06-26T19:42:07Z
+        Created by:            USER
+        Updated at:            2023-06-26T19:53:25Z
+        Last Operation:
+                                Status    create succeeded
+                                Message   Provisioning elasticsearch with version 7.17 (100%)
+        ```
+        {: codeblock}
 
-- Optional: To delete a service instance, run the following command:
+    - Optional: To delete a service instance, run the following command:
 
-   ```sh
-   ibmcloud resource service-instance-delete <INSTANCE_NAME>
-   ```
-   {: pre}
+        ```sh
+        ibmcloud resource service-instance-delete <INSTANCE_NAME>
+        ```
+        {: pre}
+
+### The `members host flavor` parameter
+{: #members-host-flavor-parameter-cli}
+{: cli}
+
+The `members_host_flavor` parameter defines your Compute sizing.
+
+To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
+
+| **Members Host flavor** | **members_host_flavor value** |
+|:-------------------------:|:---------------------:|
+| Shared Compute            | `multitenant`    |
+| 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
+| 8 CPU x 32 RAM            | `b3c.8x32.encrypted`    |
+| 8 CPU x 64 RAM            | `m3c.8x64.encrypted`    |
+| 16 CPU x 64 RAM           | `b3c.16x64.encrypted`   |
+| 32 CPU x 128 RAM          | `b3c.32x128.encrypted`  |
+| 30 CPU x 240 RAM          | `m3c.30x240.encrypted`  |
+{: caption="Table 2. Host flavor sizing parameter" caption-side="bottom"}
 
 CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} Isolated Compute. Disk autoscaling is available. If you have provisioned an Isolated instance or switched over from a deployment with autoscaling, keep an eye on your resources using [{{site.data.keyword.monitoringfull}} integration](/docs/cloud-databases?topic=cloud-databases-monitoring), which provides metrics for memory, disk space, and disk I/O utilization. To add resources to your instance, manually scale your deployment.
 {: note}
@@ -238,7 +238,7 @@ ibmcloud resource service-instance-create databases-for-elasticsearch <INSTANCE_
   "members_memory_allocation_mb": "4096"
 }'
 ```
-{: .pre}
+{: pre}
 
 ## Provisioning through the Resource Controller API
 {: #provision-controller-api}
@@ -249,23 +249,23 @@ Follow these steps to provision by using the [Resource Controller API](https://c
 1. Obtain an [IAM token from your API token](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#authentication){: external}.
 2. You need to know the ID of the resource group that you would like to deploy to. This information is available through the [{{site.data.keyword.cloud_notm}} CLI](/docs/cli?topic=cli-ibmcloud_commands_resource#ibmcloud_resource_groups).
 
-   Use a command like:
+    Use a command like:
 
-   ```sh
-   ibmcloud resource groups
-   ```
-   {: pre}
+    ```sh
+    ibmcloud resource groups
+    ```
+    {: pre}
 
 3. You need to know the region you want to deploy to.
 
-   To list all of the regions that deployments can be provisioned into from the current region, use the [{{site.data.keyword.databases-for}} CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference){: external}.
+    To list all of the regions that deployments can be provisioned into from the current region, use the [{{site.data.keyword.databases-for}} CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference){: external}.
 
-   The command looks like:
+    The command looks like:
 
-   ```sh
-   ibmcloud cdb regions --json
-   ```
-   {: pre}
+    ```sh
+    ibmcloud cdb regions --json
+    ```
+    {: pre}
 
 4. Select the [hosting model](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=api) you want your database to be provisioned on. You can change this later.
 
@@ -279,7 +279,7 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         "deployment": {
           "type": "elasticsearch",
           "location": "us-south"
-        },
+        }
       }'
     ```
     {: pre}
@@ -375,7 +375,6 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         ]
       }
     }
-
     ```
     {: pre}
 
@@ -392,8 +391,8 @@ Follow these steps to provision by using the [Resource Controller API](https://c
 
     ```sh
     {
-      "host_flavor": {
-        "id": "`b3c.4x16.encrypted`"
+      "parameters": {
+        "members_host_flavor": "`b3c.4x16.encrypted`"
       }
     }
     ```
@@ -403,8 +402,8 @@ Follow these steps to provision by using the [Resource Controller API](https://c
 
     ```sh
     {
-      "host_flavor": {
-        "id": "b3c.8x32.encrypted"
+      "parameters": {
+        "members_host_flavor": "b3c.8x32.encrypted"
       }
     }
     ```
@@ -412,97 +411,87 @@ Follow these steps to provision by using the [Resource Controller API](https://c
 
 5. Once you have all the information, [provision a new resource instance](https://cloud.ibm.com/apidocs/resource-controller/resource-controller#create-resource-instance){: external} with the {{site.data.keyword.cloud_notm}} Resource Controller.
 
-   ```sh
-   curl -X POST \
-     https://resource-controller.cloud.ibm.com/v2/resource_instances \
-     -H "Authorization: Bearer <TOKEN>" \
-     -H 'Content-Type: application/json' \
-       -d '{
-       "name": "<INSTANCE_NAME",
-       "location": "<LOCATION>",
-       "resource_group": "RESOURCE_GROUP_ID",
-       "resource_plan_id": "<SERVICE_PLAN_NAME>"
-       "parameters": {
-           "host_flavor": {"id": "<host_flavor_value>"}
-      }
-     }'
-   ```
-   {: .pre}
+    ```sh
+    curl -X POST \
+      https://resource-controller.cloud.ibm.com/v2/resource_instances \
+      -H "Authorization: Bearer <TOKEN>" \
+      -H 'Content-Type: application/json' \
+        -d '{
+        "name": "<INSTANCE_NAME",
+        "target": "<targeted-region>",
+        "resource_group": "RESOURCE_GROUP_ID",
+        "resource_plan_id": "<SERVICE_PLAN_NAME>"
+        "parameters": {
+            "members_host_flavor": "<members_host_flavor_value>"
+        }
+      }'
+    ```
+    {: pre}
 
     To make a Shared Compute instance, follow this example:
 
-       ```sh
-       curl -X POST \
-       ```sh
-       curl -X POST \
-         -H "Authorization: Bearer <TOKEN>" \
-         -H 'Content-Type: application/json' \
-           -d '{  \
-           "name": "my-instance", \
-           "location": "us-south", \
-           "resource_group": "5g9f447903254bb58972a2f3f5a4c711", \
-           "resource_plan_id": "databases-for-elasticsearch-enterprise" \
-           "parameters": { \
-            "host_flavor": { \
-              "id": "multitenant" \
-            }, \
-            "memory": {  \
-              "allocation_mb": 16384 \
-            }, \
-            "cpu": { \
-              "allocation_count": 4 \
-            } \
-          } \
-         }' \
-         "https://resource-controller.cloud.ibm.com/v2/resource_instances"
-       ```
-       {: .pre}
+    ```sh
+    curl -X POST \
+      https://resource-controller.cloud.ibm.com/v2/resource_instances \
+      -H "Authorization: Bearer <TOKEN>" \
+      -H 'Content-Type: application/json' \
+        -d '{ \
+        "name": "my-instance", \
+        "target": "us-south", \
+        "resource_group": "5g9f447903254bb58972a2f3f5a4c711", \
+        "resource_plan_id": "databases-for-elasticsearch-enterprise", \
+        "parameters": { \
+          "members_host_flavor": "multitenant", \
+          "memory": { "allocation_mb": 16384 }, \
+          "cpu": { "allocation_count": 4 } \
+        } \
+      }' \
+    ```
+    {: pre}
 
-    Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"host_flavor"` parameter, setting it to the desired Isolated size. Available hosting sizes and their `host_flavor value` parameters are listed in [Table 2](/docs/databases-for-melasticsearch?topic=databases-for-mongodb-provisioning&interface=api#host-flavor-parameter-api). For example, `{"host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.
+    Provision a {{site.data.keyword.databases-for-elasticsearch}} Isolated instance with the same `"members_host_flavor"` parameter, setting it to the desired Isolated size. Available hosting sizes and their `members_host_flavor value` parameters are listed in [Table 2](#members_host-flavor-parameter-api). For example, `{"members_host_flavor": "b3c.4x16.encrypted"}`. Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both, an Isolated size selection and separate CPU and RAM allocation selections.
 
-       ```sh
-       curl -X POST \
-         -H "Authorization: Bearer <TOKEN>" \
-         -H 'Content-Type: application/json' \
-           -d '{  \
-           "name": "my-instance",  \
-           "location": "us-south",  \
-           "resource_group": "5g9f447903254bb58972a2f3f5a4c711",  \
-           "resource_plan_id": "databases-for-elasticsearch-enterprise" \
-           "parameters": {  \
-            "host_flavor": {  \
-              "id": "b3c.4x16.encrypted"  \
-            }  \
-          }  \
-         }'  \
-         "https://resource-controller.cloud.ibm.com/v2/resource_instances"
-       ```
-       {: .pre}
+    ```sh
+    curl -X POST \
+      https://resource-controller.cloud.ibm.com/v2/resource_instances \
+      -H "Authorization: Bearer <TOKEN>" \
+      -H 'Content-Type: application/json' \
+        -d '{ \
+        "name": "my-instance", \
+        "target": "us-south", \
+        "resource_group": "5g9f447903254bb58972a2f3f5a4c711", \
+        "resource_plan_id": "databases-for-elasticsearch-enterprise", \
+        "parameters": { \
+        "members_host_flavor": "b3c.4x16.encrypted" \
+        } \
+      }' \
+    ```
+    {: pre}
 
-       The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required.
-       {: required}
+    The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required.
+    {: required}
 
-       The fields in the command are described in the table that follows.
+    The fields in the command are described in the table that follows.
 
-       | Field | Description | Flag |
-       |-------|------------|------------|
-       | `NAME` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
-       | `SERVICE_NAME` [Required]{: tag-red} | Name or ID of the service. For {{site.data.keyword.databases-for-elasticsearch}}, use `databases-for-elasticsearch`. |  |
-       | `SERVICE_PLAN_NAME` [Required]{: tag-red} | `enterprise` or `platinum` |  |
-       | `LOCATION` [Required]{: tag-red} | The location where you want to deploy. To retrieve a list of regions, use the `ibmcloud regions` command. |  |
-       | `SERVICE_ENDPOINTS_TYPE` | Configure the [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public` or `private`. The default value is `public`. |  |
-       | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
-       | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
-       | `host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<host_flavor value>"}`. For Shared Compute, specify `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the table below, or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).| |
-       {: caption="Table 1. Basic command format fields" caption-side="top"}
+    | Field | Description | Flag |
+    |-------|------------|------------|
+    | `NAME` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
+    | `SERVICE_NAME` [Required]{: tag-red} | Name or ID of the service. For {{site.data.keyword.databases-for-elasticsearch}}, use `databases-for-elasticsearch`. |  |
+    | `SERVICE_PLAN_NAME` [Required]{: tag-red} | `enterprise` or `platinum` |  |
+    | `LOCATION` [Required]{: tag-red} | The location where you want to deploy. To retrieve a list of regions, use the `ibmcloud regions` command. |  |
+    | `SERVICE_ENDPOINTS_TYPE` | Configure the [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public` or `private`. The default value is `public`. |  |
+    | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
+    | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
+    | `members_host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<members_host_flavor value>"}`. For Shared Compute, specify a value of `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the table below, or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).| |
+    {: caption="Table 1. Basic command format fields" caption-side="top"}
 
-### The `host flavor` parameter
-{: #host-flavor-parameter-api}
+### The `members host flavor` parameter
+{: #members_host-flavor-parameter-api}
 {: api}
 
-The `host_flavor` parameter defines your Compute sizing. To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
+The `members_host_flavor` parameter defines your Compute sizing. To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
 
-| **Host flavor** | **host_flavor value** |
+| **Members host flavor** | **members_host_flavor value** |
 |:-------------------------:|:---------------------:|
 | Shared Compute            | `multitenant`    |
 | 4 CPU x 16 RAM            | `b3c.4x16.encrypted`    |
@@ -520,18 +509,18 @@ CPU and RAM autoscaling is not supported on {{site.data.keyword.databases-for}} 
 {: #provisioning-parameters-api}
 {: api}
 
-* `backup_id` - A CRN of a backup resource to restore from. The backup must be created by a database deployment with the same service ID. The backup is loaded after provisioning and the new deployment starts up that uses that data. A backup CRN is in the format `crn:v1:<...>:backup:<uuid>`. If omitted, the database is provisioned empty.
-* `version` - The version of the database to be provisioned. If omitted, the database is created with the most recent major and minor version.
-* `disk_encryption_key_crn` - The CRN of a KMS key (for example, [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) or [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about)), which is then used for disk encryption. A KMS key CRN is in the format `crn:v1:<...>:key:<id>`.
-* `backup_encryption_key_crn` - The CRN of a KMS key (for example, [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) or [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about)), which is then used for backup encryption. A KMS key CRN is in the format `crn:v1:<...>:key:<id>`.
+- `backup_id` - A CRN of a backup resource to restore from. The backup must be created by a database deployment with the same service ID. The backup is loaded after provisioning and the new deployment starts up that uses that data. A backup CRN is in the format `crn:v1:<...>:backup:<uuid>`. If omitted, the database is provisioned empty.
+- `version` - The version of the database to be provisioned. If omitted, the database is created with the most recent major and minor version.
+- `disk_encryption_key_crn` - The CRN of a KMS key (for example, [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) or [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about)), which is then used for disk encryption. A KMS key CRN is in the format `crn:v1:<...>:key:<id>`.
+- `backup_encryption_key_crn` - The CRN of a KMS key (for example, [{{site.data.keyword.hscrypto}}](/docs/hs-crypto?topic=hs-crypto-get-started) or [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about)), which is then used for backup encryption. A KMS key CRN is in the format `crn:v1:<...>:key:<id>`.
 
-   To use a key for your backups, you must first [enable the service-to-service delegation](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=api#key-byok).
-   {: note}
+    To use a key for your backups, you must first [enable the service-to-service delegation](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=api#key-byok).
+    {: note}
 
-* `members_memory_allocation_mb` - Total amount of memory to be shared between the database members within the database. For example, if the value is "12288", and there are three database members, then the deployment gets 12 GB of RAM total, giving 4 GB of RAM per member. If omitted, the default value is used for the database type is used. This parameter only applies to `multitenant'.
-* `members_disk_allocation_mb` - Total amount of disk to be shared between the database members within the database. For example, if the value is "30720", and there are three members, then the deployment gets 30 GB of disk total, giving 10 GB of disk per member. If omitted, the default value for the database type is used. This parameter only applies to `multitenant'.
-* `members_cpu_allocation_count` - Enables and allocates the number of specified cores to your deployment. For example, to use two dedicated cores per member, use `"members_cpu_allocation_count":"2"`. If omitted, the default Shared Compute CPU:RAM ratios will be applied. This parameter only applies to `multitenant'.
-* `service-endpoints` - The [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) supported on your deployment, `public` or `private`.
+- `members_memory_allocation_mb` - Total amount of memory to be shared between the database members within the database. For example, if the value is "12288", and there are three database members, then the deployment gets 12 GB of RAM total, giving 4 GB of RAM per member. If omitted, the default value is used for the database type is used. This parameter only applies to `multitenant'.
+- `members_disk_allocation_mb` - Total amount of disk to be shared between the database members within the database. For example, if the value is "30720", and there are three members, then the deployment gets 30 GB of disk total, giving 10 GB of disk per member. If omitted, the default value for the database type is used. This parameter only applies to `multitenant'.
+- `members_cpu_allocation_count` - Enables and allocates the number of specified cores to your deployment. For example, to use two dedicated cores per member, use `"members_cpu_allocation_count":"2"`. If omitted, the default Shared Compute CPU:RAM ratios will be applied. This parameter only applies to `multitenant'.
+- `service-endpoints` - The [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) supported on your deployment, `public` or `private`.
 
 ## Provisioning with Terraform
 {: #provisioning-terraform}
@@ -541,7 +530,7 @@ Use Terraform to manage your infrastructure through the [`ibm_database` Resource
 
 Select the [hosting model](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=terraform) you want your database to be provisioned on. You can change this later.
 
-### Provisioning shared compute with Terraform
+### Provisioning Shared Compute with Terraform
 {: #provisioning-shared-compute-terraform}
 {: terraform}
 
@@ -589,7 +578,7 @@ output "ICD Elasticsearch database connection string" {
 ```
 {: codeblock}
 
-### Provisioning isolated compute with Terraform
+### Provisioning Isolated Compute with Terraform
 {: #provisioning-isolated-computer-terraform}
 {: terraform}
 
