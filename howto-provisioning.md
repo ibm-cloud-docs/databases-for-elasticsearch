@@ -168,7 +168,7 @@ You will see a response like:
     State:               provisioning
     Type:                service_instance
     Sub Type:            Public
-    Service Endpoints:   public
+    Service Endpoints:   private
     Allow Cleanup:       false
     Locked:              false
     Created at:          2023-06-26T19:42:07Z
@@ -203,7 +203,7 @@ You will see a response like:
       Type:                  service_instance
       Sub Type:              Public
       Locked:                false
-      Service Endpoints:     public
+      Service Endpoints:     private
       Created at:            2023-06-26T19:42:07Z
       Created by:            USER
       Updated at:            2023-06-26T19:53:25Z
@@ -216,7 +216,7 @@ You will see a response like:
     - Optional: To delete a service instance, run the following command:
 
       ```sh
-      ibmcloud resource service-instance-delete <INSTANCE_NAME>
+      ibmcloud resource service-instance-delete <INSTANCE_NAME_OR_CRN>
       ```
       {: pre}
 
