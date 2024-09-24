@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-11"
+lastupdated: "2024-09-24"
 
 keywords: elasticsearch dedicated cores, databases, manual scaling, disk I/O, memory, CPU, elasticsearch resources, elasticsearch scaling
 
@@ -191,7 +191,7 @@ ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --memory 24576 --cp
 If your database is an [Isolated Compute](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-iso-compute-ui) instance, memory and CPU are adjusted together by selecting the Isolated Compute size (see all sizes in Table 1). Disk is scaled separately. If your database is not on Isolated  Compute, this command  will also move a database from a different hosting model to the Isolated Compute hosting model.
 
 ```sh
-ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--disk <val>] [--hostflavor b3c.4x16.encrypted]
+ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--disk <val>] [--hostflavor <hostflavor>]
 ```
 {: pre}
 
@@ -228,14 +228,14 @@ To view the current and scalable resources on a deployment, use the [/deployment
 curl -X GET -H "Authorization: Bearer $APIKEY" `https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups'
 ```
 
-To scale the memory of a deployment to 2048 MB of RAM for each member (there are 3 so a total memory of 6144 MB), use the [/deployments/{id}/groups/{group_id}](https://cloud.ibm.com/apidocs/cloud-databases-api#set-scaling-values-on-a-specified-group) API endpoint.
+To scale the memory of a deployment to 4096 MB of RAM for each member (there are 3 so a total memory of 12288 MB), use the [/deployments/{id}/groups/{group_id}](https://cloud.ibm.com/apidocs/cloud-databases-api#set-scaling-values-on-a-specified-group) API endpoint.
 
 ```sh
 curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member' \
 -H "Authorization: Bearer $APIKEY" \
 -H "Content-Type: application/json" \
 -d '{"memory": {
-        "allocation_mb": 6144
+        "allocation_mb": 12288
       }
     }'
 ```
@@ -245,7 +245,7 @@ curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{
 {: #resources-hosting-determine-api}
 {: api}
 
-Use the following command to review the value of the `hostflavor` attribute. This will be null if the database is on a deprecated hosting model (not Shared or Isolated Compute).
+Use the following command to review the value of the `host_flavor` attribute. This will be null if the database is on a deprecated hosting model (not Shared or Isolated Compute).
 
 ```sh
 curl -X GET https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{id}/groups -H 'Authorization: Bearer <>' \
@@ -267,7 +267,7 @@ curl -X PATCH https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{i
       "cpu":
         {"allocation_count": 3},
       "memory":
-        {"allocation_mb": 2048}
+        {"allocation_mb": 12288}
     }' \
 ```
 {: pre}
