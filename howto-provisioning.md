@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2024
-lastupdated: "2024-09-16"
+lastupdated: "2024-09-30"
 
 keywords: provision cloud databases, terraform, provisioning parameters, cli, resource controller api, provision elasticsearch
 
@@ -73,7 +73,7 @@ Specify the disk size depending on your requirements. It can be increased after 
 - **Database version:** [Set only at deployment]{: tag-red} The deployment version of your database. To ensure optimal performance, run the preferred version. The latest minor version is used automatically. For more information, see [Versioning policy](/docs/cloud-databases?topic=cloud-databases-versioning-policy){: external}.
 - **Database edition:** [Set only at deployment]{: tag-red} Select the edition that you want to deploy. Choose from Enterprise or Platinum. Note that Platinum is only available on the Isolated hosting model.
 - **Encryption:** [Set only at deployment]{: tag-red} If you use [Key Protect](/docs/cloud-databases?topic=cloud-databases-key-protect&interface=ui), an instance and key can be selected to encrypt the deployment's disk. If you do not use your own key, the deployment automatically creates and manages its own disk encryption key.
-- **Endpoints:** [Set only at deployment]{: tag-red} Configure the [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) on your deployment.
+- **Endpoints:** [Set only at deployment]{: tag-red} Configure the [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) on your deployment. For eu-es only, the default setting is *private*.
 
 A {{site.data.keyword.databases-for-elasticsearch}} deployment cannot have both public and private endpoints simultaneously.
 {: note}
@@ -422,7 +422,8 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         "resource_group": "RESOURCE_GROUP_ID",
         "resource_plan_id": "<SERVICE_PLAN_NAME>"
         "parameters": {
-            "members_host_flavor": "<members_host_flavor_value>"
+            "members_host_flavor": "<members_host_flavor_value>",
+            "service-endpoints":" <ENDPOINT>"
         }
       }'
     ```
@@ -442,6 +443,7 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         "resource_plan_id": "databases-for-elasticsearch-enterprise", \
         "parameters": { 
           "members_host_flavor": "multitenant", 
+          "service-endpoints": "private",
           "memory": { "allocation_mb": 16384 }, 
           "cpu": { "allocation_count": 4 } 
         } \
@@ -462,7 +464,8 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         "resource_group": "5g9f447903254bb58972a2f3f5a4c711", \
         "resource_plan_id": "databases-for-elasticsearch-enterprise", \
         "parameters": { 
-        "members_host_flavor": "b3c.4x16.encrypted"
+        "members_host_flavor": "b3c.4x16.encrypted",
+        "service-endpoints": "private"
         } \
       }' \
     ```
@@ -483,6 +486,7 @@ Follow these steps to provision by using the [Resource Controller API](https://c
     | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
     | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |
     | `members_host_flavor` | To provision an Isolated or Shared Compute instance, use `{"members_host_flavor": "<members_host_flavor value>"}`. For Shared Compute, specify a value of `multitenant`. For Isolated Compute, select desired CPU and RAM configuration. For more information, see the table below, or [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-models).| |
+    | `service-endpoints` [Required]{: tag-red} | Configure the [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints){: external} of your deployment, either `public`, `private` or `public-and-private`. | |
     {: caption="Table 1. Basic command format fields" caption-side="top"}
 
 ### The `members host flavor` parameter
@@ -522,7 +526,6 @@ In the `--parameters` object you can provide additional information to create yo
 - `members_memory_allocation_mb` - Total amount of memory to be shared between the database members within the database. For example, if the value is "12288", and there are three database members, then the deployment gets 12 GB of RAM total, giving 4 GB of RAM per member. If omitted, the default value is used for the database type is used. This parameter only applies to `multitenant'.
 - `members_disk_allocation_mb` - Total amount of disk to be shared between the database members within the database. For example, if the value is "30720", and there are three members, then the deployment gets 30 GB of disk total, giving 10 GB of disk per member. If omitted, the default value for the database type is used. This parameter only applies to `multitenant'.
 - `members_cpu_allocation_count` - Enables and allocates the number of specified cores to your deployment. For example, to use two dedicated cores per member, use `"members_cpu_allocation_count":"2"`. If omitted, the default Shared Compute CPU:RAM ratios will be applied. This parameter only applies to `multitenant'.
-- `service-endpoints` - The [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) supported on your deployment, `public` or `private`.
 
 ## Provisioning with Terraform
 {: #provisioning-terraform}
