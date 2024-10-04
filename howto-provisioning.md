@@ -553,7 +553,7 @@ resource "ibm_database" "<your_database>" {
   resource_group_id = data.ibm_resource_group.group.id
   service_endpoints = "private"
   tags              = ["tag1", "tag2"]
-  adminpassword                = "password12"
+  adminpassword     = "password12"
   group {
     group_id = "member"
     host_flavor {
@@ -602,7 +602,7 @@ resource "ibm_database" "<your_database>" {
   resource_group_id = data.ibm_resource_group.group.id
   service_endpoints = "private"
   tags              = ["tag1", "tag2"]
-  adminpassword                = "password12"
+  adminpassword     = "password12"
   group {
     group_id = "member"
     host_flavor {
