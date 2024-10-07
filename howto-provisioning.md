@@ -101,7 +101,7 @@ Before provisioning, follow the instructions provided in the documentation to in
 3. Provision your database with the following command:
 
     ```sh
-    ibmcloud resource service-instance-create <INSTANCE_NAME> <SERVICE_NAME> <SERVICE_PLAN_NAME> <LOCATION> <RESOURCE_GROUP> -p '{"members_host_flavor": "<members_host_flavor value>"}' --service-endpoints="<endpoint>"
+    ibmcloud resource service-instance-create <INSTANCE_NAME> <SERVICE_NAME> <SERVICE_PLAN_NAME> <LOCATION> <RESOURCE_GROUP> -p '{"members_host_flavor": "<members_host_flavor value>"}' --service-endpoints="<Endpoint>"
     ```
     {: pre}
 
@@ -471,7 +471,7 @@ Follow these steps to provision by using the [Resource Controller API](https://c
     ```
     {: pre}
 
-    The parameters `name`, `target`, `resource_group`, and `resource_plan_id` are all required.
+    The parameters `name`, `target`, `resource_group`, `resource_plan_id`, and `service-endpoints` are all required.
     {: required}
 
     The fields in the command are described in the table that follows.
