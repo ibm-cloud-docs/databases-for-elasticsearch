@@ -41,6 +41,6 @@ CURL_CA_BUNDLE=certificate.crt curl -u ibm_cloud_es_user:password https://f1b5e4
 | `ingest-attachment` | An ingest processor that uses Apache Tika to extract contents. |
 | `mapper-size` | The Mapper Size plug-in allows document to record their uncompressed size at index time. |
 | `repository-s3` | The S3 repository plug-in adds the repositories that are used for automated backups of your data. |
-{: caption="Table 1. Available Elasticsearch plugins" caption-side="top"}
+{: caption="Available Elasticsearch plugins" caption-side="top"}
 
 More details on the plug-ins are available in the [Elasticsearch documentation](https://www.elastic.co/guide/en/elasticsearch/plugins/current/index.html).
