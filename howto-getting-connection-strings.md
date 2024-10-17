@@ -17,7 +17,7 @@ subcollection: databases-for-elasticsearch
 
 To connect to {{site.data.keyword.databases-for-elasticsearch_full}}, you need some users and connection strings. Connection strings for your deployment are displayed on the _Overview_ page, in the _Endpoints_ panel. These strings can be used with any set of credentials that you generate.
 
-![Endpoints panel](images/getting-started-endpoints-panel.png){: caption="Figure 1. Endpoints panel" caption-side="bottom"}
+![Endpoints panel](images/getting-started-endpoints-panel.png){: caption="Endpoints panel" caption-side="bottom"}
 
 A {{site.data.keyword.databases-for-elasticsearch}} deployment is provisioned with an admin user, and after you [set the admin password](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-user-management&interface=ui#user-management-set-admin-password-ui), you can use its credentials to connect to your deployment.
 {: .tip}
@@ -136,7 +136,7 @@ The "https" section of a credential created on the *Service credentials* page co
 | `Composed` | `0...` | A URI combining Scheme, Authentication, Host, and Path. |
 | `Certificate` | `Name` | The allocated name for the self-signed certificate for database deployment. |
 | `Certificate` | Base64 | A base64 encoded version of the certificate. |
-{: caption="Table 1. Https/URI connection information" caption-side="top"}
+{: caption="Https/URI connection information" caption-side="top"}
 
 * `0...` indicates that there may be one or more of these entries in an array.
 
@@ -154,6 +154,6 @@ The "CLI" section of a credential created on the *Service credentials* page cont
 | `Certificate` | Base64 | A self-signed certificate that is used to confirm that an application is connecting to the appropriate server. It is base64 encoded. |
 | `Certificate` | Name | The allocated name for the self-signed certificate. |
 | `Type` | | The type of package that uses this connection information; in this case `cli`. |
-{: caption="Table 2. curl connection information" caption-side="top"}
+{: caption="curl connection information" caption-side="top"}
 
 * `0...` indicates that there may be one or more of these entries in an array.

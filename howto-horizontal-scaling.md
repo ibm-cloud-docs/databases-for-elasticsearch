@@ -23,7 +23,7 @@ It is not possible to decrease the amount of Elasticsearch nodes. As an alternat
 
 Nodes that you add to your deployment are added with the amount of disk, memory, and CPU as the other nodes currently in your deployment. A visual representation of your data members and their resource allocation is available on the _Resources_ tab of your deployment's _Manage_ page. However, horizontal scaling is only available by using the API.
 
-![The Scale Resources Pane in _Resources_](images/settings-scaling.png){: caption="Figure 1. The Scale Resources Pane" caption-side="bottom"}
+![The Scale Resources Pane in _Resources_](images/settings-scaling.png){: caption="The Scale Resources Pane" caption-side="bottom"}
 
 A default {{site.data.keyword.databases-for-elasticsearch_full}} deployment runs with three data members in a cluster, and resources are allocated to all three members equally. For example, the minimum storage of an Elasticsearch deployment is 15360 MB, which equates to an initial size of 5120 MB per member. The minimum RAM for an Elasticsearch deployment is 3072 MB, which equates to an initial allocation of 1028 MB per member. Adding a node adds another member with a size of 5120 MB of disk and 1028 MB of RAM, bringing your total resource usage for your deployment to 20480 MB of disk and 4096 MB of RAM.
 

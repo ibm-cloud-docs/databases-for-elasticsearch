@@ -18,7 +18,7 @@ You can access your Elasticsearch database directly from a command-line terminal
 
 Connection strings are displayed in the _Endpoints_ panel of your deployment's _Overview_ page, and can also be retrieved from the [cloud databases CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-connections), and the [API](https://{DomainName}/apidocs/cloud-databases-api/cloud-databases-api-v5#getconnection).
 
-![CLI Endpoints panel](images/cli-endpoints-pane.png){: caption="Figure 1. Endpoints section, CLI tab" caption-side="bottom"}
+![CLI Endpoints panel](images/cli-endpoints-pane.png){: caption="Endpoints section, CLI tab" caption-side="bottom"}
 
 The information that you need to make a connection with cURL to your deployment is also in the "CLI" section of a credential created on the *Service credentials* page. The table contains a breakdown for reference.
 
@@ -31,7 +31,7 @@ The information that you need to make a connection with cURL to your deployment 
 | `Certificate` | Base64 | A self-signed certificate that is used to confirm that an application is connecting to the appropriate server. It is base64 encoded. |
 | `Certificate` | Name | The allocated name for the self-signed certificate. |
 | `Type` | | The type of package that uses this connection information; in this case `cli`.  |
-{: caption="Table 1. curl connection information" caption-side="top"}
+{: caption="curl connection information" caption-side="top"}
 
 * `0...` indicates that there might be one or more of these entries in an array.
 

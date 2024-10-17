@@ -35,7 +35,7 @@ All the information a driver needs to make a connection to your deployment is in
 | `Composed` | `0...` | A URI combining Scheme, Authentication, Host, and Path. |
 | `Certificate` | `Name` | The allocated name for the self-signed certificate for database deployment. |
 | `Certificate` | Base 64 | A base64 encoded version of the certificate. |
-{: caption="Table 1. https/URI connection information" caption-side="top"}
+{: caption="https/URI connection information" caption-side="top"}
 
 * `0...` indicates that there might be one or more of these entries in an array.
 
@@ -168,4 +168,4 @@ Elasticsearch has a vast array of language drivers. The table covers a few of th
 | Python | `elasticsearch-py` | [Link](https://www.elastic.co/guide/en/elasticsearch/client/python-api/current/index.html) |
 | Java | `Jest` | [Link](https://github.com/searchbox-io/Jest/tree/master/jest) |
 | Go | `elastic` | [Link](https://olivere.github.io/elastic/) |
-{: caption="Table 2. Common Elasticsearch drivers" caption-side="top"}
+{: caption="Common Elasticsearch drivers" caption-side="top"}

@@ -133,4 +133,4 @@ For questions regarding specific feature support, submit a [support ticket](http
 | Elastic Maps - Containment alerts                                                                                             |           | x            |
 | Elastic Maps - Geofencing                                                                                                     |           | x            |
 | Elastic Enterprise Search - Ingestion pipeline management                                                                     |           | x            |
-{: caption="Table 1. Cloud Databases for Elasticsearch Plan Features Comparison" caption-side="bottom"}
+{: caption="Cloud Databases for Elasticsearch Plan Features Comparison" caption-side="bottom"}
