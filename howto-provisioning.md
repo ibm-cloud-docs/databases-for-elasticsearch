@@ -423,7 +423,7 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         "resource_plan_id": "<SERVICE_PLAN_NAME>"
         "parameters": {
             "members_host_flavor": "<members_host_flavor_value>",
-            "service-endpoints":" <ENDPOINT>"
+            "service_endpoints":" <ENDPOINT>"
         }
       }'
     ```
@@ -443,7 +443,7 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         "resource_plan_id": "databases-for-elasticsearch-enterprise", \
         "parameters": { 
           "members_host_flavor": "multitenant", 
-          "service-endpoints": "private",
+          "service_endpoints": "private",
           "memory": { "allocation_mb": 16384 }, 
           "cpu": { "allocation_count": 4 } 
         } \
@@ -465,13 +465,13 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         "resource_plan_id": "databases-for-elasticsearch-enterprise", \
         "parameters": { 
         "members_host_flavor": "b3c.4x16.encrypted",
-        "service-endpoints": "private"
+        "service_endpoints": "private"
         } \
       }' \
     ```
     {: pre}
 
-    The parameters `name`, `target`, `resource_group`, `resource_plan_id`, and `service-endpoints` are all required.
+    The parameters `name`, `target`, `resource_group`, `resource_plan_id`, and `service_endpoints` are all required.
     {: required}
 
     The fields in the command are described in the table that follows.
