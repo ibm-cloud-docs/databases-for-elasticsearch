@@ -1,52 +1,78 @@
 {
+  "version": 2,
   "title": "IBM Cloud® Databases for Elasticsearch",
-  "lastupdated": "2024-04-30",
   "introduction": "Elasticsearch combines the power of a full text search engine with the indexing strengths of a JSON document database.",
-  "section_devtools": {
-    "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction",
-    "cli": "/docs/databases-cli-plugin",
-    "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database"
+  "product_page": "https://www.ibm.com/products/databases-for-elasticsearch",
+  "console_page": "/databases/databases-for-elasticsearch/create",
+    "section_topics": {
+      "links": [
+      {
+        "title": "Deploy Kibana using Code Engine and connect to your Databases for Elasticsearch instance",
+        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-kibana-code-engine-icd-elasticsearch"
+      },
+      {
+        "title": "Use ELSER, Elastic's Natural Language Processing model",
+        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elser-embeddings-elasticsearch"
+      },
+      {
+        "title": "Plan overview",
+        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elastic-offerings"
+      },
+      {
+        "title": "Configuring Kibana and Enterprise Search server with a Databases for Elasticsearch instance",
+        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-tutorial-elasticsearch-enterprise-search-tutorial"
+      },
+      {
+        "title": "Use Elasticsearch vector search capabilities",
+        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-vector-search-elasticsearch"
+      },
+      {
+        "title": "Pricing",
+        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-pricing"
+      },
+      {
+        "title": "Elasticsearch, machine learning, and AI",
+        "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-es-ml-ai"
+      }
+    ]
   },
-  "section_recommended": [
+  "section_highlights": [
     {
-      "title": "Getting Started",
-      "description": "A brief tutorial to introduce using an IBM Cloud® Databases for Elasticsearch deployment.",
-      "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started"
+      "title": "IBM named a leader for cloud database management systems",
+      "description": "Gartner named IBM a leader in Gartner Magic Quadrant for 2021 Cloud Database Management Systems.",
+      "href": "https://www.ibm.com/blog/ibm-is-named-a-leader-in-the-2021-gartner-magic-quadrant-for-cloud-database-management-systems-dbms/",
+      "type": "blog"
     },
     {
-      "title": "Setting the Admin Password",
-      "description": "The Databases for Elasticsearch service is provisioned with an admin user. You must set the admin password before you use it to connect.",
-      "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-user-management&interface=ui#user-management-set-admin-password-ui"
-    },
-    {
-      "title": "Getting Connection Strings",
-      "description": "To connect to IBM Cloud® Databases for Elasticsearch, you need some users and connection strings. Connection Strings for your deployment are displayed on the Dashboard Overview, in the Endpoints panel. These strings can be used with any set of credentials that you generate.",
-      "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings&interface=cli"
+      "title": "IBM Training - Cloud",
+      "description": "Includes Power Virtual Server, SAP, VMware, Advocate, Architect, Developer, and Site Reliability Engineer, and more",
+      "href": "https://www.ibm.com/training/cloud",
+      "type": "training"
     }
   ],
-  "section_learn": {
-    "developer": "https://developer.ibm.com/depmodels/cloud/",
-    "architecture": "https://www.ibm.com/cloud/architecture",
-    "training": "https://www.ibm.com/training/cloud",
-    "community": "https://community.ibm.com/community/user/publiccloud/home"
-  },
+  "section_devtools": {
+    "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction", 
+    "cli": "/docs/databases-cli-plugin", 
+    "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database"
+    },
   "section_updates": {
     "view_more": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elasticsearch-relnotes",
     "tiles": [
       {
+        "date": "16 September 2024",
+        "title": "Private endpoints as new default"
+      },
+      {
         "date": "1 May 2024",
-        "title": "New hosting models",
-        "description": "You can choose between two hosting models: Isolated Compute and Shared Compute. Isolated Compute is a secure single-tenant offering for complex, highly performant enterprise workloads. Shared Compute is a flexible multi-tenant offering for dynamic, fine-tuned, and decoupled capacity selections."
+        "title": "New hosting models"
       },
       {
-        "date": "12 April 2024",
-        "title": "Configuring the Index Lifecycle Management capabilities of Databases for Elasticsearch tutorial published",
-        "description": "This tutorial is designed to assist you to proactively manage your indices to make efficient use of resources, both in terms of storage and search capabilities."
+        "date": "22 April 2024",
+        "title": "Configuring the Index Lifecycle Management capabilities of Databases for Elasticsearch tutorial published"
       },
       {
-        "date": "06 February 2024",
-        "title": "Build an Elasticsearch chatbot tutorial published",
-        "description": "This tutorial is designed to assist you in harnessing the full potential of your data by transforming it into an intelligent bot capable of answering queries related to your data. The bot effortlessly stores the knowledge base in an Elasticsearch index and taps into AI to intelligently handle your questions related to the knowledge base."
+        "date": "6 February 2024",
+        "title": "Build an Elasticsearch chatbot tutorial published"
       }
     ]
   }
