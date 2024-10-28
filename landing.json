@@ -1,4 +1,5 @@
 {
+  "version": 2,
   "title": "IBM Cloud® Databases for Elasticsearch",
   "introduction": "Elasticsearch combines the power of a full text search engine with the indexing strengths of a JSON document database.",
   "product_page": "https://www.ibm.com/products/databases-for-elasticsearch",
@@ -70,7 +71,7 @@
         "title": "Configuring the Index Lifecycle Management capabilities of Databases for Elasticsearch tutorial published"
       },
       {
-        "date": "06 February 2024",
+        "date": "6 February 2024",
         "title": "Build an Elasticsearch chatbot tutorial published"
       }
     ]
