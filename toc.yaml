@@ -50,7 +50,7 @@ toc:
           - connecting-ibmcloud-app.md
           - connecting-curl.md
       - topicgroup:
-          label: Managing Resources
+          label: Managing resources
           topics:
           - howto-resources-scaling.md
           - howto-autoscaling.md
@@ -101,18 +101,10 @@ toc:
       - topicgroup:
           label: Cloud Databases tutorials
           topics:
-          - link:
-              label: Getting Started with Cloud Databases tutorials
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-tutorial-getting-started
-          - link:
-              label: Connect a Cloud Databases deployment to an IBM Cloud Kubernetes Service application
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-tutorial-k8s-app
-          - link:
-              label: Example context-based restrictions scenarios
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-cbr-tutorial
-          - link:
-              label: Setting up disk alerts for disk utilization
-              href: https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-disk-util-alert-tutorial
+          - include: ../cloud-databases/hello-world-tutorial.md
+          - include: ../cloud-databases/k8-tutorial.md
+          - include: ../cloud-databases/cbr-tutorial.md
+          - include: ../cloud-databases/disk-util-alerts-tutorial.md
   - navgroup:
       id: reference
       topics:
@@ -123,6 +115,8 @@ toc:
       - include: ../cloud-databases/db-version-policy.md
       - include: ../cloud-databases/learn-getting-to-production.md
       - include: ../cloud-databases/reference-responsibilities.md
+      - topic: data-portability.md
+        navtitle: Data portability
   - navgroup:
       id: help
       topics:
