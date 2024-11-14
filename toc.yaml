@@ -62,11 +62,12 @@ toc:
           - howto-plugins.md
           - howto-file-uploads.md
       - topicgroup:
-          label: Logging and monitoring
+          label: Observability
           topics:
-          - include: ../cloud-databases/reference-monitoring.md
-          - include: ../cloud-databases/reference-activity-tracker.md
-          - include: ../cloud-databases/reference-logging.md
+          - include: ../cloud-databases/cdb-logging-monitoring.md
+          - include: ../cloud-databases/logging.md
+          - include: ../cloud-databases/reference-monitoring.md 
+          - include: ../cloud-databases/at-events.md
       - topicgroup:
           label: Enhancing security
           topics:
