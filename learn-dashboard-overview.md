@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-07-23"
+lastupdated: "2024-11-15"
 
 keywords: deployment, crn, task, gui, api endpoint, elasticsearch dashboard, elasticsearch connection strings
 
@@ -34,16 +34,16 @@ The resources tile contains information and configuration options on the size an
 ### Recent tasks
 {: #dashboard-overview-tasks}
 
-Every time that you make administrative changes to your service (such as scaling, or taking a manual backup), a task starts up. The _Recent Tasks_ panel shows the task name and progress bar for any running tasks, and a list of the most recently completed tasks. Depending on how busy your deployment is, successful tasks are shown for 24 - 48 hours. Unsuccessful tasks are shown for 7 - 8 days. Tasks can also be retrieved from the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#listdeploymenttasks) and [CLI plug-in](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-tasks-list). A historical record of tasks from any time period is available through the [{{site.data.keyword.at_full}} integration](/docs/cloud-databases?topic=cloud-databases-activity-tracker).
+Every time that you make administrative changes to your service (such as scaling, or taking a manual backup), a task starts up. The _Recent Tasks_ panel shows the task name and progress bar for any running tasks, and a list of the most recently completed tasks. Depending on how busy your deployment is, successful tasks are shown for 24 - 48 hours. Unsuccessful tasks are shown for 7 - 8 days. Tasks can also be retrieved from the [Cloud Databases API](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#listdeploymenttasks) and [CLI plug-in](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployment-tasks-list). A historical record of tasks from any time period is available through the [{{site.data.keyword.atracker_full}} integration](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-at_events).
 
 ### Observability
 {: #dashboard-overview-observability}
 
 Observability: The _Observability_ tile provides access to the {{site.data.keyword.monitoringlong}}, logging, and event tracking integrations available for your deployment.
 
-- [{{site.data.keyword.at_full}}](/docs/cloud-databases?topic=cloud-databases-activity-tracker)
-- [{{site.data.keyword.la_full}}](/docs/cloud-databases?topic=cloud-databases-logging)
-- [{{site.data.keyword.monitoringfull}}](/docs/cloud-databases?topic=cloud-databases-sysdig-monitor)
+- [{{site.data.keyword.atracker_full}}](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-at_events)
+- [{{site.data.keyword.logs_full}}](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-logging)
+- [{{site.data.keyword.monitoringfull}}](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-monitoring)
 
 ### Endpoints
 {: #dashboard-overview-endpoints}

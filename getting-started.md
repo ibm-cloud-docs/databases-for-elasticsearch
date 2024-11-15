@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2024
-lastupdated: "2024-11-08"
+lastupdated: "2024-11-15"
 
 keywords: kibana, elasticsearch container, elasticsearch getting started
 
@@ -133,7 +133,7 @@ Once you have an API Key, follow [these steps](/docs/databases-for-elasticsearch
 ### The admin user
 {: #admin_pw_admin_user}
 
-When you provision a {{site.data.keyword.databases-for-mongodb}} deployment, an `admin` user is automatically created.
+When you provision a {{site.data.keyword.databases-for-elasticsearch}} deployment, an `admin` user is automatically created.
 
 Set the admin password before using it to connect.
 {: important}
