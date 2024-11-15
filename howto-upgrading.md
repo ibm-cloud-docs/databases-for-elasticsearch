@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2024
-lastupdated: "2024-08-07"
+lastupdated: "2024-11-15"
 
 keyowrds: elasticsearch, databases, upgrading, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17, indexes, reindexing, reindex
 
@@ -30,7 +30,7 @@ Upgrading is handled by [restoring a backup](/docs/cloud-databases?topic=cloud-d
 
 Before you upgrade your cluster to version 8.x, take the following actions:
 
-- Check the [deprecation logs](https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html#deprecation-logging){: .external} that are automatically enabled on {{site.data.keyword.databases-for-elasticsearch}} and sent to [{{site.data.keyword.la_full}}](/docs/cloud-databases?topic=cloud-databases-logging) to see whether you are using any deprecated features and update your code.
+- Check the [deprecation logs](https://www.elastic.co/guide/en/elasticsearch/reference/current/logging.html#deprecation-logging){: .external} that are automatically enabled on {{site.data.keyword.databases-for-elasticsearch}} and sent to [{{site.data.keyword.logs_full}}](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-logging) to see whether you are using any deprecated features and update your code.
 - Review the [breaking changes](https://www.elastic.co/guide/en/elasticsearch/reference/current/breaking-changes.html){: .external} and make any necessary changes to your code and configuration for version 8.x.
 - If you use plug-ins, make sure that each plug-in version is compatible with Elasticsearch version 8.x.
 
