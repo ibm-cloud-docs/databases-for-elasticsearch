@@ -423,13 +423,14 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         "resource_plan_id": "<SERVICE_PLAN_NAME>"
         "parameters": {
             "members_host_flavor": "<members_host_flavor_value>",
-            "service_endpoints":" <ENDPOINT>"
+            "service_endpoints":" <ENDPOINT>",
+            "version":"<VERSION>"
         }
       }'
     ```
     {: pre}
 
-    To make a Shared Compute instance, follow this example:
+    To make a Shared Compute instance, follow the following example. Please note that Premium verisons of Elasticsearch are not available on Shared Compute.  
 
     ```sh
     curl -X POST \
@@ -440,12 +441,12 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         "name": "my-instance", \
         "target": "us-south", \
         "resource_group": "<RESOURCE_GROUP_ID>", \
-        "resource_plan_id": "databases-for-elasticsearch-enterprise", \
+        "resource_plan_id": "<SERVICE_PLAN_NAME>", \
         "parameters": { 
           "members_host_flavor": "multitenant", 
           "service_endpoints": "private",
-          "memory": { "allocation_mb": 16384 }, 
-          "cpu": { "allocation_count": 4 } 
+          "members_memory_allocation_mb": 16384, 
+          "members_cpu_allocation_count": 4 
         } \
       }' \
     ```
@@ -462,7 +463,7 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         "name": "my-instance", \
         "target": "us-south", \
         "resource_group": "5g9f447903254bb58972a2f3f5a4c711", \
-        "resource_plan_id": "databases-for-elasticsearch-enterprise", \
+        "resource_plan_id": "<SERVICE_PLAN_NAME>", \
         "parameters": { 
         "members_host_flavor": "b3c.4x16.encrypted",
         "service_endpoints": "private"
@@ -481,7 +482,7 @@ Follow these steps to provision by using the [Resource Controller API](https://c
     | `NAME` [Required]{: tag-red} | The instance name can be any string and is the name that is used on the web and in the CLI to identify the new deployment. |  |
     | `SERVICE_NAME` [Required]{: tag-red} | Name or ID of the service. For {{site.data.keyword.databases-for-elasticsearch}}, use `databases-for-elasticsearch`. |  |
     | `SERVICE_PLAN_NAME` [Required]{: tag-red} | `enterprise` or `platinum` |  |
-    | `LOCATION` [Required]{: tag-red} | The location where you want to deploy. To retrieve a list of regions, use the `ibmcloud regions` command. |  |
+    | `TARGET` [Required]{: tag-red} | The region where you want to deploy. To retrieve a list of regions, use the `ibmcloud regions` command. |  |
     | `SERVICE_ENDPOINTS_TYPE` | Configure the [Service endpoints](/docs/cloud-databases?topic=cloud-databases-service-endpoints) of your deployment, either `public` or `private`. The default value is `public`. |  |
     | `RESOURCE_GROUP` | The Resource group name. The default value is `default`. | -g |
     | `--parameters` | JSON file or JSON string of parameters to create service instance | -p |

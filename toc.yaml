@@ -26,6 +26,8 @@ toc:
           label: Hosting models
           topics: 
           - include: ../cloud-databases/hosting-models.md
+          - include: ../cloud-databases/hosting-models-transition.md
+          - include: ../cloud-databases/hosting-models-faq.md
           - include: ../cloud-databases/hosting-pricing.md
       - learn-es-ml.md
       - learn-dashboard-overview.md
