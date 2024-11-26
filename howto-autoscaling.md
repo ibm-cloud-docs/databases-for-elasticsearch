@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2024
-lastupdated: "2024-11-19"
+lastupdated: "2024-11-26"
 
 keywords: elasticsearch autoscaling, databases, disk I/O, memory
 
@@ -36,7 +36,7 @@ CPU and RAM autoscaling is not supported on Isolated Compute. Disk autoscaling i
 
 The resource numbers refer to each database node in a deployment. For example, there are three members in an Elasticsearch cluster and if the deployment is scaled with 10 GB of disk and 1 GB of RAM, that means each member gets 10 GB of disk and 1 GB of RAM. The total resources added to your deployment is 30 GB of disk and 3 GB of RAM.
 
-## AutoScaling considerations
+## Autoscaling considerations
 {: #autoscaling-consider}
 
 - Scaling your deployment up might cause your Elasticsearch to restart. If your scaled deployment needs to be moved to a host with more capacity, then the databases are restarted as part of the move.
@@ -58,13 +58,7 @@ The resource numbers refer to each database node in a deployment. For example, t
 
 - Elasticsearch is designed to balance work load across a cluster and can benefit from being horizontally scaled. If you are concerned about performance, check out [Adding Elasticsearch Nodes](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling).
 
-## Configuring Autoscaling in the UI
-{: #config-autoscaling-ui}
-{: ui}
 
-The Autoscaling panel is on the _Resources_ tab of your deployment's _Manage_ page. To enable scaling, enter your parameters. Then, check the boxes to enable the parameters you are using. Be sure to click **Save changes** for your configuration to be saved and your changes to take effect.
-
-To disable autoscaling, clear the boxes for the parameters that you no longer want to use. If you clear all the boxes, autoscaling is disabled. Click **Save changes** to save the configuration.
 
 ## Configuring Autoscaling in the CLI
 {: #config-autoscaling-cli}
