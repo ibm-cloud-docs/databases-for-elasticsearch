@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-12"
+lastupdated: "2024-11-29"
 
 keywords:
 
@@ -32,6 +32,8 @@ The customer then is responsible for the use of the exported data and configurat
 - Conversion of the exported data and configuration to format required by the alternate infrastructure and adapted applications.
 
 For more information about your responsibilities when using {{site.data.keyword.databases-for-elasticsearch}}, see [Shared responsibilities for {{site.data.keyword.databases-for-elasticsearch}}](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-responsibilities-cloud-databases).
+
+
 
 ## Data export procedures
 {: #data-portability-procedures}
