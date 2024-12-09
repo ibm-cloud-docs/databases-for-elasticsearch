@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-01-16"
+lastupdated: "2024-12-09"
 
 keywords: machine learning, elasticsearch, artificial intelligence, ai, model, vector search
 
@@ -26,7 +26,7 @@ completion-time: 2hrs
 
 In this tutorial, you deploy an instance of {{site.data.keyword.databases-for-elasticsearch}} and use it to store [vector representations](https://www.elastic.co/what-is/vector-embedding){: external} of images that you are then able to search to find similarities with new, unseen, images.
 
-These vector representations, known as embeddings, are created using Machine learning algorithms. [Machine learning]((https://www.ibm.com/topics/machine-learning)){: external} is a branch of artificial intelligence (AI) and computer science that focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy. By using statistical methods, algorithms are trained to make classifications or predictions, and to uncover key insights in data mining projects.
+These vector representations, known as embeddings, are created using Machine learning algorithms. [Machine learning](https://www.ibm.com/topics/machine-learning){: external} is a branch of artificial intelligence (AI) and computer science that focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy. By using statistical methods, algorithms are trained to make classifications or predictions, and to uncover key insights in data mining projects.
 
 These learning algorithms are known as “models”. In this tutorial we make use of one such model, [OpenAI's CLIP](https://github.com/openai/CLIP){: external}. CLIP (Contrastive Language-Image Pre-Training) is a neural network trained on a variety of (image, text) pairs.
 
