@@ -39,6 +39,7 @@ toc:
       id: howto
       topics:
       - howto-provisioning.md
+      - howto-deploy-da.md
       - howto-user-management.md
       - howto-upgrading.md
       - howto-getting-connection-strings.md
