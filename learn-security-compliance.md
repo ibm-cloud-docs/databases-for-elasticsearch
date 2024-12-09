@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2023
-lastupdated: "2023-04-12"
+  years: 2018, 2024
+lastupdated: "2024-12-09"
 
 keywords: elasticsearch security compliance, soc, hipaa, gdpr, terms
 
@@ -19,11 +19,11 @@ subcollection: databases-for-elasticsearch
 
 {{site.data.keyword.databases-for-elasticsearch_full}} use the following methods to protect data in transit or in storage.
 - All {{site.data.keyword.databases-for-elasticsearch}} connections use TLS/SSL encryption for data in transit. The current supported version of this encryption is TLS 1.2.
-- Access to the Account, Management Console UI, and API is secured through [Identity and Access Management (IAM)](/docs/databases-for-elasticsearch?topic=cloud-databases-iam).
+- Access to the Account, Management Console UI, and API is secured through [Identity and Access Management (IAM)](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-iam&interface=ui).
 - Access to the database is secured through the standard access controls provided by the database. These access controls are configured to require valid database-level credentials that are obtainable only through prior access to the database or through our Management Console UI or API.
-- All {{site.data.keyword.databases-for-elasticsearch}} storage is provided on storage encrypted with LUKS using AES-256. The default keys are managed by [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about). Bring-your-own-key (BYOK) for encryption is also available through [Key Protect Integration](/docs/databases-for-elasticsearch?topic=cloud-databases-key-protect).
-- IP allowlisting - All deployments support [allowlisting IP addresses](/docs/databases-for-elasticsearch?topic=cloud-databases-allowlisting) to restrict access to the service.
-- Public and Private Networking - {{site.data.keyword.databases-for-elasticsearch}} is integrated with [Service Endpoints](/docs/databases-for-elasticsearch?topic=cloud-databases-service-endpoints). You can select whether to use connections over the public network, the {{site.data.keyword.cloud_notm}} internal network, or both.
+- All {{site.data.keyword.databases-for-elasticsearch}} storage is provided on storage encrypted with LUKS using AES-256. The default keys are managed by [{{site.data.keyword.keymanagementserviceshort}}](/docs/key-protect?topic=key-protect-about). Bring-your-own-key (BYOK) for encryption is also available through [Key Protect Integration](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-key-protect&interface=ui).
+- IP allowlisting - All deployments support [allowlisting IP addresses](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-allowlisting&interface=ui) to restrict access to the service.
+- Public and Private Networking - {{site.data.keyword.databases-for-elasticsearch}} is integrated with [Service Endpoints](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-service-endpoints&interface=ui). You can select whether to use connections over the public network, the {{site.data.keyword.cloud_notm}} internal network, or both.
 - Dedicated Cores - Allocating dedicated cores to your deployment introduces hypervisor-level isolation to your database instance, by using isolated virtual machines to ensure that your data processing remains separated from other customers. It also provides a minimum number of CPUs to your deployment. Deployments with dedicated cores in the same Resource Group and {{site.data.keyword.cloud_notm}} Region can share a virtual machine.
 
 ## Data Resilience
