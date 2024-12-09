@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-11-15"
+lastupdated: "2024-12-09"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -39,7 +39,7 @@ Private endpoints as new default
 {: release-note}
 
 New hosting models
-:  You can choose between two hosting models: Isolated Compute and Shared Compute. Isolated Compute is a secure single-tenant offering for complex, highly performant enterprise workloads. Shared Compute is a flexible multi-tenant offering for dynamic, fine-tuned, and decoupled capacity selections. For more information, see [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-types&interface=ui#hosting-models-iso-compute-ui){: external}.
+:  You can choose between two hosting models: Isolated Compute and Shared Compute. Isolated Compute is a secure single-tenant offering for complex, highly performant enterprise workloads. Shared Compute is a flexible multi-tenant offering for dynamic, fine-tuned, and decoupled capacity selections. For more information, see [Hosting models](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-hosting-models&interface=ui){: external}.
 
 ## 12 April 2024
 {: #databases-for-elasticsearch-12apr2024}
