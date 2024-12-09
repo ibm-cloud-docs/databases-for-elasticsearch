@@ -61,5 +61,5 @@ Secure data with key management system (KMS) encryption
 When using {{site.data.keyword.databases-for-elasticsearch}} after it's deployed, there are some differences regarding responsibilities and managing your deployment through projects. Use the following resources to learn more.
 
 - After you deploy Cloud automation for {{site.data.keyword.databases-for-elasticsearch}} from a project, you can use the [{{site.data.keyword.databases-for-elasticsearch}}](/docs/databases-for-elasticsearch) documentation for information about working with your new instance.
-- If you encounter any issues working with projects to validate or deploy your resources, refer to the [Troubleshooting for projects](/docs/secure-enterprise?topic=secure-enterprise-troubleshooting-for-projects) documentation.
+- If you encounter any issues working with projects to validate or deploy your resources, refer to the [Troubleshooting for projects](/docs/secure-enterprise?topic=secure-enterprise-ts-cant-validate) documentation.
 - Review the [Understanding your responsibilities when you use {{site.data.keyword.IBM_notm}} deployable architectures](/docs/secure-enterprise?topic=secure-enterprise-responsibilities-deployable-architectures) to learn about the management responsibilities and terms and conditions that you have when you use {{site.data.keyword.IBM_notm}} deployable architectures.
