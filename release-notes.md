@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2024
-lastupdated: "2024-11-15"
+lastupdated: "2024-12-12"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -39,14 +39,14 @@ Private endpoints as new default
 {: release-note}
 
 New hosting models
-:  You can choose between two hosting models: Isolated Compute and Shared Compute. Isolated Compute is a secure single-tenant offering for complex, highly performant enterprise workloads. Shared Compute is a flexible multi-tenant offering for dynamic, fine-tuned, and decoupled capacity selections. For more information, see [Hosting models](/docs/cloud-databases?topic=cloud-databases-hosting-types&interface=ui#hosting-models-iso-compute-ui){: external}.
+:  You can choose between two hosting models: Isolated Compute and Shared Compute. Isolated Compute is a secure single-tenant offering for complex, highly performant enterprise workloads. Shared Compute is a flexible multi-tenant offering for dynamic, fine-tuned, and decoupled capacity selections. For more information, see [Hosting models](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-hosting-models&interface=ui){: external}.
 
 ## 12 April 2024
 {: #databases-for-elasticsearch-12apr2024}
 {: release-note}
 
 Configuring the Index Lifecycle Management capabilities of Databases for Elasticsearch tutorial published
-:  This tutorial is designed to assist you to proactively manage your indices to make efficient use of resources, both in terms of storage and search capabilities. For more information, see [Configuring the Index Lifecycle Management capabilities of Databases for Elasticsearch](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-configuring-the-index-lifecycle-management-capabilities-of-databases-for-elasticsearch){: external}.
+:  This tutorial is designed to assist you to proactively manage your indices to make efficient use of resources, both in terms of storage and search capabilities. For more information, see [Configuring the Index Lifecycle Management capabilities of Databases for Elasticsearch](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-configuring-the-index-lifecycle-management-capabilities-of-databases-for-elasticsearch).
 
 ## 06 February 2024
 {: #databases-for-elasticsearch-06feb2024}
@@ -139,21 +139,21 @@ Setting up disk alerts for disk utilization tutorial
 {: release-note}
 
 Deploying and Connecting a {{site.data.keyword.databases-for}} Instance Tutorial
-:  This tutorial guides you through the process of deploying a {{site.data.keyword.databases-for}} instance and connecting it to a web front end by creating a webpage that allows visitors to input a word and its definition. These values are then stored in a database running on {{site.data.keyword.databases-for}}. You install the database infrastructure by using Terraform and your web application uses the popular Express framework. The application can then be run locally, or by using Docker. For more information, see [Deploying and Connecting a {{site.data.keyword.databases-for}} Instance](/docs/databases-for-elasticsearch?topic=cloud-databases-create-instance-tutorial).
+:  This tutorial guides you through the process of deploying a {{site.data.keyword.databases-for}} instance and connecting it to a web front end by creating a webpage that allows visitors to input a word and its definition. These values are then stored in a database running on {{site.data.keyword.databases-for}}. You install the database infrastructure by using Terraform and your web application uses the popular Express framework. The application can then be run locally, or by using Docker. For more information, see [Deploying and Connecting a {{site.data.keyword.databases-for}} Instance](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-create-instance-tutorial&interface=ui).
 
 ## 11 October 2022
 {: #databases-for-elasticsearch-11oct2022}
 {: release-note}
 
 Protecting {{site.data.keyword.databases-for-elasticsearch_full}} resources with context-based restrictions
-:  Context-based restrictions (CBR) give account owners and administrators the ability to define and enforce access restrictions for {{site.data.keyword.cloud}} resources based on the context of access requests. Access to {{site.data.keyword.databases-for}} resources can be controlled with CBR and identity and access management (IAM) policies. For more information, see [Protecting {{site.data.keyword.databases-for}} resources with context-based restrictions](/docs/databases-for-cassandra?topic=cloud-databases-cbr&interface=ui).
+:  Context-based restrictions (CBR) give account owners and administrators the ability to define and enforce access restrictions for {{site.data.keyword.cloud}} resources based on the context of access requests. Access to {{site.data.keyword.databases-for}} resources can be controlled with CBR and identity and access management (IAM) policies. For more information, see [Protecting {{site.data.keyword.databases-for}} resources with context-based restrictions](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-cbr&interface=ui).
 
 ## 25 March 2022
 {: #databases-for-elasticsearch-25mar2022}
 {: release-note}
 
 {{site.data.keyword.databases-for-elasticsearch_full}} Security Goals Updated
-:  Available security and compliance goals updated. See updated goals [here](/docs/databases-for-mongodb?topic=databases-for-elasticsearch-manage-security-compliance).
+:  Available security and compliance goals updated. See updated goals [here](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-manage-security-compliance&interface=ui).
 
 ## 08 December 2020
 {: #databases-for-elasticsearch-08dec2020}

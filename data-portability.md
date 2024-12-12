@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-11-29"
+lastupdated: "2024-12-09"
 
 keywords:
 
@@ -33,6 +33,9 @@ The customer then is responsible for the use of the exported data and configurat
 
 For more information about your responsibilities when using {{site.data.keyword.databases-for-elasticsearch}}, see [Shared responsibilities for {{site.data.keyword.databases-for-elasticsearch}}](https://cloud.ibm.com/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-responsibilities-cloud-databases).
 
+
+If you're deploying {{site.data.keyword.databases-for-elasticsearch}} by using the Cloud automation for {{site.data.keyword.databases-for-elasticsearch}} deployable architecture, you can additionally refer to [Understanding your responsibilities when you use IBM deployable architectures](/docs/secure-enterprise?topic=secure-enterprise-responsibilities-deployable-architectures).
+{: note}
 
 
 ## Data export procedures

@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2024
-lastupdated: "2024-11-15"
+lastupdated: "2024-12-12"
 
 keywords: kibana, elasticsearch container, elasticsearch getting started
 
@@ -96,7 +96,7 @@ For security reasons, the API key is only available to be copied or downloaded a
 {: ui}
 
 1. Log in to the {{site.data.keyword.cloud_notm}} console.
-1. Click the [{{site.data.keyword.databases-for-elasticsearch}} service](https://cloud.ibm.com/catalog/databases-for-elasticsearch){: external} in the **catalog**.
+1. Click the [{{site.data.keyword.databases-for-elasticsearch}} service](https://cloud.ibm.com/databases/databases-for-elasticsearch/create){: external} in the **catalog**.
 
 1. Follow [these steps](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-provisioning&interface=ui) to provision a {{site.data.keyword.databases-for-elasticsearch}} instance.
 

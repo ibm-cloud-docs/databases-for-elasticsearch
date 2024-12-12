@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2024
-lastupdated: "2024-06-18"
+lastupdated: "2024-12-12"
 
 keywords: elasticsearch pricing, backup pricing, elasticsearch enterprise, elasticsearch standard
 
@@ -35,7 +35,7 @@ Our Platinum Plan also includes enhanced security features, like document- and [
 {: #pricing-calc}
 
 Prices for the different plans reflect different levels of available functionality. Templates are provided for ease of use and provide balanced resource allocations appropriate for general-purpose workloads. The **Custom** tab can be used to configure Disk, RAM, and vCPU, as wanted.
-For pricing estimation, use the **Add to Estimate** button on the [{{site.data.keyword.databases-for-elasticsearch}} catalog page](https://cloud.ibm.com/catalog/databases-for-elasticsearch). Input your total consumption across three data members into the calculator. For example, 5 GB of disk and 1 GB of RAM across three data members would be priced at 15 GB of disk and 3 GB of RAM.
+For pricing estimation, use the **Add to Estimate** button on the [{{site.data.keyword.databases-for-elasticsearch}} catalog page](https://cloud.ibm.com/databases/databases-for-elasticsearch/create). Input your total consumption across three data members into the calculator. For example, 5 GB of disk and 1 GB of RAM across three data members would be priced at 15 GB of disk and 3 GB of RAM.
 
 ## Dedicated Cores Pricing
 {: #pricing-cores}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2024
-lastupdated: "2024-04-11"
+lastupdated: "2024-12-09"
 
 keywords: machine learning, elasticsearch, artificial intelligence, ai, model, vector search
 
@@ -25,7 +25,7 @@ completion-time: 2hrs
 
 In this tutorial you provision an instance of {{site.data.keyword.databases-for-elasticsearch}} Platinum and apply the ELSER model to a body of text and see how it enhances the quality of search results.
 
-This is the second of three tutorials exploring the capabilities of Elasticsearch around [Machine learning]((https://www.ibm.com/topics/machine-learning)){: external}. Machine Learning is a branch of artificial intelligence (AI) and computer science that focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy. By using statistical methods, algorithms are trained to make classifications or predictions, and to uncover key insights in data mining projects.
+This is the second of three tutorials exploring the capabilities of Elasticsearch around [Machine learning](https://www.ibm.com/topics/machine-learning){: external}. Machine Learning is a branch of artificial intelligence (AI) and computer science that focuses on the use of data and algorithms to imitate the way that humans learn, gradually improving its accuracy. By using statistical methods, algorithms are trained to make classifications or predictions, and to uncover key insights in data mining projects.
 
 See the other tutorials in this Elasticsearch machine learning series:
 - [Use Elasticsearch vector search capabilities](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-vector-search-elasticsearch)
