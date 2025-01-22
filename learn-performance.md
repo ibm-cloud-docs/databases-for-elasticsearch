@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2022
-lastupdated: "2022-06-28"
+  years: 2019, 2025
+lastupdated: "2025-01-22"
 
 keywords: elasticsearch, databases, shards, JVM heap, monitoring, elasticsearch disk I/O
 
@@ -32,7 +32,7 @@ subcollection: databases-for-elasticsearch
 
 When you add an index to Elasticsearch, it splits the data into shards and spreads those shards across the nodes in the cluster. The sharded configuration allows for Elasticsearch to run concurrent operations on your data across all the nodes. To gain extra concurrency and performance, [add nodes to Elasticsearch cluster](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling). When you add nodes, your shards are automatically rebalanced across the cluster to spread resource usage across all the nodes and increasing performance.
 
-## Memory Management
+## Memory management
 {: #mem-manage}
 
 Elasticsearch memory is divided into to categories, JVM heap size and system memory. It uses heap for internal caching, and the rest of the system memory for the operating system, file system caches, and garbage collection. The more memory that is allocated to the heap, the less is allocated to the rest of the system.
