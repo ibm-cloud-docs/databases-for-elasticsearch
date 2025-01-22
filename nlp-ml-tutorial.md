@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-12-09"
+  years: 2023, 2025
+lastupdated: "2025-01-22"
 
 keywords: machine learning, elasticsearch, artificial intelligence, ai, model
 
@@ -139,7 +139,7 @@ Run the `upload.sh` script, which does the following:
 
 - Uploads the pre-formatted data to Elasticsearch and passes it through the pipeline for analysis.
 
-Since this is a demo, we connect nonsecurely to your database. For production, use [secure connections](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-best-practices).
+Since this is a demo, we connect nonsecurely to your database. For production, use [secure connections](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-troubleshoot-connect).
 {: .important}
 
 To run the script, make sure you are in the `scripts` directory and use the command:
