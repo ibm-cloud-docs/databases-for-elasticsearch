@@ -29,6 +29,7 @@ Provision from the console by specifying the following parameters.
 
 - **Service name** - The name can be any string and is the name that is used on the web and in the CLI to identify the new deployment.
 - **Resource group** - If you are organizing your services into [resource groups](/docs/account?topic=account-account_setup), specify the resource group in this field. Otherwise, you can leave it at default. For more information, see [Managing resource groups](/docs/account?topic=account-rgs).
+- **Location** - The deployment's public cloud region or Satellite location.
 
 ### Hosting model
 {: #hosting_model}
