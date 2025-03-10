@@ -23,21 +23,12 @@ Provision a {{site.data.keyword.databases-for-elasticsearch_full}} deployment th
 
 Provision from the console by specifying the following parameters.
 
-### Platform
-{: #platform}
-{: ui}
-
-The platform that your database will be deployed on. Choose your required network and compute environment.
-
-- **{{site.data.keyword.cloud}}** - Deploy a database on the {{site.data.keyword.cloud_notm}} platform, in a region of your choice.
-
 ### Service details
 {: #service_details}
 {: ui}
 
 - **Service name** - The name can be any string and is the name that is used on the web and in the CLI to identify the new deployment.
 - **Resource group** - If you are organizing your services into [resource groups](/docs/account?topic=account-account_setup), specify the resource group in this field. Otherwise, you can leave it at default. For more information, see [Managing resource groups](/docs/account?topic=account-rgs).
-- **Location** - The deployment's public cloud region or Satellite location.
 
 ### Hosting model
 {: #hosting_model}
