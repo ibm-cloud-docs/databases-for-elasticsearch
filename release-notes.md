@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-12-12"
+  years: 2018, 2025
+lastupdated: "2025-03-19"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 10 March 2025
+{: #databases-for-elasticsearch-10mar2025}
+{: release-note}
+
+{{site.data.keyword.databases-for-elasticsearch}} {{site.data.keyword.satelliteshort}} plan is deprecated
+:   {{site.data.keyword.satellitelong}} is now deprecated due to changes in market expectations, client fit, and lack of adoption. As of March 10 2025, all documentation relating to Satellite has been removed, as well as the ability to select {{site.data.keyword.databases-for-elasticsearch}} {{site.data.keyword.satelliteshort}} plan in the Cloud console.
 
 ## 15 November 2024
 {: #databases-for-elasticsearch-15nov2024}
