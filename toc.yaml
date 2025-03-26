@@ -31,7 +31,6 @@ toc:
           - include: ../cloud-databases/hosting-pricing.md
       - learn-es-ml.md
       - learn-dashboard-overview.md
-      - learn-high-availability.md
       - learn-performance.md
       - learn-pricing.md
       - release-notes.md
@@ -119,6 +118,7 @@ toc:
       - include: ../cloud-databases/db-version-policy.md
       - include: ../cloud-databases/learn-getting-to-production.md
       - include: ../cloud-databases/reference-responsibilities.md
+      - learn-high-availability.md
       - topic: data-portability.md
         navtitle: Data portability
   - navgroup:
