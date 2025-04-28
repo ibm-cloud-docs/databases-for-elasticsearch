@@ -76,13 +76,13 @@ toc:
           - include: ../cloud-databases/manage-scc.md
           - learn-security-compliance.md
           - include: ../cloud-databases/howto-cbr.md
+          - include: ../cloud-databases/cbr-tutorial.md
           - include: ../cloud-databases/howto-allowlists.md
           - include: ../cloud-databases/reference-service-endpoints.md
           - include: ../cloud-databases/howto-vpes.md
           - include: ../cloud-databases/reference-iam.md
           - include: ../cloud-databases/reference-key-protect.md
           - include: ../cloud-databases/reference-hpcs.md
-          - include: ../cloud-databases/cbr-tutorial.md
           - include: ../cloud-databases/howto-deprovisioning.md
   - navgroup:
       id: tutorial
