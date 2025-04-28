@@ -118,7 +118,8 @@ toc:
       - include: ../cloud-databases/db-version-policy.md
       - include: ../cloud-databases/learn-getting-to-production.md
       - include: ../cloud-databases/reference-responsibilities.md
-      - learn-high-availability.md
+      - topic: ha-dr.md
+        navtitle: Understanding high availability and disaster recovery
       - topic: data-portability.md
         navtitle: Data portability
   - navgroup:
