@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-08-05"
+  years: 2024, 2025
+lastupdated: "2025-05-13"
 
 keywords: machine learning, elasticsearch, artificial intelligence, ai, model, vector search, bot
 
@@ -24,7 +24,7 @@ completion-time: 45mins
 ## Objectives
 {: #build-es-chatbot-objectives}
 
-This tutorial shows how an IBM watsonx.ai model can be enhanced with knowledge gleaned by spidering content from your website to produce a chatbot that is capable of answering questions related to your knowledge base. This technique is known as Retrieval-Augmented Generation (RAG). Pre-trained large language models have good _general knowledge_, being trained with a large corpus of public content, but they lack _domain-specifc knowledge_ about your business, such as:
+This tutorial shows how an IBM watsonx.ai model can be enhanced with knowledge gleaned by spidering content from your website to produce a chatbot that is capable of answering questions related to your knowledge base. This technique is known as Retrieval-Augmented Generation (RAG). Pre-trained large language models have good _general knowledge_, being trained with a large corpus of public content, but they lack _domain-specific knowledge_ about your business, such as:
 
 - "Can I get a refund if the box is opened?"
 - "What is the waiting list for treatment?"
