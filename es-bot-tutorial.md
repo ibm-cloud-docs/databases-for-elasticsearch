@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2024
-lastupdated: "2024-08-05"
+  years: 2024, 2025
+lastupdated: "2025-05-13"
 
 keywords: machine learning, elasticsearch, artificial intelligence, ai, model, vector search, bot
 
@@ -24,7 +24,7 @@ completion-time: 45mins
 ## Objectives
 {: #build-es-chatbot-objectives}
 
-This tutorial shows how an IBM watsonx.ai model can be enhanced with knowledge gleaned by spidering content from your website to produce a chatbot that is capable of answering questions related to your knowledge base. This technique is known as Retrieval-Augmented Generation (RAG). Pre-trained large language models have good _general knowledge_, being trained with a large corpus of public content, but they lack _domain-specifc knowledge_ about your business, such as:
+This tutorial shows how an IBM watsonx.ai model can be enhanced with knowledge gleaned by spidering content from your website to produce a chatbot that is capable of answering questions related to your knowledge base. This technique is known as Retrieval-Augmented Generation (RAG). Pre-trained large language models have good _general knowledge_, being trained with a large corpus of public content, but they lack _domain-specific knowledge_ about your business, such as:
 
 - "Can I get a refund if the box is opened?"
 - "What is the waiting list for treatment?"
@@ -35,7 +35,7 @@ We can build a chatbot using the following {{site.data.keyword.cloud_notm}} serv
 - {{site.data.keyword.databases-for-elasticsearch}} that runs the [ELSER](https://www.elastic.co/guide/en/machine-learning/current/ml-nlp-elser.html){: external} Natural Languge Processing (NLP) model to enhance the incoming data before being stored in an Elasticsearch index. An _ingest pipeline_ is used to allow data to feed into ELSER before the enhanced data is stored.
 - Elastic Enterprise Search is deployed on {{site.data.keyword.codeenginefull}} and is used to spider your website to collect domain-specific data and feed it into Elasticsearch's ingest pipeline.
 - Kibana is deployed on {{site.data.keyword.codeenginefull_notm}} and becomes the web UI for Elasticsearch and Elastic Enterprise Search. It is used to specify and to set off the web crawler.
-- IBM wastonx.ai runs a pre-trained machine learning model to answer chatbot requests. The model's API is used to produce chatbot responses given the user prompt and the contextual data collected by running the prompt against the spidered and enhanced data in Elasticsearch.
+- IBM watsonx.ai runs a pre-trained machine learning model to answer chatbot requests. The model's API is used to produce chatbot responses given the user prompt and the contextual data collected by running the prompt against the spidered and enhanced data in Elasticsearch.
 - A simple Python app is deployed on {{site.data.keyword.codeenginefull_notm}} to provide a chatbot web interface. It collects prompts from users, queries the Elasticsearch data and then uses IBM watsonx.ai to produce the response.
 
 {{site.data.keyword.databases-for-elasticsearch}}, {{site.data.keyword.codeenginefull_notm}}, and IBM watsonx are paid products so this tutorial incurs charges.

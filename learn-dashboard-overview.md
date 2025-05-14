@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-11-15"
+  years: 2018, 2025
+lastupdated: "2025-05-14"
 
 keywords: deployment, crn, task, gui, api endpoint, elasticsearch dashboard, elasticsearch connection strings
 
@@ -48,7 +48,7 @@ Observability: The _Observability_ tile provides access to the {{site.data.keywo
 ### Endpoints
 {: #dashboard-overview-endpoints}
 
-The _Endpoints_ pane within the _Overview_ pane contains connection strings for your deployment. Each tab contains connection information that is tailored to the type of connection or the protocol that uses it. Basic information includes things like _hostname_ and _port_, the TLS self-signed certificate, TLS/SSL parameters, and the default database of your deployment.
+The _Endpoints_ pane within the _Overview_ pane contains connection strings for your deployment. Each tab contains connection information that is tailored to the type of connection or the protocol that uses it. Basic information includes things like _hostname_ and _port_, the TLS service proprietary certificate, TLS/SSL parameters, and the default database of your deployment.
 
 Reference tables for the different connection types are available on the [Getting credentials and connection strings](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-connection-strings) page.
 
