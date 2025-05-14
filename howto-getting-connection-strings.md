@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-08-07"
+  years: 2018, 2025
+lastupdated: "2025-05-14"
 
 keywords: elasticsearch connection strings, databases, elasticsearch service credentials
 
@@ -134,7 +134,7 @@ The "https" section of a credential created on the *Service credentials* page co
 | `Authentication` | `Method` | How authentication takes place; "direct" authentication is handled by the driver. |
 | `Hosts` | `0...` | A hostname and port to connect to. |
 | `Composed` | `0...` | A URI combining Scheme, Authentication, Host, and Path. |
-| `Certificate` | `Name` | The allocated name for the self-signed certificate for database deployment. |
+| `Certificate` | `Name` | The allocated name for the service proprietary certificate for database deployment. |
 | `Certificate` | Base64 | A base64 encoded version of the certificate. |
 {: caption="Https/URI connection information" caption-side="top"}
 
@@ -151,8 +151,8 @@ The "CLI" section of a credential created on the *Service credentials* page cont
 | `Composed` | | A formatted command to establish a connection to your deployment. The command combines the `Bin` executable, `Environment` variable settings, and uses `Arguments` as command-line parameters. |
 | `Environment` | | A list of key/values you set as environment variables. |
 | `Arguments` | 0... | The information that is passed as arguments to the command shown in the Bin field. |
-| `Certificate` | Base64 | A self-signed certificate that is used to confirm that an application is connecting to the appropriate server. It is base64 encoded. |
-| `Certificate` | Name | The allocated name for the self-signed certificate. |
+| `Certificate` | Base64 | A service proprietary certificate that is used to confirm that an application is connecting to the appropriate server. It is base64 encoded. |
+| `Certificate` | Name | The allocated name for the service proprietary certificate. |
 | `Type` | | The type of package that uses this connection information; in this case `cli`. |
 {: caption="curl connection information" caption-side="top"}
 
