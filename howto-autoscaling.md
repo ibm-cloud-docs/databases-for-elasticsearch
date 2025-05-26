@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2020, 2024
-lastupdated: "2024-11-26"
+  years: 2020, 2025
+lastupdated: "2025-05-21"
 
 keywords: elasticsearch autoscaling, databases, disk I/O, memory
 
@@ -58,7 +58,13 @@ The resource numbers refer to each database node in a deployment. For example, t
 
 - Elasticsearch is designed to balance work load across a cluster and can benefit from being horizontally scaled. If you are concerned about performance, check out [Adding Elasticsearch Nodes](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling).
 
+## Configuring Autoscaling in the UI
+{: #config-autoscaling-ui}
+{: ui}
 
+The Autoscaling panel is on the _Resources_ tab of your deployment's _Manage_ page. To enable scaling, enter your parameters. Then, check the boxes to enable the parameters you are using. Be sure to click **Save changes** for your configuration to be saved and your changes to take effect.
+
+To disable autoscaling, clear the boxes for the parameters that you no longer want to use. If you clear all the boxes, autoscaling is disabled. Click **Save changes** to save the configuration.
 
 ## Configuring Autoscaling in the CLI
 {: #config-autoscaling-cli}
