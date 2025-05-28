@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2020, 2025
-lastupdated: "2025-05-21"
+lastupdated: "2025-05-28"
 
 keywords: elasticsearch autoscaling, databases, disk I/O, memory
 
@@ -24,8 +24,6 @@ General Autoscaling parameters:
 - By how much to scale, as a percentage of the resources per member.
 - How often to scale, measured either in seconds, minutes, or hours.
 - A hard limit on scaling, your deployment stops scaling at the limit.
-
-![Example Autoscaling panel](images/autoscaling-update.png){: caption="Example Autoscaling panel" caption-side="bottom"}
 
 Memory - Memory autoscaling is based on Disk I/O utilization to provide more memory for disk caching as your read/write load increases. The benefit is that additional memory might alleviate pressure on disk I/O by supporting more caching. Autoscaling configurations based on memory usage are currently not available.
 
