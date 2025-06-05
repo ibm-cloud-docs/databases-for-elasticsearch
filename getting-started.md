@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2024
-lastupdated: "2024-12-12"
+  years: 2018, 2025
+lastupdated: "2025-06-05"
 
 keywords: kibana, elasticsearch container, elasticsearch getting started
 
@@ -277,4 +277,4 @@ Looking for more tools on managing your databases and data? You can connect to y
 
 If you plan to use {{site.data.keyword.databases-for-elasticsearch}} for your applications, check out [Connecting an external application](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-external-app) and [Connecting an IBM Cloud application](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-ibmcloud-app).
 
-To ensure the stability of your applications and your database, check out [High-availability](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-high-availability) and [Performance](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-performance).
+To ensure the stability of your applications and your database, check out [High-availability](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-ha-dr) and [Performance](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-performance).
