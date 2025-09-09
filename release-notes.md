@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-03-19"
+lastupdated: "2025-09-09"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -19,6 +19,16 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 9 September 2025
+{: #databases-for-elasticsearch-9sept2025}
+{: release-note}
+
+Introducing {{site.data.keyword.databases-for-elasticsearch}} v8.19 (Preview)
+:  {{site.data.keyword.databases-for-elasticsearch}} v8.19 is now available in Preview. This release includes performance improvements, new features, and bug fixes. Version 8.19 also introduces mark token pruning for sparse vectors (GA) and cross-cluster querying in Elasticsearch SQL (GA), enabling more efficient search and enhanced analytics across clusters. For more information, see the [Elasticsearch 8.19 release notes](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/release-notes-8.19.0.html) and [Highlights](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/release-highlights.html#mark_token_pruning_for_sparse_vector_as_ga).
+ 
+Introducing Databases for Elasticsearch v9.1 (Preview)
+:  {{site.data.keyword.databases-for-elasticsearch}} v9.1 is now available in Preview. This release builds on the 8.x series with new capabilities, optimizations, and fixes, bringing more scalability, and advanced search enhancements. For more information, see the [Elasticsearch 9.1 release notes](https://www.elastic.co/docs/release-notes/elasticsearch#elasticsearch-9.1.0-release-notes).
 
 ## 10 March 2025
 {: #databases-for-elasticsearch-10mar2025}
