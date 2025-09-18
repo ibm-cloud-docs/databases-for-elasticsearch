@@ -96,10 +96,10 @@ Upgrade to the latest version of Elasticsearch available to {{site.data.keyword.
 
 Upgrading is handled by [restoring a backup](/docs/cloud-databases?topic=cloud-databases-dashboard-backups) of your data into a new deployment. Restoring from a backup has various advantages:
 
-  - The original database stays running and production work can be uninterrupted.
-  - You can test the new database out of production and act on any application incompatibilities.
-  - The entire process can be rerun at any point.
-  - A fresh restoration reduces the likelihood that unneeded artifacts of the older version of the database are carried over to the new database.
+- The original database stays running and production work can be uninterrupted.
+- You can test the new database out of production and act on any application incompatibilities.
+- The entire process can be rerun at any point.
+- A fresh restoration reduces the likelihood that unneeded artifacts of the older version of the database are carried over to the new database.
 
 ## Upgrade paths
 {: #upgrading-paths}
