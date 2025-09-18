@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-08-16"
+  years: 2019, 2025
+lastupdated: "2025-09-18"
 
 keywords: elasticsearch nodes, elasticsearch data members, databases, scaling, elasticsearch horizontal scaling
 
@@ -11,7 +11,6 @@ subcollection: databases-for-elasticsearch
 ---
 
 {{site.data.keyword.attribute-definition-list}}
-
 
 # Adding Elasticsearch members
 {: #horizontal-scaling}
