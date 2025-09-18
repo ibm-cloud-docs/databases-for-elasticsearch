@@ -13,15 +13,15 @@ subcollection: databases-for-elasticsearch
 {{site.data.keyword.attribute-definition-list}}
 
 
-# Adding Elasticsearch nodes
+# Adding Elasticsearch members
 {: #horizontal-scaling}
 
-It is possible to scale your {{site.data.keyword.databases-for-elasticsearch_full}} deployment horizontally by adding more Elasticsearch nodes (also referred to as members). If your deployment starts to strain or slow down, adding nodes increases capacity and reliability. When a node is added, Elasticsearch automatically balances the workload across all the nodes in your deployment. 
+It is possible to scale your {{site.data.keyword.databases-for-elasticsearch_full}} deployment horizontally by adding more Elasticsearch members (also referred to as nodes). If your deployment starts to strain or slow down, adding members increases capacity and reliability. When a member is added, Elasticsearch automatically balances the workload across all the members in your deployment. 
 
-It is not possible to decrease the amount of Elasticsearch nodes. As an alternative, you can use [Backups and restore](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview#dashboard-overview-backups-and-restore) to a new instance with fewer nodes.
+It is not possible to decrease the amount of Elasticsearch members. As an alternative, you can use [Backups and restore](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-dashboard-overview#dashboard-overview-backups-and-restore) to a new instance with fewer members.
 {: .note}
 
-Nodes that you add to your deployment are added with the amount of disk, memory, and CPU as the other nodes currently in your deployment. A visual representation of your data members and their resource allocation is available on the _Resources_ tab of your deployment's _Manage_ page. However, horizontal scaling is only available by using the API.
+members that you add to your deployment are added with the amount of disk, memory, and CPU as the other members currently in your deployment. A visual representation of your data members and their resource allocation is available on the _Resources_ tab of your deployment's _Manage_ page. However, horizontal scaling is only available via the UI and the API.
 
 ![The Scale Resources Pane in _Resources_](images/settings-scaling.png){: caption="The Scale Resources Pane" caption-side="bottom"}
 
@@ -30,7 +30,7 @@ A default {{site.data.keyword.databases-for-elasticsearch_full}} deployment runs
 Billing is based on the _total_ amount of resources that are allocated to the service. 
 {: .tip}
 
-## Adding nodes through the API
+## Adding members through the API
 {: #adding-nodes-api}
 
 The _Foundation endpoint_ that is shown on the _Overview_ panel of your service provides the base URL to access this deployment through the API.
@@ -41,7 +41,7 @@ To view the current and scalable resources on a deployment, use the [/deployment
 curl -X GET -H "Authorization: Bearer $APIKEY" `https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups'
 ```
 
-To add nodes, use the [/deployments/{id}/groups/{group_id}](https://cloud.ibm.com/apidocs/cloud-databases-api#set-scaling-values-on-a-specified-group) API endpoint, sending a PATCH request with the number of nodes you want in your deployment. The example request increases the number of nodes from the default of 3 to 5.
+To add members, use the [/deployments/{id}/groups/{group_id}](https://cloud.ibm.com/apidocs/cloud-databases-api#set-scaling-values-on-a-specified-group) API endpoint, sending a PATCH request with the number of members you want in your deployment. The example request increases the number of members from the default of 3 to 5.
 
 ```sh
 curl -X PATCH 'https://api.{region}.databases.cloud.ibm.com/v4/ibm/deployments/{id}/groups/member' \
