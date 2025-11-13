@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2025
-lastupdated: "2025-09-18"
+lastupdated: "2025-11-13"
 
 keyowrds: elasticsearch, databases, upgrading, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17, indexes, reindexing, reindex
 
@@ -106,9 +106,9 @@ Upgrading is handled by [restoring a backup](/docs/cloud-databases?topic=cloud-d
 
 | Current version     | Major version upgrade path |
 |---------------------|----------------------------|
-| Elasticsearch 8.7   | Elasticsearch 8.15         |
-| Elasticsearch 8.10  | Elasticsearch 8.15         |
-| Elasticsearch 8.12  | Elasticsearch 8.15         |
+| Elasticsearch 8.7   | Elasticsearch 8.19         |
+| Elasticsearch 8.10  | Elasticsearch 8.19        |
+| Elasticsearch 8.12  | Elasticsearch 8.19         |
 | Elasticsearch 8.15  | Elasticsearch 8.19         |
 | Elasticsearch 8.19  | Elasticsearch 9.1          |
 {: caption="Major version upgrade paths" caption-side="top"}

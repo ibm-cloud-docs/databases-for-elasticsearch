@@ -24,7 +24,7 @@ toc:
       - learn-es-plat.md
       - topicgroup:
           label: Hosting models
-          topics: 
+          topics:
           - include: ../cloud-databases/hosting-models.md
           - include: ../cloud-databases/hosting-models-transition.md
           - include: ../cloud-databases/hosting-models-faq.md
@@ -68,7 +68,7 @@ toc:
           topics:
           - include: ../cloud-databases/cdb-logging-monitoring.md
           - include: ../cloud-databases/logging.md
-          - include: ../cloud-databases/reference-monitoring.md 
+          - include: ../cloud-databases/reference-monitoring.md
           - include: ../cloud-databases/at-events.md
       - topicgroup:
           label: Enhancing security
