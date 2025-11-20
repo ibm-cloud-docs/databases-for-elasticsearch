@@ -26,24 +26,24 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 
 {{site.data.keyword.databases-for-elasticsearch}} version policy changes starting version v8.19
 :  To align with the Elasticsearch vendor lifecylce policy, {{site.data.keyword.databases-for-elasticsearch}} (an {{site.data.keyword.cloud}} managed service) is updating its version lifecycle policies starting with Elasticsearch v8.19.
-- Five weeks advance notification of version deprecation will be provided for a minor and major version.
-- {{site.data.keyword.databases-for-elasticsearch}} will support only three versions, the latest, the latest -1 and the latest -2, outside of the few weeks period (minimum 2 weeks) during which you should upgrade from the version being deprecated to the new version.
-- Instances that are using a deprecated version will be ‘automatically force upgraded’ to the next major version after the EOL date. However, no SLA will be provided for this upgrade method.
+  - Five weeks advance notification of version deprecation will be provided for a minor and major version.
+  - {{site.data.keyword.databases-for-elasticsearch}} will support only three versions, the latest, the latest -1 and the latest -2, outside of the few weeks period (minimum 2 weeks) during which you should upgrade from the version being deprecated to the new version.
+  - Instances that are using a deprecated version will be ‘automatically force upgraded’ to the next major version after the EOL date. However, no SLA will be provided for this upgrade method.
 
-We do not recommend that you wait until the end-of-life date for the following reasons:
-{: note}
+  We do not recommend that you wait until the end-of-life date for the following reasons:
+  {: note}
+  
+  - We provide no SLAs for this type of forced upgrade.
+  - You may experience some data loss.
+  - Your application may experience downtime.
+  - Your application may stop working if it has any incompatibilities with the new database version.
+  - You cannot control the timing of when this upgrade will happen for your deployment.
+  - There is no rollback process for this forced upgrade.
+  - For more information on upcoming version EOL, see the {{site.data.keyword.databases-for}} version policy page.
 
-- We provide no SLAs for this type of forced upgrade.
-- You may experience some data loss.
-- Your application may experience downtime.
-- Your application may stop working if it has any incompatibilities with the new database version.
-- You cannot control the timing of when this upgrade will happen for your deployment.
-- There is no rollback process for this forced upgrade.
-- For more information on upcoming version EOL, see the {{site.data.keyword.databases-for}} version policy page.
+  Customer impact: Frequent version upgrades are expected with a shorter 5-weeks timeline to upgrade. Automatic forced upgrade will occur on EOL date.
 
-Customer impact: Frequent version upgrades are expected with a shorter 5-weeks timeline to upgrade. Automatic forced upgrade will occur on EOL date.
-
-Customer action needed: You are expected to perform major version upgrade using backup and restore before EOL date to align with the updated policy and to be on a supported version of the service.
+  Customer action needed: You are expected to perform major version upgrade using backup and restore before EOL date to align with the updated policy and to be on a supported version of the service.
 
 ## 11 November 2025
 {: #databases-for-elasticsearch-11nov2025}
