@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2025
-lastupdated: "2025-09-09"
+lastupdated: "2025-11-20"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -20,6 +20,41 @@ content-type: release-note
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
 
+## 20 November 2025
+{: #databases-for-elasticsearch-20nov2025}
+{: release-note}
+
+{{site.data.keyword.databases-for-elasticsearch}} version policy changes starting version v8.19
+:  To align with the Elasticsearch vendor lifecylce policy, {{site.data.keyword.databases-for-elasticsearch}} (an {{site.data.keyword.cloud}} managed service) is updating its version lifecycle policies starting with Elasticsearch v8.19.
+- Five weeks advance notification of version deprecation will be provided for a minor and major version.
+- {{site.data.keyword.databases-for-elasticsearch}} will support only three versions, the latest, the latest -1 and the latest -2, outside of the few weeks period (minimum 2 weeks) during which you should upgrade from the version being deprecated to the new version.
+- Instances that are using a deprecated version will be ‘automatically force upgraded’ to the next major version after the EOL date. However, no SLA will be provided for this upgrade method.
+
+We do not recommend that you wait until the end-of-life date for the following reasons:
+{: note}
+
+- We provide no SLAs for this type of forced upgrade.
+- You may experience some data loss.
+- Your application may experience downtime.
+- Your application may stop working if it has any incompatibilities with the new database version.
+- You cannot control the timing of when this upgrade will happen for your deployment.
+- There is no rollback process for this forced upgrade.
+- For more information on upcoming version EOL, see the {{site.data.keyword.databases-for}} version policy page.
+
+Customer impact: Frequent version upgrades are expected with a shorter 5-weeks timeline to upgrade. Automatic forced upgrade will occur on EOL date.
+
+Customer action needed: You are expected to perform major version upgrade using backup and restore before EOL date to align with the updated policy and to be on a supported version of the service.
+
+## 11 November 2025
+{: #databases-for-elasticsearch-11nov2025}
+{: release-note}
+
+Introducing {{site.data.keyword.databases-for-elasticsearch}} v8.19 
+:  {{site.data.keyword.databases-for-elasticsearch}} v8.19 is now GA. This release includes performance improvements, new features, and bug fixes. Version 8.19 also introduces mark token pruning for sparse vectors (GA) and cross-cluster querying in Elasticsearch SQL (GA), enabling more efficient search and enhanced analytics across clusters. For more information, see the [Elasticsearch 8.19 release notes](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/release-notes-8.19.0.html) and [Highlights](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/release-highlights.html#mark_token_pruning_for_sparse_vector_as_ga).
+
+Introducing {{site.data.keyword.databases-for-elasticsearch}} v9.1
+:  {{site.data.keyword.databases-for-elasticsearch}} v9.1 is now GA. This release builds on the 8.x series with new capabilities, optimizations, and fixes, bringing more scalability, and advanced search enhancements. For more information, see the [Elasticsearch 9.1 release notes](https://www.elastic.co/docs/release-notes/elasticsearch#elasticsearch-9.1.0-release-notes).
+
 ## 9 September 2025
 {: #databases-for-elasticsearch-9sept2025}
 {: release-note}
@@ -27,7 +62,7 @@ Use these release notes to learn about the latest updates to {{site.data.keyword
 Introducing {{site.data.keyword.databases-for-elasticsearch}} v8.19 (Preview)
 :  {{site.data.keyword.databases-for-elasticsearch}} v8.19 is now available in Preview. This release includes performance improvements, new features, and bug fixes. Version 8.19 also introduces mark token pruning for sparse vectors (GA) and cross-cluster querying in Elasticsearch SQL (GA), enabling more efficient search and enhanced analytics across clusters. For more information, see the [Elasticsearch 8.19 release notes](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/release-notes-8.19.0.html) and [Highlights](https://www.elastic.co/guide/en/elasticsearch/reference/8.19/release-highlights.html#mark_token_pruning_for_sparse_vector_as_ga).
  
-Introducing Databases for Elasticsearch v9.1 (Preview)
+Introducing {{site.data.keyword.databases-for-elasticsearch}} v9.1 (Preview)
 :  {{site.data.keyword.databases-for-elasticsearch}} v9.1 is now available in Preview. This release builds on the 8.x series with new capabilities, optimizations, and fixes, bringing more scalability, and advanced search enhancements. For more information, see the [Elasticsearch 9.1 release notes](https://www.elastic.co/docs/release-notes/elasticsearch#elasticsearch-9.1.0-release-notes).
 
 ## 10 March 2025
@@ -35,14 +70,14 @@ Introducing Databases for Elasticsearch v9.1 (Preview)
 {: release-note}
 
 {{site.data.keyword.databases-for-elasticsearch}} {{site.data.keyword.satelliteshort}} plan is deprecated
-:   {{site.data.keyword.satellitelong}} is now deprecated due to changes in market expectations, client fit, and lack of adoption. As of March 10 2025, all documentation relating to Satellite has been removed, as well as the ability to select {{site.data.keyword.databases-for-elasticsearch}} {{site.data.keyword.satelliteshort}} plan in the Cloud console.
+:  {{site.data.keyword.satellitelong}} is now deprecated due to changes in market expectations, client fit, and lack of adoption. As of March 10 2025, all documentation relating to Satellite has been removed, as well as the ability to select {{site.data.keyword.databases-for-elasticsearch}} {{site.data.keyword.satelliteshort}} plan in the Cloud console.
 
 ## 15 November 2024
 {: #databases-for-elasticsearch-15nov2024}
 {: release-note}
 
 {{site.data.keyword.databases-for}} logs and events are now available on {{site.data.keyword.logs_full}}
-: {{site.data.keyword.databases-for}} has onboarded {{site.data.keyword.logs_full_notm}}, a scalable logging service that persists logs and provides users with capabilities for querying, tailing, and visualizing logs. Customers are expected to use {{site.data.keyword.logs_full_notm}} to review their database logs and events starting **November 15, 2024**. For more information, see [Set up logging and monitoring](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started-cdb-logging-monitoring) and [About IBM Cloud Logs](/docs/cloud-logs?topic=cloud-logs-about-cl).
+:  {{site.data.keyword.databases-for}} has onboarded {{site.data.keyword.logs_full_notm}}, a scalable logging service that persists logs and provides users with capabilities for querying, tailing, and visualizing logs. Customers are expected to use {{site.data.keyword.logs_full_notm}} to review their database logs and events starting **November 15, 2024**. For more information, see [Set up logging and monitoring](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-getting-started-cdb-logging-monitoring) and [About IBM Cloud Logs](/docs/cloud-logs?topic=cloud-logs-about-cl).
 
 ## 16 September 2024
 {: #databases-for-elasticsearch-16sept2024}
