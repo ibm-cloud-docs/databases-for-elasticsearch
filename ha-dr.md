@@ -2,7 +2,7 @@
 
 copyright:
   years: 2025
-lastupdated: "2025-11-13"
+lastupdated: "2025-11-18"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, elasticsearch
 
@@ -54,7 +54,7 @@ Review the Elasticsearch documentation on [replication techniques](https://www.e
 ### Disaster recovery features
 {: #dr-features}
 
-![Architecture](/images/Elasticsearch_disaster-recovery.svg){: caption="Elasticsearch architecture" caption-side="bottom"}
+![Architecture](/images/Elasticsearch_disaster_recovery.svg){: caption="Elasticsearch architecture" caption-side="bottom"}
 
 {{site.data.keyword.databases-for-elasticsearch}} supports the following disaster recovery features:
 
