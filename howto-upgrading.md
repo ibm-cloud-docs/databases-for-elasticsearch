@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2019, 2025
-lastupdated: "2025-11-13"
+  years: 2019, 2026
+lastupdated: "2026-01-07"
 
 keyowrds: elasticsearch, databases, upgrading, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17, indexes, reindexing, reindex
 
@@ -39,7 +39,7 @@ In-place upgrade without backup is not recommended. It may result in data loss i
 - Ensure that your deployment is in a healthy state.
 - Ensure at least 4 GB of free disk space.
 - Only upgrade to the next major version, instead of specifying the version of your choice.
-- Each major version contains some features that may not be backward-compatible with previous versions. Review the [release notes](https://www.mongodb.com/docs/manual/release-notes/) from the database vendor to see any changes that may affect your applications.
+- Each major version contains some features that may not be backward-compatible with previous versions. Review the [release notes](https://www.elastic.co/docs/release-notes/elasticsearch){: external} from the database vendor to see any changes that may affect your applications.
 - Downgrading a deployment to a previous version is not supported.
 - In-place upgrade cannot be cancelled once started.
 
@@ -92,7 +92,7 @@ Prepare to run on, and then migrate to, the latest version before the EOL date. 
 Rolling back versions is not supported.
 {: .note}
 
-Upgrade to the latest version of Elasticsearch available to {{site.data.keyword.databases-for-elasticsearch}}. Find the latest version from the catalog page, from the {{site.data.keyword.databases-for}} CLI plug-in command [`ibmcloud cdb deployables-show`](https://cloud.ibm.com/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployables-show), or from the [{{site.data.keyword.databases-for}} API /deployables endpoint(https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#listdeployables)].
+Upgrade to the latest version of Elasticsearch available to {{site.data.keyword.databases-for-elasticsearch}}. Find the latest version from the catalog page, from the {{site.data.keyword.databases-for}} CLI plug-in command [`ibmcloud cdb deployables-show`](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference#deployables-show), or from the [{{site.data.keyword.databases-for}} API deployables endpoint](/apidocs/cloud-databases-api/cloud-databases-api-v5#listdeployables)].
 
 Upgrading is handled by [restoring a backup](/docs/cloud-databases?topic=cloud-databases-dashboard-backups) of your data into a new deployment. Restoring from a backup has various advantages:
 
@@ -117,6 +117,6 @@ Upgrading is handled by [restoring a backup](/docs/cloud-databases?topic=cloud-d
 {: #upgrading-ui}
 {: ui}
 
-For new hosting models (isolated compute and shared compute), upgrading to a new major version is available via [CLI](docs/databases-for-mongodb?topic=databases-for-mongodb-upgrading&interface=cli) and [API](/docs/databases-for-mongodb?topic=databases-for-mongodb-upgrading&interface=api)
+For new hosting models (isolated compute and shared compute), upgrading to a new major version is available by using the [CLI](/docs/cloud-databases?topic=cloud-databases-cdb-reference) and [API](https://cloud.ibm.com/apidocs/cloud-databases-api){: external}.
 
 You can upgrade to a new version by [restoring a backup](/docs/cloud-databases?topic=cloud-databases-dashboard-backups&interface=ui#restore-backup) from the *Backups and restore* page of your deployment on the IBM Cloud console. Click **Restore backup** on a backup to open a page in a new tab where you can change some options for the new deployment. One of them is the database version, which is auto-populated with the versions available for you to upgrade to. Select a version and click **Restore backup** to start the provision and restore process.
