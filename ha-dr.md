@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-14"
+lastupdated: "2026-01-20"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, elasticsearch
 
@@ -26,9 +26,9 @@ For more information, see [Service Level Agreement (SLA)](https://www.ibm.com/su
 ## High availability architecture
 {: #ha-architecture}
 
-![Architecture](/images/Elasticsearch_high_availability.svg){: caption="Elasticsearch architecture" caption-side="bottom"}
+![Architecture](/images/Elasticsearch_high_availability.svg){: caption="Elasticsearch high availability architecture" caption-side="bottom"}
 
-{{site.data.keyword.databases-for-elasticsearch}} provides replication, failover, and high-availability features to protect your databases and data from infrastructure maintenance, upgrades, and some failures. Deployments contain a cluster with three data members. Elasticsearch uses indexes to store data and each index has a primary shard and a replica shard. Elasticsearch utilizes a data replication model based on the primary-backup model. The primary shard serves as the main entry point for indexing operations, while the other copies are known as replica shards. Asynchronous replication is employed to keep the replica shards up to date. Elasticsearch ensures cluster state stability and facilitates failover. In the event that the master node becomes unavailable, a new master is elected and the replica shards on the new master get promoted to master. The leader and replica shards are geographically distributed across different zones within the cluster to mitigate the risk of simultaneous failures.
+{{site.data.keyword.databases-for-elasticsearch}} provides replication, failover, and high-availability features to protect your databases and data from infrastructure maintenance, upgrades, and some failures. Deployments contain a cluster with three data members. Elasticsearch uses indexes to store data and each index has a primary shard and a replica shard. Elasticsearch uses a data replication model based on the primary-backup model. The primary shard serves as the main entry point for indexing operations, while the other copies are known as replica shards. Asynchronous replication is employed to keep the replica shards up to date. Elasticsearch ensures cluster state stability and facilitates failover. If the master node becomes unavailable, a new master is elected and the replica shards on the new master get promoted to master. The leader and replica shards are geographically distributed across different zones within the cluster to mitigate the risk of simultaneous failures.
 
 You can extend high availability further by adding more replicas to the indexes however, this comes with additional storage costs that should be taken into consideration.
 
@@ -54,7 +54,7 @@ Review the Elasticsearch documentation on [replication techniques](https://www.e
 ### Disaster recovery features
 {: #dr-features}
 
-![Architecture](/images/Elasticsearch_disaster_recovery.svg){: caption="Elasticsearch architecture" caption-side="bottom"}
+![Architecture](/images/Elasticsearch_disaster_recovery.svg){: caption="Elasticsearch disaster recovery architecture" caption-side="bottom"}
 
 {{site.data.keyword.databases-for-elasticsearch}} supports the following disaster recovery features:
 
