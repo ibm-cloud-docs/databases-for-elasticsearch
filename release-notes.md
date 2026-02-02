@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-11-20"
+  years: 2018, 2026
+lastupdated: "2026-02-02"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -212,39 +212,39 @@ Protecting {{site.data.keyword.databases-for-elasticsearch_full}} resources with
 {: release-note}
 
 {{site.data.keyword.databases-for-elasticsearch_full}} 6 End of Life
-:  On April 29, 2021, all {{site.data.keyword.databases-for-elasticsearch_full}} instances on version 6.x that are still active will be disabled. See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/databases-for-elasticsearch-6-end-of-life).
+:  On April 29, 2021, all {{site.data.keyword.databases-for-elasticsearch_full}} instances on version 6.x that are still active will be disabled.
 
 ## 09 November 2020
 {: #databases-for-elasticsearch-09nov2020}
 {: release-note}
 
 {{site.data.keyword.databases-for-elasticsearch_full}} v7.9 is now available
-:  We are pleased to announce the release of version 7.9 on {{site.data.keyword.databases-for-elasticsearch_full}}. See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/databases-for-elasticsearch-v7-9-is-now-available).
+:  We are pleased to announce the release of version 7.9 on {{site.data.keyword.databases-for-elasticsearch_full}}.
 
 ## 13 April 2020
 {: #databases-for-elasticsearch-13apr2020}
 {: release-note}
 
 {{site.data.keyword.databases-for-elasticsearch_full}} autoscaling
-:  We are excited to announce that autoscaling of your deployments based on disk capacity and disk I/O utilization is now available for {{site.data.keyword.databases-for-elasticsearch_full}} via the UI, API, and CLI. See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/ibm-cloud-databases-portfolio-introduces-autoscaling).
+:  We are excited to announce that autoscaling of your deployments based on disk capacity and disk I/O utilization is now available for {{site.data.keyword.databases-for-elasticsearch_full}} via the UI, API, and CLI.
 
 ## 20 February 2020
 {: #databases-for-elasticsearch-20feb2020}
 {: release-note}
 
 {{site.data.keyword.databases-for-elasticsearch_full}} customers are now able to scale their {{site.data.keyword.databases-for-elasticsearch_full}} instances up to 20 members.
-:  This new feature allows Elasticsearch instances to now grow to 2.2 TB RAM, 80 TB of Disk, and 560 vCPUs. For more information, see [Databases for Elasticsearch Introduces Horizontal Scaling](https://www.ibm.com/cloud/blog/announcements/databases-for-elasticsearch-introduces-horizontal-scaling).
+:  This new feature allows Elasticsearch instances to now grow to 2.2 TB RAM, 80 TB of Disk, and 560 vCPUs.
 
 ## 6 August 2019
 {: #databases-for-elasticsearch-06aug2019}
 {: release-note}
 
 New Regions Available for IBM Cloud Database Services
-:  {{site.data.keyword.databases-for-elasticsearch_full}} is now available to be deployed in Seoul; South Korea; and Chennai, India. See blog post announcement [here](https://www.ibm.com/cloud/blog/announcements/new-regions-available-for-ibm-cloud-database-services).
+:  {{site.data.keyword.databases-for-elasticsearch_full}} is now available to be deployed in Seoul; South Korea; and Chennai, India.
 
 ## 19 December 2018
 {: #databases-for-elasticsearch-19dec2018}
 {: release-note}
 
 General Availability of {{site.data.keyword.databases-for-elasticsearch_full}}
-:  {{site.data.keyword.databases-for-elasticsearch_full}} added to the [{{site.data.keyword.databases-for}}](https://www.ibm.com/cloud/databases) family. See blog post announcement [here](https://www.ibm.com/cloud/blog/ibm-cloud-databases-for-etcd-elasticsearch-and-messages-for-rabbitmq-are-now-generally-available).
+:  {{site.data.keyword.databases-for-elasticsearch_full}} added to the [{{site.data.keyword.databases-for}}](https://www.ibm.com/cloud/databases) family. 
