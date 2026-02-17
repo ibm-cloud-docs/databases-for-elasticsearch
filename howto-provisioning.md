@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-10-02"
+  years: 2019, 2026
+lastupdated: "2026-02-17"
 
 keywords: provision cloud databases, terraform, provisioning parameters, cli, resource controller api, provision elasticsearch
 
@@ -100,7 +100,7 @@ Before provisioning, follow the instructions provided in the documentation to in
     For example, to provision a {{site.data.keyword.databases-for-elasticsearch}} Shared Compute hosting model instance, use a command like:
 
     ```sh
-    ibmcloud resource service-instance-create test-database databases-for-elasticsearch enterprise us-south -p '{"members_host_flavor": "multitenant", "members_memory_allocation_mb": "12288"}' --service-endpoints="private"
+    ibmcloud resource service-instance-create test-database databases-for-elasticsearch enterprise us-south -p '{ "backup_id": "<BACKUP_CRN>", "version": "<VERSION_STRING>", "members_memory_allocation_mb": "4096" }' --service-endpoints="private"
     ```
     {: pre}
 
@@ -547,6 +547,9 @@ resource "ibm_database" "<your_database>" {
   service_endpoints = "private"
   tags              = ["tag1", "tag2"]
   adminpassword     = "password12"
+  # Pin the database version at provision time.
+  # If omitted, the newest available major/minor is selected (per service behavior).
+  version = "<VERSION_STRING>"                  # e.g. "8.19" for Elasticsearch preferred major
   group {
     group_id = "member"
     host_flavor {
@@ -596,6 +599,9 @@ resource "ibm_database" "<your_database>" {
   service_endpoints = "private"
   tags              = ["tag1", "tag2"]
   adminpassword     = "password12"
+  # Pin the database version at provision time.
+  # If omitted, the newest available major/minor is selected (per service behavior).
+  version = "<VERSION_STRING>"                  # e.g. "8.19" for Elasticsearch preferred major
   group {
     group_id = "member"
     host_flavor {
