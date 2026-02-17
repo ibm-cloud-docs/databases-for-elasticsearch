@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2023, 2024
-lastupdated: "2024-05-23"
+  years: 2023, 2026
+lastupdated: "2026-02-17"
 
 keywords: elasticsearch enterprise, elasticsearch platinum, elasticsearch plans, features
 
@@ -35,7 +35,7 @@ All {{site.data.keyword.databases-for-elasticsearch}} clusters on any plan can m
 ## {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan
 {: #es-platinum-plan}
 
-{{site.data.keyword.databases-for-elasticsearch}} Platinum Plan offers all the features of the Enterprise Plan, plus a richer array of functionality around integrations (connectors and web crawlers), security features (logging and access control), document-level security, and machine learning capabilities (inference APIs, anomaly detection, data frame analysis, and inference and model management), among others.
+{{site.data.keyword.databases-for-elasticsearch}} Platinum Plan offers all the features of the Enterprise Plan, plus a richer array of functionality around integrations (connectors and web crawlers), security features (logging and access control), document-level security, and machine learning capabilities (anomaly detection, data frame analysis, and inference and model management), among others.
 
 Access to Platinum features on a fully managed IBM deployment is primarily determined by the accessibility of a feature through the Elasticsearch API and the need for modifications to configuration files. Configuration files update is not currently supported for fully managed IBM deployments.
 
@@ -111,7 +111,7 @@ For questions regarding specific feature support, submit a [support ticket](http
 | Data Frame Analysis - Regression                                                                                              |           | x            |
 | Data Frame Analysis - Classification                                                                                          |           | x            |
 | Data Frame Analysis - Feature Importance                                                                                      |           | x            |
-| Model Management - Inference                                                                                                  |           | x            |
+| Model Management - Inference                                                                                                  |           |              |
 | Model Management - Third party models support                                                                                 |           | x            |
 | Model Management - Kibana space model separation                                                                              |           | x            |
 | Model Management - Elastic Learned Sparse Encoder for Semantic Search                                                         |           | x            |
