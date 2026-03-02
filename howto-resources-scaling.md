@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-12-09"
+  years: 2019, 2026
+lastupdated: "2026-03-02"
 
 keywords: elasticsearch dedicated cores, databases, manual scaling, disk I/O, memory, CPU, elasticsearch resources, elasticsearch scaling
 
@@ -393,6 +393,8 @@ output "ICD Elasticsearch database connection string" {
 }
 ```
 {: codeblock}
+
+Alternatively, you can use pre-built, open-source and enterprise-ready [Terraform IBM Modules (TIM)](https://cloud.ibm.com/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim) for [{{site.data.keyword.databases-for-elasticsearch}}](https://registry.terraform.io/modules/terraform-ibm-modules/icd-elasticsearch/ibm/latest){: external} that supports auto-scaling feature.
 
 
 ## Switching to and Scaling Hosting Models in Terraform
