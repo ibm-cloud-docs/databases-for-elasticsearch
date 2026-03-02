@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-02-17"
+lastupdated: "2026-03-02"
 
 keywords: provision cloud databases, terraform, provisioning parameters, cli, resource controller api, provision elasticsearch
 
@@ -15,7 +15,7 @@ subcollection: databases-for-elasticsearch
 # Provisioning
 {: #provisioning}
 
-Provision a {{site.data.keyword.databases-for-elasticsearch_full}} deployment through the [catalog](https://cloud.ibm.com/databases/databases-for-elasticsearch/create){: external}, the [{{site.data.keyword.databases-for}} CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference){: external}, the [{{site.data.keyword.databases-for}} API](https://cloud.ibm.com/apidocs/cloud-databases-api){: external}, or through [Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database){: external}.
+Provision a {{site.data.keyword.databases-for-elasticsearch_full}} deployment through the [catalog](https://cloud.ibm.com/databases/databases-for-elasticsearch/create){: external}, the [{{site.data.keyword.databases-for}} CLI plug-in](/docs/databases-cli-plugin?topic=databases-cli-plugin-cdb-reference){: external}, the [{{site.data.keyword.databases-for}} API](/apidocs/cloud-databases-api){: external}, through [Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database){: external}, or through pre-built, open-source, and enterprise-ready [Terraform IBM Modules (TIM)](https://registry.terraform.io/modules/terraform-ibm-modules/icd-elasticsearch/ibm/latest){: external}.
 
 ## Provisioning through the {{site.data.keyword.cloud_notm}} console
 {: #catalog}
@@ -422,7 +422,7 @@ Follow these steps to provision by using the [Resource Controller API](https://c
     ```
     {: pre}
 
-    To make a Shared Compute instance, follow the following example. Please note that Premium verisons of Elasticsearch are not available on Shared Compute.  
+    To make a Shared Compute instance, follow the following example. Please note that Premium verisons of Elasticsearch are not available on Shared Compute.
 
     ```sh
     curl -X POST \
@@ -434,11 +434,11 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         "target": "us-south", \
         "resource_group": "<RESOURCE_GROUP_ID>", \
         "resource_plan_id": "<SERVICE_PLAN_NAME>", \
-        "parameters": { 
-          "members_host_flavor": "multitenant", 
+        "parameters": {
+          "members_host_flavor": "multitenant",
           "service_endpoints": "private",
-          "members_memory_allocation_mb": 16384, 
-          "members_cpu_allocation_count": 4 
+          "members_memory_allocation_mb": 16384,
+          "members_cpu_allocation_count": 4
         } \
       }' \
     ```
@@ -456,7 +456,7 @@ Follow these steps to provision by using the [Resource Controller API](https://c
         "target": "us-south", \
         "resource_group": "5g9f447903254bb58972a2f3f5a4c711", \
         "resource_plan_id": "<SERVICE_PLAN_NAME>", \
-        "parameters": { 
+        "parameters": {
         "members_host_flavor": "b3c.4x16.encrypted",
         "service_endpoints": "private"
         } \
@@ -524,7 +524,7 @@ In the `--parameters` object you can provide additional information to create yo
 {: #provisioning-terraform}
 {: terraform}
 
-Use Terraform to manage your infrastructure through the [`ibm_database` Resource for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database) supports provisioning {{site.data.keyword.databases-for}} deployments.
+Use Terraform to manage your infrastructure through the [`ibm_database` Resource for Terraform](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database) supports provisioning {{site.data.keyword.databases-for}} deployments. Alternatively, you can use Terraform IBM Modules to manage your infrastructure through [Terraform IBM Modules for {{site.data.keyword.databases-for-elasticsearch}}](https://registry.terraform.io/modules/terraform-ibm-modules/icd-elasticsearch/ibm/latest){: external}.
 
 Select the [hosting model](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=terraform) you want your database to be provisioned on. You can change this later.
 

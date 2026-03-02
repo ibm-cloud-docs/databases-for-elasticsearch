@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2024
-lastupdated: "2024-12-09"
+  years: 2019, 2026
+lastupdated: "2026-03-02"
 
 keywords: elasticsearch dedicated cores, databases, manual scaling, disk I/O, memory, CPU, elasticsearch resources, elasticsearch scaling
 
@@ -93,39 +93,39 @@ The default of 0 cores uses compute resources on multi-tenanted hosts. This styl
 {: #review-resources-ui}
 {: ui}
 
-In the **Resources** tab, you find the **Hosting model** and **Resource allocations** tiles. These tiles reflect your current resources and hosting model. Selecting *Configure* allows you to adjust the settings in each tile. 
+In the **Resources** tab, you find the **Hosting model** and **Resource allocations** tiles. These tiles reflect your current resources and hosting model. Selecting *Configure* allows you to adjust the settings in each tile.
 
 ## Scaling in the UI
 {: #resources-scaling-ui}
 {: ui}
 
-In the **Resources** tab of the UI, select *Configure* on the **Resource allocations** tile. This opens up a panel where you can adjust your resources. 
+In the **Resources** tab of the UI, select *Configure* on the **Resource allocations** tile. This opens up a panel where you can adjust your resources.
 
-If your database is on the Isolated Compute hosting model, you then see a "Host sizes" table, where you can select the vCPU and RAM configuration per member for your database. 
+If your database is on the Isolated Compute hosting model, you then see a "Host sizes" table, where you can select the vCPU and RAM configuration per member for your database.
 
-If you are on the Shared Compute hosting model, you see the Small configuration, providing 0.5 vCPU and 4 GB RAM per member; the Small Custom option; or Custom configuration. Small Custom indicates that your database was scaled with the CLI, API, or Terraform, which provides more fine-grained resource scaling, along with an option for automatically allocated vCPU pro-rated against RAM value. On the UI, you can scale to Small and Custom, but are not able to scale to the fine-grained values provided by the CLI, API, or Terraform. With Custom, drag the slider or adjust the value in the input box to select your database's per member vCPU and RAM values. 
+If you are on the Shared Compute hosting model, you see the Small configuration, providing 0.5 vCPU and 4 GB RAM per member; the Small Custom option; or Custom configuration. Small Custom indicates that your database was scaled with the CLI, API, or Terraform, which provides more fine-grained resource scaling, along with an option for automatically allocated vCPU pro-rated against RAM value. On the UI, you can scale to Small and Custom, but are not able to scale to the fine-grained values provided by the CLI, API, or Terraform. With Custom, drag the slider or adjust the value in the input box to select your database's per member vCPU and RAM values.
 
-The "Disk (GB/member)" slider is your disk selection per member. Drag the slider or adjust the number in the input box to change the number of GB disk. Note that Disk is tied to IOPS at 1 GB = 10 IOPS. 
+The "Disk (GB/member)" slider is your disk selection per member. Drag the slider or adjust the number in the input box to change the number of GB disk. Note that Disk is tied to IOPS at 1 GB = 10 IOPS.
 
-Members is the number of members of your database. For Elasticsearch, members are set to 3. 
+Members is the number of members of your database. For Elasticsearch, members are set to 3.
 
-Review your total estimated cost in the calculator on the bottom. Note that if you have grandfathered costs, also known as legacy pricing structure, scaling your database instance will remove some or all of your legacy pricing. For more information on grandfathering and when it ends, see the [Hosting models transition timeline](/docs/cloud-databases?topic=cloud-databases-hosting-model-transition&interface=ui#hosting-model-transition-timeline-may25). 
+Review your total estimated cost in the calculator on the bottom. Note that if you have grandfathered costs, also known as legacy pricing structure, scaling your database instance will remove some or all of your legacy pricing. For more information on grandfathering and when it ends, see the [Hosting models transition timeline](/docs/cloud-databases?topic=cloud-databases-hosting-model-transition&interface=ui#hosting-model-transition-timeline-may25).
 
-After you are done, click *Apply changes"* to trigger the scaling operation. 
+After you are done, click *Apply changes"* to trigger the scaling operation.
 
 ## Switch to and between hosting models in the UI
 {: #resources-switching-ui}
 {: ui}
 
-In the **Resources** tab of the UI, select *Configure* on the Hosting model tile. This opens up a panel where you can adjust your hosting model selection. 
+In the **Resources** tab of the UI, select *Configure* on the Hosting model tile. This opens up a panel where you can adjust your hosting model selection.
 
-The first option available is "Select your hosting model". Here, you can switch to a different hosting model. 
+The first option available is "Select your hosting model". Here, you can switch to a different hosting model.
 
-Below, you see the options to also adjust the resources of the new hosting model that you selected. Follow the instructions in the previous section, "Scaling in the UI" to adjust your resources. 
+Below, you see the options to also adjust the resources of the new hosting model that you selected. Follow the instructions in the previous section, "Scaling in the UI" to adjust your resources.
 
-Click *Apply changes* to trigger this scale operation. 
+Click *Apply changes* to trigger this scale operation.
 
-## Review current resources and hosting model 
+## Review current resources and hosting model
 {: #review-resources-cli}
 {: cli}
 
@@ -159,11 +159,11 @@ Count   3
 |   Minimum                 9
 |   Step Size               3
 |   Adjustable              true
-|                           
-+   HostFlavor    
+|
++   HostFlavor
 |   ID            multitenant
-|   Name          
-|   HostingSize   
+|   Name
+|   HostingSize
 |
 +   Disk
 |   Allocation              15360mb
@@ -217,7 +217,7 @@ ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --memory 24576 --cp
 
 If your database is an [Isolated Compute](/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-iso-compute-ui) instance, memory and CPU are adjusted together by selecting the Isolated Compute size (see all sizes in Table 1). Disk is scaled separately. If your database is not on Isolated  Compute, this command  will also move a database from a different hosting model to the Isolated Compute hosting model.
 
-Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both an Isolated size selection and separate CPU and RAM allocation selections.  
+Note that since the host flavor selection includes CPU and RAM sizes (`b3c.4x16.encrypted` is 4 CPU and 16 RAM), this request does not accept both an Isolated size selection and separate CPU and RAM allocation selections.
 
 ```sh
 ibmcloud cdb deployment-groups-set <deploymentid> <groupid> [--disk <val>] [--hostflavor <hostflavor>]
@@ -233,9 +233,9 @@ ibmcloud cdb deployment-groups-set crn:abc ... xyz:: member  --hostflavor b3c.8x
 
 ### The `hostflavor` parameter
 {: #host-flavor-parameter-cli}
-{: cli}   
+{: cli}
 
-The `hostflavor` parameter defines your compute sizing. To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration. 
+The `hostflavor` parameter defines your compute sizing. To provision a Shared Compute instance, specify `multitenant`. To provision an Isolated Compute instance, input the appropriate value for your desired CPU and RAM configuration.
 
 | **Host flavor** | **hostflavor value** |
 |:-------------------------:|:---------------------:|
@@ -254,7 +254,7 @@ The `hostflavor` parameter defines your compute sizing. To provision a Shared Co
 
 The _Foundation Endpoint_ that is shown on the _Overview_ panel of your service provides the base URL to access this deployment through the API. Use it with the `/groups` endpoint if you need to manage or automate scaling programmatically.
 
-To view the current and scalable resources on a deployment, use the [/deployments/{id}/groups](https://cloud.ibm.com/apidocs/cloud-databases-api#get-currently-available-scaling-groups-from-a-depl) endpoint. Note that this command will also reveal if your database is a [Shared Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-shared-compute-ui) or [Isolated Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-iso-compute-ui) instance through the `host_flavor` attribute. If the `host_flavor` is null, it is on an old style hosting model.  
+To view the current and scalable resources on a deployment, use the [/deployments/{id}/groups](https://cloud.ibm.com/apidocs/cloud-databases-api#get-currently-available-scaling-groups-from-a-depl) endpoint. Note that this command will also reveal if your database is a [Shared Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-shared-compute-ui) or [Isolated Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-iso-compute-ui) instance through the `host_flavor` attribute. If the `host_flavor` is null, it is on an old style hosting model.
 
 ```sh
 curl -X GET -H "Authorization: Bearer $APIKEY" 'https://api.{region}.databases.cloud.ibm.com/v5/ibm/deployments/{id}/groups'
@@ -342,7 +342,7 @@ The `host_flavor` parameter defines your compute sizing. To provision a Shared C
 {: #review-resources-terraform}
 {: terraform}
 
-Review resource allocations to your database by checking your terraform scripts for `cpu { allocation_count = }`, `memory {allocation_mb = }`, and `disk { allocation_mb = }`. Review the `host_flavor` setting to determine if your database is a [Shared Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-shared-compute-ui) or [Isolated Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-iso-compute-ui) style hosting model. If `host_flavor` does not exist, your database is on an old style hosting model. 
+Review resource allocations to your database by checking your terraform scripts for `cpu { allocation_count = }`, `memory {allocation_mb = }`, and `disk { allocation_mb = }`. Review the `host_flavor` setting to determine if your database is a [Shared Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-shared-compute-ui) or [Isolated Compute](https://cloud.ibm.com/docs/cloud-databases?topic=cloud-databases-hosting-models&interface=ui#hosting-models-iso-compute-ui) style hosting model. If `host_flavor` does not exist, your database is on an old style hosting model.
 
 ## Scaling with Terraform
 {: #resources-scaling-terraform}
@@ -351,7 +351,7 @@ Review resource allocations to your database by checking your terraform scripts 
 Before executing a Terraform script on an existing instance, use the `terraform plan` command to compare the current infrastructure state with the desired state defined in your Terraform files. Any alteration to the `resource_group_id`, `service plan`, `version`, `key_protect_instance`, `key_protect_key`, `backup_encryption_key_crn` attributes recreates your instance. For a list of current argument references with the `Forces new resource` specification, see the [ibm_database Terraform Registry](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database){: external}.
 {: important}
 
-Scale your instance by adjusting your Terraform script for the resource you're interested in. In the following example, `cpu`, `memory`, and `disk` allocations are specified. Note that if you have a host flavor selected (Isolated Compute or Shared Compute Multitenant), keep the host flavor selection in your script. 
+Scale your instance by adjusting your Terraform script for the resource you're interested in. In the following example, `cpu`, `memory`, and `disk` allocations are specified. Note that if you have a host flavor selected (Isolated Compute or Shared Compute Multitenant), keep the host flavor selection in your script.
 
 To implement your change, run `terraform apply`.
 
@@ -393,6 +393,8 @@ output "ICD Elasticsearch database connection string" {
 }
 ```
 {: codeblock}
+
+Alternatively, you can use pre-built, open-source, and enterprise-ready [Terraform IBM Modules (TIM)](/docs/ibm-cloud-provider-for-terraform?topic=ibm-cloud-provider-for-terraform-about-tim) for [{{site.data.keyword.databases-for-elasticsearch}}](https://registry.terraform.io/modules/terraform-ibm-modules/icd-elasticsearch/ibm/latest){: external} that support the auto-scaling feature.
 
 
 ## Switching to and Scaling Hosting Models in Terraform
