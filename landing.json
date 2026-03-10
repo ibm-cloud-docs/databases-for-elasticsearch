@@ -4,8 +4,8 @@
   "introduction": "Elasticsearch combines the power of a full text search engine with the indexing strengths of a JSON document database.",
   "product_page": "https://www.ibm.com/products/databases-for-elasticsearch",
   "console_page": "/databases/databases-for-elasticsearch/create",
-    "section_topics": {
-      "links": [
+  "section_topics": {
+    "links": [
       {
         "title": "Deploy Kibana using Code Engine and connect to your Databases for Elasticsearch instance",
         "href": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-kibana-code-engine-icd-elasticsearch"
@@ -51,10 +51,10 @@
     }
   ],
   "section_devtools": {
-    "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction", 
-    "cli": "/docs/databases-cli-plugin", 
-    "terraform": "https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/database"
-    },
+    "api": "/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction",
+    "cli": "/docs/databases-cli-plugin",
+    "terraform": "https://registry.terraform.io/modules/terraform-ibm-modules/icd-elasticsearch/ibm/latest"
+  },
   "section_updates": {
     "view_more": "/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elasticsearch-relnotes",
     "tiles": [
