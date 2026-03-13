@@ -19,7 +19,7 @@ toc:
           href: https://cloud.ibm.com/docs/cloud-databases
       - link:
           label: What is Elasticsearch?
-          href: https://www.ibm.com/cloud/learn/elasticsearch
+          href: https://www.ibm.com/products/databases-for-elasticsearch
       - getting-started.md
       - learn-es-plat.md
       - topicgroup:
@@ -137,4 +137,3 @@ toc:
           - include: ../cloud-databases/resource-config-faq.md
           - include: ../cloud-databases/availability-zones-faq.md
           - include: ../cloud-databases/cert-faq.md
-
