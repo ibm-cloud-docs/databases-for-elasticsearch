@@ -2,7 +2,7 @@
 
 copyright:
   years: 2026
-lastupdated: "2026-01-20"
+lastupdated: "2026-03-19"
 
 keywords: HA, DR, high availability, disaster recovery, disaster recovery plan, disaster event, elasticsearch
 
@@ -107,7 +107,6 @@ When restoring a database from backups or using point-in-time restore, a new dat
 A recovered database may also need the same customer-created dependencies of the disaster database. Ensure that these and other services exist in the recovered region:
 
 - {{site.data.keyword.keymanagementservicefull}}
-- {{site.data.keyword.hscrypto}}
 
 Remember that deleting a database also deletes its associated backups. However, deleted databases may be recoverable within a limited timeframe. For more information, see the [Backup FAQ documentation](/docs/cloud-databases?topic=cloud-databases-faq-backups) for specific details on database recovery procedures.
 
