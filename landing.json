@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "title": "IBM Cloud® Databases for Elasticsearch",
+  "title": "IBM Cloud® Databases for Elasticsearch Gen 1",
   "introduction": "Elasticsearch combines the power of a full text search engine with the indexing strengths of a JSON document database.",
   "product_page": "https://www.ibm.com/products/databases-for-elasticsearch",
   "console_page": "/databases/databases-for-elasticsearch/create",
