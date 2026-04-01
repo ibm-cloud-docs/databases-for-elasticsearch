@@ -9,7 +9,7 @@ toc:
     console-page: /catalog/databases-for-elasticsearch
     product-page: https://www.ibm.com/cloud/databases-for-elasticsearch
     path: databases-for-elasticsearch
-    label: Databases For Elasticsearch
+    label: Databases for Elasticsearch Gen 1
   entries:
   - navgroup:
       id: learn
