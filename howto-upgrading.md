@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2026
-lastupdated: "2026-01-07"
+lastupdated: "2026-04-14"
 
 keyowrds: elasticsearch, databases, upgrading, 7.x, reindex, indices, update user passwords, retrieve user passwords, elasticsearch 7.17, indexes, reindexing, reindex
 
@@ -61,6 +61,24 @@ In-place upgrade without backup is not recommended. It may result in data loss i
 Once the in-place upgrade starts, it cannot be stopped or rolled back. So, in the unlikely event of an error, your database deployment could become unrecoverable. Therefore, create a backup that you can then use to restore to a new deployment. If you select *In-place major version upgrade with backup*, the backup that is created can be used to restore in a new deployment.
 
 The *expiration for starting upgrade* allows you to configure a 'timeout' period that the upgrade job must start within before it is automatically cancelled. In addition, test the upgrade in staging upfront to ensure that the upgrade completes within your desired time window. If, for example, you want to complete the upgrade within 1 hour, and you tested the upgrade and know that it takes 30 minutes, then your upgrade job must start within 30 minutes of you confirming that you want to upgrade. Therefore, set the expiration to 30 minutes, so that if it doesn't start within that time, it won't overrun your window.
+
+### Upgrading through the API
+{: #upgrading-in-place-api}
+{: api}
+
+!! NEHA, pls. add new content here for API. !!
+
+### Upgrading through the CLI
+{: #upgrading-in-place-cli}
+{: cli}
+
+!! NEHA, pls. add new content here for CLI. !!
+
+### Upgrading through Terraform
+{: #upgrading-in-place-terraform}
+{: terraform}
+
+!! NEHA, pls. add new content here for Terraform. !!
 
 ## Troubleshooting
 {: #upgrading-in-place-troubleshooting}
