@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-16"
+lastupdated: "2026-04-17"
 
 keywords: elasticsearch, databases, upgrading, new deployment, major version, upgrade, new instance, in-place upgrade
 
@@ -134,7 +134,9 @@ If an upgrade is in progress, note that some tasks may be queued and will not pr
 
 If a service instance is low on resources, the task fails because a safe upgrade cannot be guaranteed under these circumstances. The resource consumption can be evaluated by using the [monitoring integration](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-monitoring&interface=ui). If not all database components are available to be upgraded, the upgrade task fails.
 
-For Elasticsearch Platinum Edition, the support of [PITR](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-pitr) requires that current snapshots without gaps exist, and no snapshots will be performed during upgrade. If PITR cannot be guaranteed, in-place upgrade will fail.
+Before starting an Elasticsearch upgrade, it is critical to verify that the cluster has sufficient resources and is in a healthy state.
+Ensure that the cluster health status is GREEN. Confirm that disk usage is below 85% to avoid upgrade failures due to insufficient space.
+Perform a secondary precheck to detect deprecations in the cluster. If deprecations are found, the upgrade process will stop and must be retried only after all issues are resolved.
 
 This issue can happen due to maintenance or database usage. Tasks that failed due to failed healthchecks can be retried later. If the task continuously fails, open a support ticket with [IBM Cloud support](https://cloud.ibm.com/login?redirect=%2Funifiedsupport%2Fsupportcenter).
 
