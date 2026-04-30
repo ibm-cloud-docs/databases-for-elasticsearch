@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-03-31"
+lastupdated: "2026-04-30"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 17 April 2026
+{: #databases-for-elasticsearch-17apr2026}
+{: release-note}
+
+New guidance about upgrading to a major version using the CLI, API, and Terraform
+: New information about how to complete upgrades to a new major version has been added for the [CLI](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-upgrading&interface=cli), [API](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-upgrading&interface=api), and [Terraform](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-upgrading&interface=terraform) interfaces.
 
 ## 27 March 2026
 {: #databases-for-elasticsearch-27mar2026}
