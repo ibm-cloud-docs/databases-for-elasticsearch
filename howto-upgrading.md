@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-17"
+lastupdated: "2026-04-30"
 
 keywords: elasticsearch, databases, upgrading, new deployment, major version, upgrade, new instance, in-place upgrade
 
@@ -24,7 +24,7 @@ subcollection: databases-for-elasticsearch
 
 In-place major version upgrade allows you to upgrade your deployment to the next new [major version](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-versioning-policy#version-definitions), eliminating the need to [restore a backup](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-upgrading&interface=ui#upgrading-restoring-from-backup) into a new deployment. This approach maintains the same connection strings, without the need to reconfigure the deployment. However, if the new major version requires application adjustments, these must be addressed.
 
-   During the in-place major version upgrade window (including a backup), the deployment is set to READ-ONLY mode, which only allows read operations but no write operations to the deployment to ensure a safe upgrade. As soon as the major version upgrade of the deployment is completed, the READ-ONLY mode is removed.
+   During the in-place major version upgrade window (including a backup), the deployment is set to READ-ONLY mode, which only allows read operations but no write operations to the deployment to ensure a safe upgrade. A short interval where your database is unavailable is expected as a normal part of an in-place upgrade for this managed service. As soon as the major version upgrade of the deployment is completed, the READ-ONLY mode is removed.
 {: important}
 
 There are two options when performing an in-place major version upgrade:
