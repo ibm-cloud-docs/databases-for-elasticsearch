@@ -41,6 +41,7 @@ toc:
       - howto-deploy-da.md
       - howto-user-management.md
       - howto-upgrading.md
+      - howtoupgrade_old.md
       - howto-getting-connection-strings.md
       - howto-migration.md
       - include: ../cloud-databases/closures.md
