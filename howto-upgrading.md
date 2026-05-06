@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2026
-lastupdated: "2026-04-30"
+lastupdated: "2026-05-06"
 
 keywords: elasticsearch, databases, upgrading, new deployment, major version, upgrade, new instance, in-place upgrade
 
@@ -164,8 +164,10 @@ Upgrading is handled by [restoring a backup](/docs/cloud-databases?topic=cloud-d
 
 | Current version | Major version upgrade path |
 | ---- | ----- |
-| Elasticsearch 7 | Elasticsearch 8 |
-| Elasticsearch 8 | Elasticsearch 9 |
+| Elasticsearch 8.10  | Elasticsearch 8.19        |
+| Elasticsearch 8.12  | Elasticsearch 8.19         |
+| Elasticsearch 8.15  | Elasticsearch 8.19         |
+| Elasticsearch 8.19  | Elasticsearch 9.1          |
 {: caption="Major version upgrade paths" caption-side="top"}
 
 ### Upgrading in the UI
