@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-02-17"
+lastupdated: "2026-05-12"
 
 keywords: elasticsearch enterprise, elasticsearch platinum, elasticsearch plans, features
 
@@ -99,7 +99,7 @@ For questions regarding specific feature support, submit a [support ticket](http
 | Analytics - Graph exploration                                                                                                 |           | x            |
 | Analytics - Text categorization aggregation                                                                                   |           | x            |
 | Data Exploration - Drilldown to URL                                                                                           |           | x            |
-| Machine LEarning - Data Drift                                                                                                 |           | x            |
+| Machine Learning - Data Drift                                                                                                 |           | x            |
 | Anomaly Detection - Single Metric / Multi Metric                                                                              |           | x            |
 | Anomaly Detection - Population / Entity Analysis                                                                              |           | x            |
 | Anomaly Detection - Log message categorization                                                                                |           | x            |
