@@ -1,7 +1,7 @@
 ---
 copyright:
-  years: 2018, 2025
-lastupdated: "2025-06-05"
+  years: 2018, 2026
+lastupdated: "2026-05-12"
 
 keywords: kibana, elasticsearch container, elasticsearch getting started
 
@@ -84,7 +84,7 @@ Both plans provide you with a fully managed and scalable Elasticsearch service, 
 {: #using_apis}
 {: api}
 
-Use the [{{site.data.keyword.databases-for}} API](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction){: external} to work with your {{site.data.keyword.databases-for-mongodb}} instance. The resource controller API is used to [provision an instance](#provision_instance_api).
+Use the [{{site.data.keyword.databases-for}} API](https://cloud.ibm.com/apidocs/cloud-databases-api/cloud-databases-api-v5#introduction){: external} to work with your {{site.data.keyword.databases-for-elasticsearch}} instance. The resource controller API is used to [provision an instance](#provision_instance_api).
 
 You will need an API key to perform actions via the API. Follow [these steps](/docs/account?topic=account-userapikey&interface=ui#create_user_key){: external} to create an IBM Cloud API key that enables you to use the API to provision infrastructure into your account. You can create up to 20 API keys.
 
@@ -217,7 +217,7 @@ Next, is `elasticsearch.username` and `elasticsearch.password`. Use the deployme
 
 Lastly, `server.name` is a machine-readable name for the Kibana instance and `server.hosts` is the host of the backend server where you can connect to Kibana in your web browser.
 
-These settings are just a simplified example to get started. For more infortmation, see [Configure Kibana](https://www.elastic.co/guide/en/kibana/current/settings.html){: external}.
+These settings are just a simplified example to get started. For more information, see [Configure Kibana](https://www.elastic.co/guide/en/kibana/current/settings.html){: external}.
 
 If you are running Kibana locally, not in Docker, then the YAML file goes in `$KIBANA_HOME/config/kibana.yml`, where Kibana reads its configuration.
 

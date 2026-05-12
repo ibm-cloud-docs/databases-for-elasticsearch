@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2023, 2026
-lastupdated: "2026-02-17"
+lastupdated: "2026-05-12"
 
 keywords: elasticsearch enterprise, elasticsearch platinum, elasticsearch plans, features
 
@@ -14,9 +14,9 @@ subcollection: databases-for-elasticsearch
 # Plan overview
 {: #elastic-offerings}
 
-{{site.data.keyword.databases-for}} offers two Elasticsearch services: {{site.data.keyword.databases-for-elasticsearch}} Enterprise and {{site.data.keyword.databases-for-elasticsearch}} Platinum. Both plans provide you with a fully managed and scalable Elasticsearch service, allowing you to focus on your applications and data rather than the underlying infrastructure. {{site.data.keyword.databases-for-elasticsearch}} Enterprise Plan deploys the Basic version of Elasticsearch. {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan deploys the Platinum version of Elasticsearch.
+{{site.data.keyword.databases-for}} offers two Elasticsearch services: {{site.data.keyword.databases-for-elasticsearch}} Enterprise and {{site.data.keyword.databases-for-elasticsearch}} Platinum. Both plans provide you with a fully managed platform and a scalable Elasticsearch service, allowing you to focus on your applications and data rather than the underlying infrastructure. {{site.data.keyword.databases-for-elasticsearch}} Enterprise Plan deploys the Basic version of Elasticsearch. {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan deploys the Platinum version of Elasticsearch.
 
-**{{site.data.keyword.databases-for-elasticsearch}} Platinum** is only available on Isolated Compute and Dedicated Cores hosting models. Dedicated cores will be replaced by Isolated Compute as of May, 2025.
+**{{site.data.keyword.databases-for-elasticsearch}} Platinum** is only available on Isolated Compute.
 {: note}
 
 Our strategic partnership with [Elastic](https://www.elastic.co/about/){: external} since January 2023 means that we are able to offer more and richer functionality, as well as world-class levels of support.
@@ -37,7 +37,7 @@ All {{site.data.keyword.databases-for-elasticsearch}} clusters on any plan can m
 
 {{site.data.keyword.databases-for-elasticsearch}} Platinum Plan offers all the features of the Enterprise Plan, plus a richer array of functionality around integrations (connectors and web crawlers), security features (logging and access control), document-level security, and machine learning capabilities (anomaly detection, data frame analysis, and inference and model management), among others.
 
-Access to Platinum features on a fully managed IBM deployment is primarily determined by the accessibility of a feature through the Elasticsearch API and the need for modifications to configuration files. Configuration files update is not currently supported for fully managed IBM deployments.
+Access to Platinum features on an IBM deployment is primarily determined by the accessibility of a feature through the Elasticsearch API and the need for modifications to configuration files. Configuration files update is not currently supported for IBM deployments.
 
 For questions regarding specific feature support, submit a [support ticket](https://cloud.ibm.com/unifiedsupport/cases/add){: external}.
 {: note}
@@ -99,7 +99,7 @@ For questions regarding specific feature support, submit a [support ticket](http
 | Analytics - Graph exploration                                                                                                 |           | x            |
 | Analytics - Text categorization aggregation                                                                                   |           | x            |
 | Data Exploration - Drilldown to URL                                                                                           |           | x            |
-| Machine LEarning - Data Drift                                                                                                 |           | x            |
+| Machine Learning - Data Drift                                                                                                 |           | x            |
 | Anomaly Detection - Single Metric / Multi Metric                                                                              |           | x            |
 | Anomaly Detection - Population / Entity Analysis                                                                              |           | x            |
 | Anomaly Detection - Log message categorization                                                                                |           | x            |
