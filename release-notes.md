@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2026
-lastupdated: "2026-04-30"
+lastupdated: "2026-06-11"
 
 keywords: databases-for-elasticsearch release notes
 
@@ -19,6 +19,13 @@ content-type: release-note
 
 Use these release notes to learn about the latest updates to {{site.data.keyword.databases-for-elasticsearch_full}} that are grouped by _date_ or _build number_.
 {: shortdesc}
+
+## 11 June 2026
+{: #databases-for-elasticsearch-11jun2026}
+{: release-note}
+
+{{site.data.keyword.databases-for-elasticsearch_full}} v9.4 is now available
+:  We are pleased to announce the release of version 9.4 on {{site.data.keyword.databases-for-elasticsearch_full}}.
 
 ## 17 April 2026
 {: #databases-for-elasticsearch-17apr2026}
