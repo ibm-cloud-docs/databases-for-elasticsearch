@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2019, 2026
-lastupdated: "2026-05-06"
+lastupdated: "2026-06-15"
 
 keywords: elasticsearch, databases, upgrading, new deployment, major version, upgrade, new instance, in-place upgrade
 
@@ -33,9 +33,6 @@ There are two options when performing an in-place major version upgrade:
 - In-place major version upgrade without backup: This option proceeds with the upgrade without creating a backup beforehand. In the event that the in-place upgrade is unsuccessful, you will need to restore your deployment from the latest backup into a new deployment.
 
    In-place upgrade without backup is not recommended. It may result in data loss if the upgrade fails at any stage, as there will be no immediate backup to restore from.
-   {: important}
-
-   [Point-in-time recovery](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-pitr) after an in-place upgrade requires a completed backup. Without a backup no PITR capability can be provided on that version.
    {: important}
 
 ### Before you begin
