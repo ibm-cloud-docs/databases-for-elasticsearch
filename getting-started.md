@@ -1,7 +1,7 @@
 ---
 copyright:
   years: 2018, 2026
-lastupdated: "2026-05-12"
+lastupdated: "2026-06-16"
 
 keywords: kibana, elasticsearch container, elasticsearch getting started
 
@@ -78,7 +78,7 @@ Follow these steps to complete the tutorial: {: terraform}
 
 * {{site.data.keyword.databases-for-elasticsearch}} **Platinum** deploys the Platinum version of Elasticsearch.
 
-Both plans provide you with a fully managed and scalable Elasticsearch service, allowing you to focus on your applications and data rather than the underlying infrastructure.
+Both plans provide you with a fully managed and scalable Elasticsearch service, allowing you to focus on your applications and data rather than the underlying infrastructure. See [Plan overview](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-elastic-offerings) for details on accessing plan features.
 
 ### Using APIs
 {: #using_apis}
