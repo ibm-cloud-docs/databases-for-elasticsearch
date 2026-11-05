@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2026
-lastupdated: "2026-03-02"
+lastupdated: "2026-11-05"
 
 keywords: elasticsearch dedicated cores, databases, manual scaling, disk I/O, memory, CPU, elasticsearch resources, elasticsearch scaling
 
@@ -85,6 +85,7 @@ The default of 0 cores uses compute resources on multi-tenanted hosts. This styl
 - Disk cannot be scaled down.
 - Scaling between hosting models (Shared Compute, Isolated Compute, and Dedicated Cores) moves your deployment to new hosts. Your databases are restarted as part of that move. As your deployment is moved to a new host, this can also take longer than just adding more resources. For more information, see [Shared Compute and Isolated Compute](/docs/cloud-databases?topic=cloud-databases-hosting-models).
 - Similarly, drastically scaling up CPU, RAM, or disk can take longer to run than small resource increases to account for provisioning more underlying hardware resources.
+- Scaling can be queued behind a running or planned backup and does not start until the backup completes.
 - Scaling operations are logged in [{{site.data.keyword.atracker_full}}](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-at_events).
 - If you find consistent trends in resource usage or want to scale when certain resource thresholds are reached, enable [autoscaling](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-autoscaling) on your deployment.
 - {{site.data.keyword.databases-for-elasticsearch}} is designed to balance work load across a cluster and can benefit from being horizontally scaled. If you are concerned about performance, check out [Adding Elasticsearch nodes](/docs/databases-for-elasticsearch?topic=databases-for-elasticsearch-horizontal-scaling).
